@@ -1,0 +1,11 @@
+{
+  "name": "tianheluo-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "天河落 tianheluo.com 门面与应用商店 (v1: 静态站, 后续转 VitePress)",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
