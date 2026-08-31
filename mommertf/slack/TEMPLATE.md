@@ -33,6 +33,12 @@ cp -r mommertf/slack your-author/your-slug
 - Store 页 (`store.html`) 扩展卡片 href 形如 `/author/slug` → 部署后即跳转到该目录的 index.html
 - 卡片缩略图在 `/_ext/misc-assets.raycast.com/extension-cards/*.png`，新增扩展时复制一份改图
 
+## 插件文件分发 (R2)
+
+- 插件 DLL 上传到 R2: `wrangler r2 object put tianheluo-public/plugins/你的插件.dll --file 本地路径 --remote`
+- 下载直链: `https://dl.tianheluo.com/plugins/你的插件.dll` (全球 CDN, 免流量费)
+- 更新插件页 `download:` 字段指向该直链
+
 ## 部署
 
 ```bash

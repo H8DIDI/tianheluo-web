@@ -20,6 +20,12 @@ tianheluo-web/
 └── public/assets/      # GIF / 截图
 ```
 
+## 插件分发 (R2)
+
+- 桶: `tianheluo-public` | 下载域: **https://dl.tianheluo.com** (CDN 直连, 免流量)
+- 上传: `wrangler r2 object put tianheluo-public/plugins/X.dll --file 路径 --remote`
+- 现已上架: AutoGrid_v0.1.dll / CleanView_v0.1.dll
+
 ## 本地预览
 
 ```bash

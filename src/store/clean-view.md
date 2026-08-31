@@ -1,7 +1,7 @@
 ---
 title: "视图清理"
 version: "v0.1"
-download: "https://your-r2-bucket.r2.dev/CleanView_v0.1.dll"
+download: "https://dl.tianheluo.com/plugins/CleanView_v0.1.dll"
 ---
 
 ## 视图清理
