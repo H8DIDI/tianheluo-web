@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天河落 THL - 下载</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0b0d10; color:#eee; font-family:-apple-system,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif; min-height:100vh; display:flex; flex-direction:column; }
+header { display:flex; align-items:center; gap:20px; padding:16px 32px; border-bottom:1px solid #1e222a; }
+header a { color:#bbb; text-decoration:none; font-size:14px; }
+header a:hover { color:#fff; }
+.logo { font-weight:700; font-size:16px; color:#fff; }
+main { flex:1; max-width:760px; margin:0 auto; padding:48px 24px; width:100%; }
+h1 { font-size:28px; margin-bottom:10px; }
+.sub { color:#8b90a0; font-size:14px; line-height:1.7; margin-bottom:36px; }
+.card { background:#15181e; border:1px solid #262b35; border-radius:12px; padding:22px; margin-bottom:16px; }
+.card h2 { font-size:16px; margin-bottom:6px; color:#fff; }
+.card p { color:#8b90a0; font-size:13px; line-height:1.6; }
+.btn { display:inline-block; margin-top:14px; background:#0079C1; color:#fff; text-decoration:none; padding:10px 22px; border-radius:8px; font-size:14px; font-weight:600; }
+.btn.gh { background:#24292f; margin-left:10px; }
+.note { color:#5b6070; font-size:12px; margin-top:8px; }
+footer { padding:18px 32px; border-top:1px solid #1e222a; color:#5b6070; font-size:12px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <span class="logo">天河落 THL</span>
+  <a href="/">首页</a>
+  <a href="/store">插件商店</a>
+  <a href="/download.html">获取宿主</a>
+  <a href="https://github.com/H8DIDI/tianheluo-core" target="_blank">GitHub</a>
+</header>
+<main>
+  <h1>获取天河落宿主 (THL.Host)</h1>
+  <p class="sub">一个极简的 Revit 宿主面板，装载你所有的 BIM 效率工具。<br>内存级加载 · 插件热插拔 · 全开源。支持 Revit 2020 - 2024。</p>
+
+  <div class="card">
+    <h2>宿主框架 (THL.Host + THL.Contracts)</h2>
+    <p>宿主导入 Revit 后生成【天河落】按钮，控制台自动扫描本地插件文件夹，通过 Byte 流内存加载，免重启即插即用。</p>
+    <a class="btn" href="https://github.com/H8DIDI/tianheluo-core" target="_blank">下载宿主 (GitHub Releases)</a>
+  </div>
+
+  <div class="card">
+    <h2>AutoGrid — 一键轴网</h2>
+    <p>自动识别建模需求，一键生成轴网系统。纯内存挂载，无弹窗。</p>
+    <a class="btn" href="https://dl.tianheluo.com/plugins/AutoGrid_v0.1.dll">下载 AutoGrid v0.1</a>
+    <p class="note">下载后放入宿主插件目录，控制台自动发现。</p>
+  </div>
+
+  <div class="card">
+    <h2>CleanView — 视图清理</h2>
+    <p>批量清理视图冗余元素，导出清爽工作界面。</p>
+    <a class="btn" href="https://dl.tianheluo.com/plugins/CleanView_v0.1.dll">下载 CleanView v0.1</a>
+    <p class="note">v0.1 为测试包，正式版随宿主框架一并发布。</p>
+  </div>
+</main>
+<footer>© 2026 天河落 THL · 全开源 · 把控制权还给工程师</footer>
+</body>
+</html>
