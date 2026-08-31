@@ -42,6 +42,15 @@ export default {
     }
 
     // ---- 常规静态资源 ----
-    return env.ASSETS.fetch(request);
+    const res = await env.ASSETS.fetch(request);
+    // HTML 禁止缓存/bfcache: 保证每次导航都是最新版本
+    const ct = res.headers.get("Content-Type") || "";
+    if (ct.includes("text/html")) {
+      const headers = new Headers(res.headers);
+      headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+      headers.set("Pragma", "no-cache");
+      return new Response(res.body, { status: res.status, headers });
+    }
+    return res;
   },
 };
