@@ -1,34 +1,17 @@
 # 天河落 tianheluo.com
 
-一级 **Tianheluo**，二级 **THL**，功能用纯粹名词。
+Revit 插件宿主 + 应用商店。纯静态站，无构建步骤，部署到 Cloudflare Pages。
 
-v1：静态门面（基于 Raycast 官网骨架魔改：`index.html` 首页 + `store.html` 应用商店）。
-后续：迁移 VitePress，内容全部 Markdown。
+- `index.html` 首页 · `store.html` 商店 · `plugin.html?id=` 详情 · `install.html` 安装指南
+- **插件数据只在 `plugins.json`**：新增/上架插件只改这个文件，页面自动更新。
+- 插件文件放 R2 桶 `tianheluo-public`，下载域 `https://dl.tianheluo.com/plugins/`。
 
-## 目录
-
-```
-tianheluo-web/
-├── index.html          # 首页（魔改中）
-├── store.html          # 应用商店页
-├── _next/              # 静态资源（CSS/JS/图片/字体）
-├── _ext/               # 第三方域资源（图标/头像）
-├── src/
-│   ├── index.md        # 网站首页文案（VitePress 版）
-│   ├── store/          # 插件应用商店详情页 md
-│   └── changelog/      # 更新日志 md
-└── public/assets/      # GIF / 截图
-```
-
-## 插件分发 (R2)
-
-- 桶: `tianheluo-public` | 下载域: **https://dl.tianheluo.com** (CDN 直连, 免流量)
-- 上传: `wrangler r2 object put tianheluo-public/plugins/X.dll --file 路径 --remote`
-- 现已上架: AutoGrid_v0.1.dll / CleanView_v0.1.dll
+## 上架一个插件
+1. 编译 DLL，上传：`wrangler r2 object put tianheluo-public/plugins/Xxx_v0.1.0.dll --file Xxx.dll --remote`
+2. 在 `plugins.json` 里加/改一条：`status` 设 `beta`/`stable`，`download` 填下载链接，`size` 填大小。
+3. 提交并推送 `main`，Pages 自动部署。
 
 ## 本地预览
-
 ```bash
 python -m http.server 8000
-# 打开 http://127.0.0.1:8000/index.html
 ```

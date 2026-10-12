@@ -1,14 +1,7 @@
 {
   "name": "tianheluo-web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "天河落 tianheluo.com 门面与应用商店 (v1: 静态站, 后续转 VitePress)",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^8.2.2"
-  }
+  "description": "天河落 tianheluo.com：Revit 插件宿主与应用商店（纯静态）",
+  "scripts": { "dev": "python -m http.server 8000" }
 }

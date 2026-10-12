@@ -1,0 +1,98 @@
+{
+  "revit": "2026",
+  "plugins": [
+    {
+      "id": "well-depth",
+      "name": "井深调整",
+      "en": "WellDepth",
+      "category": "市政管线",
+      "summary": "一键校正电力/通信井的井底标高与井深，一次事务写入，Ctrl+Z 整体撤销。",
+      "description": "分析模型中所有电力、通信井（自动排除雨水、污水、阀门井），按规则「井底标高 = 最低排管底 − 300，井深 = 相对偏移 − 井底标高」计算，导出修改前后对照 CSV，确认后一次性写回。选中部分井时只处理选中对象。",
+      "features": [
+        "全模型或仅选中构件两种范围",
+        "先出 CSV 对照表，再确认写入",
+        "全部修改在同一个事务里，Ctrl+Z 一步撤销",
+        "自动排除雨水井、污水井、阀门井"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "待发布",
+      "status": "beta",
+      "download": "",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "count-elements",
+      "name": "构件统计",
+      "en": "CountElements",
+      "category": "数据处理",
+      "summary": "按类别统计当前视图中的构件数量，只读、零风险。",
+      "description": "遍历当前视图里的所有模型构件，按类别分组计数并弹窗显示。只读命令，不会修改模型，适合作为快速核对数量的小工具。",
+      "features": [
+        "只读，不修改模型",
+        "按类别分组统计",
+        "当前视图范围，速度快"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "待发布",
+      "status": "beta",
+      "download": "",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "set-comments",
+      "name": "批量备注",
+      "en": "SetComments",
+      "category": "数据处理",
+      "summary": "给选中的构件批量写入「注释」参数。",
+      "description": "对选中构件统一写入内置的「注释」参数，所有修改都在一个事务中完成，可以整体撤销。",
+      "features": [
+        "对选中构件批量写入",
+        "单个事务，整体可撤销"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "待发布",
+      "status": "beta",
+      "download": "",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "auto-grid",
+      "name": "一键轴网",
+      "en": "AutoGrid",
+      "category": "建模辅助",
+      "summary": "根据楼板轮廓自动生成轴网。",
+      "description": "计划中的功能：读取当前楼板轮廓的包围盒，自动绘制标准化轴网，并在关联标高中设置可见性。",
+      "features": [
+        "按楼板轮廓计算包围盒",
+        "接入 Revit 事务栈，可撤销"
+      ],
+      "version": "—",
+      "revit": "2026",
+      "size": "—",
+      "status": "planned",
+      "download": "",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "clean-view",
+      "name": "视图清理",
+      "en": "CleanView",
+      "category": "视图管理",
+      "summary": "一键清理模型中无用的视图。",
+      "description": "计划中的功能：识别未放到图纸上的、无内容的视图，预览后批量删除。",
+      "features": [
+        "识别未上图纸的视图",
+        "删除前预览确认"
+      ],
+      "version": "—",
+      "revit": "2026",
+      "size": "—",
+      "status": "planned",
+      "download": "",
+      "date": "2026-10-12"
+    }
+  ]
+}

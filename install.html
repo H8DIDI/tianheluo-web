@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>安装指南 — 天河落</title>
+<meta name="description" content="如何在 Revit 2026 中安装天河落宿主和插件。">
+<meta name="theme-color" content="#07080a">
+<link rel="icon" href="/favicon-production.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="nav" id="nav"></header>
+<main class="wrap" style="padding-top:56px;padding-bottom:40px">
+  <div class="eyebrow">安装指南</div>
+  <h2>三步用上天河落</h2>
+  <p class="sub">适用于 Windows 与 Revit 2026。</p>
+  <div class="steps">
+    <div class="step"><div><h3>安装宿主</h3><p>下载宿主安装包并运行。宿主会把 <code>.addin</code> 清单放到 <span class="path">%AppData%\Autodesk\Revit\Addins\2026</span>，程序文件放到同级的天河落文件夹。</p></div></div>
+    <div class="step"><div><h3>下载插件</h3><p>在 <a href="/store.html" style="color:var(--blue)">插件商店</a> 选择需要的插件，点击「下载插件」，得到一个 <code>.dll</code> 文件。</p></div></div>
+    <div class="step"><div><h3>放入 Plugins 并重启 Revit</h3><p>把 <code>.dll</code> 复制到宿主目录下的 <code>Plugins</code> 文件夹，重新启动 Revit。选项卡里就会出现对应的按钮。</p></div></div>
+  </div>
+  <div class="note">宿主安装包尚未公开发布，目前处于内测阶段。发布后这里会出现下载按钮；如需提前试用，请发邮件到 hello@tianheluo.com。</div>
+  <h2 style="margin-top:56px;font-size:26px">常见问题</h2>
+  <div class="steps" style="counter-reset:none">
+    <div class="card"><h3>Revit 提示是否信任该加载项？</h3><p>首次加载会弹出安全提示，选择「始终加载」即可。</p></div>
+    <div class="card"><h3>插件改了模型怎么回退？</h3><p>所有会修改模型的插件都在单个事务里执行，按一次 Ctrl+Z 整体撤销。</p></div>
+    <div class="card"><h3>支持其他 Revit 版本吗？</h3><p>目前只支持 Revit 2026，其他版本会在后续陆续适配。</p></div>
+  </div>
+</main>
+<footer id="foot"></footer>
+<script src="/app.js"></script>
+</body>
+</html>
