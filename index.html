@@ -5,56 +5,75 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>天河落 — Revit 插件宿主与应用商店</title>
 <meta name="description" content="一个宿主，装下所有 Revit 插件。先从 Revit 2026 开始。">
-<meta name="theme-color" content="#07080a">
+<meta name="theme-color" content="#070709">
 <link rel="icon" href="/favicon-production.png">
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/fx.css">
 </head>
 <body>
 <header class="nav" id="nav"></header>
 <main>
-<div class="hero"><div class="wrap">
+<div class="hero"><div class="beams"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="wrap">
   <span class="pill"><i></i>现已支持 Revit 2026</span>
-  <h1>一个入口，<em>装下所有</em><br>Revit 插件</h1>
-  <p class="lead">天河落是 Revit 里的插件宿主。装一次宿主，之后在商店挑选插件、下载、放进文件夹，重启 Revit 就能用。</p>
-  <div class="cta"><a class="btn pri" href="/install.html">安装宿主</a><a class="btn" href="/store.html">浏览插件商店</a></div>
+  <h1><span class="shine">你的 Revit，<br>一个入口全搞定</span></h1>
+  <p class="lead">天河落是 Revit 里的插件宿主。装一次，之后在商店挑插件、下载、重启 Revit 就能用。快、稳、可撤销。</p>
+  <div class="cta">
+    <a class="btn pri" href="/install.html">安装宿主 <kbd>↵</kbd></a>
+    <a class="btn" href="/store.html">浏览插件商店 <kbd>S</kbd></a>
+  </div>
   <p class="hint">Windows · Revit 2026 · 免费</p>
-  <div class="mock" aria-hidden="true">
-    <div class="bar">⌕ <b>调整井深</b><span class="caret"></span></div>
-    <div class="sec">插件</div>
-    <div class="row sel"><span class="ic">◎</span>井深调整<small>WellDepth</small></div>
-    <div class="row"><span class="ic">▤</span>构件统计<small>CountElements</small></div>
-    <div class="row"><span class="ic">▤</span>批量备注<small>SetComments</small></div>
-    <div style="height:8px"></div>
+
+  <div class="win" aria-hidden="true">
+    <div class="in"><span class="mag">⌕</span><span id="typed"></span><span class="ph" id="ph">搜索插件与命令…</span></div>
+    <div class="list">
+      <div class="grp">插件</div>
+      <div class="it sel" data-id="well-depth" data-k="井深调整"><span class="ic">◎</span>井深调整<small>市政管线</small></div>
+      <div class="it" data-id="count-elements" data-k="构件统计"><span class="ic">▤</span>构件统计<small>数据处理</small></div>
+      <div class="it" data-id="set-comments" data-k="批量备注"><span class="ic">▤</span>批量备注<small>数据处理</small></div>
+      <div class="it" data-id="auto-grid" data-k="一键轴网"><span class="ic">▦</span>一键轴网<small>建模辅助</small></div>
+      <div class="it" data-id="clean-view" data-k="视图清理"><span class="ic">◫</span>视图清理<small>视图管理</small></div>
+    </div>
+    <div class="toast" id="toast">✓ <span id="toastTxt"></span></div>
+    <div class="foot"><span>天河落</span><span class="sp"></span>运行 <kbd>↵</kbd> &nbsp; 操作 <kbd>Ctrl</kbd><kbd>K</kbd></div>
   </div>
 </div></div>
 
+<div class="marq" aria-hidden="true"><div class="tr">
+  <span><b>◎</b>井深调整</span><span><b>▤</b>构件统计</span><span><b>▤</b>批量备注</span><span><b>▦</b>一键轴网</span><span><b>◫</b>视图清理</span><span><b>◇</b>更多插件陆续上架</span>
+  <span><b>◎</b>井深调整</span><span><b>▤</b>构件统计</span><span><b>▤</b>批量备注</span><span><b>▦</b>一键轴网</span><span><b>◫</b>视图清理</span><span><b>◇</b>更多插件陆续上架</span>
+</div></div>
+
 <section id="how"><div class="wrap">
-  <div class="eyebrow">工作方式</div>
-  <h2>宿主 + 插件，各管一摊</h2>
-  <p class="sub">宿主只负责加载与管理，插件各自独立开发、独立更新，互不影响。</p>
-  <div class="grid3">
-    <div class="card"><div class="n">01</div><h3>安装宿主</h3><p>一次性安装，在 Revit 里出现「天河落」选项卡。</p></div>
-    <div class="card"><div class="n">02</div><h3>挑选插件</h3><p>在商店按分类查找，每个插件都有说明、版本和适配信息。</p></div>
-    <div class="card"><div class="n">03</div><h3>下载即用</h3><p>下载文件放入 Plugins 文件夹，重启 Revit，插件自动出现。</p></div>
+  <div class="eyebrow reveal">为什么用天河落</div>
+  <h2 class="reveal">小而专注，<br>像搭积木一样扩展 Revit</h2>
+  <div class="bento">
+    <div class="bn a reveal"><h3>先预览，再写入</h3><p>会改模型的插件先给出修改前后对照表，确认后才真正执行。</p>
+      <div class="viz tbl"><div><span>井 J-01</span><span>-2400 → <b>-2650</b></span><span>深 1850</span></div><div><span>井 J-02</span><span>-2300 → <b>-2550</b></span><span>深 1750</span></div><div><span>井 J-03</span><span>-2500 → <b>-2800</b></span><span>深 1900</span></div></div></div>
+    <div class="bn b reveal"><h3>一步撤销</h3><p>所有改动在同一个事务里，Ctrl+Z 整体回退。</p>
+      <div class="viz undo"><kbd>Ctrl</kbd><kbd>Z</kbd><div class="bar"><i></i></div></div></div>
+    <div class="bn c reveal"><h3>插件即装即用</h3><p>下载文件放进 Plugins，重启 Revit 就出现。</p>
+      <div class="viz orbit"><span>◎</span><span>▤</span><span>▦</span><span>◫</span></div></div>
+    <div class="bn d reveal"><h3>持续更新的商店</h3><p>每个插件都有版本、适配信息和更新记录，只下载你需要的。</p>
+      <div class="viz" style="display:flex;gap:10px;flex-wrap:wrap"><span class="tag beta">测试版</span><span class="tag">Revit 2026</span><span class="tag">市政管线</span><span class="tag">数据处理</span><span class="tag">建模辅助</span><span class="tag">视图管理</span></div></div>
   </div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
-  <div class="eyebrow">精选插件</div>
-  <h2>从这些开始</h2>
-  <div class="plist" id="featured" style="margin-top:36px"></div>
+  <div class="eyebrow reveal">插件商店</div>
+  <h2 class="reveal">从这些开始</h2>
+  <div class="plist reveal" id="featured" style="margin-top:36px"></div>
   <div class="cta" style="justify-content:flex-start"><a class="btn" href="/store.html">查看全部插件 →</a></div>
 </div></section>
 
-<section style="padding-top:0"><div class="wrap">
-  <div class="grid3">
-    <div class="card"><h3>可撤销</h3><p>所有改动在同一个 Revit 事务里完成，一步 Ctrl+Z 即可整体回退。</p></div>
-    <div class="card"><h3>先预览后写入</h3><p>会改模型的插件先给出对照表，确认后才真正执行。</p></div>
-    <div class="card"><h3>只做一件事</h3><p>每个插件小而专注，不用的不装，不拖慢 Revit 启动。</p></div>
-  </div>
-</div></section>
+<div class="final"><div class="wrap">
+  <h2 class="reveal">现在就把 Revit 变快</h2>
+  <p class="sub reveal" style="margin:0 auto 28px">安装宿主，选一个插件试试。</p>
+  <div class="cta reveal"><a class="btn pri" href="/install.html">安装宿主 <kbd>↵</kbd></a></div>
+</div></div>
 </main>
 <footer id="foot"></footer>
 <script src="/app.js"></script>
+<script src="/fx.js"></script>
 </body>
 </html>
