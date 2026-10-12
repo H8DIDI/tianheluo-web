@@ -46,7 +46,8 @@
   <div class="steps" style="counter-reset:none">
     <div class="card"><h3>Revit 里没有「天河落」选项卡？</h3><p>确认安装时 Revit 是关着的，并且装的是 Revit 2026。再运行一次「安装.bat」，然后重新打开 Revit。</p></div>
     <div class="card"><h3>商店里显示「连接商店失败」？</h3><p>检查网络。没有网络的话，用「方法 B」导入下载好的 .thlp 文件。</p></div>
-    <div class="card"><h3>Revit 提示"未知发布者"或要不要加载？</h3><p>天河落的程序文件由发布者 <b>didi</b> 签名，证书颁发者是 <b>tianheluo.com</b>。这是我们自己的证书，不是商业机构颁发的，所以 Windows 默认不认识它。第一次加载时选「始终加载」即可。想让它显示为已信任，可以运行安装包里的「<b>信任发布者.bat</b>」（只影响你当前的 Windows 用户，运行时会有系统确认）。</p></div>
+    <div class="card"><h3>第一次打开 Revit 时弹出“加载项安全”提示？</h3><p>这是 Revit 对所有第三方插件的标准提示。天河落的发布者是 <b>didi</b>（tianheluo.com）。请选择<b>「始终加载」</b>，以后就不会再问。</p></div>
+    <div class="card"><h3>Revit 提示“无法运行外部应用程序 天河落 THL”？</h3><p>多半是 Revit 版本和安装的版本不匹配。安装脚本会按你的 Revit 版本自动选择：2026.5 及以上用 .NET 10 版，2026.0 ~ 2026.4 用 .NET 8 版。请用最新的安装包重新安装；如果仍然不行，把 <code>%APPDATA%\Tianheluo\logs\startup.log</code> 这个文件发给我们。</p></div>
     <div class="card"><h3>怎么卸载宿主？</h3><p>关闭 Revit，双击安装包里的「卸载.bat」。</p></div>
     <div class="card"><h3>支持其他 Revit 版本吗？</h3><p>目前只支持 Revit 2026，其他版本会陆续适配。</p></div>
   </div>
