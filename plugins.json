@@ -18,7 +18,9 @@
       "size": "9 KB",
       "status": "beta",
       "download": "/dl/duct-annotate_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "管",
+      "color": ""
     },
     {
       "id": "elv-merge",
@@ -35,7 +37,9 @@
       "size": "2 KB",
       "status": "beta",
       "download": "/dl/elv-merge_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "并",
+      "color": ""
     },
     {
       "id": "export-dwg",
@@ -52,7 +56,9 @@
       "size": "3 KB",
       "status": "beta",
       "download": "/dl/export-dwg_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "DWG",
+      "color": ""
     },
     {
       "id": "export-nwc",
@@ -69,7 +75,9 @@
       "size": "1 KB",
       "status": "beta",
       "download": "/dl/export-nwc_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "NWC",
+      "color": ""
     },
     {
       "id": "pile-cleanup",
@@ -86,7 +94,9 @@
       "size": "3 KB",
       "status": "beta",
       "download": "/dl/pile-cleanup_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "清",
+      "color": ""
     },
     {
       "id": "pile-cushion",
@@ -103,7 +113,9 @@
       "size": "13 KB",
       "status": "beta",
       "download": "/dl/pile-cushion_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "桩",
+      "color": ""
     },
     {
       "id": "well-annotate",
@@ -120,7 +132,9 @@
       "size": "6 KB",
       "status": "beta",
       "download": "/dl/well-annotate_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "标",
+      "color": ""
     },
     {
       "id": "well-clear-marks",
@@ -138,7 +152,9 @@
       "size": "3 KB",
       "status": "beta",
       "download": "/dl/well-clear-marks_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "除",
+      "color": ""
     },
     {
       "id": "well-depth",
@@ -155,7 +171,9 @@
       "size": "24 KB",
       "status": "beta",
       "download": "/dl/well-depth_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "",
+      "color": ""
     },
     {
       "id": "well-number",
@@ -172,7 +190,9 @@
       "size": "2 KB",
       "status": "beta",
       "download": "/dl/well-number_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "号",
+      "color": ""
     },
     {
       "id": "well-sheets",
@@ -186,10 +206,12 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "12 KB",
+      "size": "13 KB",
       "status": "beta",
       "download": "/dl/well-sheets_0.1.0.thlp",
-      "date": "2026-10-12"
+      "date": "2026-10-12",
+      "glyph": "展",
+      "color": ""
     }
   ]
 }
