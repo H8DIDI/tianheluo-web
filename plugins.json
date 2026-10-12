@@ -6,8 +6,8 @@
       "name": "一键排管标注",
       "en": "duct-annotate",
       "category": "出图打印",
-      "summary": "选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：",
-      "description": "选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：\n下方尺寸链（断面宽 + 到内壁净距）、左侧尺寸链（井内底→管底 / 断面高 / 管顶→井内顶）、\n以及排管断面到井内壁左右定位净距；并自动外扩裁剪框保证标注可见。\n注意：请先跑「一键井大样标注」再跑本工具（它只清排管相关尺寸，不会动井的尺寸）。",
+      "summary": "【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：",
+      "description": "【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：\n下方尺寸链（断面宽 + 到内壁净距）、左侧尺寸链（井内底→管底 / 断面高 / 管顶→井内顶）、\n以及排管断面到井内壁左右定位净距；并自动外扩裁剪框保证标注可见。\n注意：请先跑「一键井大样标注」再跑本工具（它只清排管相关尺寸，不会动井的尺寸）。",
       "features": [
         "下方尺寸链（断面宽 + 到内壁净距）、左侧尺寸链（井内底→管底 / 断面高 / 管顶→井内顶）、",
         "以及排管断面到井内壁左右定位净距；并自动外扩裁剪框保证标注可见。",
@@ -20,7 +20,10 @@
       "download": "/dl/duct-annotate_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "管",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "elv-merge",
@@ -39,7 +42,10 @@
       "download": "/dl/elv-merge_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "并",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "export-dwg",
@@ -58,7 +64,10 @@
       "download": "/dl/export-dwg_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "DWG",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "export-nwc",
@@ -77,7 +86,32 @@
       "download": "/dl/export-nwc_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "NWC",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
+    },
+    {
+      "id": "issue-manager",
+      "name": "图纸签发管理",
+      "en": "issue-manager",
+      "category": "出图打印",
+      "summary": "图纸签发与归档：把签发的图纸导出成 PDF 放进带日期的文件夹，可同时导出 DWG，维护签发记录 CSV，显示图纸与签发的对照矩阵，并在 Revit 里生成签发",
+      "description": "图纸签发与归档：把签发的图纸导出成 PDF 放进带日期的文件夹，可同时导出 DWG，维护签发记录 CSV，显示图纸与签发的对照矩阵，并在 Revit 里生成签发记录明细表。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "26 KB",
+      "status": "beta",
+      "download": "/dl/issue-manager_0.1.0.thlp",
+      "date": "2026-10-12",
+      "glyph": "发",
+      "color": "",
+      "author": "lewismconte (Sendit)",
+      "license": "MIT",
+      "homepage": "https://github.com/lewismconte/sendit"
     },
     {
       "id": "pile-cleanup",
@@ -96,7 +130,10 @@
       "download": "/dl/pile-cleanup_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "清",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "pile-cushion",
@@ -115,15 +152,84 @@
       "download": "/dl/pile-cushion_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "桩",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
+    },
+    {
+      "id": "schedule-excel",
+      "name": "明细表Excel互导",
+      "en": "schedule-excel",
+      "category": "数据处理",
+      "summary": "把明细表导出成 Excel，在 Excel 里批量修改，再导回 Revit。导入前先预览改动，确认后才写入，Ctrl+Z 可整体撤销。",
+      "description": "把明细表导出成 Excel，在 Excel 里批量修改，再导回 Revit。导入前先预览改动，确认后才写入，Ctrl+Z 可整体撤销。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "34 KB",
+      "status": "beta",
+      "download": "/dl/schedule-excel_0.1.0.thlp",
+      "date": "2026-10-12",
+      "glyph": "表",
+      "color": "",
+      "author": "didi",
+      "license": "原创",
+      "homepage": "https://tianheluo.com"
+    },
+    {
+      "id": "sheet-manager",
+      "name": "图纸管理",
+      "en": "sheet-manager",
+      "category": "出图打印",
+      "summary": "可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制、删除、修订管理、图纸集，以及按文件名模板导出 PDF/CSV。",
+      "description": "可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制、删除、修订管理、图纸集，以及按文件名模板导出 PDF/CSV。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "25 KB",
+      "status": "beta",
+      "download": "/dl/sheet-manager_0.1.0.thlp",
+      "date": "2026-10-12",
+      "glyph": "图",
+      "color": "",
+      "author": "lewismconte (Sendit)",
+      "license": "MIT",
+      "homepage": "https://github.com/lewismconte/sendit"
+    },
+    {
+      "id": "view-manager",
+      "name": "视图管理",
+      "en": "view-manager",
+      "category": "出图打印",
+      "summary": "批量管理视图：筛选、重命名、套用视图样板、批量设比例/详细程度/专业、查找替换、定位视图、找出没上图纸的视图并清理；视图样板可导出/导入 JSON，在不同项目间",
+      "description": "批量管理视图：筛选、重命名、套用视图样板、批量设比例/详细程度/专业、查找替换、定位视图、找出没上图纸的视图并清理；视图样板可导出/导入 JSON，在不同项目间复用。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "27 KB",
+      "status": "beta",
+      "download": "/dl/view-manager_0.1.0.thlp",
+      "date": "2026-10-12",
+      "glyph": "视",
+      "color": "",
+      "author": "lewismconte (Sendit)",
+      "license": "MIT",
+      "homepage": "https://github.com/lewismconte/sendit"
     },
     {
       "id": "well-annotate",
       "name": "一键井大样标注",
       "en": "well-annotate",
       "category": "出图打印",
-      "summary": "选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
-      "description": "选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
+      "summary": "【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
+      "description": "【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
       "features": [
         "详见使用指南"
       ],
@@ -134,7 +240,10 @@
       "download": "/dl/well-annotate_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "标",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "well-clear-marks",
@@ -154,7 +263,10 @@
       "download": "/dl/well-clear-marks_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "除",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "well-depth",
@@ -168,12 +280,15 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "24 KB",
+      "size": "31 KB",
       "status": "beta",
       "download": "/dl/well-depth_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "well-number",
@@ -192,7 +307,10 @@
       "download": "/dl/well-number_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "号",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     },
     {
       "id": "well-sheets",
@@ -206,12 +324,15 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "13 KB",
+      "size": "12 KB",
       "status": "beta",
       "download": "/dl/well-sheets_0.1.0.thlp",
       "date": "2026-10-12",
       "glyph": "展",
-      "color": ""
+      "color": "",
+      "author": "",
+      "license": "",
+      "homepage": ""
     }
   ]
 }

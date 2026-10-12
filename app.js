@@ -96,7 +96,10 @@ async function renderDetail() {
     </div>
     <div class="panel"><dl class="kv">
       <dt>版本</dt><dd>${esc(p.version)}</dd><dt>适配</dt><dd>Revit ${esc(p.revit)}</dd>
-      <dt>大小</dt><dd>${esc(p.size)}</dd><dt>更新</dt><dd>${esc(p.date)}</dd></dl>
+      <dt>大小</dt><dd>${esc(p.size)}</dd><dt>更新</dt><dd>${esc(p.date)}</dd>
+      ${p.author ? `<dt>原作者</dt><dd>${esc(p.author)}</dd>` : ""}
+      ${p.license ? `<dt>开源许可</dt><dd>${esc(p.license)}</dd>` : ""}</dl>
+      ${p.homepage ? `<p style="font-size:13px;color:var(--dim);margin:-6px 0 14px">基于开源项目，<a href="${esc(p.homepage)}" target="_blank" rel="noopener" style="color:var(--blue)">查看原项目</a>。</p>` : ""}
       ${ready ? `<a class="btn pri" href="${esc(p.download)}" download>下载插件</a>`
               : `<a class="btn" aria-disabled="true">${p.status === "planned" ? "开发中" : "即将上架"}</a>`}
     </div>
