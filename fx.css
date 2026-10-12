@@ -85,3 +85,25 @@ h1 .shine{background:linear-gradient(100deg,#fff 20%,#9cd0ff 45%,#fff 70%);backg
 
 @media(max-width:860px){.bento{grid-template-columns:1fr}.bn.a,.bn.b,.bn.c,.bn.d{grid-column:auto}.win{transform:none;animation:none}.orbit span{animation-name:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.tbl div{opacity:1}}
+
+/* ===== 文档页（/ai）与开发者页 ===== */
+.tag.community{color:#c4a8ff;border-color:rgba(160,120,255,.4)}
+.doc{padding-top:48px;padding-bottom:40px;max-width:900px}
+.doc-note{color:var(--dim);font-size:13.5px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:28px}
+.doc-note a{color:var(--blue)}
+.doc h1{font-size:clamp(28px,4.5vw,40px);line-height:1.2;margin:0 0 14px}
+.doc h2{font-size:25px;margin:44px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
+.doc h3{font-size:19px;margin:28px 0 8px}
+.doc p,.doc li{color:#c8ccd6;line-height:1.75}
+.doc ul,.doc ol{padding-left:22px;margin:8px 0 14px}
+.doc li{margin:4px 0}
+.doc a{color:var(--blue)}
+.doc blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid var(--blue);background:rgba(59,155,255,.07);border-radius:0 10px 10px 0}
+.doc blockquote p{margin:4px 0}
+.doc table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;display:block;overflow-x:auto}
+.doc th,.doc td{border:1px solid var(--line2);padding:8px 12px;text-align:left;vertical-align:top}
+.doc th{background:var(--card);color:var(--text)}
+.doc pre{background:#0a0c10;border:1px solid var(--line2);border-radius:12px;padding:16px;overflow-x:auto;font:13px/1.6 var(--mono);color:#cfe6ff}
+.doc code{font-family:var(--mono);font-size:13px;background:#0a0c10;border:1px solid var(--line2);border-radius:6px;padding:1px 6px;color:#9bd0ff}
+.doc pre code{background:none;border:0;padding:0;color:inherit}
+pre.prompt,pre.arch{background:#0a0c10;border:1px solid var(--line2);border-radius:12px;padding:16px;overflow-x:auto;font:13.5px/1.7 var(--mono);color:#cfe6ff;white-space:pre-wrap;margin:10px 0 14px}

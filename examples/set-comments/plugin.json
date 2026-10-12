@@ -1,0 +1,14 @@
+{
+  "id": "set-comments",
+  "name": "批量写注释",
+  "version": "0.1.0",
+  "description": "给选中的构件批量写入「注释」参数（先预览确认，可一步撤销）。",
+  "category": "数据处理",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "注",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}

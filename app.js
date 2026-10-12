@@ -12,6 +12,7 @@ document.getElementById("nav").innerHTML = `
   <nav>
     ${navItem("/store.html", "插件商店", ["store", "plugin"])}
     ${navItem("/install.html", "安装指南", ["install"])}
+    ${navItem("/developers", "开发者", ["developers", "ai"])}
     ${navItem("/#how", "工作方式", [])}
   </nav>
   <span class="sp"></span>
@@ -22,7 +23,7 @@ document.getElementById("foot").innerHTML = `
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store.html">插件商店</a><a href="/install.html">安装指南</a></div>
-  <div><b>联系</b><a href="mailto:hello@tianheluo.com">hello@tianheluo.com</a></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。</div>
 </div>`;
 
@@ -40,7 +41,7 @@ function card(p) {
       <h3>${esc(p.name)}<small>${esc(p.en)}</small></h3></div>
     <p>${esc(p.summary)}</p>
     <div class="meta"><span class="tag ${p.status}">${STATUS[p.status]}</span>
-      <span class="tag">${esc(p.category)}</span><span class="tag">Revit ${esc(p.revit)}</span></div>
+      <span class="tag">${esc(p.category)}</span><span class="tag">Revit ${esc(p.revit)}</span>${p.tier === "community" ? '<span class="tag community">社区</span>' : ""}</div>
   </a>`;
 }
 

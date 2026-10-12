@@ -1,0 +1,14 @@
+{
+  "id": "hello-world",
+  "name": "你好天河落",
+  "version": "0.1.0",
+  "description": "最小示例：弹出当前项目名称和选中构件数量。\n只读，不修改模型。",
+  "category": "其他",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "你",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}

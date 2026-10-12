@@ -1,0 +1,14 @@
+{
+  "id": "count-by-category",
+  "name": "按类别统计",
+  "version": "0.1.0",
+  "description": "统计当前视图或整个项目中各类别构件的数量（前 30 类）。\n只读，不修改模型。",
+  "category": "数据处理",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "统",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}

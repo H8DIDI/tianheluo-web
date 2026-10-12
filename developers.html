@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开发者 — 天河落</title>
+<meta name="description" content="天河落是开放的共享插件平台：公开宿主架构，用你自己的 AI 按规范做 Revit 插件，发到邮箱审核后上架给所有人使用。">
+<meta name="theme-color" content="#070709">
+<link rel="icon" href="/favicon-production.png">
+<link rel="alternate" type="text/markdown" href="/ai.md" title="AI 开发规范（Markdown）">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/fx.css">
+</head>
+<body>
+<header class="nav" id="nav"></header>
+<main>
+<div class="wrap" style="padding-top:56px">
+  <div class="eyebrow">开发者</div>
+  <h2>一个开放的 Revit 插件共享平台</h2>
+  <p class="sub">天河落公开了宿主的架构和插件规范。让你自己的 AI 读完规范，就能做出能在天河落里运行的 Revit 插件，发给我们审核后上架，所有人都能一键安装。非商用、公开共享。</p>
+  <div class="cta" style="justify-content:flex-start">
+    <a class="btn pri" href="/ai">AI 开发规范 →</a>
+    <a class="btn" href="/ai.md">Markdown 原文</a>
+    <a class="btn" href="/llms.txt">llms.txt</a>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <div class="eyebrow">三步成为贡献者</div>
+  <h2>让 AI 帮你做，发邮件上架</h2>
+  <div class="grid3">
+    <div class="card"><div class="n">01</div><h3>让你的 AI 读规范</h3><p>把下面的提示词复制给你的 AI（ChatGPT、Claude、DeepSeek 等都可以），它会读取 <code>/ai.md</code>，按规范写出完整插件。</p></div>
+    <div class="card"><div class="n">02</div><h3>本地试用并自查</h3><p>放进 <code>%APPDATA%\Tianheluo\plugins\</code> 在 Revit 里试；运行 <a href="/tools/validate.py" style="color:var(--blue)">validate.py</a> 自查（单文件，零依赖）。</p></div>
+    <div class="card"><div class="n">03</div><h3>发邮件给我们</h3><p>把插件压缩成 zip，发到 <b>jiajiabimer@gmail.com</b>。我们人工审核源码，通过后上传，署名上架。</p></div>
+  </div>
+
+  <h3 style="margin:44px 0 12px;font-size:20px">复制给你的 AI 的提示词</h3>
+  <pre class="prompt" id="prompt">请先完整阅读 https://tianheluo.com/ai.md ，然后按「第 12 节」的流程，为天河落平台开发一个 Revit 2026 插件。
+我的需求：&lt;在这里描述你想要的功能&gt;
+我的署名（author）：&lt;你的名字或 GitHub 用户名&gt;
+请输出完整文件：plugin.json、script.py、README.md、LICENSE，并告诉我如何自查（validate.py）和如何投稿。</pre>
+  <button class="btn sm" id="copyPrompt">复制提示词</button>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">宿主架构</div>
+  <h2>简单、可读、可扩展</h2>
+  <pre class="arch">Revit 2026
+ └─ THL.Host（外接程序，.NET 8 / .NET 10 两套编译，安装脚本自动选择）
+     ├─ 功能区「天河落」：插件中心 + 已装插件按钮（最多 12 个）
+     ├─ 插件管理器：%APPDATA%\Tianheluo\plugins\&lt;id&gt;\plugin.json
+     ├─ 热加载：每次点击重新读取脚本/DLL，更新无需重启 Revit
+     ├─ Python 运行环境：IronPython 3.4 + 标准库 + 精简 pyrevit 兼容层
+     └─ 商店客户端：tianheluo.com/plugins.json → 下载 .thlp → 解压安装</pre>
+  <div class="grid3">
+    <div class="card"><h3>插件包 .thlp</h3><p>就是一个 zip：<code>plugin.json</code> + <code>script.py</code>（+ 可选图标）。可单独下载、单独更新、单独卸载。</p></div>
+    <div class="card"><h3>Python 插件</h3><p>用 Revit API 和少量与 pyRevit 同名的接口（<code>revit</code>、<code>forms</code>、<code>script</code>）。社区插件只收源码，便于审核。</p></div>
+    <div class="card"><h3>安全优先</h3><p>写模型必须单事务、先预览、可撤销；禁止执行外部程序、动态执行代码、未声明联网。详见规范第 9 节。</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">规划中</div>
+  <h2>账号与上传密钥</h2>
+  <p class="sub">目前通过邮件投稿。后续会提供注册账号、获取个人上传密钥，直接提交到「待审核」队列，由维护者在后台审核后发布。上线时这里和 <a href="/ai.md" style="color:var(--blue)">/ai.md</a> 会同步更新。</p>
+</div></section>
+</main>
+<footer id="foot"></footer>
+<script src="/app.js"></script>
+<script src="/fx.js"></script>
+<script>
+document.getElementById("copyPrompt").addEventListener("click", function () {
+  var t = document.getElementById("prompt").innerText;
+  var b = this;
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = "已复制"; setTimeout(function () { b.textContent = "复制提示词"; }, 1600); },
+    function () { var r = document.createRange(); r.selectNode(document.getElementById("prompt")); getSelection().removeAllRanges(); getSelection().addRange(r); b.textContent = "已选中，请按 Ctrl+C"; });
+});
+</script>
+</body>
+</html>
