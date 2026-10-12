@@ -2,17 +2,153 @@
   "revit": "2026",
   "plugins": [
     {
+      "id": "duct-annotate",
+      "name": "一键排管标注",
+      "en": "duct-annotate",
+      "category": "出图打印",
+      "summary": "选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：",
+      "description": "选中井/图纸 → 勾选要标注的视图 → 给视图内每根排管（结构框架）生成：\n下方尺寸链（断面宽 + 到内壁净距）、左侧尺寸链（井内底→管底 / 断面高 / 管顶→井内顶）、\n以及排管断面到井内壁左右定位净距；并自动外扩裁剪框保证标注可见。\n注意：请先跑「一键井大样标注」再跑本工具（它只清排管相关尺寸，不会动井的尺寸）。",
+      "features": [
+        "下方尺寸链（断面宽 + 到内壁净距）、左侧尺寸链（井内底→管底 / 断面高 / 管顶→井内顶）、",
+        "以及排管断面到井内壁左右定位净距；并自动外扩裁剪框保证标注可见。",
+        "注意：请先跑「一键井大样标注」再跑本工具（它只清排管相关尺寸，不会动井的尺寸）。"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "9 KB",
+      "status": "beta",
+      "download": "/dl/duct-annotate_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "elv-merge",
+      "name": "强电井清洗合并",
+      "en": "elv-merge",
+      "category": "数据处理",
+      "summary": "强电井清洗合并",
+      "description": "强电井清洗合并",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "2 KB",
+      "status": "beta",
+      "download": "/dl/elv-merge_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "export-dwg",
+      "name": "一键导出井大样DWG",
+      "en": "export-dwg",
+      "category": "导出",
+      "summary": "一键批量导出所有井大样图纸为 DWG 文件，自动合并外部参照，直接保存在指定文件夹中。",
+      "description": "一键批量导出所有井大样图纸为 DWG 文件，自动合并外部参照，直接保存在指定文件夹中。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "3 KB",
+      "status": "beta",
+      "download": "/dl/export-dwg_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "export-nwc",
+      "name": "一键导出NWC",
+      "en": "export-nwc",
+      "category": "导出",
+      "summary": "一键导出NWC",
+      "description": "一键导出NWC",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "1 KB",
+      "status": "beta",
+      "download": "/dl/export-nwc_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "pile-cleanup",
+      "name": "清理重复松木桩垫层",
+      "en": "pile-cleanup",
+      "category": "市政管线",
+      "summary": "清理重复松木桩垫层",
+      "description": "清理重复松木桩垫层",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "3 KB",
+      "status": "beta",
+      "download": "/dl/pile-cleanup_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "pile-cushion",
+      "name": "一键布置松木桩垫层",
+      "en": "pile-cushion",
+      "category": "市政管线",
+      "summary": "框选排管或井等构件，自动在其下方依据真实几何轮廓居中布置 100mm 厚垫层（外挑100mm）与 Φ75@500 L=6m 松木桩。已内置防重复布置智能覆盖机制",
+      "description": "框选排管或井等构件，自动在其下方依据真实几何轮廓居中布置 100mm 厚垫层（外挑100mm）与 Φ75@500 L=6m 松木桩。已内置防重复布置智能覆盖机制。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "13 KB",
+      "status": "beta",
+      "download": "/dl/pile-cushion_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "well-annotate",
+      "name": "一键井大样标注",
+      "en": "well-annotate",
+      "category": "出图打印",
+      "summary": "选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
+      "description": "选中井/图纸 → 勾选要标注的视图 → 按视图内可见构件（不含管道）的外包框生成总尺寸标注（下方标宽、左侧标高）。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "6 KB",
+      "status": "beta",
+      "download": "/dl/well-annotate_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "well-clear-marks",
+      "name": "一键清除井标记",
+      "en": "well-clear-marks",
+      "category": "数据处理",
+      "summary": "框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。",
+      "description": "框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。\n支持先在平面图中框选井再点按钮，或先点按钮再拉框框选。\n只清空【标记】字段，其他所有参数、尺寸标注及模型图元均完好无损！",
+      "features": [
+        "支持先在平面图中框选井再点按钮，或先点按钮再拉框框选。",
+        "只清空【标记】字段，其他所有参数、尺寸标注及模型图元均完好无损！"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "3 KB",
+      "status": "beta",
+      "download": "/dl/well-clear-marks_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
       "id": "well-depth",
       "name": "井深调整",
-      "en": "WellDepth",
+      "en": "well-depth",
       "category": "市政管线",
-      "summary": "一键校正电力/通信井的井底标高与井深，一次事务写入，Ctrl+Z 整体撤销。",
-      "description": "分析模型中所有电力、通信井（自动排除雨水、污水、阀门井），按规则「井底标高 = 最低排管底 − 300，井深 = 相对偏移 − 井底标高」计算，导出修改前后对照 CSV，确认后一次性写回。选中部分井时只处理选中对象。",
+      "summary": "一键校正电力/通信井的井底标高与井深。先出 CSV 对照表，确认后一次写入，Ctrl+Z 整体撤销。",
+      "description": "一键校正电力/通信井的井底标高与井深。先出 CSV 对照表，确认后一次写入，Ctrl+Z 整体撤销。",
       "features": [
-        "全模型或仅选中构件两种范围",
-        "先出 CSV 对照表，再确认写入",
-        "全部修改在同一个事务里，Ctrl+Z 一步撤销",
-        "自动排除雨水井、污水井、阀门井"
+        "详见使用指南"
       ],
       "version": "0.1.0",
       "revit": "2026",
@@ -22,96 +158,37 @@
       "date": "2026-10-12"
     },
     {
-      "id": "count-elements",
-      "name": "构件统计",
-      "en": "CountElements",
+      "id": "well-number",
+      "name": "一键编号",
+      "en": "well-number",
       "category": "数据处理",
-      "summary": "按类别统计当前视图中的构件数量，只读、零风险。",
-      "description": "遍历当前视图里的所有模型构件，按类别分组计数并弹窗显示。只读命令，不会修改模型，适合作为快速核对数量的小工具。",
+      "summary": "支持先选中再运行。给常规模型按空间坐标全自动排号。",
+      "description": "支持先选中再运行。给常规模型按空间坐标全自动排号。",
       "features": [
-        "只读，不修改模型",
-        "按类别分组统计",
-        "当前视图范围，速度快"
+        "详见使用指南"
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "10 KB",
+      "size": "2 KB",
       "status": "beta",
-      "download": "/dl/count-elements_0.1.0.thlp",
+      "download": "/dl/well-number_0.1.0.thlp",
       "date": "2026-10-12"
     },
     {
-      "id": "set-comments",
-      "name": "批量备注",
-      "en": "SetComments",
-      "category": "数据处理",
-      "summary": "给选中的构件批量写入「注释」参数。",
-      "description": "对选中构件统一写入内置的「注释」参数，所有修改都在一个事务中完成，可以整体撤销。",
-      "features": [
-        "对选中构件批量写入",
-        "单个事务，整体可撤销"
-      ],
-      "version": "0.1.0",
-      "revit": "2026",
-      "size": "9 KB",
-      "status": "beta",
-      "download": "/dl/set-comments_0.1.0.thlp",
-      "date": "2026-10-12"
-    },
-    {
-      "id": "pile-cushion",
-      "name": "垫层松木桩",
-      "en": "PileCushion",
-      "category": "市政管线",
-      "summary": "选中井、排管或基础，一键布置垫层和松木桩，重复布置自动覆盖。",
-      "description": "选中井、排管、管道或基础后点一下：自动生成 100mm 厚、四周外挑 100mm 的垫层，并按 Φ75、间距 500、桩长 6m 布置松木桩，桩顶与垫层底面贴紧。再次运行会自动清理旧的垫层和桩并覆盖，结果里直接给出桩的总延米和木材方量。",
-      "features": [
-        "选中构件即可，井、排管、管道、基础都支持",
-        "垫层 100mm 厚、四周外挑 100mm",
-        "松木桩 Φ75 @500，桩长 6m",
-        "重复运行自动覆盖旧的，不会越叠越多",
-        "结果里给出桩总延米和木材方量",
-        "一步 Ctrl+Z 整体撤销"
-      ],
-      "version": "0.1.0",
-      "revit": "2026",
-      "size": "19 KB",
-      "status": "beta",
-      "download": "/dl/pile-cushion_0.1.0.thlp",
-      "date": "2026-10-12"
-    },
-    {
-      "id": "well-detail-sheet",
-      "name": "井大样展开图",
-      "en": "WellDetailSheet",
+      "id": "well-sheets",
+      "name": "一键井展开图",
+      "en": "well-sheets",
       "category": "出图打印",
-      "summary": "一键为选中的井生成大样展开图并放到图纸上。",
-      "description": "一键为选中的井生成大样展开图并放到图纸上。（开发中）",
+      "summary": "选中一个井，自动生成平面及四面剖面排版到图纸上（本按钮不再自动标注，标注请用「一键井大样标注」）。",
+      "description": "选中一个井，自动生成平面及四面剖面排版到图纸上（本按钮不再自动标注，标注请用「一键井大样标注」）。",
       "features": [
-        "开发中"
+        "详见使用指南"
       ],
-      "version": "—",
+      "version": "0.1.0",
       "revit": "2026",
-      "size": "—",
-      "status": "planned",
-      "download": "",
-      "date": "2026-10-12"
-    },
-    {
-      "id": "lower-elevation",
-      "name": "降标高",
-      "en": "LowerElevation",
-      "category": "市政管线",
-      "summary": "一键整体降低选中构件的标高。",
-      "description": "一键整体降低选中构件的标高。（开发中）",
-      "features": [
-        "开发中"
-      ],
-      "version": "—",
-      "revit": "2026",
-      "size": "—",
-      "status": "planned",
-      "download": "",
+      "size": "12 KB",
+      "status": "beta",
+      "download": "/dl/well-sheets_0.1.0.thlp",
       "date": "2026-10-12"
     }
   ]
