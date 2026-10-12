@@ -5,7 +5,8 @@
 如果你是 AI 助手，用户要你为天河落开发插件：先读下面的「开发规范」，再按其中第 12 节的流程工作。
 
 ## 开发者资料（AI 请优先读）
-- [开发规范（Markdown，完整）](https://tianheluo.com/ai.md): 宿主架构、plugin.json、Python 运行环境契约、可用接口、安全规则、投稿流程、AI 工作流程
+- [自包含说明书（txt，可下载后上传给不能联网的 AI）](https://tianheluo.com/tianheluo-ai-spec.txt): 与 ai.md 内容相同，另含给 AI 的开头指令
+- [开发规范（Markdown，完整，含三个示例的全文）](https://tianheluo.com/ai.md): 宿主架构、plugin.json、Python 运行环境契约、可用接口、安全规则、投稿流程、AI 工作流程
 - [开发规范（HTML）](https://tianheluo.com/ai): 同上，网页版
 - [plugin.json JSON Schema](https://tianheluo.com/schema/plugin.schema.json): 插件清单的机器可读定义
 - [自查校验脚本 validate.py](https://tianheluo.com/tools/validate.py): 单文件、零依赖，投稿前运行

@@ -1,8 +1,27 @@
-# 天河落 THL —— 给 AI 的开发规范（Tianheluo Plugin Platform · Spec for AI agents）
+# 天河落 THL —— Revit 插件开发说明书（专门给 AI 阅读）
 
-> 如果你是一个 AI 助手，用户让你「为天河落平台做一个 Revit 插件」，请完整读完本文，然后按「第 12 节」的流程工作。
-> 本文是机器可读的权威说明。版本：1.0（2026-10）。网站：https://tianheluo.com ·
-> 投稿与联系邮箱：jiajiabimer@gmail.com
+> 版本 1.1（2026-10）· 官网 https://tianheluo.com · 投稿与联系邮箱 jiajiabimer@gmail.com
+> 本说明书是**自包含**的：规则、接口、完整示例代码都在里面，不需要访问任何链接。
+
+## 0. 先读这个（30 秒版）
+
+**你要做什么**：用户想为「天河落」平台开发一个 Revit 2026 插件。你要写出一个**文件夹**，里面是 4 个文件：`plugin.json`、`script.py`、`README.md`、`LICENSE`。用户把它压缩成 zip 发给平台维护者，审核后上架。
+
+**插件长什么样**：一个 Python 脚本（运行在 Revit 里，用 Revit API 读写模型），点一下按钮就运行一次。不需要安装任何东西，也不需要编译。
+
+**你必须遵守的 8 条硬规则**（后面有详细说明）：
+1. 语言是 **Python（IronPython 3.4）**，不是 CPython：没有 numpy/pandas；**不能用 `:=`、`async/await`、`match`**；f-string 可以用。
+2. 脚本结构固定：`main()` 函数 + 末尾 `if __name__ == "__main__": main()`。
+3. 只能用说明书「第 4 节」列出的接口：`from pyrevit import revit, DB, UI, forms, script`。**不要使用没列出的 pyRevit 功能**（比如 `script.get_output()`、`script.exit()`）。
+4. **修改模型必须**：先弹窗预览并让用户确认 → **只开一个** `with revit.Transaction("名称"):` → 统计成功/失败。这样用户按一次 `Ctrl+Z` 就能撤销全部。
+5. 所有给用户看的信息用 `forms.alert(...)`，**不要用 `print` 给用户看**（`print` 只写日志文件）。
+6. **禁止**：执行外部程序/命令、`eval/exec`、未声明的联网、删除文件、加载外部 DLL、读取密钥/注册表。
+7. 长度单位：Revit API 里是**英尺**。毫米请 `mm / 304.8`。
+8. 你**无法运行**用户的 Revit，不要声称「已测试通过」。要提醒用户在**空白测试项目**里先试，把报错发回来继续改。
+
+**交付格式**：见「第 14 节」。**不确定时的做法**：见「第 13 节」。
+
+---
 
 ## 1. 这是什么
 
@@ -281,4 +300,286 @@ if __name__ == "__main__":
 我的需求：<在这里描述你想要的功能>
 我的署名（author）：<你的名字或 GitHub 用户名>
 请输出完整文件：plugin.json、script.py、README.md、LICENSE，并告诉我如何自查（validate.py）和如何投稿。
+```
+
+## 13. 常见错误与坑（写代码前先看一遍）
+
+**语法与运行环境**
+- ❌ `if (n := len(x)) > 3:`（海象运算符）→ ✅ 先 `n = len(x)` 再 `if n > 3:`
+- ❌ `async def` / `await` → ✅ 一律写同步代码（脚本本来就在 Revit 主线程同步执行）。
+- ❌ `import numpy / pandas / requests` → ✅ 只用标准库和 Revit API / .NET。
+- ❌ 在脚本里 `print(...)` 想给用户看 → ✅ 用 `forms.alert(...)`。
+- ❌ 忘了 `if __name__ == "__main__": main()` → ✅ 一定要有，否则 `main()` 不会被调用（宿主以 `__main__` 运行脚本）。
+- 除法：`/` 是真除法（得到小数），整除用 `//`。字符串默认是 Unicode，文件头写 `# -*- coding: utf-8 -*-`。
+- 读写文本文件时指定编码：`io.open(path, "w", encoding="utf-8")`；路径用 `os.path.join`，不要硬编码盘符。
+
+**Revit API**
+- ❌ `element.Id.IntegerValue`（在 Revit 2026 里**已不存在**，会报 AttributeError）→ ✅ `element.Id.Value`（64 位整数）。
+- ❌ 在已打开的事务里再开事务（嵌套）→ ✅ 全脚本只开一个 `with revit.Transaction(...)`；需要多步就在同一个 `with` 里做。
+- ❌ 在事务**外**修改参数/删除/创建元素 → 会抛异常。读取不需要事务。
+- ❌ `LookupParameter("中文名")` 当作唯一可靠的方式 → 参数名随 Revit 语言/项目而变，优先 `element.get_Parameter(DB.BuiltInParameter.XXX)`；`LookupParameter` 只取第一个同名参数，可能为 `None`，使用前必须判空。
+- 参数赋值要先判断：`p is not None and not p.IsReadOnly`；数值/带单位的参数用 `p.SetValueString("1500")`（按项目单位解析），文本用 `p.Set("文字")`，整数/双精度用 `p.Set(数值)`（双精度单位是英尺等内部单位）。
+- `uidoc.Selection.GetElementIds()` 返回 .NET 集合 → 用 `list(...)` 包一层再 `len()`。
+- `doc.GetElement(eid)` 可能返回 `None`（已删除），要判空。
+- 过滤构件要用 `FilteredElementCollector` + `OfCategory` / `OfClass` / `WhereElementIsNotElementType()`，**不要**遍历全部元素再用 Python 判断类别——大模型会非常慢。
+- 大批量操作：用 `forms.ProgressBar("正在处理... ({value}/{max_value})", cancellable=True)`，循环里 `pb.update_progress(i + 1, total)` 并检查 `pb.cancelled`。
+- 长时间运行会冻结 Revit 界面（脚本在主线程）。不要写死循环，不要 `time.sleep` 很久。
+- 不要创建线程；不要使用 `ExternalEvent` 或无模态窗口——脚本结束后运行环境会被释放，无法保证之后的回调。所有交互都用模态对话框，在脚本里同步完成。
+- 当前文档可能是族文档/没有项目：需要项目时先判断 `doc.IsFamilyDocument`。
+- `doc.ActiveView` 可能是图纸、明细表等非模型视图；统计模型构件前可判断 `isinstance(doc.ActiveView, DB.ViewPlan)` 等，或提示用户切换到合适的视图。
+
+**对话框**
+- `forms.alert(msg, title="...")` 普通提示；要确认写 `forms.alert(msg, title="...", yes=True, no=True)`，返回 `True` 表示用户点了「是」。
+- `forms.SelectFromList.show(items, title="...", button_name="确定", multiselect=True)`：取消返回 `None`，**一定要判空**。
+- `forms.ask_for_string(...)` 取消返回 `None`；留空返回 `""`，两者不同。
+- 所有对话框取消后要 `return`，不要继续往下执行。
+
+**需求超出能力时**：如果用户要的功能需要这里没有的东西（例如自定义功能区面板、持续监听事件、调用外部程序、联网服务），请**如实告诉用户做不到或需要简化**，并给出一个能做的替代方案；不要编造不存在的接口。
+
+## 14. 给 AI 的交付格式（请严格按这个格式回答用户）
+
+当用户描述完需求后，你的回答按以下顺序：
+
+1. **一两句话复述你理解的需求**，以及你做的关键决定（比如：只读还是会改模型、作用范围是选中构件/当前视图/全项目）。如果有会影响实现的不确定点，**最多问 3 个问题**再动手；其余用合理默认并说明。
+2. **完整文件**——每个文件一个代码块，代码块前一行写文件名，例如：
+
+   **`my-plugin/plugin.json`**
+   ```json
+   { ... }
+   ```
+   **`my-plugin/script.py`**
+   ```python
+   ...
+   ```
+   **`my-plugin/README.md`** 和 **`my-plugin/LICENSE`** 同理。文件内容必须**完整**，不要省略、不要写「其余同上」。
+3. **使用与测试说明**（用普通话写给不会编程的用户）：
+   - 本地试用：把整个文件夹 `my-plugin` 复制到 `%APPDATA%\Tianheluo\plugins\`，在 Revit 里打开「天河落 → 插件中心」，在「已安装」里点「运行」。
+   - 先用空白测试项目试；有错误弹窗或日志（`%APPDATA%\Tianheluo\logs\my-plugin.log`）把内容发回来继续改。
+   - 自查：下载 `validate.py`（https://tianheluo.com/tools/validate.py），运行 `python validate.py my-plugin`。
+   - 投稿：压缩成 zip，发邮件到 jiajiabimer@gmail.com，主题 `[天河落插件投稿] 插件名 v版本`。
+4. **诚实声明**：「我无法在你的 Revit 里运行这段代码，上面没有经过实际测试」。
+
+**plugin.json 的填写规则**（再强调一遍）：`id` 小写连字符；`version` 从 `0.1.0` 开始；`author` 问用户；`license` 默认 `MIT`（请让用户确认）；`type` 固定 `python`；`script` 固定 `script.py`；`glyph` 取名字里最有辨识度的 1 个字；`category` 只能是 市政管线 / 出图打印 / 数据处理 / 建模辅助 / 视图管理 / 导出 / 其他。
+
+**README.md 要写**：一句话功能、使用步骤、**会修改什么（只读则写「不修改模型」）**、已知限制、作者。
+
+**LICENSE**：用户选的开源许可证全文（默认 MIT，署名处填用户的名字和年份 2026）。
+
+
+---
+
+## 附录：三个完整示例插件（全文）
+下面是三个已通过校验的完整插件，可以直接照着写。每个插件都是一个文件夹，含 `plugin.json`、`script.py`、`README.md`、`LICENSE`（LICENSE 为 MIT 全文，此处省略，使用时把年份和署名改成你自己的）。
+
+### 示例 A：hello-world（最小插件，只读）
+
+**`hello-world/plugin.json`**
+
+```json
+{
+  "id": "hello-world",
+  "name": "你好天河落",
+  "version": "0.1.0",
+  "description": "最小示例：弹出当前项目名称和选中构件数量。\n只读，不修改模型。",
+  "category": "其他",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "你",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}
+```
+
+**`hello-world/script.py`**
+
+```python
+# -*- coding: utf-8 -*-
+"""最小示例：弹出当前项目名称和选中构件数量。只读。"""
+from pyrevit import revit, forms
+
+
+def main():
+    doc = revit.doc
+    n = len(list(revit.uidoc.Selection.GetElementIds()))
+    forms.alert("项目：{}\n当前选中构件：{} 个".format(doc.Title, n), title="你好天河落")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**`hello-world/README.md`**
+
+```markdown
+# 你好天河落
+
+最小示例，演示插件的基本结构：`main()` + `if __name__ == "__main__"`，用 `forms.alert` 弹窗，只读不改模型。
+
+**使用**：选中任意构件（可不选），点击按钮，弹出项目名和选中数量。
+```
+
+### 示例 B：count-by-category（只读统计：选择范围 + 收集器 + 结果弹窗）
+
+**`count-by-category/plugin.json`**
+
+```json
+{
+  "id": "count-by-category",
+  "name": "按类别统计",
+  "version": "0.1.0",
+  "description": "统计当前视图或整个项目中各类别构件的数量（前 30 类）。\n只读，不修改模型。",
+  "category": "数据处理",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "统",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}
+```
+
+**`count-by-category/script.py`**
+
+```python
+# -*- coding: utf-8 -*-
+"""统计各类别构件数量。只读。演示：选择范围、FilteredElementCollector、结果弹窗。"""
+from pyrevit import revit, DB, forms
+
+
+def main():
+    doc = revit.doc
+    scope = forms.CommandSwitchWindow.show(["当前视图", "整个项目"], message="统计范围：")
+    if not scope:
+        return  # 用户取消
+
+    if scope == "当前视图":
+        collector = DB.FilteredElementCollector(doc, doc.ActiveView.Id)
+    else:
+        collector = DB.FilteredElementCollector(doc)
+
+    counts = {}
+    for e in collector.WhereElementIsNotElementType().ToElements():
+        cat = e.Category
+        if cat is None:
+            continue
+        counts[cat.Name] = counts.get(cat.Name, 0) + 1
+
+    if not counts:
+        forms.alert("没有找到任何构件。", title="按类别统计")
+        return
+
+    rows = sorted(counts.items(), key=lambda kv: -kv[1])
+    lines = ["{}：{}".format(name, n) for name, n in rows[:30]]
+    more = "\n……（还有 {} 个类别）".format(len(rows) - 30) if len(rows) > 30 else ""
+    forms.alert(
+        "范围：{}\n共 {} 个类别，{} 个构件\n\n{}{}".format(
+            scope, len(rows), sum(counts.values()), "\n".join(lines), more),
+        title="按类别统计")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**`count-by-category/README.md`**
+
+```markdown
+# 按类别统计
+
+选择统计范围（当前视图 / 整个项目），按类别统计构件数量并弹窗显示前 30 类。**只读，不修改模型。**
+
+演示：`forms.CommandSwitchWindow`、`DB.FilteredElementCollector`、结果弹窗。
+```
+
+### 示例 C：set-comments（写模型的标准流程：选择 → 输入 → 预览确认 → 单事务写入 → 统计 → 可撤销）
+
+**`set-comments/plugin.json`**
+
+```json
+{
+  "id": "set-comments",
+  "name": "批量写注释",
+  "version": "0.1.0",
+  "description": "给选中的构件批量写入「注释」参数（先预览确认，可一步撤销）。",
+  "category": "数据处理",
+  "revit": "2026",
+  "type": "python",
+  "script": "script.py",
+  "glyph": "注",
+  "author": "tianheluo",
+  "license": "MIT",
+  "homepage": "https://tianheluo.com/ai"
+}
+```
+
+**`set-comments/script.py`**
+
+```python
+# -*- coding: utf-8 -*-
+"""给选中构件的「注释」参数批量写入文字。演示：写模型的标准流程——
+选择对象 → 输入 → 预览确认 → 单个事务写入 → 统计成功/失败 → 一步 Ctrl+Z 可撤销。"""
+from pyrevit import revit, DB, forms
+
+
+def main():
+    doc = revit.doc
+    ids = list(revit.uidoc.Selection.GetElementIds())
+    if not ids:
+        forms.alert("请先在 Revit 里选中要写入注释的构件，再运行。", title="批量写注释")
+        return
+
+    text = forms.ask_for_string(default="", prompt="要写入「注释」的内容（留空表示清空）：", title="批量写注释")
+    if text is None:
+        return  # 取消
+
+    targets, skipped = [], 0
+    for eid in ids:
+        elem = doc.GetElement(eid)
+        p = elem.get_Parameter(DB.BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS) if elem is not None else None
+        if p is None or p.IsReadOnly:
+            skipped += 1
+        else:
+            targets.append(p)
+
+    if not targets:
+        forms.alert("选中的构件都没有可写的「注释」参数。", title="批量写注释")
+        return
+
+    # 预览确认：会改多少个，让用户决定
+    msg = "将把 {} 个构件的「注释」设为：\n「{}」\n\n（有 {} 个构件没有可写的注释参数，会跳过。写入后可按 Ctrl+Z 撤销。）".format(
+        len(targets), text, skipped)
+    if not forms.alert(msg, title="确认写入", yes=True, no=True):
+        return
+
+    ok, failed = 0, 0
+    with revit.Transaction("批量写注释"):  # 只开一个事务：一次 Ctrl+Z 撤销全部
+        for p in targets:
+            try:
+                p.Set(text)
+                ok += 1
+            except Exception:
+                failed += 1
+    forms.alert("完成：成功 {}，失败 {}，跳过 {}。".format(ok, failed, skipped), title="批量写注释")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**`set-comments/README.md`**
+
+```markdown
+# 批量写注释
+
+给选中构件的「注释」参数批量写入文字。**会修改模型**，所以按规范做了：
+
+1. 先选中构件，再运行
+2. 输入内容 → **预览确认**（会改几个）
+3. **单个事务**写入，成功/失败/跳过都统计
+4. 一次 `Ctrl+Z` 即可撤销全部
+
+演示：`forms.ask_for_string`、`forms.alert(yes=True, no=True)`、`revit.Transaction`。
 ```

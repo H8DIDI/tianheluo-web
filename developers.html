@@ -19,9 +19,9 @@
   <h2>一个开放的 Revit 插件共享平台</h2>
   <p class="sub">天河落公开了宿主的架构和插件规范。让你自己的 AI 读完规范，就能做出能在天河落里运行的 Revit 插件，发给我们审核后上架，所有人都能一键安装。非商用、公开共享。</p>
   <div class="cta" style="justify-content:flex-start">
-    <a class="btn pri" href="/ai">AI 开发规范 →</a>
+    <a class="btn pri" href="/tianheluo-ai-spec.txt" download>⬇ 下载 AI 说明书（txt）</a>
+    <a class="btn" href="/ai">在线阅读</a>
     <a class="btn" href="/ai.md">Markdown 原文</a>
-    <a class="btn" href="/llms.txt">llms.txt</a>
   </div>
 </div>
 
@@ -29,12 +29,12 @@
   <div class="eyebrow">三步成为贡献者</div>
   <h2>让 AI 帮你做，发邮件上架</h2>
   <div class="grid3">
-    <div class="card"><div class="n">01</div><h3>让你的 AI 读规范</h3><p>把下面的提示词复制给你的 AI（ChatGPT、Claude、DeepSeek 等都可以），它会读取 <code>/ai.md</code>，按规范写出完整插件。</p></div>
+    <div class="card"><div class="n">01</div><h3>把说明书交给你的 AI</h3><p><b>下载 <a href="/tianheluo-ai-spec.txt" download style="color:var(--blue)">txt 说明书</a>，上传或粘贴给你的 AI</b>（ChatGPT、Claude、DeepSeek、豆包等都可以，它不需要联网）。然后告诉它你想要什么插件，它会按规范写出完整文件。</p></div>
     <div class="card"><div class="n">02</div><h3>本地试用并自查</h3><p>放进 <code>%APPDATA%\Tianheluo\plugins\</code> 在 Revit 里试；运行 <a href="/tools/validate.py" style="color:var(--blue)">validate.py</a> 自查（单文件，零依赖）。</p></div>
     <div class="card"><div class="n">03</div><h3>发邮件给我们</h3><p>把插件压缩成 zip，发到 <b>jiajiabimer@gmail.com</b>。我们人工审核源码，通过后上传，署名上架。</p></div>
   </div>
 
-  <h3 style="margin:44px 0 12px;font-size:20px">复制给你的 AI 的提示词</h3>
+  <h3 style="margin:44px 0 12px;font-size:20px">如果你的 AI 能联网：也可以直接复制这段提示词</h3>
   <pre class="prompt" id="prompt">请先完整阅读 https://tianheluo.com/ai.md ，然后按「第 12 节」的流程，为天河落平台开发一个 Revit 2026 插件。
 我的需求：&lt;在这里描述你想要的功能&gt;
 我的署名（author）：&lt;你的名字或 GitHub 用户名&gt;
