@@ -15,7 +15,7 @@ document.getElementById("nav").innerHTML = `
     ${navItem("/#how", "工作方式", [])}
   </nav>
   <span class="sp"></span>
-  <a class="btn sm pri" href="/install.html">获取宿主</a>
+  <a class="btn sm pri" href="/install.html">下载宿主</a>
 </div>`;
 
 document.getElementById("foot").innerHTML = `

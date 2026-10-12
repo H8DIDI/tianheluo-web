@@ -16,9 +16,9 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "待发布",
+      "size": "24 KB",
       "status": "beta",
-      "download": "",
+      "download": "/dl/well-depth_0.1.0.thlp",
       "date": "2026-10-12"
     },
     {
@@ -35,9 +35,9 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "待发布",
+      "size": "10 KB",
       "status": "beta",
-      "download": "",
+      "download": "/dl/count-elements_0.1.0.thlp",
       "date": "2026-10-12"
     },
     {
@@ -53,21 +53,42 @@
       ],
       "version": "0.1.0",
       "revit": "2026",
-      "size": "待发布",
+      "size": "9 KB",
       "status": "beta",
-      "download": "",
+      "download": "/dl/set-comments_0.1.0.thlp",
       "date": "2026-10-12"
     },
     {
-      "id": "auto-grid",
-      "name": "一键轴网",
-      "en": "AutoGrid",
-      "category": "建模辅助",
-      "summary": "根据楼板轮廓自动生成轴网。",
-      "description": "计划中的功能：读取当前楼板轮廓的包围盒，自动绘制标准化轴网，并在关联标高中设置可见性。",
+      "id": "pile-cushion",
+      "name": "垫层松木桩",
+      "en": "PileCushion",
+      "category": "市政管线",
+      "summary": "选中井、排管或基础，一键布置垫层和松木桩，重复布置自动覆盖。",
+      "description": "选中井、排管、管道或基础后点一下：自动生成 100mm 厚、四周外挑 100mm 的垫层，并按 Φ75、间距 500、桩长 6m 布置松木桩，桩顶与垫层底面贴紧。再次运行会自动清理旧的垫层和桩并覆盖，结果里直接给出桩的总延米和木材方量。",
       "features": [
-        "按楼板轮廓计算包围盒",
-        "接入 Revit 事务栈，可撤销"
+        "选中构件即可，井、排管、管道、基础都支持",
+        "垫层 100mm 厚、四周外挑 100mm",
+        "松木桩 Φ75 @500，桩长 6m",
+        "重复运行自动覆盖旧的，不会越叠越多",
+        "结果里给出桩总延米和木材方量",
+        "一步 Ctrl+Z 整体撤销"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "19 KB",
+      "status": "beta",
+      "download": "/dl/pile-cushion_0.1.0.thlp",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "well-detail-sheet",
+      "name": "井大样展开图",
+      "en": "WellDetailSheet",
+      "category": "出图打印",
+      "summary": "一键为选中的井生成大样展开图并放到图纸上。",
+      "description": "一键为选中的井生成大样展开图并放到图纸上。（开发中）",
+      "features": [
+        "开发中"
       ],
       "version": "—",
       "revit": "2026",
@@ -77,15 +98,14 @@
       "date": "2026-10-12"
     },
     {
-      "id": "clean-view",
-      "name": "视图清理",
-      "en": "CleanView",
-      "category": "视图管理",
-      "summary": "一键清理模型中无用的视图。",
-      "description": "计划中的功能：识别未放到图纸上的、无内容的视图，预览后批量删除。",
+      "id": "lower-elevation",
+      "name": "降标高",
+      "en": "LowerElevation",
+      "category": "市政管线",
+      "summary": "一键整体降低选中构件的标高。",
+      "description": "一键整体降低选中构件的标高。（开发中）",
       "features": [
-        "识别未上图纸的视图",
-        "删除前预览确认"
+        "开发中"
       ],
       "version": "—",
       "revit": "2026",

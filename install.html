@@ -13,20 +13,41 @@
 <body>
 <header class="nav" id="nav"></header>
 <main class="wrap" style="padding-top:56px;padding-bottom:40px">
-  <div class="eyebrow">安装指南</div>
-  <h2>三步用上天河落</h2>
-  <p class="sub">适用于 Windows 与 Revit 2026。</p>
+  <div class="eyebrow">使用指南</div>
+  <h2>5 分钟用上天河落</h2>
+  <p class="sub">不需要懂编程。照着下面三大步做，每一步都有说明。适用于 Windows + Revit 2026。</p>
+
+  <h3 style="margin:44px 0 0;font-size:22px">第一步　安装「宿主」（只装一次）</h3>
+  <p class="sub" style="margin-top:6px">宿主就像一个“手机”，后面所有插件都是装在上面的“App”。</p>
   <div class="steps">
-    <div class="step"><div><h3>安装宿主</h3><p>下载宿主安装包并运行。宿主会把 <code>.addin</code> 清单放到 <span class="path">%AppData%\Autodesk\Revit\Addins\2026</span>，程序文件放到同级的天河落文件夹。</p></div></div>
-    <div class="step"><div><h3>下载插件</h3><p>在 <a href="/store.html" style="color:var(--blue)">插件商店</a> 选择需要的插件，点击「下载插件」，得到一个 <code>.dll</code> 文件。</p></div></div>
-    <div class="step"><div><h3>放入 Plugins 并重启 Revit</h3><p>把 <code>.dll</code> 复制到宿主目录下的 <code>Plugins</code> 文件夹，重新启动 Revit。选项卡里就会出现对应的按钮。</p></div></div>
+    <div class="step"><div><h3>下载安装包</h3><p><a class="btn pri sm" href="/dl/THL-Host_0.1.0.zip" download>下载宿主安装包（18 KB）</a></p></div></div>
+    <div class="step"><div><h3>解压</h3><p>在下载的文件上点右键，选「全部解压缩」。<b>不要直接在压缩包里双击运行</b>，否则会失败。</p></div></div>
+    <div class="step"><div><h3>先关闭 Revit，再双击「安装.bat」</h3><p>看到「安装完成」就好了。如果提示 Revit 正在运行，关掉 Revit 再试一次。</p></div></div>
+    <div class="step"><div><h3>打开 Revit 2026</h3><p>顶部会多出一个<b>「天河落」</b>选项卡。第一次打开时 Revit 会弹出安全提示，选<b>「始终加载」</b>。</p></div></div>
   </div>
-  <div class="note">宿主安装包尚未公开发布，目前处于内测阶段。发布后这里会出现下载按钮；如需提前试用，请发邮件到 hello@tianheluo.com。</div>
-  <h2 style="margin-top:56px;font-size:26px">常见问题</h2>
+
+  <h3 style="margin:48px 0 0;font-size:22px">第二步　安装插件（想用什么装什么）</h3>
+  <p class="sub" style="margin-top:6px">每个插件都可以单独下载，只装你需要的。</p>
+  <div class="steps">
+    <div class="step"><div><h3>方法 A：在 Revit 里一键安装（推荐）</h3><p>点「天河落」选项卡里的<b>「插件中心」</b> → 切到<b>「商店」</b> → 点插件右边的<b>「安装」</b>。装完立刻能用，<b>不用重启 Revit</b>。</p></div></div>
+    <div class="step"><div><h3>方法 B：先下载文件，再导入</h3><p>在 <a href="/store.html" style="color:var(--blue)">插件商店</a> 里点「下载插件」，得到一个 <code>.thlp</code> 文件。然后在「插件中心」右下角点<b>「安装插件包…」</b>，选中这个文件即可。适合没有网络的电脑。</p></div></div>
+  </div>
+
+  <h3 style="margin:48px 0 0;font-size:22px">第三步　使用和管理插件</h3>
+  <div class="steps">
+    <div class="step"><div><h3>运行插件</h3><p>打开「插件中心」，在搜索框输入名字（比如「井深」），按回车就运行；也可以点插件右边的<b>「运行」</b>。如果插件需要选东西（比如垫层松木桩要先选中井），<b>请先在 Revit 里选好，再打开插件中心</b>。</p></div></div>
+    <div class="step"><div><h3>改错了怎么办</h3><p>所有会修改模型的插件都只算「一次操作」，按一次 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 就全部撤销。</p></div></div>
+    <div class="step"><div><h3>更新插件</h3><p>在「商店」页，如果插件有新版本，按钮会变成<b>「更新到 vX.X.X」</b>，点一下即可，同样不用重启。</p></div></div>
+    <div class="step"><div><h3>停用或卸载</h3><p>在「已安装」页，点插件右边的<b>「停用」</b>（先收起来不用）或<b>「卸载」</b>（彻底删除）。</p></div></div>
+  </div>
+  <div class="note">提示：功能区「已装插件」栏里的快捷按钮，只在<b>重启 Revit 后</b>才会更新。但「插件中心」里永远是最新的，平时用它最方便。</div>
+
+  <h2 style="margin-top:64px;font-size:26px">常见问题</h2>
   <div class="steps" style="counter-reset:none">
-    <div class="card"><h3>Revit 提示是否信任该加载项？</h3><p>首次加载会弹出安全提示，选择「始终加载」即可。</p></div>
-    <div class="card"><h3>插件改了模型怎么回退？</h3><p>所有会修改模型的插件都在单个事务里执行，按一次 Ctrl+Z 整体撤销。</p></div>
-    <div class="card"><h3>支持其他 Revit 版本吗？</h3><p>目前只支持 Revit 2026，其他版本会在后续陆续适配。</p></div>
+    <div class="card"><h3>Revit 里没有「天河落」选项卡？</h3><p>确认安装时 Revit 是关着的，并且装的是 Revit 2026。再运行一次「安装.bat」，然后重新打开 Revit。</p></div>
+    <div class="card"><h3>商店里显示「连接商店失败」？</h3><p>检查网络。没有网络的话，用「方法 B」导入下载好的 .thlp 文件。</p></div>
+    <div class="card"><h3>怎么卸载宿主？</h3><p>关闭 Revit，双击安装包里的「卸载.bat」。</p></div>
+    <div class="card"><h3>支持其他 Revit 版本吗？</h3><p>目前只支持 Revit 2026，其他版本会陆续适配。</p></div>
   </div>
 </main>
 <footer id="foot"></footer>
