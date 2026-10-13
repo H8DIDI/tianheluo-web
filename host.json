@@ -6,14 +6,14 @@
     "net8": {
       "url": "/api/dl/host-net8",
       "file": "/dl/host/THL-Host-net8_0.2.1.zip",
-      "sha256": "604f72f6fbf9c6f91b4330408996211984648b128538c20fe117d6c85fe4949b",
-      "size": 7102266
+      "sha256": "e2aff99199a7a8769741ba039d029bbc82892e91eed1614b4583ad4be1a8cde7",
+      "size": 7102176
     },
     "net10": {
       "url": "/api/dl/host-net10",
       "file": "/dl/host/THL-Host-net10_0.2.1.zip",
-      "sha256": "5e8b9a5bea635ac6da600112bf2e93bdfc1def9721fa1612d14eb1b02e269690",
-      "size": 7102270
+      "sha256": "738d68dd294b5fb6a977d98964d7f0e9b90a8324025c2fb75d77408fe9134def",
+      "size": 7102180
     }
   },
   "installer": {
