@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一键布置松木桩垫层断面示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:15px}.h{font-size:18px;font-weight:700}.c{font-size:15px}
+.duct{fill:#161b26;stroke:#2F8CFF;stroke-width:2}.hole{fill:none;stroke:#2F8CFF;stroke-width:2}
+.pad{fill:#2F8CFF;fill-opacity:.28;stroke:#2F8CFF;stroke-width:2}.pile{fill:#c58b4a;fill-opacity:.55;stroke:#c58b4a;stroke-width:1.5}
+.dim{stroke:#8a93a6;stroke-width:1.5;fill:none}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">排管下方：垫层 + 松木桩</text>
+<text x="60" y="86" class="m">选中排管或井，自动按构件真实轮廓居中布置</text>
+<rect class="duct" x="260" y="120" width="440" height="110" rx="10"/>
+<circle class="hole" cx="340" cy="175" r="26"/><circle class="hole" cx="420" cy="175" r="26"/><circle class="hole" cx="500" cy="175" r="26"/><circle class="hole" cx="580" cy="175" r="26"/><circle class="hole" cx="660" cy="175" r="0"/>
+<text x="480" y="112" class="c" text-anchor="middle">排管 / 井（选中的构件）</text>
+<rect class="pad" x="220" y="230" width="520" height="22"/>
+<path class="dim" d="M220 222v-16M260 222v-16M220 214h40"/><text x="254" y="198" class="m" text-anchor="end">外挑 100</text>
+<path class="dim" d="M758 230h8M758 252h8M762 230v22"/><text x="774" y="246" class="m">垫层 100 厚</text>
+<g class="pile">
+<rect x="236" y="252" width="10" height="110"/><rect x="286" y="252" width="10" height="110"/><rect x="336" y="252" width="10" height="110"/><rect x="386" y="252" width="10" height="110"/>
+<rect x="436" y="252" width="10" height="110"/><rect x="486" y="252" width="10" height="110"/><rect x="536" y="252" width="10" height="110"/><rect x="586" y="252" width="10" height="110"/>
+<rect x="636" y="252" width="10" height="110"/><rect x="686" y="252" width="10" height="110"/><rect x="726" y="252" width="10" height="110"/>
+</g>
+<path class="dim" d="M286 380h50M286 372v16M336 372v16"/><text x="311" y="402" class="m" text-anchor="middle">间距 500</text>
+<text x="780" y="330" class="c">松木桩 Φ75</text><text x="780" y="356" class="m">桩长 6.0 m</text><text x="780" y="380" class="m">桩顶贴合垫层底面</text>
+<text x="60" y="130" class="m">示意图：尺寸示意不按比例</text>
+</svg>

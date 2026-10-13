@@ -8,11 +8,11 @@
 用法：python tools/build_seo.py        （tools/publish.py 发布时会自动调用）
 """
 import datetime
+import hashlib
 import html
 import json
 import pathlib
 import re
-import subprocess
 
 SITE = pathlib.Path(__file__).resolve().parent.parent
 BASE = "https://tianheluo.com"
@@ -26,7 +26,11 @@ CAT_COLOR = {"市政管线": "#2F8CFF", "出图打印": "#8B5CF6", "数据处理
 GH = ('<svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>')
 
 # 页面文件名 → 导航里高亮哪一项
-ACTIVE = {"index": "", "store": "store", "install": "install", "developers": "developers", "ai": "developers", "contact": "contact", "404": ""}
+ACTIVE = {"index": "", "store": "store", "install": "install", "developers": "developers", "ai": "developers", "contact": "contact", "privacy": "", "404": ""}
+# 页面文件名 → 面包屑里显示的名字（首页和 404 不需要）
+CRUMB = {"store": "插件商店", "install": "安装指南", "developers": "开发者", "contact": "交流群与联系", "privacy": "隐私说明"}
+ASSETS = ("style.css", "fx.css", "app.js", "fx.js")   # 带版本号引用，配合 _headers 里的长缓存
+LASTMOD_FILE = SITE / "tools" / "lastmod.json"        # 记录每个页面内容的哈希和最后修改日期，保证构建结果可重复
 
 
 def esc(s):
@@ -99,15 +103,35 @@ FOOT_HTML = f"""
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div>"""
+
+
+ICON_LINKS = ('<link rel="icon" href="/favicon.ico" sizes="48x48">\n'
+              '<link rel="icon" href="/favicon-production.png" type="image/png">\n'
+              '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
+ASSET_VERSIONS = {}
+
+
+def asset_versions():
+    """样式/脚本文件的内容哈希（先统一换行，Windows 和 CI 上算出来才一致）。"""
+    ASSET_VERSIONS.clear()
+    for n in ASSETS:
+        data = (SITE / n).read_bytes().replace(b"\r\n", b"\n")
+        ASSET_VERSIONS[n] = hashlib.sha256(data).hexdigest()[:8]
 
 
 def fill_chrome(text, active):
     text = re.sub(r'(<header class="nav" id="nav">).*?(</header>)', lambda m: m.group(1) + nav_html(active) + m.group(2), text, count=1, flags=re.S)
     text = re.sub(r'(<footer id="foot">).*?(</footer>)', lambda m: m.group(1) + FOOT_HTML + m.group(2), text, count=1, flags=re.S)
+    # 图标：favicon.ico + PNG + apple-touch-icon（先清掉旧的再统一放回）
+    text = re.sub(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n?', "", text)
+    text = re.sub(r'(<link rel="stylesheet" href="/style\.css)', lambda m: ICON_LINKS + m.group(1), text, count=1)
+    # 样式/脚本带内容哈希：内容一变网址就变，所以可以放心长期缓存
+    for n, v in ASSET_VERSIONS.items():
+        text = re.sub(r'(["\'])/' + re.escape(n) + r'(\?v=[0-9a-f]+)?\1', lambda m, n=n, v=v: f'{m.group(1)}/{n}?v={v}{m.group(1)}', text)
     return text
 
 
@@ -267,12 +291,70 @@ def plugin_page(p, plugins):
 
 
 # ---------- sitemap ----------
-def git_date(path):
-    try:
-        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)], cwd=SITE, capture_output=True, text=True, encoding="utf-8").stdout.strip()
-    except Exception:
-        out = ""
-    return out or TODAY
+# ---------- 结构化数据（JSON-LD） ----------
+def crumbs(items):
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(items)]}
+
+
+def faq_from_install(text):
+    """从 install.html 的“常见问题”卡片里取问答，生成 FAQPage（页面上怎么写，结构化数据就怎么写，不会两处不一致）。"""
+    part = text.split("常见问题", 1)[-1]
+    qa = []
+    for q, a in re.findall(r'<div class="card"><h3>(.*?)</h3><p>(.*?)</p></div>', part, flags=re.S):
+        clean = lambda s: html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+        qa.append({"@type": "Question", "name": clean(q), "acceptedAnswer": {"@type": "Answer", "text": clean(a)}})
+    return {"@type": "FAQPage", "mainEntity": qa} if qa else None
+
+
+def page_graph(stem, text, plugins, host):
+    if stem == "index":
+        org = {"@type": "Organization", "@id": BASE + "/#org", "name": "天河落 Tianheluo", "url": BASE + "/",
+               "logo": BASE + "/favicon-production.png",
+               "sameAs": ["https://github.com/H8DIDI/tianheluo-core", "https://github.com/H8DIDI/tianheluo-web"]}
+        site = {"@type": "WebSite", "@id": BASE + "/#website", "name": "天河落 Tianheluo", "url": BASE + "/",
+                "inLanguage": "zh-CN", "publisher": {"@id": BASE + "/#org"}}
+        desc = re.search(r'<meta name="description" content="([^"]*)"', text)
+        app = {"@type": "SoftwareApplication", "name": "天河落 Tianheluo (THL)", "alternateName": ["THL", "Tianheluo"],
+               "applicationCategory": "DesignApplication", "operatingSystem": "Windows",
+               "softwareRequirements": "Autodesk Revit 2026", "softwareVersion": host.get("version", ""),
+               "dateModified": host.get("released", ""), "inLanguage": "zh-CN",
+               "description": html.unescape(desc.group(1)) if desc else "", "url": BASE + "/", "image": BASE + "/og-image.png",
+               "downloadUrl": BASE + "/install", "license": "https://opensource.org/license/mit", "isAccessibleForFree": True,
+               "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"},
+               "codeRepository": "https://github.com/H8DIDI/tianheluo-core", "publisher": {"@id": BASE + "/#org"}}
+        app = {k: v for k, v in app.items() if v != ""}
+        return [org, site, app]
+    if stem == "store":
+        live = [p for p in plugins if p["status"] != "planned"]
+        return [crumbs([("天河落", BASE + "/"), ("插件商店", BASE + "/store")]),
+                {"@type": "CollectionPage", "name": "Revit 插件商店", "url": BASE + "/store", "inLanguage": "zh-CN",
+                 "mainEntity": {"@type": "ItemList", "numberOfItems": len(live), "itemListElement": [
+                     {"@type": "ListItem", "position": i + 1, "url": f'{BASE}/plugins/{p["id"]}', "name": p["name"]} for i, p in enumerate(live)]}}]
+    if stem in CRUMB:
+        g = [crumbs([("天河落", BASE + "/"), (CRUMB[stem], f"{BASE}/{stem}")])]
+        if stem == "install":
+            faq = faq_from_install(text)
+            if faq:
+                g.append(faq)
+        return g
+    return None
+
+
+def set_jsonld(text, graph):
+    text = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", text, flags=re.S)
+    block = f'<script type="application/ld+json">{ld({"@context": "https://schema.org", "@graph": graph})}</script>\n'
+    return text.replace("</head>", block + "</head>", 1)
+
+
+# ---------- 可重复的 lastmod ----------
+def lastmod_for(key, final_text, state):
+    """页面内容没变，日期就不变；变了才记成今天。不依赖 git 历史，所以本地和 CI 里构建结果一致。"""
+    h = hashlib.sha256(final_text.replace("\r\n", "\n").encode("utf-8")).hexdigest()[:16]
+    cur = state.get(key)
+    if not cur or cur.get("h") != h:
+        state[key] = {"h": h, "d": TODAY}
+    return state[key]["d"]
 
 
 def write_if_changed(path, text):
@@ -287,7 +369,10 @@ def main():
     raw = (SITE / "plugins.json").read_bytes().decode("utf-8")
     catalog = json.loads(raw)
     plugins = catalog["plugins"]
+    host = json.loads((SITE / "host.json").read_text(encoding="utf-8"))
     load_content()
+    asset_versions()
+    state = json.loads(LASTMOD_FILE.read_text(encoding="utf-8")) if LASTMOD_FILE.exists() else {}
     for p in plugins:
         assert re.fullmatch(r"[a-z0-9-]+", p["id"]), f'插件 id 只能是小写字母、数字、连字符：{p["id"]}'
     changed = []
@@ -320,15 +405,19 @@ def main():
             old.unlink()
             changed.append(f"删除 plugins/{old.name}")
 
-    # 2) 顶层页面：导航/页脚 + 列表
+    # 2) 顶层页面：导航/页脚 + 列表 + 结构化数据
     pages = []
+    final = {}
     for f in sorted(SITE.glob("*.html"), key=lambda f: (f.stem != "index", f.stem)):
         stem = f.stem
         if stem not in ACTIVE:
             continue
         pages.append(f)
-        text = f.read_text(encoding="utf-8")
-        new = inject_lists(fill_chrome(text, ACTIVE[stem]), plugins)
+        new = inject_lists(fill_chrome(f.read_text(encoding="utf-8"), ACTIVE[stem]), plugins)
+        graph = page_graph(stem, new, plugins, host)
+        if graph:
+            new = set_jsonld(new, graph)
+        final[stem] = new
         if write_if_changed(f, new):
             changed.append(f.name)
 
@@ -339,7 +428,7 @@ def main():
         if f.stem == "404":
             continue
         path = "/" if f.stem == "index" else f"/{f.stem}"
-        last = git_date(f)
+        last = lastmod_for(path, final[f.stem], state)
         if f.stem in ("index", "store"):
             last = max(last, latest)
         urls.append((BASE + path, last))
@@ -348,6 +437,9 @@ def main():
          "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n"
     if write_if_changed(SITE / "sitemap.xml", sm):
         changed.append("sitemap.xml")
+    state = {k: v for k, v in state.items() if k in {u[len(BASE):] or "/" for u, _ in urls}}
+    if write_if_changed(LASTMOD_FILE, json.dumps(state, ensure_ascii=False, indent=1, sort_keys=True) + "\n"):
+        changed.append("tools/lastmod.json")
 
     print(f"SEO 构建完成：{len(plugins)} 个插件页，{len(urls)} 个网址写入 sitemap；改动 {len(changed)} 个文件")
     for c in changed:

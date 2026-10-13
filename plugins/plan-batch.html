@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>批量生成平面图 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 批量生成平面视图插件（多标高 × 多视图样板）| 天河落 THL</title>
+<meta name="description" content="选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/plan-batch">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="批量生成平面图 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 批量生成平面视图插件（多标高 × 多视图样板）| 天河落 THL"><meta property="og:description" content="选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/plan-batch"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07080a">
-<link rel="icon" href="/favicon-production.png">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/fx.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "批量生成平面图", "alternateName": "plan-batch", "description": "选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/plan-batch", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/plan-batch", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "批量生成平面图", "item": "https://tianheluo.com/plugins/plan-batch"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-production.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=256125cd">
+<link rel="stylesheet" href="/fx.css?v=02343cb4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "批量生成平面图", "alternateName": "plan-batch", "description": "选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/plan-batch", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/plan-batch", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "批量生成平面图", "item": "https://tianheluo.com/plugins/plan-batch"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -37,11 +39,14 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#8B5CF6,#8B5CF699);border-color:#8B5CF688;color:#fff;font-weight:800">平</span>
     <div><h1>批量生成平面图</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">出图打印</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。视图名为“标高_视图类型”，已存在同名的会跳过。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。视图名为“标高_视图类型”，已存在同名的会跳过。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">做综合协调或出图时，同一个项目常常要给每个标高各建一套平面视图（结构平面、机电平面、天花平面……），再套上对应的视图样板、改名。一个个新建、套样板、改名，几十个视图一做就是半天。</p><p style="color:var(--mute);margin:0 0 10px">批量生成平面图把它变成一次勾选：左边选视图类型（样板），右边选标高，每个组合生成一张；视图名按你设的规则自动命名，已经存在的同名视图自动跳过。</p></div>
+      <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/plan-batch.svg" alt="批量生成平面图示意图：每种视图类型与每个标高两两组合，各生成一张平面视图" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">类型 × 标高 = 视图（示意图，名称为举例）</figcaption></figure>
+      <div class="panel"><h4>怎么用</h4><ol><li>点击「天河落」选项卡里的「批量生成平面图」。</li><li>左边勾选要生成的楼层平面类型（可多选；第一项「（不套用样板）」生成不套样板的普通平面）。右边勾选标高。两边都支持搜索和「全选 / 全不选」。</li><li>在下方设置「命名规则」，默认是 {标高}_{样板}。{标高} 必须保留，{样板} 可选；不套用样板时 {样板} 显示为「平面」。</li><li>窗口底部会实时显示：计划生成多少个视图（几种类型 × 几个标高）、同名已存在多少个将被跳过、实际新建多少个，并给出一个命名示例。</li><li>点「确认」开始生成。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>命名规则里不能包含 Revit 不接受的字符：\ : [ ] | ; &lt; &gt; ? ` ~，也不能使用 {标高}、{样板} 以外的花括号。</li><li>已经存在的同名视图会跳过，不会覆盖，所以可以放心重复运行来补齐缺的视图。</li><li>上一次选的类型、标高和命名规则会被记住，下次打开自动恢复；已经不存在的名称会被忽略。</li><li>如果命名规则会让几个组合重名，窗口会提示“有 N 个名称重复，只生成一个”。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -64,11 +69,11 @@
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div></footer>
-<script src="/app.js"></script>
-<script src="/fx.js"></script>
+<script src="/app.js?v=0e026e0f"></script>
+<script src="/fx.js?v=54be3190"></script>
 </body>
 </html>

@@ -1,0 +1,5 @@
+Contact: mailto:jiajiabimer@gmail.com
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: zh, en
+Canonical: https://tianheluo.com/.well-known/security.txt
+Policy: https://github.com/H8DIDI/tianheluo-core/blob/main/SECURITY.md

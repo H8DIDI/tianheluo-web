@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="批量生成平面图示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:14px}.h{font-size:18px;font-weight:700}.c{font-size:15px}
+.chip{fill:#161b26;stroke:#2a3244;stroke-width:1.5}.on{fill:#8B5CF6;fill-opacity:.18;stroke:#8B5CF6;stroke-width:2}
+.out{fill:#161b26;stroke:#2a3244;stroke-width:1.5}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">类型 × 标高 = 视图</text>
+<text x="60" y="98" class="m">楼层平面类型（可多选）</text>
+<rect class="on" x="60" y="110" width="220" height="34" rx="8"/><text x="76" y="133" class="c">✓ （不套用样板）</text>
+<rect class="on" x="60" y="152" width="220" height="34" rx="8"/><text x="76" y="175" class="c">✓ 机电平面</text>
+<rect class="chip" x="60" y="194" width="220" height="34" rx="8"/><text x="76" y="217" class="m">　 天花平面</text>
+<text x="320" y="98" class="m">标高（可多选）</text>
+<rect class="on" x="320" y="110" width="170" height="34" rx="8"/><text x="336" y="133" class="c">✓ 标高 1</text>
+<rect class="on" x="320" y="152" width="170" height="34" rx="8"/><text x="336" y="175" class="c">✓ 标高 2</text>
+<rect class="chip" x="320" y="194" width="170" height="34" rx="8"/><text x="336" y="217" class="m">　 标高 3</text>
+<path d="M520 170h60M572 156l14 14-14 14" stroke="#8B5CF6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="610" y="98" class="m">生成 4 个视图（命名规则 {标高}_{样板}）</text>
+<rect class="out" x="610" y="110" width="290" height="34" rx="8"/><text x="626" y="133" class="c">标高 1_平面</text>
+<rect class="out" x="610" y="152" width="290" height="34" rx="8"/><text x="626" y="175" class="c">标高 1_机电平面</text>
+<rect class="out" x="610" y="194" width="290" height="34" rx="8"/><text x="626" y="217" class="c">标高 2_平面</text>
+<rect class="out" x="610" y="236" width="290" height="34" rx="8"/><text x="626" y="259" class="c">标高 2_机电平面</text>
+<text x="60" y="320" class="m">窗口底部实时显示：计划生成几个、同名已存在几个（跳过）、实际新建几个，并给出命名示例</text>
+<text x="60" y="394" class="m">示意图：名称为举例；不套用样板时，{样板} 显示为「平面」</text>
+</svg>

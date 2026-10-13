@@ -12,9 +12,12 @@
 <meta property="og:url" content="https://tianheluo.com/install"><meta property="og:image" content="https://tianheluo.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07080a">
-<link rel="icon" href="/favicon-production.png">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/fx.css">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-production.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=256125cd">
+<link rel="stylesheet" href="/fx.css?v=02343cb4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "安装指南", "item": "https://tianheluo.com/install"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Revit 里没有「天河落」选项卡？", "acceptedAnswer": {"@type": "Answer", "text": "确认安装时 Revit 是关着的，并且装的是 Revit 2026。再运行一次install.bat，然后重新打开 Revit。"}}, {"@type": "Question", "name": "商店里显示「连接商店失败」？", "acceptedAnswer": {"@type": "Answer", "text": "检查网络。没有网络的话，用「方法 B」导入下载好的 .thlp 文件。"}}, {"@type": "Question", "name": "怎么更新宿主和插件？", "acceptedAnswer": {"@type": "Answer", "text": "不用回官网下载。打开 Revit 里的「天河落 → 插件中心」，它会自动检查：插件有新版本时，「已安装」页会出现「更新到 vX」按钮（也可以点底部「全部更新」），立刻生效，不用重启；宿主有新版本时，顶部会出现蓝色横幅，点「下载更新」，更新会先下载并校验，关闭 Revit 之后自动安装，下次打开就是新版。更新失败会自动回滚到旧版。"}}, {"@type": "Question", "name": "双击 install.bat 后窗口一闪就没了？", "acceptedAnswer": {"@type": "Answer", "text": "一般是没有把压缩包完整解压就直接在压缩包里运行了。请先右键压缩包选「全部解压缩」，再进入解压出来的文件夹双击 install.bat。如果还是不行，打开里面的 README.txt，按「手动安装」三步复制文件即可；并把 %TEMP%\thl-install.log 发给我们。"}}, {"@type": "Question", "name": "第一次打开 Revit 时弹出“加载项安全”提示？", "acceptedAnswer": {"@type": "Answer", "text": "这是 Revit 对所有第三方插件的标准提示。天河落的发布者是 didi（tianheluo.com）。请选择「始终加载」，以后就不会再问。"}}, {"@type": "Question", "name": "Revit 提示“无法运行外部应用程序 天河落 THL”？", "acceptedAnswer": {"@type": "Answer", "text": "多半是 Revit 版本和安装的版本不匹配。安装脚本会按你的 Revit 版本自动选择：2026.5 及以上用 .NET 10 版，2026.0 ~ 2026.4 用 .NET 8 版。请用最新的安装包重新安装；如果仍然不行，把 %APPDATA%\\Tianheluo\\logs\\startup.log 这个文件发给我们。"}}, {"@type": "Question", "name": "怎么卸载宿主？", "acceptedAnswer": {"@type": "Answer", "text": "关闭 Revit，双击安装包里的uninstall.bat。"}}, {"@type": "Question", "name": "支持其他 Revit 版本吗？", "acceptedAnswer": {"@type": "Answer", "text": "目前只支持 Revit 2026，其他版本会陆续适配。"}}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -33,7 +36,7 @@
 </div></header>
 <main class="wrap" style="padding-top:56px;padding-bottom:40px">
   <div class="eyebrow">使用指南</div>
-  <h2>5 分钟用上天河落</h2>
+  <h1 class="pt">5 分钟用上天河落</h1>
   <p class="sub">不需要懂编程。照着下面三大步做，每一步都有说明。适用于 Windows + Revit 2026。</p>
 
   <h3 style="margin:44px 0 0;font-size:22px">第一步　安装「宿主」（只装一次）</h3>
@@ -77,11 +80,11 @@
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div></footer>
-<script src="/app.js"></script>
-<script src="/fx.js"></script>
+<script src="/app.js?v=0e026e0f"></script>
+<script src="/fx.js?v=54be3190"></script>
 </body>
 </html>

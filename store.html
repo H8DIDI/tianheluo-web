@@ -12,9 +12,12 @@
 <meta property="og:url" content="https://tianheluo.com/store"><meta property="og:image" content="https://tianheluo.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07080a">
-<link rel="icon" href="/favicon-production.png">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/fx.css">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-production.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=256125cd">
+<link rel="stylesheet" href="/fx.css?v=02343cb4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}]}, {"@type": "CollectionPage", "name": "Revit 插件商店", "url": "https://tianheluo.com/store", "inLanguage": "zh-CN", "mainEntity": {"@type": "ItemList", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://tianheluo.com/plugins/elv-merge", "name": "强电井清洗合并"}, {"@type": "ListItem", "position": 2, "url": "https://tianheluo.com/plugins/export-dwg", "name": "一键导出井大样DWG"}, {"@type": "ListItem", "position": 3, "url": "https://tianheluo.com/plugins/export-nwc", "name": "一键导出NWC"}, {"@type": "ListItem", "position": 4, "url": "https://tianheluo.com/plugins/issue-manager", "name": "图纸签发管理"}, {"@type": "ListItem", "position": 5, "url": "https://tianheluo.com/plugins/pile-cleanup", "name": "清理重复松木桩垫层"}, {"@type": "ListItem", "position": 6, "url": "https://tianheluo.com/plugins/pile-cushion", "name": "一键布置松木桩垫层"}, {"@type": "ListItem", "position": 7, "url": "https://tianheluo.com/plugins/plan-batch", "name": "批量生成平面图"}, {"@type": "ListItem", "position": 8, "url": "https://tianheluo.com/plugins/schedule-excel", "name": "明细表Excel互导"}, {"@type": "ListItem", "position": 9, "url": "https://tianheluo.com/plugins/sheet-manager", "name": "图纸管理"}, {"@type": "ListItem", "position": 10, "url": "https://tianheluo.com/plugins/tag-check", "name": "标注检查"}, {"@type": "ListItem", "position": 11, "url": "https://tianheluo.com/plugins/view-manager", "name": "视图管理"}, {"@type": "ListItem", "position": 12, "url": "https://tianheluo.com/plugins/well-annotate", "name": "一键井大样标注"}, {"@type": "ListItem", "position": 13, "url": "https://tianheluo.com/plugins/well-clear-marks", "name": "一键清除井标记"}, {"@type": "ListItem", "position": 14, "url": "https://tianheluo.com/plugins/well-depth", "name": "井深调整"}, {"@type": "ListItem", "position": 15, "url": "https://tianheluo.com/plugins/well-number", "name": "一键编号"}, {"@type": "ListItem", "position": 16, "url": "https://tianheluo.com/plugins/well-sheets", "name": "一键井展开图"}]}}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -33,7 +36,7 @@
 </div></header>
 <main class="wrap" style="padding-top:56px;padding-bottom:40px">
   <div class="eyebrow">插件商店</div>
-  <h2>适配 Revit 2026 的插件</h2>
+  <h1 class="pt">适配 Revit 2026 的插件</h1>
   <p class="sub">所有插件都在 Revit 2026 上开发和测试。</p>
   <div class="rank" id="popular" data-limit="10" style="margin:30px 0 8px"></div>
   <div class="tools"><div id="chips" style="display:flex;gap:10px;flex-wrap:wrap"></div>
@@ -48,7 +51,7 @@
   <a class="pc" href="/plugins/plan-batch">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#8B5CF6,#8B5CF699);border-color:#8B5CF688;color:#fff;font-weight:800">平</span>
       <h3>批量生成平面图<small>plan-batch</small></h3></div>
-    <p>选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。视图名为“标高_视图类型”，已存在同名的会跳过。</p>
+    <p>选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-manager">
@@ -78,7 +81,7 @@
   <a class="pc" href="/plugins/well-depth">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#2F8CFF,#2F8CFF99);border-color:#2F8CFF88;color:#fff;font-weight:800">井</span>
       <h3>井深调整<small>well-depth</small></h3></div>
-    <p>一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。检查台为无模态窗口：可勾选只调整哪类井、看新旧对比与</p>
+    <p>按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheets">
@@ -96,7 +99,7 @@
   <a class="pc" href="/plugins/export-dwg">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:13px;background:linear-gradient(135deg,#F59E0B,#F59E0B99);border-color:#F59E0B88;color:#fff;font-weight:800">DWG</span>
       <h3>一键导出井大样DWG<small>export-dwg</small></h3></div>
-    <p>一键批量导出所有井大样图纸为 DWG 文件，自动合并外部参照，直接保存在指定文件夹中。</p>
+    <p>按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">导出</span></div>
   </a>
   <a class="pc" href="/plugins/export-nwc">
@@ -114,7 +117,7 @@
   <a class="pc" href="/plugins/pile-cushion">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#2F8CFF,#2F8CFF99);border-color:#2F8CFF88;color:#fff;font-weight:800">桩</span>
       <h3>一键布置松木桩垫层<small>pile-cushion</small></h3></div>
-    <p>框选排管或井等构件，自动在其下方依据真实几何轮廓居中布置 100mm 厚垫层（外挑100mm）与 Φ75@500 L=6m 松木桩。已内置防重复布置智能覆盖机制</p>
+    <p>框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
   </a>
   <a class="pc" href="/plugins/schedule-excel">
@@ -126,7 +129,7 @@
   <a class="pc" href="/plugins/well-clear-marks">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">除</span>
       <h3>一键清除井标记<small>well-clear-marks</small></h3></div>
-    <p>框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。</p>
+    <p>框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/well-number">
@@ -140,11 +143,11 @@
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div></footer>
-<script src="/app.js"></script>
-<script src="/fx.js"></script>
+<script src="/app.js?v=0e026e0f"></script>
+<script src="/fx.js?v=54be3190"></script>
 </body>
 </html>

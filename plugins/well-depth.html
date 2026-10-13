@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>井深调整 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 井深井底标高批量调整插件（按排管底自动校正）| 天河落 THL</title>
+<meta name="description" content="按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-depth">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="井深调整 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 井深井底标高批量调整插件（按排管底自动校正）| 天河落 THL"><meta property="og:description" content="按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-depth"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07080a">
-<link rel="icon" href="/favicon-production.png">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/fx.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井深调整", "alternateName": "well-depth", "description": "一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-depth", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.2", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/well-depth"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井深调整", "item": "https://tianheluo.com/plugins/well-depth"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-production.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=256125cd">
+<link rel="stylesheet" href="/fx.css?v=02343cb4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井深调整", "alternateName": "well-depth", "description": "按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-depth", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.2", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/well-depth"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井深调整", "item": "https://tianheluo.com/plugins/well-depth"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -37,15 +39,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#2F8CFF,#2F8CFF99);border-color:#2F8CFF88;color:#fff;font-weight:800">井</span>
     <div><h1>井深调整</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">市政管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。检查台为无模态窗口：可勾选只调整哪类井、看新旧对比与不确定原因、手动覆盖数值，双击定位到构件后窗口保持打开，可“锁定在最前”。Ctrl+Z 整体撤销。规则与排管关键字保存在 Documents\KaifaTools\井深规则.json。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">市政管线模型里，井底标高和井深要跟着接入的排管走：最低那根排管的管底再往下留 300mm 作为井底，井深则由井口的偏移标高算出。排管一改，几百口井的井底和井深都要重算，手工逐个核对既慢又容易漏。</p><p style="color:var(--mute);margin:0 0 10px">井深调整会逐口井找出接入它的排管（同专业、管头落在井附近），按规则「井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底」算出新值，在检查台里列出新旧对比，由你确认后一次写入。</p></div>
+      <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/well-depth.svg" alt="井深调整检查台示意图：按最低接入排管底减 300 计算新井底和井深，列出新旧对比" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">检查台里的新旧对比（示意图，数值为举例）</figcaption></figure>
+      <div class="panel"><h4>怎么用</h4><ol><li>在 Revit 的「天河落」选项卡里点击「井深调整」，插件会分析模型里的电力、通信、弱电等井。</li><li>在检查台里勾选要调整的井类别，用筛选查看「只看需改」「只看不确定」「需复核」「无排管」「已合规」。表格里能看到每口井的新旧井底、井深和变化，需要修改的值用橙色高亮。</li><li>对不放心的井，看「不确定原因」列（比如接入多根管、管头没贴井壁、深度超出常规范围），或者双击定位到这口井。也可以直接填手动的井底或井深覆盖自动值，手填的值用黄色高亮。</li><li>可以先点「只导出清单」得到 CSV（含旧值、新值、手动修改、不确定原因）留档。</li><li>确认无误后点写入，弹窗会再次确认要写入的井数。写入在同一个事务里，Ctrl+Z 一步撤销。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>规则和排管关键字保存在 Documents\KaifaTools\井深规则.json，窗口里也能直接修改并重新分析。</li><li>雨水井、污水井、阀门井不在调整范围内。</li><li>新井底是绝对标高，与排管、手填的井底处于同一坐标系；井深 = 偏移 − 新井底。</li><li>没有识别到接入排管的井会标成「无排管」，不会被自动修改。</li><li>写入前请先看清单，尤其是「不确定」和「需复核」的井。这是辅助校核工具，最终以你的设计规范为准。</li><li>检查台是无模态窗口，可以一边看表一边在 Revit 里操作，也可以勾选「锁定在最前」。</li><li>如果井的类型被拆得很碎，可以先用 <a href="/plugins/elv-merge" style="color:var(--blue)">强电井清洗合并</a> 合并冗余类型，再校正井深。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井等构件，自动在其下方依据真实几何轮廓居中布置 100mm 厚垫层（外…</span></li><li><a href="/plugins/elv-merge" style="color:var(--blue)">强电井清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/export-dwg" style="color:var(--blue)">一键导出井大样DWG</a><span style="color:var(--dim)"> — 一键批量导出所有井大样图纸为 DWG 文件，自动合并外部参照…</span></li><li><a href="/plugins/export-nwc" style="color:var(--blue)">一键导出NWC</a><span style="color:var(--dim)"> — 一键把当前视图导出成 Navisworks 的 .nwc 文件…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/elv-merge" style="color:var(--blue)">强电井清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/export-dwg" style="color:var(--blue)">一键导出井大样DWG</a><span style="color:var(--dim)"> — 按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照…</span></li><li><a href="/plugins/export-nwc" style="color:var(--blue)">一键导出NWC</a><span style="color:var(--dim)"> — 一键把当前视图导出成 Navisworks 的 .nwc 文件…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
@@ -64,11 +69,11 @@
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div></footer>
-<script src="/app.js"></script>
-<script src="/fx.js"></script>
+<script src="/app.js?v=0e026e0f"></script>
+<script src="/fx.js?v=54be3190"></script>
 </body>
 </html>

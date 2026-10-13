@@ -134,3 +134,16 @@ pre.prompt,pre.arch{background:#0a0c10;border:1px solid var(--line2);border-radi
 .nav nav a.ghlink:hover{border-color:var(--mute)}
 .btn .ghi{flex:none}
 @media(max-width:560px){.nav nav a.ghlink{padding:6px 8px}.nav nav a.ghlink{font-size:0}.nav nav a.ghlink .ghi{width:18px;height:18px}}
+
+/* 页面主标题：用 <h1> 保证每页只有一个 h1，外观沿用原来的 h2 */
+h1.pt{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.015em;margin:10px 0 14px;font-weight:800}
+
+/* 手机：导航分两行——第一行品牌，第二行横向滑动的链接（原来会被挤成竖排） */
+@media(max-width:700px){
+  .nav .wrap{height:auto;flex-wrap:wrap;gap:0;padding-top:10px;padding-bottom:4px}
+  .nav .sp,.nav .btn{display:none}
+  .brand{white-space:nowrap}
+  .nav nav{order:3;flex:0 0 100%;margin:6px -10px 0;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav nav::-webkit-scrollbar{display:none}
+  .nav nav a{white-space:nowrap;flex:none}
+}

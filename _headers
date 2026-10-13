@@ -9,3 +9,29 @@
 /dl/*
   Content-Security-Policy: default-src 'none'; sandbox
   Content-Disposition: attachment
+
+# 样式/脚本的网址带内容哈希（?v=xxxx，由 tools/build_seo.py 写入），内容一变网址就变，所以可以长期缓存
+/style.css
+  Cache-Control: public, max-age=31536000, immutable
+/fx.css
+  Cache-Control: public, max-age=31536000, immutable
+/app.js
+  Cache-Control: public, max-age=31536000, immutable
+/fx.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# 图片：网址不带版本号，缓存一天，换图后最迟明天全员生效
+/favicon.ico
+  Cache-Control: public, max-age=86400
+/favicon-production.png
+  Cache-Control: public, max-age=86400
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400
+/og-image.png
+  Cache-Control: public, max-age=86400
+/wechat-didi.png
+  Cache-Control: public, max-age=86400
+/wechat-didi-sm.png
+  Cache-Control: public, max-age=86400
+/img/*
+  Cache-Control: public, max-age=86400

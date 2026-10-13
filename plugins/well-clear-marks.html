@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>一键清除井标记 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 批量清除标记（Mark）参数插件 — 一键清除井标记 | 天河落 THL</title>
+<meta name="description" content="框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-clear-marks">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="一键清除井标记 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 批量清除标记（Mark）参数插件 — 一键清除井标记 | 天河落 THL"><meta property="og:description" content="框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-clear-marks"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07080a">
-<link rel="icon" href="/favicon-production.png">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/fx.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键清除井标记", "alternateName": "well-clear-marks", "description": "框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-clear-marks", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-12", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-clear-marks"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键清除井标记", "item": "https://tianheluo.com/plugins/well-clear-marks"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-production.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=256125cd">
+<link rel="stylesheet" href="/fx.css?v=02343cb4">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键清除井标记", "alternateName": "well-clear-marks", "description": "框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-clear-marks", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-12", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-clear-marks"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键清除井标记", "item": "https://tianheluo.com/plugins/well-clear-marks"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -37,13 +39,14 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">除</span>
     <div><h1>一键清除井标记</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">框选平面图中的井，一键清空选中井的【标记】字段（如室内井不需要标记）。
-支持先在平面图中框选井再点按钮，或先点按钮再拉框框选。
-只清空【标记】字段，其他所有参数、尺寸标注及模型图元均完好无损！</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">有些井（比如室内井）按出图要求不需要编号，但模型里的「标记」字段已经被批量写上了编号，标在平面图里既多余又碍眼。一个个点开井去清空「标记」，几十上百口井要点很久。</p><p style="color:var(--mute);margin:0 0 10px">一键清除井标记只做一件事：把选中图元的「标记」字段清空。先选后点，或者先点再拉框，都可以；其他参数、尺寸标注和模型图元不受影响。</p></div>
+      <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/well-clear-marks.svg" alt="一键清除井标记示意图：选中的井清空标记字段，其他参数保持不变" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">清除前后对比（示意图）</figcaption></figure>
+      <div class="panel"><h4>怎么用</h4><ol><li>在平面图里选中要清除标记的井；也可以不选，直接进行下一步。</li><li>点击「天河落」选项卡里的「一键清除井标记」。如果事先没有选，会进入拉框选择模式，在视图里拉框框住这些井即可。</li><li>完成后弹窗显示清空了多少个井，以及被清掉的标记编号（最多列出前 10 个）。</li><li>想恢复，按 Ctrl+Z 即可。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>它不区分图元是不是井：选中的所有图元，只要「标记」不为空且可写，都会被清空。拉框时请只框需要清除的井。</li><li>「标记」本来就为空的图元，以及「标记」是只读的图元，会被自动跳过；全部都跳过时会弹窗提示。</li><li>清空前没有再次确认，请先看清选中范围。清空后可用 Ctrl+Z 一步撤销。</li><li>清空的只是「标记」（Mark）这一个字段，注释、井深、井底标高等其他参数不受影响。</li><li>想重新编号，可以配合 <a href="/plugins/well-number" style="color:var(--blue)">一键编号</a> 使用。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>支持先在平面图中框选井再点按钮，或先点按钮再拉框框选。</li><li>只清空【标记】字段，其他所有参数、尺寸标注及模型图元均完好无损！</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
@@ -67,11 +70,11 @@
 <div class="wrap">
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
-  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
-  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div></footer>
-<script src="/app.js"></script>
-<script src="/fx.js"></script>
+<script src="/app.js?v=0e026e0f"></script>
+<script src="/fx.js?v=54be3190"></script>
 </body>
 </html>

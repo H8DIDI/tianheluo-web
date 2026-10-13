@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="井深调整检查台示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:14px}.h{font-size:18px;font-weight:700}.c{font-size:16px}.th{fill:#8a93a6;font-size:14px;font-weight:700}
+.row{fill:#161b26;stroke:#2a3244;stroke-width:1}.hl{fill:#F59E0B;fill-opacity:.16;stroke:#F59E0B;stroke-width:1.5}
+.f{fill:#2F8CFF;fill-opacity:.12;stroke:#2F8CFF;stroke-width:1.5}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">检查台：新旧对比，确认后才写入</text>
+<rect class="f" x="60" y="82" width="840" height="42" rx="10"/>
+<text x="480" y="109" class="c" text-anchor="middle">井底 = 最低接入排管底 − 300　　　井深 = 偏移 − 井底</text>
+<text x="80" y="160" class="th">井</text><text x="200" y="160" class="th">偏移 (mm)</text><text x="340" y="160" class="th">最低管底</text><text x="480" y="160" class="th">旧井底</text><text x="620" y="160" class="th">新井底</text><text x="760" y="160" class="th">新井深</text>
+<rect class="row" x="60" y="172" width="840" height="46" rx="8"/>
+<text x="80" y="201" class="c">J-01</text><text x="200" y="201" class="c">−800</text><text x="340" y="201" class="c">−2350</text><text x="480" y="201" class="c">−2400</text>
+<rect class="hl" x="606" y="180" width="110" height="30" rx="6"/><text x="620" y="201" class="c" style="font-weight:700">−2650</text><text x="760" y="201" class="c">1850</text>
+<rect class="row" x="60" y="226" width="840" height="46" rx="8"/>
+<text x="80" y="255" class="c">J-02</text><text x="200" y="255" class="c">−800</text><text x="340" y="255" class="c">−2250</text><text x="480" y="255" class="c">−2300</text>
+<rect class="hl" x="606" y="234" width="110" height="30" rx="6"/><text x="620" y="255" class="c" style="font-weight:700">−2550</text><text x="760" y="255" class="c">1750</text>
+<rect class="row" x="60" y="280" width="840" height="46" rx="8"/>
+<text x="80" y="309" class="c">J-03</text><text x="200" y="309" class="c">−800</text><text x="340" y="309" class="c">−2500</text><text x="480" y="309" class="c">−2800</text>
+<text x="620" y="309" class="c">−2800</text><text x="760" y="309" class="c">2000</text><text x="840" y="309" class="m">已合规</text>
+<text x="60" y="360" class="m">橙色 = 将被修改的值　·　手填的值为黄色　·　可筛选「只看需改 / 不确定 / 需复核 / 无排管 / 已合规」</text>
+<text x="60" y="394" class="m">示意图：数值为举例；写入在同一个事务里，Ctrl+Z 可一步撤销</text>
+</svg>

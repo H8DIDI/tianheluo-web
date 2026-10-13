@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一键导出井大样DWG 流程示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:14px}.h{font-size:18px;font-weight:700}.c{font-size:15px}
+.chip{fill:#161b26;stroke:#2a3244;stroke-width:1.5}.hot{fill:#F59E0B;fill-opacity:.14;stroke:#F59E0B;stroke-width:2}
+.ar{stroke:#F59E0B;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">按类别批量导出井大样 DWG</text>
+<text x="60" y="92" class="m">模型里「井大样_」开头的图纸</text>
+<rect class="chip" x="60" y="108" width="120" height="36" rx="18"/><text x="120" y="132" class="c" text-anchor="middle">室内-</text>
+<rect class="chip" x="192" y="108" width="100" height="36" rx="18"/><text x="242" y="132" class="c" text-anchor="middle">AA-</text>
+<rect class="chip" x="60" y="154" width="100" height="36" rx="18"/><text x="110" y="178" class="c" text-anchor="middle">BB-</text>
+<rect class="chip" x="172" y="154" width="100" height="36" rx="18"/><text x="222" y="178" class="c" text-anchor="middle">A-</text>
+<rect class="chip" x="60" y="200" width="100" height="36" rx="18"/><text x="110" y="224" class="c" text-anchor="middle">B-</text>
+<rect class="chip" x="172" y="200" width="100" height="36" rx="18"/><text x="222" y="224" class="c" text-anchor="middle">T-</text>
+<rect class="chip" x="60" y="246" width="100" height="36" rx="18"/><text x="110" y="270" class="c" text-anchor="middle">L-</text>
+<rect class="chip" x="172" y="246" width="100" height="36" rx="18"/><text x="222" y="270" class="c" text-anchor="middle">E-</text>
+<text x="60" y="314" class="m">选一组，或全部（每组显示实时张数）</text>
+<path class="ar" d="M312 196h120M420 182l14 14-14 14"/>
+<text x="372" y="172" class="m" text-anchor="middle">批量导出</text>
+<text x="372" y="226" class="m" text-anchor="middle">合并外部参照</text>
+<rect class="hot" x="470" y="108" width="430" height="190" rx="14"/>
+<text x="492" y="140" class="c" style="font-weight:700">桌面 / 所有井大样图纸导出</text>
+<rect class="chip" x="492" y="156" width="386" height="34" rx="8"/><text x="508" y="179" class="c">井大样_A-…….dwg</text>
+<rect class="chip" x="492" y="198" width="386" height="34" rx="8"/><text x="508" y="221" class="c">井大样_T-…….dwg</text>
+<rect class="chip" x="492" y="240" width="386" height="34" rx="8"/><text x="508" y="263" class="c">井大样_E-…….dwg</text>
+<text x="470" y="330" class="m">每次覆盖式导出，文件夹里就是模型当前状态；完成后自动打开文件夹</text>
+<text x="60" y="394" class="m">示意图：文件名为举例，只导出图纸，不修改模型</text>
+</svg>

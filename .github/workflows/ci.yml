@@ -1,0 +1,29 @@
+name: ci
+
+# 每次提交 / PR 都检查：生成的页面有没有忘记更新、链接有没有断、JSON 是否合法。
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 重新生成页面（tools/build_seo.py）
+        run: python tools/build_seo.py
+      - name: 生成的文件必须已提交
+        run: |
+          if ! git diff --exit-code --stat; then
+            echo "::error::生成的页面与仓库里的不一致。本地运行 python tools/build_seo.py 后把改动一起提交。"
+            exit 1
+          fi
+      - name: 静态检查（链接、JSON、必备标签、sitemap）
+        run: python tools/check_site.py

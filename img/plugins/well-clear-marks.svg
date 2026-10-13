@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一键清除井标记示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:15px}.h{font-size:18px;font-weight:700}.c{font-size:15px}
+.well{fill:#10B981;fill-opacity:.2;stroke:#10B981;stroke-width:2}.sel{fill:none;stroke:#2F8CFF;stroke-width:2;stroke-dasharray:6 5}
+.tag{fill:#161b26;stroke:#2a3244;stroke-width:1.5}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">清除前</text><text x="60" y="86" class="m">拉框选中这些井</text>
+<rect class="sel" x="50" y="104" width="390" height="190" rx="12"/>
+<rect class="well" x="80" y="150" width="56" height="56" rx="8"/><rect class="tag" x="70" y="222" width="76" height="28" rx="14"/><text x="108" y="242" class="c" text-anchor="middle">标记 1</text>
+<rect class="well" x="190" y="150" width="56" height="56" rx="8"/><rect class="tag" x="180" y="222" width="76" height="28" rx="14"/><text x="218" y="242" class="c" text-anchor="middle">标记 2</text>
+<rect class="well" x="300" y="150" width="56" height="56" rx="8"/><rect class="tag" x="290" y="222" width="76" height="28" rx="14"/><text x="328" y="242" class="c" text-anchor="middle">标记 3</text>
+<path d="M455 196h92" stroke="#10B981" stroke-width="3" fill="none"/><path d="M539 182l16 14-16 14" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="451" y="176" class="m">一键清除</text>
+<text x="590" y="62" class="h">清除后</text><text x="590" y="86" class="m">只有「标记」被清空</text>
+<rect class="well" x="620" y="150" width="56" height="56" rx="8"/><rect class="tag" x="610" y="222" width="76" height="28" rx="14"/><text x="648" y="242" class="m" text-anchor="middle">（空）</text>
+<rect class="well" x="730" y="150" width="56" height="56" rx="8"/><rect class="tag" x="720" y="222" width="76" height="28" rx="14"/><text x="758" y="242" class="m" text-anchor="middle">（空）</text>
+<rect class="well" x="840" y="150" width="56" height="56" rx="8"/><rect class="tag" x="830" y="222" width="76" height="28" rx="14"/><text x="868" y="242" class="m" text-anchor="middle">（空）</text>
+<text x="590" y="294" class="c" style="fill:#34D399">注释、井深、尺寸标注、模型图元：原样保留</text>
+<text x="590" y="322" class="m">不满意：Ctrl+Z 一步撤销</text>
+<text x="60" y="394" class="m">示意图：选中的所有图元只要「标记」不为空都会被清空，拉框时请只框需要清除的井</text>
+</svg>

@@ -12,6 +12,9 @@ Revit 插件宿主 + 共享插件商店的官网。**公开共享、非商业**�
 | `plugins/<id>.html` | 每个插件的独立详情页 `/plugins/<id>`（**自动生成**，由 `tools/build_seo.py` 从 `plugins.json` 生成） |
 | `app.js` `fx.js` `style.css` `fx.css` | 公共脚本与样式（商店列表/热门榜/下载数；导航与页脚已写进各页 HTML） |
 | `tools/build_seo.py` | SEO 构建：生成插件详情页、导航/页脚、首页/商店的静态列表、`sitemap.xml` |
+| `privacy.html` | 隐私说明（据实记录：不设 cookie、下载计数不存 IP、宿主无遥测）。改动数据收集方式时必须同步更新 |
+| `tools/healthcheck.py` `tools/check_site.py` `tools/indexnow.py` | 线上健康检查 / 仓库静态检查 / 通知搜索引擎（见 `.github/workflows/`） |
+| `.well-known/security.txt` `<key>.txt` | 安全联系方式（每年续期 Expires）/ IndexNow 密钥文件 |
 | `og-image.png` | 社交分享预览图（1200×630） |
 | `content/plugins/<id>.json` | **手写**的插件长文案（解决什么问题/怎么用/注意事项/SEO 标题/示意图），`build_seo.py` 渲染进详情页；改它不需要升插件版本 |
 | `img/plugins/` | 插件详情页里的示意图（SVG；有真实截图时可替换，并在对应 content json 里改 `image.src`） |
