@@ -338,13 +338,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.3.1",
+      "version": "0.3.2",
       "revit": "2026",
-      "size": "39 KB",
+      "size": "40 KB",
       "status": "beta",
       "download": "/api/dl/well-depth",
-      "file": "/dl/well-depth_0.3.1.thlp",
-      "sha256": "9993f81a6baf12340a113c65cf754e7636b71c59d3126f2a778971c42ed4b206",
+      "file": "/dl/well-depth_0.3.2.thlp",
+      "sha256": "92e82981867e2f888b7b45fcd96136f0ce75fdf06f34f5e1fae1e90f4c3c53fa",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/well-depth",
       "date": "2026-10-13",
