@@ -23,6 +23,7 @@
 ## 给人看的页面
 - [首页](https://tianheluo.com/)
 - [插件商店](https://tianheluo.com/store)
+- 插件详情页：每个插件一个网址 https://tianheluo.com/plugins/<id>（id 见 plugins.json），例如 https://tianheluo.com/plugins/well-depth
 - [安装与使用指南](https://tianheluo.com/install)
 - [开发者页面](https://tianheluo.com/developers)
 

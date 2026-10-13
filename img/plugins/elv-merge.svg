@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="强电井清洗合并示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:15px}.h{font-size:18px;font-weight:700}.c{font-size:16px}
+.chip{fill:#161b26;stroke:#2a3244;stroke-width:1.5}.ok{fill:#10B981;fill-opacity:.14;stroke:#10B981;stroke-width:2}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">合并前</text><text x="60" y="86" class="m">长宽相同，只有类型名末尾的深度不同</text>
+<rect class="chip" x="60" y="118" width="330" height="48" rx="10"/><text x="80" y="149" class="c">EM2-…(L)x…(W)x深度 A</text>
+<rect class="chip" x="60" y="182" width="330" height="48" rx="10"/><text x="80" y="213" class="c">EM2-…(L)x…(W)x深度 B</text>
+<rect class="chip" x="60" y="246" width="330" height="48" rx="10"/><text x="80" y="277" class="c">EM2-…(L)x…(W)x深度 C</text>
+<text x="60" y="334" class="m">每种深度一个类型，类型列表越来越长</text>
+<path d="M425 206h92" stroke="#10B981" stroke-width="3" fill="none"/><path d="M509 192l16 14-16 14" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425" y="186" class="m">一键合并</text>
+<text x="570" y="62" class="h">合并后</text><text x="570" y="86" class="m">同规格的井共用同一个类型</text>
+<rect class="ok" x="570" y="150" width="330" height="62" rx="12"/><text x="592" y="188" class="c" style="font-weight:700">EM2-…(L)x…(W)</text>
+<text x="570" y="248" class="m">所有井自动换到这个类型</text>
+<text x="570" y="274" class="m">冗余类型随后被删除（不满意可 Ctrl+Z 撤销）</text>
+<text x="60" y="388" class="m">示意图：实际类型名以项目为准 · 处理 ELE-EM1 / EM2 / EM4 系列强电井族</text>
+</svg>

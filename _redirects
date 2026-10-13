@@ -1,2 +1,9 @@
 # 旧的带版本号的安装包地址 → 稳定地址
 /dl/THL-Host_0.1.0.zip /dl/THL-Host.zip 302
+
+# 旧版网站遗留、仍留在搜索引擎里的网址 → 对应的新页面（永久跳转，权重随之转移）
+/download /install 301
+/faq /install 301
+/store/* /store 301
+/plugins /store 301
+/plugins/ /store 301

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="清理重复松木桩垫层示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:15px}.h{font-size:18px;font-weight:700}.c{font-size:15px}
+.pad{fill:#161b26;stroke:#2a3244;stroke-width:1.5}.pile{fill:#2F8CFF;fill-opacity:.35;stroke:#2F8CFF;stroke-width:2}
+.dup{fill:none;stroke:#F87171;stroke-width:2;stroke-dasharray:5 4}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">清理前</text><text x="60" y="86" class="m">同一位置叠着多套桩和垫层（肉眼几乎看不出）</text>
+<rect class="pad" x="60" y="120" width="340" height="130" rx="10"/>
+<circle class="pile" cx="110" cy="150" r="16"/><circle class="pile" cx="190" cy="150" r="16"/><circle class="pile" cx="270" cy="150" r="16"/><circle class="pile" cx="350" cy="150" r="16"/>
+<circle class="pile" cx="110" cy="220" r="16"/><circle class="pile" cx="190" cy="220" r="16"/><circle class="pile" cx="270" cy="220" r="16"/><circle class="pile" cx="350" cy="220" r="16"/>
+<circle class="dup" cx="114" cy="154" r="20"/><circle class="dup" cx="274" cy="224" r="20"/><circle class="dup" cx="354" cy="154" r="20"/>
+<text x="60" y="284" class="c" style="fill:#F87171">红色虚线 = 位置完全重合的多余图元</text>
+<text x="60" y="312" class="m">弹窗会先列出：重复松木桩 N 根 · 重复垫层 N 块</text>
+<path d="M425 185h92" stroke="#2F8CFF" stroke-width="3" fill="none"/><path d="M509 171l16 14-16 14" stroke="#2F8CFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="165" class="m">确认后清理</text>
+<text x="570" y="62" class="h">清理后</text><text x="570" y="86" class="m">每处位置只保留一套，工程量恢复准确</text>
+<rect class="pad" x="570" y="120" width="340" height="130" rx="10"/>
+<circle class="pile" cx="620" cy="150" r="16"/><circle class="pile" cx="700" cy="150" r="16"/><circle class="pile" cx="780" cy="150" r="16"/><circle class="pile" cx="860" cy="150" r="16"/>
+<circle class="pile" cx="620" cy="220" r="16"/><circle class="pile" cx="700" cy="220" r="16"/><circle class="pile" cx="780" cy="220" r="16"/><circle class="pile" cx="860" cy="220" r="16"/>
+<text x="570" y="284" class="c" style="fill:#34D399">每处只留 1 套 · 可 Ctrl+Z 撤销</text>
+<text x="60" y="388" class="m">示意图：桩按 5mm 取整坐标比对，垫层按外包框（10mm 容差）比对</text>
+</svg>

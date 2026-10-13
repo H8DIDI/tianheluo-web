@@ -6,7 +6,7 @@
       "name": "强电井清洗合并",
       "en": "elv-merge",
       "category": "数据处理",
-      "summary": "强电井清洗合并",
+      "summary": "把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型，让类型列表保持清爽。",
       "description": "强电井清洗合并",
       "features": [
         "详见使用指南"
@@ -60,7 +60,7 @@
       "name": "一键导出NWC",
       "en": "export-nwc",
       "category": "导出",
-      "summary": "一键导出NWC",
+      "summary": "一键把当前视图导出成 Navisworks 的 .nwc 文件，自动跳过 CAD 链接防止卡死，文件直接放到桌面。",
       "description": "一键导出NWC",
       "features": [
         "详见使用指南"
@@ -114,7 +114,7 @@
       "name": "清理重复松木桩垫层",
       "en": "pile-cleanup",
       "category": "市政管线",
-      "summary": "清理重复松木桩垫层",
+      "summary": "扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套，其余一键删除。",
       "description": "清理重复松木桩垫层",
       "features": [
         "详见使用指南"
@@ -387,7 +387,7 @@
       "name": "一键编号",
       "en": "well-number",
       "category": "数据处理",
-      "summary": "支持先选中再运行。给常规模型按空间坐标全自动排号。",
+      "summary": "按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。",
       "description": "支持先选中再运行。给常规模型按空间坐标全自动排号。",
       "features": [
         "详见使用指南"

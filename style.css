@@ -104,6 +104,9 @@ h2{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.015em;margin
 .panel li{padding:8px 0 8px 22px;position:relative;color:var(--mute);border-bottom:1px solid var(--line)}
 .panel li:last-child{border:0}
 .panel li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:2px;background:var(--blue)}
+.panel ol{list-style:none;padding:0;margin:0;counter-reset:s}
+.panel ol li{counter-increment:s;padding-left:38px}
+.panel ol li::before{content:counter(s);left:0;top:9px;width:24px;height:24px;border-radius:50%;font-size:13px;font-weight:700;line-height:24px;text-align:center;color:#fff}
 dl.kv{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:14px;margin-bottom:20px}
 dl.kv dt{color:var(--dim)} dl.kv dd{text-align:right}
 .panel .btn{width:100%;justify-content:center}

@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tianheluo.com/</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/store</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/install</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/developers</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/contact</loc><lastmod>2026-10-13</lastmod></url>
   <url><loc>https://tianheluo.com/ai</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/ai.md</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/llms.txt</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/tianheluo-ai-spec.txt</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/plugins.json</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://tianheluo.com/schema/plugin.schema.json</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/contact</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/developers</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/install</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/store</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/elv-merge</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/export-dwg</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/export-nwc</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/issue-manager</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/pile-cleanup</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/pile-cushion</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/plan-batch</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/schedule-excel</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/sheet-manager</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/tag-check</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/view-manager</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/well-annotate</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/well-clear-marks</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/well-depth</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/well-number</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins/well-sheets</loc><lastmod>2026-10-13</lastmod></url>
 </urlset>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一键导出NWC 流程示意图">
+<style>
+text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;fill:#e8eaf0}
+.m{fill:#8a93a6;font-size:14px}.h{font-size:18px;font-weight:700}.c{font-size:16px}
+.box{fill:#161b26;stroke:#2a3244;stroke-width:1.5}.hot{fill:#F59E0B;fill-opacity:.14;stroke:#F59E0B;stroke-width:2}
+.ar{stroke:#F59E0B;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<rect width="960" height="420" rx="18" fill="#0d1017" stroke="#1e2430"/>
+<text x="60" y="62" class="h">一键导出 NWC：一次点击，到手一个 .nwc</text>
+<rect class="box" x="40" y="130" width="190" height="110" rx="14"/><text x="135" y="176" class="c" text-anchor="middle">Revit</text><text x="135" y="204" class="m" text-anchor="middle">当前（3D）视图</text>
+<path class="ar" d="M240 185h40M272 173l12 12-12 12"/>
+<rect class="hot" x="290" y="130" width="190" height="110" rx="14"/><text x="385" y="176" class="c" text-anchor="middle" style="font-weight:700">一键导出NWC</text><text x="385" y="204" class="m" text-anchor="middle">点击一次即可</text>
+<path class="ar" d="M490 185h40M522 173l12 12-12 12"/>
+<rect class="box" x="540" y="130" width="190" height="110" rx="14"/><text x="635" y="176" class="c" text-anchor="middle">桌面</text><text x="635" y="204" class="m" text-anchor="middle">项目名.nwc</text>
+<path class="ar" d="M740 185h40M772 173l12 12-12 12"/>
+<rect class="box" x="790" y="130" width="140" height="110" rx="14"/><text x="860" y="176" class="c" text-anchor="middle">Navisworks</text><text x="860" y="204" class="m" text-anchor="middle">打开 / 附加</text>
+<rect class="box" x="290" y="272" width="190" height="34" rx="17"/><text x="385" y="295" class="m" text-anchor="middle" style="fill:#e8eaf0">✓ 转换元素属性</text>
+<rect class="box" x="290" y="316" width="190" height="34" rx="17"/><text x="385" y="339" class="m" text-anchor="middle" style="fill:#e8eaf0">✓ 自动跳过 CAD 链接</text>
+<text x="60" y="388" class="m">示意图：导出范围是当前视图，建议在干净的 3D 视图里运行 · 需要已安装 Navisworks 导出组件</text>
+</svg>
