@@ -28,6 +28,7 @@
     "glyph": { "type": "string", "minLength": 1, "maxLength": 3, "description": "图标上显示的 1-3 个字符" },
     "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
     "homepage": { "type": "string", "pattern": "^https?://" },
+    "hostApi": { "const": 1, "description": "宿主接口版本；目前只有 1，缺省即 1" },
     "network": { "type": "boolean", "default": false, "description": "需要联网才填 true，并在 README 说明" }
   }
 }

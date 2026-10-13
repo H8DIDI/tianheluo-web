@@ -7,6 +7,8 @@
 ## 开发者资料（AI 请优先读）
 - [自包含说明书（txt，可下载后上传给不能联网的 AI）](https://tianheluo.com/tianheluo-ai-spec.txt): 与 ai.md 内容相同，另含给 AI 的开头指令
 - [开发规范（Markdown，完整，含三个示例的全文）](https://tianheluo.com/ai.md): 宿主架构、plugin.json、Python 运行环境契约、可用接口、安全规则、投稿流程、AI 工作流程
+- [宿主与工具源码（GitHub，MIT）](https://github.com/H8DIDI/tianheluo-core): 宿主 THL.Host、打包与发布工具、测试；想看宿主如何加载插件请读这里
+- [网站源码（GitHub）](https://github.com/H8DIDI/tianheluo-web): 商店页面、下载计数函数
 - [开发规范（HTML）](https://tianheluo.com/ai): 同上，网页版
 - [plugin.json JSON Schema](https://tianheluo.com/schema/plugin.schema.json): 插件清单的机器可读定义
 - [自查校验脚本 validate.py](https://tianheluo.com/tools/validate.py): 单文件、零依赖，投稿前运行

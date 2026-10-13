@@ -14,6 +14,7 @@
 # 天河落 THL —— Revit 插件开发说明书（专门给 AI 阅读）
 
 > 版本 1.1（2026-10）· 官网 https://tianheluo.com · 投稿与联系邮箱 jiajiabimer@gmail.com
+> 宿主与工具源码（公开，MIT）：https://github.com/H8DIDI/tianheluo-core · 网站源码：https://github.com/H8DIDI/tianheluo-web
 > 本说明书是**自包含**的：规则、接口、完整示例代码都在里面，不需要访问任何链接。
 
 ## 0. 先读这个（30 秒版）
@@ -121,6 +122,7 @@ my-plugin_0.1.0.thlp  (zip)
 | `glyph` | 建议 | 图标上显示的 1–3 个字符（如「桩」「DWG」） |
 | `color` | 可选 | 图标主色，`#RRGGBB`；默认按分类配色 |
 | `homepage` | 可选 | 项目主页 |
+| `hostApi` | 可选 | 插件所需的宿主接口版本，整数，默认 `1`（目前宿主支持 `1`）。写 `1` 即可；宿主以后若升级了接口，会在发布说明里写明，旧插件不会被破坏 |
 | `network` | 可选 | 默认 `false`。需要联网才填 `true`，并在 README 里说明访问了哪些地址、为什么（见第 9 节） |
 
 JSON Schema：<https://tianheluo.com/schema/plugin.schema.json>

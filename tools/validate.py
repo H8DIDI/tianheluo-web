@@ -157,6 +157,8 @@ def check_manifest(root, dirname, offline):
         err("glyph 必须是 1~3 个字符")
     if "color" in m and (not isinstance(m["color"], str) or not COLOR_RE.match(m["color"])):
         err("color 必须是 #RRGGBB")
+    if "hostApi" in m and (not isinstance(m["hostApi"], int) or isinstance(m["hostApi"], bool) or m["hostApi"] != 1):
+        err("hostApi 必须是整数 1（当前宿主只支持接口版本 1），或者删掉这个字段")
     if "network" in m and not isinstance(m["network"], bool):
         err("network 必须是 true 或 false")
     if "homepage" in m and not (isinstance(m["homepage"], str) and m["homepage"].startswith(("http://", "https://"))):

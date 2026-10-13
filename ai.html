@@ -23,6 +23,7 @@
 <h1>天河落 THL —— Revit 插件开发说明书（专门给 AI 阅读）</h1>
 <blockquote>
 <p>版本 1.1（2026-10）· 官网 https://tianheluo.com · 投稿与联系邮箱 jiajiabimer@gmail.com
+宿主与工具源码（公开，MIT）：https://github.com/H8DIDI/tianheluo-core · 网站源码：https://github.com/H8DIDI/tianheluo-web
 本说明书是<strong>自包含</strong>的：规则、接口、完整示例代码都在里面，不需要访问任何链接。</p>
 </blockquote>
 <h2>0. 先读这个（30 秒版）</h2>
@@ -203,6 +204,11 @@
 <td><code>homepage</code></td>
 <td>可选</td>
 <td>项目主页</td>
+</tr>
+<tr>
+<td><code>hostApi</code></td>
+<td>可选</td>
+<td>插件所需的宿主接口版本，整数，默认 <code>1</code>（目前宿主支持 <code>1</code>）。写 <code>1</code> 即可；宿主以后若升级了接口，会在发布说明里写明，旧插件不会被破坏</td>
 </tr>
 <tr>
 <td><code>network</code></td>

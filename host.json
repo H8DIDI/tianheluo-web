@@ -1,19 +1,19 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "released": "2026-10-13",
-  "notes": "新增：在插件中心一键更新宿主和插件（不用再去官网下载）；插件商店显示下载数，官网新增热门插件榜。",
+  "notes": "安全与稳定性：插件下载增加 SHA256 校验；插件新增 hostApi 接口版本声明（宿主过旧时给出提示而不是出错）；安装社区投稿插件前会弹出确认。",
   "assets": {
     "net8": {
       "url": "/api/dl/host-net8",
-      "file": "/dl/host/THL-Host-net8_0.2.0.zip",
-      "sha256": "8a2302901b185f1679b0748b57159a91c0467fd53e0890ac8a94b873f55f65a3",
-      "size": 7101416
+      "file": "/dl/host/THL-Host-net8_0.2.1.zip",
+      "sha256": "604f72f6fbf9c6f91b4330408996211984648b128538c20fe117d6c85fe4949b",
+      "size": 7102266
     },
     "net10": {
       "url": "/api/dl/host-net10",
-      "file": "/dl/host/THL-Host-net10_0.2.0.zip",
-      "sha256": "6bd847cb3cad4050c2231dc66b440cfbb25568dcd0b115fbb66ffb9449f30517",
-      "size": 7101407
+      "file": "/dl/host/THL-Host-net10_0.2.1.zip",
+      "sha256": "5e8b9a5bea635ac6da600112bf2e93bdfc1def9721fa1612d14eb1b02e269690",
+      "size": 7102270
     }
   },
   "installer": {
