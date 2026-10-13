@@ -193,6 +193,33 @@
       "homepage": ""
     },
     {
+      "id": "plan-batch",
+      "name": "批量生成平面图",
+      "en": "plan-batch",
+      "category": "出图打印",
+      "summary": "选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。视图名为“标高_视图类型”，已存在同名的会跳过。",
+      "description": "选几种平面视图类型 + 几个标高，一次批量生成所有平面视图（左边选类型，右边选标高，每个组合生成一张）。视图名为“标高_视图类型”，已存在同名的会跳过。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "15 KB",
+      "status": "beta",
+      "download": "/api/dl/plan-batch",
+      "file": "/dl/plan-batch_0.1.0.thlp",
+      "sha256": "34304e7db2efcc25a5b92e05a76f3f432d1809df049ad38397d5650299414d1c",
+      "hostApi": 1,
+      "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/plan-batch",
+      "date": "2026-10-13",
+      "glyph": "平",
+      "color": "#8B5CF6",
+      "tier": "official",
+      "author": "didi",
+      "license": "MIT",
+      "homepage": ""
+    },
+    {
       "id": "schedule-excel",
       "name": "明细表Excel互导",
       "en": "schedule-excel",
