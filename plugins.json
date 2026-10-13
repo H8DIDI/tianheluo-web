@@ -283,13 +283,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.1.1",
+      "version": "0.1.2",
       "revit": "2026",
-      "size": "23 KB",
+      "size": "25 KB",
       "status": "beta",
       "download": "/api/dl/tag-check",
-      "file": "/dl/tag-check_0.1.1.thlp",
-      "sha256": "d19038768f658d578d7fa9e5952155f82c5fef403143e3e537ea110fa1f9ecc9",
+      "file": "/dl/tag-check_0.1.2.thlp",
+      "sha256": "604e3793d605c12673f119b668b4ab583876a79918f18f3fce76c5f544281f88",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/tag-check",
       "date": "2026-10-13",
