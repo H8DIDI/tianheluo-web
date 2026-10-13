@@ -1,19 +1,19 @@
 {
-  "version": "0.2.2",
+  "version": "0.2.3",
   "released": "2026-10-13",
-  "notes": "修复：插件中心和插件进度窗口不再强制置顶，而是归属于 Revit（不会躲到 Revit 后面挡住操作）；插件进度条生成结束后自动关闭。",
+  "notes": "插件中心显示官网地址（tianheluo.com），单击打开，右键复制，方便分享插件时告诉别人去哪找你。",
   "assets": {
     "net8": {
       "url": "/api/dl/host-net8",
-      "file": "/dl/host/THL-Host-net8_0.2.2.zip",
-      "sha256": "656c938c357a2d345f96a150c86250186bd5bab9f1611f94ec7951afe959708b",
-      "size": 7102293
+      "file": "/dl/host/THL-Host-net8_0.2.3.zip",
+      "sha256": "a530823b4340ac704d90520f0bc5a14a66207f04e67d12bf41823fe9a1b1dbf0",
+      "size": 7102636
     },
     "net10": {
       "url": "/api/dl/host-net10",
-      "file": "/dl/host/THL-Host-net10_0.2.2.zip",
-      "sha256": "f465a1f68e108494f8b90c2739dc6e1e061062ae73ddb6656fa6be3e409ab31c",
-      "size": 7102284
+      "file": "/dl/host/THL-Host-net10_0.2.3.zip",
+      "sha256": "1e648634b5dba8fd6a2b5170bc0834b05036c97e8d9231fb6554637c6d5d6967",
+      "size": 7102620
     }
   },
   "installer": {
