@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "released": "2026-10-13",
+  "notes": "新增：在插件中心一键更新宿主和插件（不用再去官网下载）；插件商店显示下载数，官网新增热门插件榜。",
+  "assets": {
+    "net8": {
+      "url": "/api/dl/host-net8",
+      "file": "/dl/host/THL-Host-net8_0.2.0.zip",
+      "sha256": "c0302a388d39247f064e6c5b9b1e8ad9282f26b4b08c04786bd1a6f049ffd6aa",
+      "size": 7101413
+    },
+    "net10": {
+      "url": "/api/dl/host-net10",
+      "file": "/dl/host/THL-Host-net10_0.2.0.zip",
+      "sha256": "1155104f3666bfffb36e429e58d8e043c9633e10a5a8cec96f9fa6f542e69a79",
+      "size": 7101405
+    }
+  },
+  "installer": {
+    "file": "/dl/THL-Host.zip"
+  }
+}

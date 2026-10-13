@@ -16,7 +16,7 @@
 
 ## 平台数据
 - [商店清单 plugins.json](https://tianheluo.com/plugins.json): 全部已上架插件（id、名称、版本、分类、下载地址、作者、许可）
-- [宿主安装包](https://tianheluo.com/dl/THL-Host_0.1.0.zip): Revit 2026 宿主（按 Revit 版本自动选择 .NET 8 / .NET 10 版）
+- [宿主安装包](https://tianheluo.com/dl/THL-Host.zip): Revit 2026 宿主（按 Revit 版本自动选择 .NET 8 / .NET 10 版）
 
 ## 给人看的页面
 - [首页](https://tianheluo.com/)

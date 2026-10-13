@@ -292,7 +292,7 @@ if __name__ == "__main__":
 | 自查校验脚本 | <https://tianheluo.com/tools/validate.py> |
 | 示例插件 | <https://tianheluo.com/examples/hello-world/script.py> 等 |
 | 投稿邮箱 | jiajiabimer@gmail.com |
-| 宿主安装包 | <https://tianheluo.com/dl/THL-Host_0.1.0.zip> |
+| 宿主安装包 | <https://tianheluo.com/dl/THL-Host.zip> |
 
 ## 12. AI 工作流程（请照此执行）
 
