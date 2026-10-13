@@ -7,3 +7,4 @@
 /store/* /store 301
 /plugins /store 301
 /plugins/ /store 301
+/plugin.html /plugin 301
