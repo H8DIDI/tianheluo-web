@@ -1,19 +1,19 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "released": "2026-10-13",
-  "notes": "安全与稳定性：插件下载增加 SHA256 校验；插件新增 hostApi 接口版本声明（宿主过旧时给出提示而不是出错）；安装社区投稿插件前会弹出确认。",
+  "notes": "修复：插件中心和插件进度窗口不再强制置顶，而是归属于 Revit（不会躲到 Revit 后面挡住操作）；插件进度条生成结束后自动关闭。",
   "assets": {
     "net8": {
       "url": "/api/dl/host-net8",
-      "file": "/dl/host/THL-Host-net8_0.2.1.zip",
-      "sha256": "f046e54ee16a50e58c2b97170e63225f514c462c8372f8dc9f8535035d8c5831",
-      "size": 7102178
+      "file": "/dl/host/THL-Host-net8_0.2.2.zip",
+      "sha256": "656c938c357a2d345f96a150c86250186bd5bab9f1611f94ec7951afe959708b",
+      "size": 7102293
     },
     "net10": {
       "url": "/api/dl/host-net10",
-      "file": "/dl/host/THL-Host-net10_0.2.1.zip",
-      "sha256": "96156eec6a34f80fd758a7f64ad5638fa1184e2b68bdf129b21693c0fe4508cd",
-      "size": 7102181
+      "file": "/dl/host/THL-Host-net10_0.2.2.zip",
+      "sha256": "f465a1f68e108494f8b90c2739dc6e1e061062ae73ddb6656fa6be3e409ab31c",
+      "size": 7102284
     }
   },
   "installer": {
