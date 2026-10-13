@@ -419,13 +419,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.2.3",
+      "version": "0.2.4",
       "revit": "2026",
-      "size": "16 KB",
+      "size": "17 KB",
       "status": "beta",
       "download": "/api/dl/well-sheets",
-      "file": "/dl/well-sheets_0.2.3.thlp",
-      "sha256": "91cedb99c6325ad67aeac5e30e644aa667e957492e688fe1ab1873efbbf73451",
+      "file": "/dl/well-sheets_0.2.4.thlp",
+      "sha256": "e4faf77d5b0947e6d6bc038d4c00accade451e6a0d00f6ce2322ddecd69da9ac",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sheets",
       "date": "2026-10-13",
