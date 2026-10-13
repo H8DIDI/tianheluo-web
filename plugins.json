@@ -274,6 +274,33 @@
       "homepage": "https://github.com/lewismconte/sendit"
     },
     {
+      "id": "tag-check",
+      "name": "标注检查",
+      "en": "tag-check",
+      "category": "出图打印",
+      "summary": "检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。标记标准可以在窗口里打开标准文件自己改（Documents\\KaifaTools",
+      "description": "检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。标记标准可以在窗口里打开标准文件自己改（Documents\\KaifaTools\\标注标准.json）；没有配置标准时，按模型里该类构件用得最多的标记族来对比。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "22 KB",
+      "status": "beta",
+      "download": "/api/dl/tag-check",
+      "file": "/dl/tag-check_0.1.0.thlp",
+      "sha256": "45cba2e2690edf21b6f6fa185b30af451208a462de2ff668413df16ae412e2ac",
+      "hostApi": 1,
+      "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/tag-check",
+      "date": "2026-10-13",
+      "glyph": "检",
+      "color": "#10B981",
+      "tier": "official",
+      "author": "didi",
+      "license": "MIT",
+      "homepage": ""
+    },
+    {
       "id": "view-manager",
       "name": "视图管理",
       "en": "view-manager",
