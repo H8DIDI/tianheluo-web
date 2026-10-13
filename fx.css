@@ -126,6 +126,6 @@ pre.prompt,pre.arch{background:#0a0c10;border:1px solid var(--line2);border-radi
 .rk .cnt{color:#7cc3ff;font:600 14px var(--mono);white-space:nowrap}
 .pic{display:grid;place-items:center;border-radius:22%;border:1px solid;flex:none}
 
-#foot .wx{display:flex;flex-direction:column;gap:8px;max-width:160px}
-#foot .wx img{border-radius:10px;background:#fff;height:auto;width:120px}
+#foot .wx{display:flex;flex-direction:column;gap:8px;max-width:200px}
+#foot .wx img{border-radius:10px;background:#fff;height:auto;width:168px}
 #foot .wx span{font-size:12px;opacity:.7;line-height:1.5}
