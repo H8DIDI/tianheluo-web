@@ -24,6 +24,7 @@ document.getElementById("foot").innerHTML = `
   <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
   <div><b>产品</b><a href="/store.html">插件商店</a><a href="/install.html">安装指南</a></div>
   <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><img src="/wechat-didi.png" alt="微信二维码 didi" width="120" height="176" loading="lazy"><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数仅记录“某插件被下载了一次”，不保存你的 IP 或任何个人信息。</div>
 </div>`;
 
