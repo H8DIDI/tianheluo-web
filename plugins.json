@@ -202,13 +202,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "revit": "2026",
       "size": "15 KB",
       "status": "beta",
       "download": "/api/dl/plan-batch",
-      "file": "/dl/plan-batch_0.1.0.thlp",
-      "sha256": "34304e7db2efcc25a5b92e05a76f3f432d1809df049ad38397d5650299414d1c",
+      "file": "/dl/plan-batch_0.1.1.thlp",
+      "sha256": "2bed9634302eae94ca6744282e1a5b8d74982d8a09eab09e4d7b89fb81716958",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/plan-batch",
       "date": "2026-10-13",
