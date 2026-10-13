@@ -1,5 +1,19 @@
-# 欢迎搜索引擎和 AI 助手读取本站。开发规范在 /ai.md 与 /llms.txt。
+# 欢迎搜索引擎和 AI 助手读取本站。开发规范在 /ai.md、/tianheluo-ai-spec.txt 与 /llms.txt。
 User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://tianheluo.com/sitemap.xml

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tianheluo.com/</loc></url>
-  <url><loc>https://tianheluo.com/store</loc></url>
-  <url><loc>https://tianheluo.com/install</loc></url>
-  <url><loc>https://tianheluo.com/developers</loc></url>
-  <url><loc>https://tianheluo.com/contact</loc></url>
-  <url><loc>https://tianheluo.com/ai</loc></url>
-  <url><loc>https://tianheluo.com/ai.md</loc></url>
-  <url><loc>https://tianheluo.com/llms.txt</loc></url>
-  <url><loc>https://tianheluo.com/tianheluo-ai-spec.txt</loc></url>
-  <url><loc>https://tianheluo.com/plugins.json</loc></url>
-  <url><loc>https://tianheluo.com/schema/plugin.schema.json</loc></url>
+  <url><loc>https://tianheluo.com/</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/store</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/install</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/developers</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/contact</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/ai</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/ai.md</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/llms.txt</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/tianheluo-ai-spec.txt</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/plugins.json</loc><lastmod>2026-10-13</lastmod></url>
+  <url><loc>https://tianheluo.com/schema/plugin.schema.json</loc><lastmod>2026-10-13</lastmod></url>
 </urlset>
