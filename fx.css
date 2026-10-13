@@ -129,3 +129,8 @@ pre.prompt,pre.arch{background:#0a0c10;border:1px solid var(--line2);border-radi
 #foot .wx{display:flex;flex-direction:column;gap:8px;max-width:190px}
 #foot .wx img{border-radius:8px;background:#fff;padding:4px;width:104px;height:104px;display:block}
 #foot .wx span{font-size:12px;opacity:.7;line-height:1.5}
+
+.nav nav a.ghlink{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:8px}
+.nav nav a.ghlink:hover{border-color:var(--mute)}
+.btn .ghi{flex:none}
+@media(max-width:560px){.nav nav a.ghlink{padding:6px 8px}.nav nav a.ghlink{font-size:0}.nav nav a.ghlink .ghi{width:18px;height:18px}}
