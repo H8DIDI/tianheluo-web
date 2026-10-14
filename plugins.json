@@ -11,13 +11,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.1.3",
+      "version": "0.1.4",
       "revit": "2026",
-      "size": "41 KB",
+      "size": "42 KB",
       "status": "beta",
       "download": "/api/dl/duct-snap",
-      "file": "/dl/duct-snap_0.1.3.thlp",
-      "sha256": "888e462ba4201f86f3cd4745e700652052e50f7b935669f52d9d34417d5280c5",
+      "file": "/dl/duct-snap_0.1.4.thlp",
+      "sha256": "90efc9ffd4b1b3f4d7be33aaada95ff4783b120139a410ac78dbe5bcae824f95",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-snap",
       "date": "2026-10-14",
