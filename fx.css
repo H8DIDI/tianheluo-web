@@ -1,149 +1,874 @@
-/* ===== Raycast 式视觉与动效 ===== */
-:root{--bg:#070709;--card:#101014;--bg2:#0b0b0e;--line:#1c1c22;--line2:#2a2a33;--blue:#3b9bff}
-body{background:#070709}
-.nav{background:rgba(7,7,9,.6)}
-.nav .wrap{height:64px}
-.nav nav a{padding:6px 12px;border-radius:8px}
-.nav nav a:hover{background:rgba(255,255,255,.06)}
+/* ==========================================================================
+   天河落 THL (tianheluo.com) — 标杆级动效与高级组件样式表 (fx.css v3)
+   核心亮点：
+   1. Raycast 双层磨砂玻璃外框启动器 (.win) + Linear 地平线舞台弧光
+   2. Vercel Geist 建筑十字准星结构节点 (+)
+   3. Linear 级微光聚光灯 (1px 边缘高光追光 + 丝滑阻尼动效)
+   4. Raycast Store 双栏精密排行榜
+   ========================================================================== */
 
-.beams{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.beams i{position:absolute;top:-30%;width:2px;height:140%;transform:rotate(24deg);background:linear-gradient(180deg,transparent,rgba(59,155,255,.55),transparent);opacity:0;animation:beam 7s ease-in-out infinite}
-.beams i:nth-child(1){left:12%}.beams i:nth-child(2){left:26%;animation-delay:1.2s;height:120%}
-.beams i:nth-child(3){left:41%;animation-delay:2.4s}.beams i:nth-child(4){left:58%;animation-delay:.6s;height:130%}
-.beams i:nth-child(5){left:73%;animation-delay:3.1s}.beams i:nth-child(6){left:88%;animation-delay:1.8s;height:115%}
-@keyframes beam{0%,100%{opacity:0;transform:rotate(24deg) translateY(-6%)}45%{opacity:.9}70%{opacity:.15;transform:rotate(24deg) translateY(6%)}}
-.hero::after{display:none}
-.hero{padding:120px 0 40px}
-.hero::before{background:radial-gradient(50% 55% at 50% 0,rgba(59,155,255,.28),transparent 70%)}
+/* 1. 顶部 2px 极细信号进度条 */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--grad-brand);
+  box-shadow: 0 0 10px var(--glow-strong);
+  z-index: 9999;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
 
-kbd{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;font:600 12.5px var(--font);color:#c9ced8;background:linear-gradient(180deg,#26262e,#1a1a20);border:1px solid #33333d;box-shadow:0 2px 0 #0c0c10,inset 0 1px 0 rgba(255,255,255,.07)}
-.btn kbd{margin-left:2px;height:22px;min-width:22px;font-size:11.5px}
-.btn.pri kbd{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.25);color:#fff;box-shadow:none}
-h1{font-size:clamp(40px,7.2vw,76px);letter-spacing:-.03em}
-h1 .shine{background:linear-gradient(100deg,#fff 20%,#9cd0ff 45%,#fff 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
-@keyframes shine{to{background-position:-220% 0}}
+/* 2. 微妙深空星尘画布 */
+.starfield-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
 
-.win{position:relative;max-width:760px;margin:70px auto 0;border-radius:20px;background:linear-gradient(180deg,rgba(24,24,30,.96),rgba(14,14,18,.96));border:1px solid #2b2b35;text-align:left;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 50px 140px -40px rgba(59,155,255,.45),0 20px 60px -20px #000;transform:perspective(1400px) rotateX(7deg);transform-origin:50% 0;animation:float 7s ease-in-out infinite}
-@keyframes float{0%,100%{transform:perspective(1400px) rotateX(7deg) translateY(0)}50%{transform:perspective(1400px) rotateX(5deg) translateY(-8px)}}
-.win .in{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid #23232b;font-size:18px;min-height:64px}
-.win .in .mag{color:#6b6b78}
-.win .in #typed{color:#f4f6fa}
-.win .in .ph{color:#5d5d69}
-.win .list{padding:8px 8px 10px;min-height:236px}
-.win .grp{padding:8px 14px 6px;font-size:12px;letter-spacing:.06em;color:#6b6b78}
-.win .it{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:10px;font-size:15px;color:#d8dbe3;transition:background .18s}
-.win .it .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:15px;background:linear-gradient(135deg,#1c3a58,#102236);border:1px solid #27506f;flex:none}
-.win .it small{margin-left:auto;color:#666673;font-size:12.5px}
-.win .it.sel{background:rgba(59,155,255,.16)}
-.win .it.sel small{color:#9cc8f5}
-.win .it.hide{display:none}
-.win .foot{display:flex;align-items:center;gap:10px;padding:11px 18px;border-top:1px solid #23232b;font-size:12.5px;color:#6b6b78}
-.win .foot .sp{flex:1}
-.toast{position:absolute;left:50%;bottom:62px;transform:translate(-50%,16px);opacity:0;display:flex;gap:10px;align-items:center;padding:10px 16px;border-radius:12px;background:#0d2a1f;border:1px solid #1c6b4a;color:#8ff0c2;font-size:14px;transition:.35s;white-space:nowrap}
-.toast.show{opacity:1;transform:translate(-50%,0)}
+/* 3. 导航栏标杆主题切换胶囊 */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 11px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--mute);
+  font: 500 12px var(--font);
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
 
-.marq{overflow:hidden;padding:34px 0;border-block:1px solid var(--line);margin-top:70px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.marq .tr{display:flex;gap:14px;width:max-content;animation:mq 34s linear infinite}
-.marq:hover .tr{animation-play-state:paused}
-.marq span{display:flex;align-items:center;gap:10px;padding:10px 18px;border-radius:99px;border:1px solid var(--line2);background:var(--card);color:#c8ccd6;font-size:14.5px;white-space:nowrap}
-.marq span b{color:var(--blue)}
-@keyframes mq{to{transform:translateX(-50%)}}
+.theme-switch:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
 
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
-.bn{position:relative;overflow:hidden;border-radius:20px;padding:30px;background:linear-gradient(180deg,#111116,#0b0b0e);border:1px solid var(--line);min-height:300px;transition:border-color .25s}
-.bn:hover{border-color:#34455a}
-.bn::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(59,155,255,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
-.bn:hover::before{opacity:1}
-.bn.a{grid-column:span 4}.bn.b{grid-column:span 2}.bn.c{grid-column:span 2}.bn.d{grid-column:span 4}
-.bn h3{font-size:22px;letter-spacing:-.01em;margin-bottom:8px;position:relative}
-.bn p{color:var(--mute);font-size:15px;max-width:420px;position:relative}
-.bn .viz{position:absolute;left:30px;right:30px;bottom:26px}
-.undo{display:flex;gap:10px;align-items:center;justify-content:center}
-.undo .bar{height:10px;flex:1;border-radius:6px;background:#1b1b22;overflow:hidden}
-.undo .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2f9bff,#7cc3ff);border-radius:6px;animation:fill 4s ease-in-out infinite;transform-origin:left}
-@keyframes fill{0%{transform:scaleX(0)}45%,60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
-.tbl{display:grid;gap:6px;font:12.5px var(--mono);color:#9aa4b2}
-.tbl div{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:7px 10px;border-radius:8px;background:#0d0d11;border:1px solid #1d1d24;opacity:0}
-.tbl b{color:#8ff0c2;font-weight:600}
-.reveal.in .tbl div{animation:rowin .6s forwards}
-.reveal.in .tbl div:nth-child(2){animation-delay:.25s}.reveal.in .tbl div:nth-child(3){animation-delay:.5s}
-@keyframes rowin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.orbit{position:relative;height:120px}
-.orbit span{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#1c3a58,#102236);border:1px solid #27506f;font-size:20px;animation:orb 12s linear infinite}
-.orbit span:nth-child(2){animation-delay:-3s}.orbit span:nth-child(3){animation-delay:-6s}.orbit span:nth-child(4){animation-delay:-9s}
-@keyframes orb{from{transform:rotate(0) translateX(110px) rotate(0)}to{transform:rotate(360deg) translateX(110px) rotate(-360deg)}}
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  box-shadow: 0 0 8px var(--glow-strong);
+}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.card,.pc{position:relative;overflow:hidden}
-.card::before,.pc::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(59,155,255,.14),transparent 60%);opacity:0;transition:opacity .25s;pointer-events:none}
-.card:hover::before,.pc:hover::before{opacity:1}
-.final{text-align:center;padding:110px 0 40px;position:relative}
-.final::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 60% at 50% 100%,rgba(59,155,255,.25),transparent 70%)}
-.final>*{position:relative}
+/* 4. Linear 风格克制环境光束 (.beams) */
+.beams {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
-@media(max-width:860px){.bento{grid-template-columns:1fr}.bn.a,.bn.b,.bn.c,.bn.d{grid-column:auto}.win{transform:none;animation:none}.orbit span{animation-name:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.tbl div{opacity:1}}
+.beams i {
+  position: absolute;
+  top: -35%;
+  width: 1.5px;
+  height: 140%;
+  transform: rotate(22deg);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.16), var(--blue-bright), transparent);
+  opacity: 0;
+  animation: beam 9s ease-in-out infinite;
+}
 
-/* ===== 文档页（/ai）与开发者页 ===== */
-.tag.community{color:#c4a8ff;border-color:rgba(160,120,255,.4)}
-.doc{padding-top:48px;padding-bottom:40px;max-width:900px}
-.doc-note{color:var(--dim);font-size:13.5px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:28px}
-.doc-note a{color:var(--blue)}
-.doc h1{font-size:clamp(28px,4.5vw,40px);line-height:1.2;margin:0 0 14px}
-.doc h2{font-size:25px;margin:44px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
-.doc h3{font-size:19px;margin:28px 0 8px}
-.doc p,.doc li{color:#c8ccd6;line-height:1.75}
-.doc ul,.doc ol{padding-left:22px;margin:8px 0 14px}
-.doc li{margin:4px 0}
-.doc a{color:var(--blue)}
-.doc blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid var(--blue);background:rgba(59,155,255,.07);border-radius:0 10px 10px 0}
-.doc blockquote p{margin:4px 0}
-.doc table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;display:block;overflow-x:auto}
-.doc th,.doc td{border:1px solid var(--line2);padding:8px 12px;text-align:left;vertical-align:top}
-.doc th{background:var(--card);color:var(--text)}
-.doc pre{background:#0a0c10;border:1px solid var(--line2);border-radius:12px;padding:16px;overflow-x:auto;font:13px/1.6 var(--mono);color:#cfe6ff}
-.doc code{font-family:var(--mono);font-size:13px;background:#0a0c10;border:1px solid var(--line2);border-radius:6px;padding:1px 6px;color:#9bd0ff}
-.doc pre code{background:none;border:0;padding:0;color:inherit}
-pre.prompt,pre.arch{background:#0a0c10;border:1px solid var(--line2);border-radius:12px;padding:16px;overflow-x:auto;font:13.5px/1.7 var(--mono);color:#cfe6ff;white-space:pre-wrap;margin:10px 0 14px}
+.beams i:nth-child(1) { left: 16%; }
+.beams i:nth-child(2) { left: 31%; animation-delay: 1.6s; height: 120%; }
+.beams i:nth-child(3) { left: 46%; animation-delay: 3.2s; }
+.beams i:nth-child(4) { left: 61%; animation-delay: 0.8s; height: 130%; }
+.beams i:nth-child(5) { left: 76%; animation-delay: 4.0s; }
+.beams i:nth-child(6) { left: 88%; animation-delay: 2.4s; height: 115%; }
 
-/* ===== 热门榜 / 下载数 ===== */
-.tag.dl{color:#7cc3ff;border-color:rgba(60,150,255,.35)}
-.chip-sep{width:1px;height:20px;background:var(--line2);margin:0 4px}
-.rank{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-.rank-tabs{display:flex;gap:6px;margin:2px 0 8px}
-.rank-tabs button{border:1px solid var(--line2);background:transparent;color:var(--mute);height:32px;padding:0 14px;border-radius:99px;cursor:pointer;font-size:13.5px}
-.rank-tabs button.on{background:var(--text);color:#000;border-color:var(--text)}
-.rank-note{color:var(--dim);font-size:13px;margin:4px 6px 10px}
-.rk{display:flex;align-items:center;gap:14px;padding:9px 8px;border-radius:12px;transition:.15s}
-.rk:hover{background:rgba(255,255,255,.04)}
-.rk .no{width:26px;text-align:center;font:800 17px var(--mono);color:var(--dim)}
-.rk .no.top{color:#ffc531}
-.rk .nm{flex:1;display:flex;flex-direction:column;line-height:1.35;min-width:0}
-.rk .nm b{font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rk .nm small{color:var(--dim);font-size:12.5px}
-.rk .cnt{color:#7cc3ff;font:600 14px var(--mono);white-space:nowrap}
-.pic{display:grid;place-items:center;border-radius:22%;border:1px solid;flex:none}
+@keyframes beam {
+  0%, 100% { opacity: 0; transform: rotate(22deg) translateY(-8%); }
+  45% { opacity: 0.55; }
+  75% { opacity: 0.1; transform: rotate(22deg) translateY(8%); }
+}
 
-#foot .wx{display:flex;flex-direction:column;gap:8px;max-width:190px}
-#foot .wx img{border-radius:8px;background:#fff;padding:4px;width:104px;height:104px;display:block}
-#foot .wx span{font-size:12px;opacity:.7;line-height:1.5}
+/* 5. Raycast / Linear 精密微缩键盘键帽 (kbd) */
+kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 21px;
+  padding: 0 6px;
+  border-radius: 5px;
+  font: 500 11px/1 var(--mono);
+  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
 
-.nav nav a.ghlink{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:8px}
-.nav nav a.ghlink:hover{border-color:var(--mute)}
-.btn .ghi{flex:none}
-@media(max-width:560px){.nav nav a.ghlink{padding:6px 8px}.nav nav a.ghlink{font-size:0}.nav nav a.ghlink .ghi{width:18px;height:18px}}
+.btn kbd {
+  margin-left: 4px;
+  height: 20px;
+  min-width: 20px;
+  font-size: 11px;
+}
 
-/* 页面主标题：用 <h1> 保证每页只有一个 h1，外观沿用原来的 h2 */
-h1.pt{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.015em;margin:10px 0 14px;font-weight:800}
+/* 高反差纯白主按钮内的深色精致键帽 */
+.btn.pri kbd {
+  background: rgba(8, 9, 10, 0.1);
+  border-color: rgba(8, 9, 10, 0.18);
+  color: #08090a;
+  box-shadow: none;
+  font-weight: 700;
+}
 
-/* 手机：导航分两行——第一行品牌，第二行横向滑动的链接（原来会被挤成竖排） */
-@media(max-width:700px){
-  .nav .wrap{height:auto;flex-wrap:wrap;gap:0;padding-top:10px;padding-bottom:4px}
-  .nav .sp,.nav .btn{display:none}
-  .brand{white-space:nowrap}
-  .nav nav{order:3;flex:0 0 100%;margin:6px -10px 0;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .nav nav::-webkit-scrollbar{display:none}
-  .nav nav a{white-space:nowrap;flex:none}
+/* 6. 标题流光渐变 (h1 .shine) */
+h1 {
+  font-size: clamp(40px, 6.8vw, 72px);
+  letter-spacing: -0.035em;
+}
+
+h1 .shine {
+  background: var(--grad-shine);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: -220% 0; }
+}
+
+/* ==================== 启动器命令窗口 (.win) — Raycast 双层玻璃外框 + Linear 地平线弧光 ==================== */
+.win {
+  position: relative;
+  max-width: 760px;
+  margin: 60px auto 0;
+  border-radius: 16px;
+  background: #0d0e11;
+  /* Raycast 标志性 8px 半透明磨砂外框 (Double-Bezel Ring) */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  outline: 8px solid rgba(255, 255, 255, 0.03);
+  text-align: left;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16),
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 0 0 9px rgba(255, 255, 255, 0.06),
+    0 -18px 80px -12px var(--glow),
+    0 45px 110px -20px rgba(0, 0, 0, 0.92);
+}
+
+/* 窗口顶部极光高光折射细线 */
+.win::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), var(--blue-bright), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.win .in {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.015);
+  font-size: 16.5px;
+  min-height: 58px;
+}
+
+.win .in .mag {
+  color: var(--mute);
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.win .in #typed {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.win .in #typed:not(:empty)::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px var(--blue-bright);
+  margin-left: 3px;
+  vertical-align: -3px;
+  animation: bl 1s steps(1) infinite;
+}
+
+.win .in .ph { color: var(--dim); }
+
+.win .list {
+  padding: 8px 10px 10px;
+  min-height: 244px;
+}
+
+.win .grp {
+  padding: 6px 12px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.win .it {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.win .it:hover {
+  background: rgba(255, 255, 255, 0.035);
+  color: #e4e4e7;
+}
+
+.win .it .ic {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #e4e4e7;
+  flex: none;
+}
+
+.win .it small {
+  margin-left: auto;
+  color: var(--dim);
+  font-size: 11.5px;
+  font-family: var(--mono);
+}
+
+/* Raycast 选中行高亮样式 */
+.win .it.sel {
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+.win .it.sel .ic {
+  background: var(--grad-brand);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 2px 10px var(--glow);
+}
+
+.win .it.sel small {
+  color: #d4d4d8;
+}
+
+.win .it.hide { display: none; }
+
+.win .foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.win .foot .sp { flex: 1; }
+
+/* 悬浮 Toast 提示框 (.toast) — Raycast HUD 风格 */
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 54px;
+  transform: translate(-50%, 12px) scale(0.96);
+  opacity: 0;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(18, 20, 24, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #34d399;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+/* ==================== 跑马灯条 (.marq) — Linear 极简徽章流 ==================== */
+.marq {
+  overflow: hidden;
+  padding: 24px 0;
+  border-block: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.01);
+  margin-top: 76px;
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+.marq .tr {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: mq 34s linear infinite;
+}
+
+.marq:hover .tr { animation-play-state: paused; }
+
+.marq span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: #d4d4d8;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.marq span b {
+  color: var(--blue-bright);
+}
+
+@keyframes mq { to { transform: translateX(-50%); } }
+
+/* ==================== Bento 特性矩阵 (.bento / .bn) — Linear 产品卡质感 ==================== */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 38px;
+}
+
+.bn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(12, 13, 16, 0.96) 100%);
+  border: 1px solid var(--line);
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  box-shadow:
+    inset 0 1px 0 0 var(--rim),
+    0 16px 40px -20px rgba(0, 0, 0, 0.75);
+  transition: border-color 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bn:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Linear 标志性克制白光追光 (Subtle Luminance Spotlight) */
+.bn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.065), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.bn:hover::before { opacity: 1; }
+
+.bn.a { grid-column: span 4; }
+.bn.b { grid-column: span 2; }
+.bn.c { grid-column: span 2; }
+.bn.d { grid-column: span 4; }
+
+.bn h3 {
+  font-size: 19.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 2px;
+  position: relative;
+}
+
+.bn p {
+  color: var(--mute);
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 450px;
+  position: relative;
+}
+
+.bn .viz {
+  position: relative;
+  margin-top: auto;
+  padding-top: 20px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 事务回退进度条 (.undo) */
+.undo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 12px;
+  background: #08090a;
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.undo kbd {
+  animation: key-press 4s ease-in-out infinite;
+}
+
+@keyframes key-press {
+  0%, 40%, 100% { transform: translateY(0); }
+  45%, 55% { transform: translateY(1.5px); border-color: rgba(255, 255, 255, 0.28); color: #ffffff; }
+}
+
+.undo .bar {
+  height: 8px;
+  flex: 1;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.undo .bar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--grad-brand);
+  border-radius: 99px;
+  animation: fill 4s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes fill {
+  0% { transform: scaleX(0); }
+  45%, 60% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+/* 预览对照表 (.tbl) */
+.tbl {
+  display: grid;
+  gap: 6px;
+  font: 12px var(--mono);
+  color: var(--mute);
+}
+
+.tbl div {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 0.8fr;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 9px;
+  background: #08090a;
+  border: 1px solid var(--line);
+}
+
+.tbl div span:last-child {
+  text-align: right;
+  color: var(--dim);
+}
+
+.tbl b {
+  color: #34d399;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.reveal.in .tbl div {
+  animation: rowin 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.reveal.in .tbl div:nth-child(2) { animation-delay: 0.15s; }
+.reveal.in .tbl div:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes rowin {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* 星轨反应堆 (.orbit) */
+.orbit {
+  position: relative;
+  height: 136px;
+  display: grid;
+  place-items: center;
+}
+
+.orbit::before {
+  content: "";
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.orbit::after {
+  content: "THL";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 20px var(--glow);
+  display: grid;
+  place-items: center;
+  font: 800 10px var(--mono);
+  color: #ffffff;
+}
+
+.orbit span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: #121418;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #e4e4e7;
+  font-size: 15px;
+  animation: orb 14s linear infinite;
+}
+
+.orbit span:nth-child(2) { animation-delay: -3.5s; }
+.orbit span:nth-child(3) { animation-delay: -7s; }
+.orbit span:nth-child(4) { animation-delay: -10.5s; }
+
+@keyframes orb {
+  from { transform: rotate(0) translateX(61px) rotate(0); }
+  to { transform: rotate(360deg) translateX(61px) rotate(-360deg); }
+}
+
+/* ==================== 滚动淡入与卡片高光追光 (.reveal / .final) ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.card, .pc, .panel, .step {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before, .pc::before, .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.055), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.card:hover::before, .pc:hover::before, .panel:hover::before {
+  opacity: 1;
+}
+
+.final {
+  text-align: center;
+  padding: 96px 0 52px;
+  position: relative;
+}
+
+.final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(42% 55% at 50% 100%, var(--glow), transparent 70%);
+  pointer-events: none;
+}
+
+.final > * { position: relative; }
+
+/* ==================== 热门插件榜与下载统计 (Raycast Store 风格 .rank / .rk) ==================== */
+.tag.dl {
+  color: #d4d4d8;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.chip-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--line2);
+  margin: 0 4px;
+}
+
+.rank {
+  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(12, 13, 16, 0.96) 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: inset 0 1px 0 var(--rim), 0 16px 40px -20px rgba(0, 0, 0, 0.75);
+}
+
+.rank-tabs {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 9px;
+  background: #08090a;
+  border: 1px solid var(--line);
+  margin: 0 0 14px;
+}
+
+.rank-tabs button {
+  border: 0;
+  background: transparent;
+  color: var(--mute);
+  height: 28px;
+  padding: 0 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: all 0.16s ease;
+}
+
+.rank-tabs button:hover { color: var(--text); }
+
+.rank-tabs button.on {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.rank-note {
+  grid-column: 1 / -1;
+  color: var(--mute);
+  font-size: 12.5px;
+  margin: 2px 4px 10px;
+}
+
+.rank-body {
+  display: grid;
+  gap: 6px;
+}
+
+@media (min-width: 861px) {
+  .rank[data-limit="10"] .rank-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 18px;
+  }
+}
+
+.rk {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 9px 12px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  transition: all 0.16s ease;
+}
+
+.rk:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.rk .no {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font: 600 12.5px var(--mono);
+  color: var(--dim);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rk .no.top {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.rk .nm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+  min-width: 0;
+}
+
+.rk .nm b {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #f4f4f5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rk .nm small { color: var(--dim); font-size: 12px; }
+
+.rk .cnt {
+  color: var(--mute);
+  font: 500 12.5px var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pic {
+  display: grid;
+  place-items: center;
+  border-radius: 22%;
+  border: 1px solid;
+  flex: none;
+}
+
+/* ==================== 页脚微信二维码与导航 GitHub 按钮 ==================== */
+#foot .wx {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 188px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+#foot .wx img {
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 5px;
+  width: 104px;
+  height: 104px;
+  display: block;
+}
+
+#foot .wx span {
+  font-size: 12px;
+  color: var(--mute);
+  line-height: 1.5;
+}
+
+.nav nav a.ghlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.nav nav a.ghlink:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn .ghi { flex: none; }
+
+h1.pt {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  margin: 12px 0 12px;
+  font-weight: 700;
+}
+
+/* ==================== 响应式与无障碍降级 ==================== */
+@media (max-width: 860px) {
+  .bento { grid-template-columns: 1fr; }
+  .bn.a, .bn.b, .bn.c, .bn.d { grid-column: auto; min-height: auto; }
+}
+
+@media (max-width: 700px) {
+  .nav .wrap { height: auto; flex-wrap: wrap; gap: 0; padding: 10px 14px 6px; }
+  .nav .sp, .nav .btn { display: none; }
+  .brand { white-space: nowrap; flex: none; }
+  #thl-theme-btn { margin-left: auto; flex: none; }
+  .nav nav { order: 3; flex: 0 0 100%; margin: 8px -6px 0; gap: 2px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .nav nav::-webkit-scrollbar { display: none; }
+  .nav nav a { white-space: nowrap; flex: none; }
+}
+
+/* 平板宽度：导航一行放得下，文字不换行；GitHub 与主题只留图标（文字仍在 DOM 里，屏幕阅读器可读） */
+@media (min-width: 701px) and (max-width: 960px) {
+  .brand, .nav nav a, .nav .btn, #thl-theme-btn { white-space: nowrap; }
+  .nav .wrap { gap: 14px; }
+  .nav nav a { padding: 7px 9px; }
+  .nav nav a.ghlink { font-size: 0; padding: 7px 8px; }
+  .nav nav a.ghlink .ghi { width: 16px; height: 16px; }
+  #thl-theme-btn > span:last-child { display: none; }
+}
+
+@media (max-width: 560px) {
+  .nav nav a.ghlink { padding: 6px 8px; font-size: 0; }
+  .nav nav a.ghlink .ghi { width: 17px; height: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  .tbl div { opacity: 1; }
 }

@@ -12,7 +12,7 @@ Revit 插件宿主 + 共享插件商店的官网。**公开共享、非商业**�
 | `plugins/<id>.html` | 每个插件的独立详情页 `/plugins/<id>`（**自动生成**，由 `tools/build_seo.py` 从 `plugins.json` 生成） |
 | `app.js` `fx.js` `style.css` `fx.css` | 公共脚本与样式（商店列表/热门榜/下载数；导航与页脚已写进各页 HTML） |
 | `tools/build_seo.py` | SEO 构建：生成插件详情页、导航/页脚、首页/商店的静态列表、`sitemap.xml` |
-| `privacy.html` | 隐私说明（据实记录：不设 cookie、下载计数不存 IP、宿主无遥测）。改动数据收集方式时必须同步更新 |
+| `privacy.html` | 隐私说明（据实记录：不设 cookie、下载计数不存原始 IP、只记城市级地区、宿主无遥测）。改动数据收集方式时必须同步更新 |
 | `tools/healthcheck.py` `tools/check_site.py` `tools/indexnow.py` | 线上健康检查 / 仓库静态检查 / 通知搜索引擎（见 `.github/workflows/`） |
 | `.well-known/security.txt` `<key>.txt` | 安全联系方式（每年续期 Expires）/ IndexNow 密钥文件 |
 | `og-image.png` | 社交分享预览图（1200×630） |
@@ -21,7 +21,8 @@ Revit 插件宿主 + 共享插件商店的官网。**公开共享、非商业**�
 | `plugins.json` | 商店清单（**自动生成**，含每个插件包的 sha256、hostApi） |
 | `host.json` | 宿主更新清单（自动生成，含各构建包的 sha256） |
 | `dl/` | 插件包 `.thlp`、宿主安装包与更新包（自动生成，打包可复现） |
-| `functions/api/dl/[id].js` | 下载入口：计数（D1，不保存 IP）后返回文件 |
+| `functions/api/dl/[id].js` | 下载入口：计数（D1，不保存原始 IP）并记一条城市级地区明细后返回文件 |
+| `migrations/download_geo.sql` | 地区明细表 `download_geo` 的建表语句（在 D1 控制台执行一次；未展示在网站上） |
 | `functions/api/stats.js` | 各插件下载数（公开只读） |
 | `functions/plugin.js` | 旧网址 `/plugin?id=x` 永久跳转到 `/plugins/x` |
 | `ai.md` `ai.html` `tianheluo-ai-spec.txt` `llms.txt` | 给 AI 读的插件开发规范 |
