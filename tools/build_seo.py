@@ -110,8 +110,10 @@ FOOT_HTML = f"""
 </div>"""
 
 
-ICON_LINKS = ('<link rel="icon" href="/favicon.ico" sizes="48x48">\n'
-              '<link rel="icon" href="/favicon-production.png" type="image/png">\n'
+# 图标带版本号：浏览器对 favicon 缓存很久，换了图标要换网址才会立刻生效（改图标时把这个数字加一）
+ICON_VERSION = "20261015"
+ICON_LINKS = (f'<link rel="icon" href="/favicon.ico?v={ICON_VERSION}" sizes="48x48">\n'
+              f'<link rel="icon" href="/favicon-production.png?v={ICON_VERSION}" type="image/png">\n'
               '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
 ASSET_VERSIONS = {}
 
