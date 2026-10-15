@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=cf39ba19">
 <link rel="stylesheet" href="/fx.css?v=813fb5ef">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键布置松木桩垫层", "alternateName": "pile-cushion", "description": "框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/pile-cushion", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-12", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/pile-cushion"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键布置松木桩垫层", "item": "https://tianheluo.com/plugins/pile-cushion"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键布置松木桩垫层", "alternateName": "pile-cushion", "description": "框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/pile-cushion", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-15", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/pile-cushion"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键布置松木桩垫层", "item": "https://tianheluo.com/plugins/pile-cushion"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -47,6 +47,7 @@
       <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/pile-cushion.svg" alt="一键布置松木桩垫层示意图：排管下方生成 100mm 厚垫层，垫层下按 500mm 间距布置松木桩" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">断面示意图：垫层与松木桩的关系</figcaption></figure>
       <div class="panel"><h4>怎么用</h4><ol><li>在视图里选中要布置的构件，也可以不选，直接进行下一步再拉框选择。支持：井（常规模型）、排管和管沟（结构框架）、结构基础、楼板、管道、线管、墙、结构柱。</li><li>在 Revit 的「天河落」选项卡里点击「一键布置松木桩垫层」。</li><li>弹窗会列出参数：垫层厚 100mm、外挑 100mm、桩 Φ75、间距 500mm、桩长 6.0m。如果所选构件之前布置过，会提示将自动覆盖更新。</li><li>选「立即自动布置（智能覆盖更新）」。进度条走完后，弹窗给出工程量统计：垫层块数、桩根数、总延米、木材方量。</li><li>不满意可以按 Ctrl+Z 撤销这次布置。</li></ol></div>
       <div class="panel"><h4>注意事项</h4><ul><li>参数是固定的：垫层 100mm 厚、四周外挑 100mm，松木桩 Φ75、间距 500mm、桩长 6.0m。要改规格需要修改插件脚本（源码公开）。</li><li>重复运行是安全的：插件会按构件找出它此前生成的垫层和桩，先删掉再重新生成，不会越叠越多。已经叠出重复图元的老项目，用 <a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a> 清一遍。</li><li>需要「松木桩 - Φ75」这个族类型：项目里没有时，插件会用项目里的「桩 - 混凝土圆形桩」（或 Revit 自带库里的同名族）复制出来；都找不到时会提示先载入桩族。</li><li>井的垫层：项目里载入了「市政_井垫层」族时，用这个族生成；没有时改用三维实体垫层，效果相同。生成的垫层和桩都归在「结构基础」类别。</li><li>几何提取不出来的构件会被跳过，弹窗里会显示跳过的数量。</li><li>整个布置在同一个事务里；准备桩族类型是单独的一步，保留下来不影响模型。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>框选了构件：只处理选中的；没有选中：按「规则」里的范围（默认整个项目）处理全部可布置构件。</li><li>排管/管道等线式构件：沿实体走向布置 100mm 厚垫层（各边外挑）与松木桩；井/基础等点式构件：按实体外包布置。</li><li>规则（垫层厚度、外挑、桩径、桩长、桩距、单排/双排阈值、构件类别、范围、底标高过滤）运行前可以修改并保存。</li><li>已布置过的构件先清理旧垫层与旧桩再重新生成；每批在一个事务里提交，单个构件出错只回滚它自己。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -54,8 +55,8 @@
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>13 KB</dd><dt>更新</dt><dd>2026-10-12</dd>
+      <dt>版本</dt><dd>0.2.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>18 KB</dd><dt>更新</dt><dd>2026-10-15</dd>
       <dt>下载</dt><dd><span data-dl="pile-cushion">暂无</span></dd>
       
       </dl>
