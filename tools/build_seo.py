@@ -110,10 +110,11 @@ FOOT_HTML = f"""
 </div>"""
 
 
-# 图标带版本号：浏览器对 favicon 缓存很久，换了图标要换网址才会立刻生效（改图标时把这个数字加一）
-ICON_VERSION = "20261015"
-ICON_LINKS = (f'<link rel="icon" href="/favicon.ico?v={ICON_VERSION}" sizes="48x48">\n'
-              f'<link rel="icon" href="/favicon-production.png?v={ICON_VERSION}" type="image/png">\n'
+# 图标：Google 搜索要求图标为 48 的整数倍，所以提供 48/96/192 的 PNG；换图标时换文件名（搜索引擎和浏览器对旧网址缓存很久）
+ICON_LINKS = ('<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">\n'
+              '<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">\n'
+              '<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">\n'
+              '<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">\n'
               '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
 ASSET_VERSIONS = {}
 
@@ -313,7 +314,7 @@ def faq_from_install(text):
 def page_graph(stem, text, plugins, host):
     if stem == "index":
         org = {"@type": "Organization", "@id": BASE + "/#org", "name": "天河落 Tianheluo", "url": BASE + "/",
-               "logo": BASE + "/favicon-production.png",
+               "logo": BASE + "/icon-192.png",
                "sameAs": ["https://github.com/H8DIDI/tianheluo-core", "https://github.com/H8DIDI/tianheluo-web"]}
         site = {"@type": "WebSite", "@id": BASE + "/#website", "name": "天河落 Tianheluo", "url": BASE + "/",
                 "inLanguage": "zh-CN", "publisher": {"@id": BASE + "/#org"}}

@@ -13,7 +13,7 @@
   img/logo-nav.svg     顶栏版（28px，θ∈[0,2.6π]，线宽 24）
   img/logo-small.svg   小尺寸版（16–32px，纯色水珠，θ∈[0,2.3π]，线宽 30）
   favicon.ico          16/32 用小尺寸版，48/256 用主图版
-  favicon-production.png（512）、apple-touch-icon.png（180，不透明深底）、og-image.png（1200×630）
+  favicon-production.png（512）、icon-48/96/192.png（搜索与标签页图标）、apple-touch-icon.png（180，不透明深底）、og-image.png（1200×630）
 PNG/ICO/OG 需要 Pillow；只生成 SVG 时不需要。
 """
 import math
@@ -155,6 +155,10 @@ def write_pngs():
     (root / "favicon-production.png").parent.mkdir(exist_ok=True)
     render("main", 512).save(root / "favicon-production.png", optimize=True)
     print("  · favicon-production.png (512)")
+    # 搜索引擎与浏览器标签用的 PNG：Google 要求搜索图标为 48 的整数倍（48/96/192）
+    for px in (48, 96, 192):
+        render("main", px).save(root / f"icon-{px}.png", optimize=True)
+        print(f"  · icon-{px}.png")
     opaque = tuple(int(BG[i:i + 2], 16) for i in (1, 3, 5)) + (255,)
     render("main", 180, bg=opaque).convert("RGB").save(root / "apple-touch-icon.png", optimize=True)
     print("  · apple-touch-icon.png (180)")
