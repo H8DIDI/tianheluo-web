@@ -1,6 +1,8 @@
 // 插件数据渲染 + 下载数 / 热门榜（页面主体已有静态版；这里用实时数据替换）
 const STATUS = { stable: "稳定版", beta: "测试版", planned: "计划中" };
-const CAT_COLOR = { "市政管线": "#2F8CFF", "出图打印": "#8B5CF6", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#EC4899", "视图管理": "#06B6D4" };
+const CAT_COLOR = { "市政管线": "#3FA9FF", "出图打印": "#818CF8", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#38BDF8", "视图管理": "#06B6D4" };
+// 全站插件累计下载低于这个数时，热榜还没有参考价值：标题改为“精选上架”，不再展示“还没有数据”的提示语
+const COLD_THRESHOLD = 50;
 
 // 导航栏/页脚由 tools/build_seo.py 直接写进每个页面的 HTML（爬虫不执行 JS，所以不能靠这里注入）。
 
@@ -27,7 +29,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 
 // 图标徽标：按分类配色 + 一个字（与宿主里的图标风格一致）
 function badge(p, size) {
-  const base = p.color || CAT_COLOR[p.category] || "#3B9BFF";
+  const base = p.color || CAT_COLOR[p.category] || "#3FA9FF";
   const g = p.glyph || (p.name || "T").replace(/^(一键|清理重复|清理|强电)/, "").slice(0, 1);
   const fs = g.length > 1 ? 0.3 : 0.5;
   return `<span class="pic" style="width:${size}px;height:${size}px;font-size:${Math.round(size * fs)}px;background:linear-gradient(135deg,${base},${base}99);border-color:${base}88;color:#fff;font-weight:800">${esc(g)}</span>`;
@@ -45,34 +47,54 @@ function card(p, st) {
   </a>`;
 }
 
-// 热门榜：本周 / 总榜两个标签。还没有任何下载数据时，退化成“最新上架”。
+// 首页热榜区的标题：冷启动时改为“精选上架”，数据够了再换回“热门插件榜”
+function popularTitles(cold) {
+  const eyebrow = document.querySelector("[data-pop-eyebrow]");
+  const title = document.querySelector("[data-pop-title]");
+  if (eyebrow) eyebrow.textContent = cold ? "精选上架" : "热门插件榜";
+  if (title) title.textContent = cold ? "精选上架插件 / 核心工程工作流" : "大家都在用";
+}
+
+// 热门榜：本周 / 总榜两个标签。数据不足时退化成“最新上架”。
 async function renderPopular() {
   const box = document.getElementById("popular");
   if (!box) return;
   const limit = parseInt(box.dataset.limit || "5", 10);
   const [{ plugins }, st] = await Promise.all([loadData(), loadStats()]);
   const live = plugins.filter((p) => p.status !== "planned");
+  const cold = live.reduce((s, p) => s + total(st, p.id), 0) < COLD_THRESHOLD;
+  popularTitles(cold);
+  const newest = () => [...live].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, limit).map((p) => ({ p, n: null }));
+  if (cold) {
+    box.innerHTML = `<div class="rank-body"></div>`;
+    box.querySelector(".rank-body").innerHTML = newest().map((r) => rankRow(r, 0)).join("");
+    return;
+  }
   let mode = "week";
   const draw = () => {
     const key = mode === "week" ? week : total;
     let rows = live.map((p) => ({ p, n: key(st, p.id) })).filter((r) => r.n > 0).sort((a, b) => b.n - a.n || a.p.name.localeCompare(b.p.name)).slice(0, limit);
     let note = "";
     if (rows.length === 0) {
-      rows = [...live].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, limit).map((p) => ({ p, n: null }));
-      note = `<p class="rank-note">还没有下载数据，先展示最新上架的插件。第一批用户安装之后，这里会出现真实的榜单。</p>`;
+      rows = newest();
+      note = `<p class="rank-note">${mode === "week" ? "本周还没有新的下载，" : "还没有下载记录，"}先展示最新上架的插件。</p>`;
     }
-    box.querySelector(".rank-body").innerHTML = note + rows.map((r, i) => `
-      <a class="rk" href="/plugins/${encodeURIComponent(r.p.id)}">
-        <span class="no ${i < 3 && r.n ? "top" : ""}">${i + 1}</span>
-        ${badge(r.p, 40)}
-        <span class="nm"><b>${esc(r.p.name)}</b><small>${esc(r.p.category)}${r.p.tier === "community" ? " · 社区" : ""}</small></span>
-        <span class="cnt">${r.n === null ? esc(r.p.date || "") : `⬇ ${fmt(r.n)}`}</span>
-      </a>`).join("");
+    box.querySelector(".rank-body").innerHTML = note + rows.map((r, i) => rankRow(r, i)).join("");
     box.querySelectorAll(".rank-tabs button").forEach((b) => b.classList.toggle("on", b.dataset.m === mode));
   };
   box.innerHTML = `<div class="rank-tabs"><button data-m="week">本周热门</button><button data-m="all">总榜</button></div><div class="rank-body"></div>`;
   box.querySelector(".rank-tabs").addEventListener("click", (e) => { const m = e.target.dataset.m; if (m) { mode = m; draw(); } });
   draw();
+}
+
+function rankRow(r, i) {
+  return `
+      <a class="rk" href="/plugins/${encodeURIComponent(r.p.id)}">
+        <span class="no ${i < 3 && r.n ? "top" : ""}">${i + 1}</span>
+        ${badge(r.p, 40)}
+        <span class="nm"><b>${esc(r.p.name)}</b><small>${esc(r.p.category)}${r.p.tier === "community" ? " · 社区" : ""}</small></span>
+        <span class="cnt">${r.n === null ? esc(r.p.date || "") : `⬇ ${fmt(r.n)}`}</span>
+      </a>`;
 }
 
 // 首页：精选
@@ -83,18 +105,33 @@ async function renderFeatured() {
   box.innerHTML = plugins.filter((p) => p.status !== "planned").map((p) => card(p, st)).join("");
 }
 
-// 商店：筛选 + 排序（有下载数据时默认按下载数）
+// 商店：筛选 + 排序。状态写进网址（?cat=…&q=…&sort=…），复制链接发给别人就是同一个筛选结果。
 async function renderStore() {
   const box = document.getElementById("plist");
   if (!box) return;
   const [{ plugins }, st] = await Promise.all([loadData(), loadStats()]);
   const cats = ["全部", ...new Set(plugins.map((p) => p.category))];
-  let cat = "全部", q = "", sort = Object.keys(st.plugins || {}).length ? "hot" : "new";
+  const qInput = document.getElementById("q");
+  const params = new URLSearchParams(location.search);
+  const defaultSort = Object.keys(st.plugins || {}).length ? "hot" : "new";
+  let cat = cats.includes(params.get("cat")) ? params.get("cat") : "全部";
+  let sort = ["hot", "new", "name"].includes(params.get("sort")) ? params.get("sort") : defaultSort;
+  let qRaw = params.get("q") || "";
+  qInput.value = qRaw;
   const chips = document.getElementById("chips");
+  const syncUrl = () => {
+    const u = new URLSearchParams();
+    if (cat !== "全部") u.set("cat", cat);
+    if (qRaw.trim()) u.set("q", qRaw.trim());
+    if (sort !== defaultSort) u.set("sort", sort);
+    const qs = u.toString();
+    history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+  };
   const draw = () => {
     chips.innerHTML = cats.map((c) => `<button class="chip ${c === cat ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("") +
       `<span class="chip-sep"></span>` +
       [["hot", "最热"], ["new", "最新"], ["name", "名称"]].map(([k, t]) => `<button class="chip ${k === sort ? "on" : ""}" data-s="${k}">${t}</button>`).join("");
+    const q = qRaw.trim().toLowerCase();
     const list = plugins.filter((p) =>
       (cat === "全部" || p.category === cat) &&
       (p.name + p.en + p.summary).toLowerCase().includes(q));
@@ -102,9 +139,10 @@ async function renderStore() {
       : sort === "new" ? (b.date || "").localeCompare(a.date || "") || a.name.localeCompare(b.name)
       : a.name.localeCompare(b.name));
     box.innerHTML = list.length ? list.map((p) => card(p, st)).join("") : `<div class="empty">没有匹配的插件</div>`;
+    syncUrl();
   };
   chips.addEventListener("click", (e) => { const c = e.target.dataset.c, s = e.target.dataset.s; if (c) cat = c; if (s) sort = s; if (c || s) draw(); });
-  document.getElementById("q").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); draw(); });
+  qInput.addEventListener("input", (e) => { qRaw = e.target.value; draw(); });
   draw();
 }
 

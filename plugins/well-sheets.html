@@ -11,18 +11,18 @@
 <meta property="og:url" content="https://tianheluo.com/plugins/well-sheets"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#07080a">
+<meta name="theme-color" content="#06080E">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-production.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=cf39ba19">
-<link rel="stylesheet" href="/fx.css?v=813fb5ef">
+<link rel="stylesheet" href="/style.css?v=7710723b">
+<link rel="stylesheet" href="/fx.css?v=cbd273a6">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键井展开图", "alternateName": "well-sheets", "description": "选中一个井，自动生成平面及四面剖面排版到图纸上。出图前可在「规则与预览」里调整比例、裁剪余量、剖面框、视图间距…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-sheets", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.9", "dateModified": "2026-10-14", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sheets"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键井展开图", "item": "https://tianheluo.com/plugins/well-sheets"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
 <div class="wrap">
-  <a class="brand" href="/"><span class="logo">THL</span>天河落</a>
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
     <a href="/store" class="on">插件商店</a>
     <a href="/install" class="">安装指南</a>
@@ -32,11 +32,12 @@
     <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
   </nav>
   <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
   <a class="btn sm pri" href="/install">下载宿主</a>
 </div></header>
 <main class="wrap" id="detail" style="padding-bottom:40px">
   <div class="crumb"><a href="/store">插件商店</a> / 一键井展开图</div>
-  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#8B5CF6,#8B5CF699);border-color:#8B5CF688;color:#fff;font-weight:800">展</span>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">展</span>
     <div><h1>一键井展开图</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">出图打印</span></div></div></div>
   <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选中一个井，自动生成平面及四面剖面排版到图纸上。出图前可在「规则与预览」里调整比例、裁剪余量、剖面框、视图间距，并实时看到排版效果（本按钮不再自动标注，标注请用「一键井大样标注」）。</p>
@@ -70,7 +71,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数记录次数与大致地区（城市级，不保存原始 IP），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=0e026e0f"></script>
-<script src="/fx.js?v=69ff316f"></script>
+<script src="/app.js?v=d442e943"></script>
+<script src="/fx.js?v=1f8207fe"></script>
 </body>
 </html>

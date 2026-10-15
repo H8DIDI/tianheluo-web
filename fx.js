@@ -1,9 +1,10 @@
-// 天河落 THL — 标杆级视觉与交互引擎 (fx.js v3)
-// 借鉴 Linear / Raycast / Vercel Geist：克制微光聚光灯、深空微粒、标杆主题切换、启动器模拟
+// 天河落 THL — 交互与动效（fx.js v4 · 天河深海星轨）
+// 1. 顶部阅读进度条   2. 清理旧版主题设置   3. 黄金分割轴网 + 微光水滴   4. 滚动渐显
+// 5. 卡片光标追随   6. 代码一键复制   7. 首页启动器演示   8. 命令舱（Ctrl+K / ⌘K / "/"）
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 1. 顶部 2px 信号阅读进度条
+  // 1. 顶部 2px 阅读进度条
   const prog = document.createElement("div");
   prog.className = "scroll-progress";
   document.body.prepend(prog);
@@ -14,87 +15,67 @@
   window.addEventListener("scroll", updateProgress, { passive: true });
   updateProgress();
 
-  // 2. 导航栏标杆级主题切换器 (Linear 星靛 / Raycast 绯红 / Geist 翡翠)
-  const THEMES = [
-    { id: "", name: "Linear 星靛" },
-    { id: "raycast", name: "Raycast 绯红" },
-    { id: "emerald", name: "Geist 翡翠" }
-  ];
-  let savedTheme = "";
-  try { savedTheme = localStorage.getItem("thl_theme") || ""; } catch {}
-  if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+  // 2. 旧版「换肤」残留清理（已取消多主题，只保留天河蓝）
+  try { localStorage.removeItem("thl_theme"); } catch {}
+  document.documentElement.removeAttribute("data-theme");
 
-  const navWrap = document.querySelector(".nav .wrap");
-  if (navWrap && !document.getElementById("thl-theme-btn")) {
-    const btn = document.createElement("button");
-    btn.id = "thl-theme-btn";
-    btn.type = "button";
-    btn.className = "theme-switch";
-    const curIdx = () => Math.max(0, THEMES.findIndex(t => t.id === (document.documentElement.getAttribute("data-theme") || "")));
-    const renderBtn = () => {
-      const t = THEMES[curIdx()];
-      btn.innerHTML = `<span class="theme-dot"></span><span>${t.name}</span>`;
-      btn.title = "切换设计标杆主题色";
-    };
-    renderBtn();
-    btn.addEventListener("click", () => {
-      const next = THEMES[(curIdx() + 1) % THEMES.length];
-      if (next.id) document.documentElement.setAttribute("data-theme", next.id);
-      else document.documentElement.removeAttribute("data-theme");
-      try { localStorage.setItem("thl_theme", next.id); } catch {}
-      renderBtn();
-    });
-    const dlBtn = navWrap.querySelector(".btn");
-    if (dlBtn) navWrap.insertBefore(btn, dlBtn);
-    else navWrap.appendChild(btn);
-  }
-
-  // 3. Linear 风格极克制深空星尘画布
+  // 3. 黄金分割轴网 + 微光水滴：沿 0.382 / 0.618 轴线缓缓落下，呼应 Logo 的螺线中心
   if (!reduce) {
+    const PHI = (1 + Math.sqrt(5)) / 2;
     const cvs = document.createElement("canvas");
     cvs.className = "starfield-canvas";
     document.body.prepend(cvs);
     const ctx = cvs.getContext("2d");
-    let w = (cvs.width = window.innerWidth);
-    let h = (cvs.height = window.innerHeight);
-    window.addEventListener("resize", () => {
-      w = cvs.width = window.innerWidth;
-      h = cvs.height = window.innerHeight;
-    });
-    const stars = Array.from({ length: 36 }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.2 + 0.3,
-      vy: Math.random() * 0.16 + 0.04,
-      a: Math.random() * 0.45 + 0.1
-    }));
-    const drawStars = () => {
+    let w = 0, h = 0, dpr = 1, drops = [], raf = 0;
+    const axes = () => [w / PHI / PHI, w / PHI]; // 0.382w、0.618w
+    const spawn = () => {
+      const n = Math.min(18, Math.round(w / 90));
+      drops = Array.from({ length: n }, () => {
+        const col = axes()[Math.random() < 0.5 ? 0 : 1];
+        return { x: col + (Math.random() - 0.5) * 6, y: Math.random() * h, v: 0.12 + Math.random() * 0.22, r: 0.8 + Math.random() * 1.2, a: 0.15 + Math.random() * 0.35 };
+      });
+    };
+    const resize = () => {
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = window.innerWidth; h = window.innerHeight;
+      cvs.width = w * dpr; cvs.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      spawn();
+    };
+    const frame = () => {
       ctx.clearRect(0, 0, w, h);
-      for (const s of stars) {
-        s.y += s.vy;
-        if (s.y > h) { s.y = -4; s.x = Math.random() * w; }
+      ctx.strokeStyle = "rgba(63, 169, 255, 0.045)";
+      ctx.lineWidth = 1;
+      for (const x of axes()) { ctx.beginPath(); ctx.moveTo(Math.round(x) + 0.5, 0); ctx.lineTo(Math.round(x) + 0.5, h); ctx.stroke(); }
+      for (const d of drops) {
+        d.y += d.v;
+        if (d.y > h + 6) { d.y = -6; d.x = axes()[Math.random() < 0.5 ? 0 : 1] + (Math.random() - 0.5) * 6; }
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${s.a})`;
+        ctx.fillStyle = `rgba(63, 169, 255, ${d.a})`;
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      requestAnimationFrame(drawStars);
+      raf = requestAnimationFrame(frame);
     };
-    requestAnimationFrame(drawStars);
+    window.addEventListener("resize", resize);
+    // 标签页切到后台时停止计算，回来再继续（省电）
+    document.addEventListener("visibilitychange", () => {
+      cancelAnimationFrame(raf);
+      if (!document.hidden) raf = requestAnimationFrame(frame);
+    });
+    resize();
+    raf = requestAnimationFrame(frame);
   }
 
   // 4. 滚动渐显 (.reveal)
   const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) {
-      e.target.classList.add("in");
-      io.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { threshold: 0.12 });
   const watch = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
   watch();
   new MutationObserver(watch).observe(document.body, { childList: true, subtree: true });
 
-  // 5. Linear 级卡片表面微光跟随 (--mx / --my)
+  // 5. 卡片表面微光跟随 (--mx / --my)
   document.addEventListener("pointermove", (e) => {
     const t = e.target.closest && e.target.closest(".bn,.card,.pc,.panel");
     if (!t) return;
@@ -110,9 +91,8 @@
     navigator.clipboard.writeText(codeEl.innerText.trim()).catch(() => {});
   });
 
-  // 7. 首页启动器自动打字与交互演示
+  // 7. 首页启动器演示（点击启动器会打开真正的命令舱）
   const typed = document.getElementById("typed");
-  if (!typed) return;
   const items = [...document.querySelectorAll(".win .it")];
   const toast = document.getElementById("toast");
   const toastTxt = document.getElementById("toastTxt");
@@ -146,5 +126,113 @@
       }
     }
   }
-  loop();
+  if (typed) loop();
+
+  // 8. 命令舱 HUD：全站任意页面按 Ctrl+K（Mac 为 ⌘K）或 "/" 呼出
+  //    "/" 只在焦点不在输入框、可编辑区域时生效，避免打字时误触发。
+  const hud = (() => {
+    const STATIC = [
+      { name: "插件商店", sub: "浏览全部插件", href: "/store", key: "插件商店 store 插件 下载" },
+      { name: "安装指南", sub: "安装天河落宿主", href: "/install", key: "安装指南 install 宿主 下载" },
+      { name: "开发者平台", sub: "用 AI 写插件并投稿", href: "/developers", key: "开发者 developers 投稿 AI" },
+      { name: "AI 开发规范", sub: "给 Claude / ChatGPT 读的说明书", href: "/ai", key: "ai 规范 说明书 spec" },
+      { name: "交流群与联系", sub: "加微信 didi 进群", href: "/contact", key: "交流群 联系 微信 contact" },
+      { name: "隐私说明", sub: "数据怎么收集、不收集什么", href: "/privacy", key: "隐私 privacy 数据" },
+    ];
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    let root = null, input = null, list = null, shown = [], idx = 0, plugins = null, lastFocus = null;
+
+    const build = () => {
+      root = document.createElement("div");
+      root.className = "hud";
+      root.hidden = true;
+      root.innerHTML = `<div class="hud-box" role="dialog" aria-modal="true" aria-label="搜索插件与页面">
+        <input class="hud-in" type="search" placeholder="搜索插件、页面…" aria-label="搜索插件与页面" autocomplete="off" spellcheck="false" aria-controls="hud-list">
+        <ul class="hud-list" id="hud-list" role="listbox"></ul>
+        <div class="hud-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span><kbd>Esc</kbd> 关闭</span></div>
+      </div>`;
+      document.body.appendChild(root);
+      input = root.querySelector(".hud-in");
+      list = root.querySelector(".hud-list");
+      root.addEventListener("mousedown", (e) => { if (e.target === root) close(); });
+      input.addEventListener("input", () => render());
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
+        else if (e.key === "Enter") { e.preventDefault(); if (shown[idx]) location.assign(shown[idx].href); }
+        else if (e.key === "Escape") { e.preventDefault(); close(); }
+        else if (e.key === "Tab") { e.preventDefault(); }   // 焦点留在搜索框里
+      });
+    };
+
+    const loadPlugins = async () => {
+      if (plugins) return plugins;
+      try {
+        const r = await fetch("/plugins.json", { cache: "no-cache" });
+        const j = await r.json();
+        plugins = (j.plugins || []).filter((p) => p.status !== "planned").map((p) => ({
+          name: p.name, sub: `${p.en} · ${p.category}`, href: `/plugins/${p.id}`,
+          key: `${p.name} ${p.en} ${p.id} ${p.category} ${p.summary || ""}`.toLowerCase(),
+        }));
+      } catch { plugins = []; }
+      return plugins;
+    };
+
+    const render = () => {
+      const q = input.value.trim().toLowerCase();
+      const pool = [...STATIC, ...(plugins || [])];
+      shown = pool.filter((x) => !q || x.key.toLowerCase().includes(q) || x.name.toLowerCase().includes(q)).slice(0, 12);
+      idx = Math.min(idx, Math.max(0, shown.length - 1));
+      list.innerHTML = shown.length
+        ? shown.map((x, i) => `<li role="option" aria-selected="${i === idx}"><a class="hud-it${i === idx ? " on" : ""}" href="${x.href}"><b>${esc(x.name)}</b><small>${esc(x.sub)}</small></a></li>`).join("")
+        : `<li class="hud-empty">没有匹配的插件或页面</li>`;
+    };
+
+    const move = (d) => {
+      if (!shown.length) return;
+      idx = (idx + d + shown.length) % shown.length;
+      list.querySelectorAll(".hud-it").forEach((a, i) => {
+        a.classList.toggle("on", i === idx);
+        a.parentElement.setAttribute("aria-selected", String(i === idx));
+      });
+      list.querySelectorAll(".hud-it")[idx].scrollIntoView({ block: "nearest" });
+    };
+
+    const open = async () => {
+      if (!root) build();
+      lastFocus = document.activeElement;
+      root.hidden = false;
+      document.body.style.overflow = "hidden";
+      input.value = ""; idx = 0;
+      render();
+      input.focus();
+      await loadPlugins();
+      render();
+    };
+
+    const close = () => {
+      if (!root || root.hidden) return;
+      root.hidden = true;
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+
+    const isOpen = () => !!root && !root.hidden;
+    return { open, close, isOpen };
+  })();
+
+  document.addEventListener("keydown", (e) => {
+    const k = (e.key || "").toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && k === "k") {       // Ctrl+K / ⌘K 任何时候都可呼出或收起
+      e.preventDefault();
+      hud.isOpen() ? hud.close() : hud.open();
+      return;
+    }
+    if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !hud.isOpen()) {
+      const t = e.target;
+      const editable = t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+      if (!editable) { e.preventDefault(); hud.open(); }
+    }
+  });
+  document.querySelectorAll("[data-hud]").forEach((el) => el.addEventListener("click", (e) => { e.preventDefault(); hud.open(); }));
 })();

@@ -1,67 +1,49 @@
 /* ==========================================================================
-   天河落 THL (tianheluo.com) — 旗舰级设计系统 (style.css v3)
-   设计标杆借鉴：Linear (linear.app) · Raycast (raycast.com) · Vercel Geist
-   核心语言：曜石碳黑画布 + 1px 镜面高光描边 + 铂金渐变字 + 信号级星靛点缀
+   天河落 THL (tianheluo.com) — 设计系统 (style.css v4 · 天河深海星轨)
+   色板来自 Logo：天河亮蓝 #3FA9FF → 深海蓝 #0B4FC4 → 墨蓝 #0B2A5B（tools/make_logo.py）
+   核心语言：深海底色 + 1px 镜面高光描边 + 白色标题渐变 + 天河蓝作为唯一品牌色
    ========================================================================== */
 
 :root {
-  /* Linear 级曜石黑背景阶梯 (Darkness as the native medium) */
-  --bg: #08090a;
-  --bg2: #0c0d0f;
-  --card: #111215;
-  --card-hover: #16181d;
+  /* 天河深海星轨：品牌色（来自 Logo：天河亮蓝 → 深海蓝 → 墨蓝） */
+  --brand-light: #3FA9FF;
+  --brand: #1668DC;
+  --brand-deep: #0B4FC4;
+  --brand-ink: #0B2A5B;
+  --amber: #F59E0B;
 
-  /* 微妙白光不透明度边框阶梯 (Hairline Specular Borders) */
-  --line: rgba(255, 255, 255, 0.065);
-  --line2: rgba(255, 255, 255, 0.12);
-  --rim: rgba(255, 255, 255, 0.13);
+  /* 深空底层与表面 */
+  --bg: #06080E;
+  --bg2: #0A0E17;
+  --card: #0F1523;
+  --card-hover: #151E32;
+  --rim: rgba(255, 255, 255, 0.10);
+  --line: rgba(148, 163, 184, 0.085);
+  --line2: rgba(63, 169, 255, 0.22);
 
-  /* 文本亮度层级 */
-  --text: #f7f8f8;
-  --mute: #8a8f98;
-  --dim: #575c66;
+  /* 文字三级明度 */
+  --text: #F8FAFC;
+  --mute: #94A3B8;
+  --dim: #526077;
 
-  /* 品牌信号主色：默认「曜石星靛 (Linear Indigo & Sky)」 */
-  --blue: #5e6ad2;
-  --blue-bright: #818cf8;
-  --blue2: #38bdf8;
-  --glow: rgba(94, 106, 210, 0.28);
-  --glow-strong: rgba(129, 140, 248, 0.42);
-  --stage-arc: rgba(94, 106, 210, 0.55);
-  --grad-brand: linear-gradient(135deg, #5e6ad2 0%, #818cf8 50%, #38bdf8 100%);
-  --grad-title: linear-gradient(180deg, #ffffff 0%, #ffffff 42%, rgba(255, 255, 255, 0.52) 100%);
-  --grad-shine: linear-gradient(110deg, #ffffff 15%, #c7d2fe 45%, #7dd3fc 70%, #ffffff 90%);
+  /* 旧变量名保留，指向新色板，避免组件大面积改名 */
+  --blue: #1668DC;
+  --blue-bright: #3FA9FF;
+  --blue2: #0B4FC4;
+  --glow: rgba(22, 104, 220, 0.28);
+  --glow-strong: rgba(63, 169, 255, 0.42);
+  --stage-arc: rgba(22, 104, 220, 0.55);
+  --grad-brand: linear-gradient(135deg, #3FA9FF 0%, #1668DC 55%, #0B4FC4 100%);
+  --grad-drop: linear-gradient(180deg, #3FA9FF 0%, #0B4FC4 100%);
+  --grad-title: linear-gradient(180deg, #ffffff 0%, #ffffff 42%, rgba(255, 255, 255, 0.55) 100%);
+  --grad-shine: linear-gradient(110deg, #ffffff 15%, #BFE3FF 45%, #3FA9FF 72%, #ffffff 90%);
 
   /* 语义信号色 */
   --ok: #10b981;
-  --warn: #f59e0b;
+  --warn: #F59E0B;
   --r: 14px;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
   --mono: "JetBrains Mono", "Berkeley Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-}
-
-/* 标杆主题 2：Raycast 绯红极光 (Raycast Crimson-Coral) */
-html[data-theme="raycast"] {
-  --blue: #ff6363;
-  --blue-bright: #fb7185;
-  --blue2: #f59e0b;
-  --glow: rgba(255, 99, 99, 0.25);
-  --glow-strong: rgba(251, 113, 133, 0.40);
-  --stage-arc: rgba(255, 99, 99, 0.52);
-  --grad-brand: linear-gradient(135deg, #ff6363 0%, #ec4899 55%, #f59e0b 100%);
-  --grad-shine: linear-gradient(110deg, #ffffff 15%, #fecdd3 45%, #fde68a 72%, #ffffff 90%);
-}
-
-/* 标杆主题 3：Geist 几何翡翠 (Precision Emerald) */
-html[data-theme="emerald"] {
-  --blue: #10b981;
-  --blue-bright: #34d399;
-  --blue2: #06b6d4;
-  --glow: rgba(16, 185, 129, 0.24);
-  --glow-strong: rgba(52, 211, 153, 0.38);
-  --stage-arc: rgba(16, 185, 129, 0.50);
-  --grad-brand: linear-gradient(135deg, #10b981 0%, #34d399 50%, #06b6d4 100%);
-  --grad-shine: linear-gradient(110deg, #ffffff 15%, #a7f3d0 45%, #67e8f9 72%, #ffffff 90%);
 }
 
 *, *::before, *::after {
@@ -89,7 +71,7 @@ body {
 }
 
 ::selection {
-  background: rgba(129, 140, 248, 0.32);
+  background: rgba(63, 169, 255, 0.32);
   color: #ffffff;
 }
 
@@ -156,21 +138,6 @@ img {
   opacity: 0.88;
 }
 
-.logo {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
-  background: var(--grad-brand);
-  box-shadow:
-    0 2px 10px var(--glow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.15);
-  display: grid;
-  place-items: center;
-  font: 800 10.5px/1 var(--mono);
-  letter-spacing: -0.04em;
-  color: #ffffff;
-}
 
 .nav nav {
   display: flex;
@@ -246,7 +213,7 @@ img {
 .btn.pri {
   background: linear-gradient(180deg, #ffffff 0%, #e4e7ec 100%);
   border: 1px solid #ffffff;
-  color: #08090a;
+  color: #06080E;
   font-weight: 600;
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.45),
@@ -460,7 +427,7 @@ h2 {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.78) 0%, rgba(13, 14, 18, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.78) 0%, rgba(10, 14, 23, 0.92) 100%);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 26px;
@@ -549,7 +516,7 @@ h2 {
   padding: 0 12px 0 34px;
   border-radius: 9px;
   border: 1px solid var(--line);
-  background: #08090a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238a8f98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 11px center;
+  background: #06080E url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238a8f98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 11px center;
   color: var(--text);
   font: inherit;
   font-size: 13.5px;
@@ -577,7 +544,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(13, 14, 18, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.82) 0%, rgba(10, 14, 23, 0.94) 100%);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 22px;
@@ -704,9 +671,9 @@ h2 {
 }
 
 .tag.community {
-  color: #a5b4fc;
-  background: rgba(94, 106, 210, 0.1);
-  border-color: rgba(129, 140, 248, 0.25);
+  color: #9FD4FF;
+  background: rgba(22, 104, 220, 0.1);
+  border-color: rgba(63, 169, 255, 0.25);
 }
 
 .empty {
@@ -751,7 +718,7 @@ h2 {
   margin: 22px 0 16px;
   padding: 26px 28px;
   border-radius: 18px;
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.85), rgba(13, 14, 18, 0.95));
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.85), rgba(10, 14, 23, 0.95));
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 var(--rim), 0 18px 44px -20px rgba(0, 0, 0, 0.7);
   flex-wrap: wrap;
@@ -780,7 +747,7 @@ h2 {
 .panel {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(13, 14, 18, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.82) 0%, rgba(10, 14, 23, 0.94) 100%);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 24px 26px;
@@ -906,7 +873,7 @@ dl.kv dd { text-align: right; color: var(--text); font-weight: 500; font-family:
   position: relative;
   display: flex;
   gap: 18px;
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(13, 14, 18, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.82) 0%, rgba(10, 14, 23, 0.94) 100%);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 22px 24px;
@@ -965,7 +932,7 @@ code.path, .path {
 
 pre {
   position: relative;
-  background: #060708;
+  background: #050811;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 18px 20px;
@@ -997,7 +964,7 @@ pre code {
 /* ==================== 页脚 (footer) — Linear 极简四列网格 ==================== */
 footer {
   border-top: 1px solid var(--line);
-  background: #060708;
+  background: #050811;
   padding: 60px 0 44px;
   margin-top: 64px;
   color: var(--dim);
@@ -1144,7 +1111,7 @@ footer a:hover {
   margin: 14px 0;
   padding: 10px 16px;
   border-left: 3px solid var(--blue);
-  background: rgba(94, 106, 210, 0.07);
+  background: rgba(22, 104, 220, 0.07);
   border-radius: 0 10px 10px 0;
 }
 
@@ -1172,4 +1139,102 @@ footer a:hover {
 .doc th {
   background: var(--card);
   color: var(--text);
+}
+
+/* ==================== v4 · 天河深海星轨：Logo 图片、斜切角、双生对照舱 ==================== */
+.logo {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex: none;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+/* 45° 图纸裁切角（致敬霍夫迈斯特拐角）：主按钮与插件卡片右上角 12px 斜切，切边辅以天河亮蓝细线 */
+.btn.pri,
+.pc {
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.btn.pri::after,
+.pc::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  background: linear-gradient(45deg, transparent calc(50% - 0.6px), rgba(63, 169, 255, 0.85) 50%, transparent calc(50% + 0.6px));
+}
+
+/* 双生事务对照舱（致敬双肾格栅）：左 BEFORE 原值，右 AFTER 校正后，中间 Ctrl+Z 单事务回退 */
+.viz.twin {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  margin-top: auto;
+  padding-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+}
+
+.twin .cab {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.twin .cab small {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.twin .cab b {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.twin .cab span {
+  font-size: 11.5px;
+  color: var(--mute);
+}
+
+.twin .before {
+  background: #0b0e14;
+}
+
+.twin .after {
+  background: linear-gradient(180deg, rgba(22, 104, 220, 0.38), rgba(11, 79, 196, 0.16));
+}
+
+.twin .after b {
+  color: #bfe3ff;
+}
+
+.twin .mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  background: var(--bg2);
+  color: var(--brand-light);
+  font-size: 16px;
+}
+
+.twin .mid kbd {
+  font-size: 11px;
 }

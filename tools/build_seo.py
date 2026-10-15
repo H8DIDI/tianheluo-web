@@ -22,7 +22,7 @@ CONTENT_DIR = SITE / "content" / "plugins"
 CONTENT = {}
 
 STATUS = {"stable": "稳定版", "beta": "测试版", "planned": "计划中"}
-CAT_COLOR = {"市政管线": "#2F8CFF", "出图打印": "#8B5CF6", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#EC4899", "视图管理": "#06B6D4"}
+CAT_COLOR = {"市政管线": "#3FA9FF", "出图打印": "#818CF8", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#38BDF8", "视图管理": "#06B6D4"}
 GH = ('<svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>')
 
 # 页面文件名 → 导航里高亮哪一项
@@ -85,7 +85,7 @@ def nav_html(active):
         return f'<a href="{href}" class="{"on" if key and key == active else ""}">{label}</a>'
     return f"""
 <div class="wrap">
-  <a class="brand" href="/"><span class="logo">THL</span>天河落</a>
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
     {item("/store", "插件商店", "store")}
     {item("/install", "安装指南", "install")}
@@ -95,6 +95,7 @@ def nav_html(active):
     <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）">{GH}GitHub</a>
   </nav>
   <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
   <a class="btn sm pri" href="/install">下载宿主</a>
 </div>"""
 
@@ -137,7 +138,7 @@ def fill_chrome(text, active):
 
 # ---------- 插件徽标 / 卡片（与 app.js 里的 badge()/card() 保持同样的标记） ----------
 def badge(p, size):
-    base = p.get("color") or CAT_COLOR.get(p.get("category")) or "#3B9BFF"
+    base = p.get("color") or CAT_COLOR.get(p.get("category")) or "#3FA9FF"
     g = p.get("glyph") or re.sub(r"^(一键|清理重复|清理|强电)", "", p.get("name") or "T")[:1]
     fs = 0.3 if len(g) > 1 else 0.5
     return (f'<span class="pic" style="width:{size}px;height:{size}px;font-size:{round(size * fs)}px;'
@@ -247,7 +248,7 @@ def plugin_page(p, plugins):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#07080a">
+<meta name="theme-color" content="#06080E">
 <link rel="icon" href="/favicon-production.png">
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/fx.css">

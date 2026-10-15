@@ -32,36 +32,6 @@
   opacity: 0.55;
 }
 
-/* 3. 导航栏标杆主题切换胶囊 */
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 32px;
-  padding: 0 11px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--mute);
-  font: 500 12px var(--font);
-  cursor: pointer;
-  transition: all 0.16s ease;
-}
-
-.theme-switch:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.theme-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--grad-brand);
-  box-shadow: 0 0 8px var(--glow-strong);
-}
-
 /* 4. Linear 风格克制环境光束 (.beams) */
 .beams {
   position: absolute;
@@ -120,7 +90,7 @@ kbd {
 .btn.pri kbd {
   background: rgba(8, 9, 10, 0.1);
   border-color: rgba(8, 9, 10, 0.18);
-  color: #08090a;
+  color: #06080E;
   box-shadow: none;
   font-weight: 700;
 }
@@ -382,7 +352,7 @@ h1 .shine {
   overflow: hidden;
   border-radius: 18px;
   padding: 28px;
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(12, 13, 16, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.82) 0%, rgba(10, 14, 23, 0.96) 100%);
   border: 1px solid var(--line);
   min-height: 290px;
   display: flex;
@@ -451,7 +421,7 @@ h1 .shine {
   justify-content: center;
   padding: 16px;
   border-radius: 12px;
-  background: #08090a;
+  background: #06080E;
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
@@ -504,7 +474,7 @@ h1 .shine {
   align-items: center;
   padding: 9px 14px;
   border-radius: 9px;
-  background: #08090a;
+  background: #06080E;
   border: 1px solid var(--line);
 }
 
@@ -655,7 +625,7 @@ h1 .shine {
 }
 
 .rank {
-  background: linear-gradient(180deg, rgba(22, 24, 29, 0.82) 0%, rgba(12, 13, 16, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(15, 21, 35, 0.82) 0%, rgba(10, 14, 23, 0.96) 100%);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 18px 20px;
@@ -667,7 +637,7 @@ h1 .shine {
   gap: 3px;
   padding: 3px;
   border-radius: 9px;
-  background: #08090a;
+  background: #06080E;
   border: 1px solid var(--line);
   margin: 0 0 14px;
 }
@@ -842,24 +812,28 @@ h1.pt {
   .bn.a, .bn.b, .bn.c, .bn.d { grid-column: auto; min-height: auto; }
 }
 
-@media (max-width: 700px) {
+/* 导航两行排布：品牌 + 搜索 + 下载在第一行，链接在第二行横向滑动（平板与手机共用，避免挤在一行） */
+@media (max-width: 960px) {
   .nav .wrap { height: auto; flex-wrap: wrap; gap: 0; padding: 10px 14px 6px; }
-  .nav .sp, .nav .btn { display: none; }
+  .nav .sp { display: none; }
   .brand { white-space: nowrap; flex: none; }
-  #thl-theme-btn { margin-left: auto; flex: none; }
   .nav nav { order: 3; flex: 0 0 100%; margin: 8px -6px 0; gap: 2px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav nav::-webkit-scrollbar { display: none; }
   .nav nav a { white-space: nowrap; flex: none; }
+  .nav .btn { margin-left: 8px; }
+  .hud-open { margin-left: auto; }
 }
 
-/* 平板宽度：导航一行放得下，文字不换行；GitHub 与主题只留图标（文字仍在 DOM 里，屏幕阅读器可读） */
+@media (max-width: 700px) {
+  .nav .btn { display: none; }
+}
+
+/* 平板宽度：GitHub 只留图标，文字不换行（文字仍在 DOM 里，屏幕阅读器可读） */
 @media (min-width: 701px) and (max-width: 960px) {
-  .brand, .nav nav a, .nav .btn, #thl-theme-btn { white-space: nowrap; }
-  .nav .wrap { gap: 14px; }
+  .brand, .nav nav a, .nav .btn { white-space: nowrap; }
   .nav nav a { padding: 7px 9px; }
   .nav nav a.ghlink { font-size: 0; padding: 7px 8px; }
   .nav nav a.ghlink .ghi { width: 16px; height: 16px; }
-  #thl-theme-btn > span:last-child { display: none; }
 }
 
 @media (max-width: 560px) {
@@ -871,4 +845,146 @@ h1.pt {
   * { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
   .tbl div { opacity: 1; }
+}
+
+/* ==================== v4 · 命令舱 HUD（Ctrl+K / "/"）与导航搜索按钮 ==================== */
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12vh 16px 16px;
+  background: rgba(3, 5, 10, 0.62);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  animation: hud-in 0.14s ease-out;
+}
+
+.hud[hidden] {
+  display: none;
+}
+
+@keyframes hud-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hud-box {
+  width: min(620px, 100%);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line2);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 var(--rim);
+  overflow: hidden;
+}
+
+.hud-in {
+  width: 100%;
+  padding: 16px 18px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font: 16px var(--font);
+  outline: none;
+}
+
+.hud-in::placeholder {
+  color: var(--dim);
+}
+
+.hud-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.hud-list li {
+  margin: 0;
+}
+
+.hud-it {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+}
+
+.hud-it b {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.hud-it small {
+  color: var(--mute);
+  font-size: 12.5px;
+}
+
+.hud-it.on {
+  background: rgba(63, 169, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(63, 169, 255, 0.25);
+}
+
+.hud-empty {
+  padding: 22px;
+  color: var(--dim);
+  text-align: center;
+}
+
+.hud-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 12px;
+}
+
+.hud-foot kbd {
+  font-size: 11px;
+  margin-right: 3px;
+}
+
+.hud-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--mute);
+  font: 500 13px var(--font);
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.hud-open:hover {
+  color: var(--text);
+  border-color: var(--line2);
+}
+
+.hud-open kbd {
+  font-size: 10.5px;
+  padding: 1px 5px;
+}
+
+@media (min-width: 701px) and (max-width: 960px) {
+  .hud-open kbd { display: none; }
+}
+
+@media (max-width: 700px) {
+  .hud-open span, .hud-open kbd { display: none; }
+  .hud-open { margin-left: auto; padding: 0 8px; }
 }
