@@ -21,3 +21,9 @@ export async function onRequestGet({ env }) {
     return new Response(JSON.stringify({ updated: new Date().toISOString(), plugins: {}, host: { total: 0, week: 0 }, error: "stats unavailable" }), { headers });
   }
 }
+
+// HEAD：和 GET 一样的状态码与响应头，不带正文（只实现 GET 时 Pages 会对 HEAD 返回 404）
+export async function onRequestHead(ctx) {
+  const res = await onRequestGet(ctx);
+  return new Response(null, { status: res.status, headers: res.headers });
+}

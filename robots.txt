@@ -1,6 +1,7 @@
 # 欢迎搜索引擎和 AI 助手读取本站。开发规范在 /ai.md、/tianheluo-ai-spec.txt 与 /llms.txt。
 User-agent: *
 Allow: /
+Allow: /api/stats
 Disallow: /api/
 
 User-agent: GPTBot
