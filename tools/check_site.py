@@ -68,7 +68,7 @@ def main():
                 err(f"content/plugins/{f.name}：缺少 {k}")
 
     redirects = redirect_sources()
-    pages = sorted(SITE.glob("*.html")) + sorted((SITE / "plugins").glob("*.html"))
+    pages = [f for f in sorted(SITE.glob("*.html")) if not f.name.startswith("baidu_verify_")] + sorted((SITE / "plugins").glob("*.html"))  # 百度验证文件不是网页
     for f in pages:
         rel = f.relative_to(SITE)
         t = f.read_text(encoding="utf-8")
@@ -85,7 +85,7 @@ def main():
 
     sm = (SITE / "sitemap.xml").read_text(encoding="utf-8")
     for f in SITE.glob("*.html"):
-        if f.stem in ("404",):
+        if f.stem in ("404",) or f.name.startswith("baidu_verify_"):
             continue
         loc = "https://tianheluo.com/" if f.stem == "index" else f"https://tianheluo.com/{f.stem}"
         if f"<loc>{loc}</loc>" not in sm:
