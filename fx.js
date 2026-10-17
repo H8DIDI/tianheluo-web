@@ -1,8 +1,25 @@
-// 天河落 THL — 交互与动效（fx.js v4 · 天河深海星轨）
+// 天河落 THL — 交互与动效（fx.js v5 · 天河深海星轨）
 // 1. 顶部阅读进度条   2. 清理旧版主题设置   3. 黄金分割轴网 + 微光水滴   4. 滚动渐显
 // 5. 卡片光标追随   6. 代码一键复制   7. 首页启动器演示   8. 命令舱（Ctrl+K / ⌘K / "/"）
+// 9. 匿名使用统计（不设 Cookie，不存 IP；浏览器开启“请勿追踪”或 GPC 时完全关闭）
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 9. 匿名统计：事件发往同源的 /api/event，服务端只写入白名单事件（见 functions/api/event.js）
+  const TRACK_OFF = navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.globalPrivacyControl === true;
+  const track = (n, v, x) => {
+    if (TRACK_OFF) return;
+    const body = JSON.stringify({
+      n, p: location.pathname,
+      v: v == null || !Number.isFinite(Number(v)) ? null : Number(v),
+      x: x == null ? null : String(x).slice(0, 120),
+    });
+    try {
+      if (navigator.sendBeacon) navigator.sendBeacon("/api/event", body);
+      else fetch("/api/event", { method: "POST", body, keepalive: true });
+    } catch { /* 统计失败不影响页面 */ }
+  };
+  window.thlTrack = track;
 
   // 1. 顶部 2px 阅读进度条
   const prog = document.createElement("div");
@@ -91,7 +108,7 @@
     navigator.clipboard.writeText(codeEl.innerText.trim()).catch(() => {});
   });
 
-  // 7. 首页启动器演示（点击启动器会打开真正的命令舱）
+  // 7. 首页启动器演示
   const typed = document.getElementById("typed");
   const items = [...document.querySelectorAll(".win .it")];
   const toast = document.getElementById("toast");
@@ -159,7 +176,10 @@
       input.addEventListener("keydown", (e) => {
         if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
         else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
-        else if (e.key === "Enter") { e.preventDefault(); if (shown[idx]) location.assign(shown[idx].href); }
+        else if (e.key === "Enter") {
+          e.preventDefault();
+          if (shown[idx]) { track("hud_pick", idx, shown[idx].href); location.assign(shown[idx].href); }
+        }
         else if (e.key === "Escape") { e.preventDefault(); close(); }
         else if (e.key === "Tab") { e.preventDefault(); }   // 焦点留在搜索框里
       });
@@ -206,12 +226,15 @@
       input.value = ""; idx = 0;
       render();
       input.focus();
+      track("hud_open");
       await loadPlugins();
       render();
     };
 
     const close = () => {
       if (!root || root.hidden) return;
+      const q = input.value.trim();
+      if (q.length >= 2) track("hud_query", shown.length, q);   // 搜索了什么、有几条结果（无结果的词最能说明缺什么）
       root.hidden = true;
       document.body.style.overflow = "";
       if (lastFocus && lastFocus.focus) lastFocus.focus();
@@ -235,4 +258,44 @@
     }
   });
   document.querySelectorAll("[data-hud]").forEach((el) => el.addEventListener("click", (e) => { e.preventDefault(); hud.open(); }));
+
+  // 9b. 点击类事件（委托，不改动页面标记）
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("a, button");
+    if (!a) return;
+    if (a.id === "copyPrompt") track("copy_prompt");
+    else if (a.hasAttribute("download")) track("download_click", null, a.getAttribute("href"));
+    else if (a.classList.contains("pc") || a.classList.contains("rk")) track("plugin_click", null, a.getAttribute("href"));
+    else if (a.matches('a[href^="mailto:"], a[href*="github.com"], a[href="/contact"]')) track("contact_click", null, a.getAttribute("href"));
+    else if (a.matches('a.btn.pri[href="/install"]')) track("install_click");
+  });
+
+  // 9c. 404 页面：记下访问的路径，以及来自本站的哪个页面（方便修正坏链接）
+  if (document.body && document.body.hasAttribute("data-404")) {
+    let from = "";
+    try {
+      const r = document.referrer ? new URL(document.referrer) : null;
+      if (r && r.host === location.host) from = r.pathname;
+    } catch {}
+    track("hit_404", null, from);
+  }
+
+  // 9d. 页面性能与前端错误（浏览器不支持的指标会自动跳过）
+  if (!TRACK_OFF) {
+    window.addEventListener("error", (e) => track("js_error", null, (e.message || "unknown").slice(0, 100)));
+    if ("PerformanceObserver" in window) {
+      let lcp = null, cls = 0, sent = false;
+      try { new PerformanceObserver((l) => { const last = l.getEntries().at(-1); if (last) lcp = last.startTime; }).observe({ type: "largest-contentful-paint", buffered: true }); } catch {}
+      try { new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) cls += e.value; }).observe({ type: "layout-shift", buffered: true }); } catch {}
+      const flush = () => {
+        if (sent) return;
+        sent = true;
+        if (lcp != null) track("vital_lcp", Math.round(lcp));
+        track("vital_cls", Math.round(cls * 1000) / 1000);
+        const nav = performance.getEntriesByType("navigation")[0];
+        if (nav) track("vital_ttfb", Math.round(nav.responseStart));
+      };
+      document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flush(); });
+    }
+  }
 })();

@@ -39,7 +39,7 @@
 <main class="wrap" style="padding-top:56px;padding-bottom:40px;max-width:820px">
   <div class="eyebrow">隐私说明</div>
   <h1 class="pt">我们收集什么，不收集什么</h1>
-  <p class="sub">天河落是公开共享、非商业的开源项目。下面说的每一条，都能在公开的<a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener" style="color:var(--blue)">网站源码</a>和<a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" style="color:var(--blue)">宿主源码</a>里核对。最后更新：2026-10-14。</p>
+  <p class="sub">天河落是公开共享、非商业的开源项目。下面说的每一条，都能在公开的<a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener" style="color:var(--blue)">网站源码</a>和<a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" style="color:var(--blue)">宿主源码</a>里核对。最后更新：2026-10-17。</p>
 
   <h3 style="margin:36px 0 8px;font-size:22px">浏览网站时</h3>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
@@ -58,6 +58,19 @@
     <li><b>不保存原始 IP。</b>同一访问者 1 小时内对同一插件只算一次，靠的是一个加盐哈希值（取 IP 网段、插件和时间段做哈希）。这个哈希值约 2 天后自动清理。</li>
     <li>下载地区明细保留约一年（365 天），超期的记录会被自动清理。目前只作站长统计，<b>网站上不展示</b>。以后如果要公开显示下载地区，会先更新这一页。</li>
     <li>长期保存的仍只有“某插件某一天被下载了几次”。计数失败不会影响下载本身。</li>
+  </ul>
+
+  <h3 style="margin:36px 0 8px;font-size:22px">网站使用统计（匿名）</h3>
+  <p style="color:var(--mute)">为了改进搜索、商店和页面速度，网站会记录少量匿名事件：</p>
+  <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
+    <li><b>搜索与商店：</b>搜索了什么词、结果有几条，选了哪个分类或排序。</li>
+    <li><b>点击：</b>插件卡片、下载按钮、复制提示词、联系方式（邮箱、GitHub）。</li>
+    <li><b>页面：</b>打开了不存在的地址（404）、页面加载速度（LCP、CLS、TTFB），页面脚本报错。</li>
+  </ul>
+  <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
+    <li><b>不设置 Cookie，不存 IP，不记录任何用户标识。</b>服务器只保存事件名、页面路径、数值，以及搜索词等一小段文字；其中的电话号码（7 位以上数字）和邮箱会先被遮盖。</li>
+    <li>浏览器开启“请勿追踪”或 GPC（全局隐私控制）时，这些统计完全关闭。</li>
+    <li>保留约 180 天后自动删除。目前只用于站长改进网站，不向访客展示，也不出售或分享。</li>
   </ul>
 
   <h3 style="margin:36px 0 8px;font-size:22px">Revit 里的宿主</h3>
@@ -84,5 +97,6 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数记录次数与大致地区（城市级，不保存原始 IP），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
+<script src="/fx.js?v=d6f7a042"></script>
 </body>
 </html>

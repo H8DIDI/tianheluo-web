@@ -127,6 +127,7 @@ async function renderStore() {
     const qs = u.toString();
     history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
   };
+  let lastCount = 0, searchTimer = 0;   // 当前结果数（埋点用）
   const draw = () => {
     chips.innerHTML = cats.map((c) => `<button class="chip ${c === cat ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("") +
       `<span class="chip-sep"></span>` +
@@ -139,10 +140,19 @@ async function renderStore() {
       : sort === "new" ? (b.date || "").localeCompare(a.date || "") || a.name.localeCompare(b.name)
       : a.name.localeCompare(b.name));
     box.innerHTML = list.length ? list.map((p) => card(p, st)).join("") : `<div class="empty">没有匹配的插件</div>`;
+    lastCount = list.length;
     syncUrl();
   };
-  chips.addEventListener("click", (e) => { const c = e.target.dataset.c, s = e.target.dataset.s; if (c) cat = c; if (s) sort = s; if (c || s) draw(); });
-  qInput.addEventListener("input", (e) => { qRaw = e.target.value; draw(); });
+  chips.addEventListener("click", (e) => {
+    const c = e.target.dataset.c, s = e.target.dataset.s;
+    if (c) cat = c; if (s) sort = s;
+    if (c || s) { draw(); if (window.thlTrack) window.thlTrack("store_filter", lastCount, c || s); }
+  });
+  qInput.addEventListener("input", (e) => {
+    qRaw = e.target.value; draw();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { const v = qRaw.trim(); if (v.length >= 2 && window.thlTrack) window.thlTrack("store_search", lastCount, v); }, 1200);
+  });
   draw();
 }
 
