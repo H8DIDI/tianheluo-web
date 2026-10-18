@@ -2,7 +2,7 @@
 --
 -- 每次计入总数的下载，functions/api/dl/[id].js 写一行：时间、插件 id（宿主为 host）、
 -- Cloudflare 按 IP 估算的国家 / 省州 / 城市 / 大致经纬度（两位小数，约 1 公里）。
--- 不保存原始 IP。目前不对外展示；保留 365 天（函数里每约 50 次下载顺手清理一次）。
+-- 另有 ip 列（见 ip_columns.sql）。仅供站长分析，不对外展示；保留 180 天（函数里每约 50 次下载顺手清理一次）。
 --
 -- 执行方式（二选一）：
 --   1. Cloudflare 控制台 → Workers & Pages → D1 → tianheluo-stats → Console，粘贴本文件内容执行。

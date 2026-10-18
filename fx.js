@@ -1,11 +1,11 @@
 // 天河落 THL — 交互与动效（fx.js v5 · 天河深海星轨）
 // 1. 顶部阅读进度条   2. 清理旧版主题设置   3. 黄金分割轴网 + 微光水滴   4. 滚动渐显
 // 5. 卡片光标追随   6. 代码一键复制   7. 首页启动器演示   8. 命令舱（Ctrl+K / ⌘K / "/"）
-// 9. 匿名使用统计（不设 Cookie，不存 IP；浏览器开启“请勿追踪”或 GPC 时完全关闭）
+// 9. 使用统计（不设 Cookie；服务器会记录 IP 与城市，保留 180 天；浏览器开启“请勿追踪”或 GPC 时完全关闭）
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 9. 匿名统计：事件发往同源的 /api/event，服务端只写入白名单事件（见 functions/api/event.js）
+  // 9. 使用统计：事件发往同源的 /api/event，服务端只写入白名单事件（见 functions/api/event.js）
   const TRACK_OFF = navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.globalPrivacyControl === true;
   const track = (n, v, x) => {
     if (TRACK_OFF) return;

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>隐私说明 — 天河落 THL</title>
-<meta name="description" content="天河落收集什么、不收集什么：网站不设 cookie、不做跨站追踪，下载计数不保存原始 IP（只记大致地区），宿主不上传任何模型或项目数据。">
+<meta name="description" content="天河落收集什么、不收集什么：网站不设 cookie、不做跨站追踪，会记录访问 IP 与大致城市用于站长分析（保留 180 天，不出售、不分享），宿主不上传任何模型或项目数据。">
 <link rel="canonical" href="https://tianheluo.com/privacy">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="隐私说明 — 天河落 THL"><meta property="og:description" content="天河落收集什么、不收集什么：网站不设 cookie、不做跨站追踪，下载计数不保存原始 IP（只记大致地区），宿主不上传任何模型或项目数据。">
+<meta property="og:title" content="隐私说明 — 天河落 THL"><meta property="og:description" content="天河落收集什么、不收集什么：网站不设 cookie、不做跨站追踪，会记录访问 IP 与大致城市用于站长分析（保留 180 天，不出售、不分享），宿主不上传任何模型或项目数据。">
 <meta property="og:url" content="https://tianheluo.com/privacy"><meta property="og:image" content="https://tianheluo.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#06080E">
@@ -39,38 +39,39 @@
 <main class="wrap" style="padding-top:56px;padding-bottom:40px;max-width:820px">
   <div class="eyebrow">隐私说明</div>
   <h1 class="pt">我们收集什么，不收集什么</h1>
-  <p class="sub">天河落是公开共享、非商业的开源项目。下面说的每一条，都能在公开的<a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener" style="color:var(--blue)">网站源码</a>和<a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" style="color:var(--blue)">宿主源码</a>里核对。最后更新：2026-10-17。</p>
+  <p class="sub">天河落是公开共享、非商业的开源项目。下面说的每一条，都能在公开的<a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener" style="color:var(--blue)">网站源码</a>和<a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" style="color:var(--blue)">宿主源码</a>里核对。最后更新：2026-10-18。</p>
 
   <h3 style="margin:36px 0 8px;font-size:22px">浏览网站时</h3>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
     <li>网站<b>不设置 cookie</b>，不使用广告，也不做跨站追踪。</li>
     <li>为了了解哪些页面有人看，网站使用 <b>Cloudflare Web Analytics</b>：它不使用 cookie、不识别具体个人，只给出页面浏览量、来源、浏览器和设备类型、大致地区这类汇总数据。</li>
-    <li>网站托管在 Cloudflare。和任何网站一样，托管商会在传输过程中看到访问者的 IP 和请求，用于提供服务和防御攻击，这部分由 Cloudflare 按其隐私政策处理，我们不会取得个人身份信息。</li>
+    <li>网站托管在 Cloudflare。和任何网站一样，托管商会在传输过程中看到访问者的 IP 和请求，用于提供服务和防御攻击，这部分由 Cloudflare 按其隐私政策处理。我们自己记录的 IP 见下面两节。</li>
   </ul>
 
-  <h3 style="margin:36px 0 8px;font-size:22px">下载计数与下载地区</h3>
+  <h3 style="margin:36px 0 8px;font-size:22px">下载计数、IP 与下载地区</h3>
   <p style="color:var(--mute)">插件商店的“下载次数”和热门榜，来自每次下载时的计数。每计入一次下载，同时记下：</p>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
     <li>下载时间、插件名（宿主更新包记为 host）；</li>
-    <li>Cloudflare 根据 IP 估算出的<b>国家、省/州、城市</b>和大致经纬度。这是城市级的粗略位置（两位小数，约 1 公里范围），不是住址。</li>
+    <li><b>访问者的 IP 地址</b>，以及 Cloudflare 根据 IP 估算出的<b>国家、省/州、城市</b>和大致经纬度（城市级粗略位置，不是住址）。</li>
   </ul>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
-    <li><b>不保存原始 IP。</b>同一访问者 1 小时内对同一插件只算一次，靠的是一个加盐哈希值（取 IP 网段、插件和时间段做哈希）。这个哈希值约 2 天后自动清理。</li>
-    <li>下载地区明细保留约一年（365 天），超期的记录会被自动清理。目前只作站长统计，<b>网站上不展示</b>。以后如果要公开显示下载地区，会先更新这一页。</li>
-    <li>长期保存的仍只有“某插件某一天被下载了几次”。计数失败不会影响下载本身。</li>
+    <li>这些信息<b>只用于站长分析和优化网站</b>（例如了解哪些地区的人在用、排查异常下载），<b>不出售，也不分享给任何第三方</b>，网站上不展示。</li>
+    <li><b>保留 180 天</b>，到期整条记录（包括 IP）自动删除。</li>
+    <li>同一访问者 1 小时内对同一插件只算一次，靠的是一个加盐哈希值（取 IP 网段、插件和时间段做哈希），约 2 天后自动清理。</li>
+    <li>长期保存的只有“某插件某一天被下载了几次”。计数失败不会影响下载本身。</li>
   </ul>
 
-  <h3 style="margin:36px 0 8px;font-size:22px">网站使用统计（匿名）</h3>
-  <p style="color:var(--mute)">为了改进搜索、商店和页面速度，网站会记录少量匿名事件：</p>
+  <h3 style="margin:36px 0 8px;font-size:22px">网站使用统计</h3>
+  <p style="color:var(--mute)">为了改进搜索、商店和页面速度，网站会记录少量使用事件：</p>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
     <li><b>搜索与商店：</b>搜索了什么词、结果有几条，选了哪个分类或排序。</li>
     <li><b>点击：</b>插件卡片、下载按钮、复制提示词、联系方式（邮箱、GitHub）。</li>
     <li><b>页面：</b>打开了不存在的地址（404）、页面加载速度（LCP、CLS、TTFB），页面脚本报错。</li>
   </ul>
   <ul style="color:var(--mute);line-height:1.9;padding-left:22px">
-    <li><b>不设置 Cookie，不存 IP，不记录任何用户标识。</b>服务器只保存事件名、页面路径、数值，以及搜索词等一小段文字；其中的电话号码（7 位以上数字）和邮箱会先被遮盖。</li>
+    <li><b>不设置 Cookie，不使用账号或设备标识。</b>每个事件会同时记录访问 IP 和 Cloudflare 估算的国家、省/州、城市，再加上事件名、页面路径、数值，以及搜索词等一小段文字；其中的电话号码（7 位以上数字）和邮箱会先被遮盖。</li>
     <li>浏览器开启“请勿追踪”或 GPC（全局隐私控制）时，这些统计完全关闭。</li>
-    <li>保留约 180 天后自动删除。目前只用于站长改进网站，不向访客展示，也不出售或分享。</li>
+    <li><b>保留 180 天</b>后整条记录（包括 IP）自动删除。只用于站长分析和改进网站，不向访客展示，不出售，也不分享给第三方。</li>
   </ul>
 
   <h3 style="margin:36px 0 8px;font-size:22px">Revit 里的宿主</h3>
@@ -95,8 +96,8 @@
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
   <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
-  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。下载计数记录次数与大致地区（城市级，不保存原始 IP），详见<a href="/privacy">隐私说明</a>。</div>
+  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/fx.js?v=d6f7a042"></script>
+<script src="/fx.js?v=7283e9be"></script>
 </body>
 </html>

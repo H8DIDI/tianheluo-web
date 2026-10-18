@@ -1,5 +1,5 @@
 -- 匿名使用统计表（tianheluo-stats，绑定名 DB）。幂等，可重复执行。
--- 由 functions/api/event.js 写入：只记录事件名、页面路径、数值、遮盖后的短文字；不记录 IP、Cookie 或任何用户标识。
+-- 由 functions/api/event.js 写入：事件名、页面路径、数值、遮盖后的短文字，另有 ip/country/region/city/lat/lon 列（见 ip_columns.sql）。不设 Cookie。
 -- 保留约 180 天（函数里每约 100 次写入顺手清理一次）。
 
 CREATE TABLE IF NOT EXISTS events (

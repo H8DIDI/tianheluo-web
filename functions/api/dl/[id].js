@@ -1,13 +1,13 @@
 // GET /api/dl/<id>  —— 下载插件（或宿主更新包），同时给这个 id 计一次数，然后把文件直接返回。
 // 设计原则：计数绝不能影响下载——数据库出任何问题都照常下载。
 //   - id 必须是商店清单(plugins.json)里的插件，或宿主(host.json)里的资源；其它一律 404（防止乱写数据库）。
-//   - 同一个访问者（按 IP 网段）对同一个 id，1 小时内只算 1 次（用加盐哈希做去重键，不保存任何原始 IP）。
-//   - 每次计数同时写一条地区明细 download_geo（国家/城市/大致经纬度，由 Cloudflare 按 IP 估算，不含 IP）。
-//     目前只留在数据库里给站长看，不对外展示；保留 365 天。见 migrations/download_geo.sql。
+//   - 同一个访问者（按 IP 网段）对同一个 id，1 小时内只算 1 次（用加盐哈希做去重键，哈希约 2 天后清理）。
+//   - 每次计数同时写一条明细 download_geo（访问者 IP + Cloudflare 按 IP 估算的国家/省/城市/大致经纬度）。
+//     仅供站长分析，不对外展示、不出售、不分享；保留 180 天。见 migrations/download_geo.sql、ip_columns.sql。
 //   - 只统计 GET；HEAD/探测不计数。
 
 const DEDUPE_SECONDS = 3600;
-const GEO_KEEP_SECONDS = 365 * 86400;
+const GEO_KEEP_SECONDS = 180 * 86400;
 
 async function sha256Hex(text) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
@@ -67,10 +67,10 @@ async function count(env, request, countId) {
     try {
       const g = geoOf(request);
       await env.DB.prepare(
-        "INSERT INTO download_geo (ts, plugin_id, country, region, city, lat, lon) VALUES (?, ?, ?, ?, ?, ?, ?)"
-      ).bind(now, countId, g.country, g.region, g.city, g.lat, g.lon).run();
+        "INSERT INTO download_geo (ts, plugin_id, country, region, city, lat, lon, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+      ).bind(now, countId, g.country, g.region, g.city, g.lat, g.lon, (request.headers.get("CF-Connecting-IP") || "").slice(0, 45) || null).run();
     } catch (e) { /* 表还没建好等情况：忽略 */ }
-    if (Math.random() < 0.02) { // 顺手清理：2 天前的去重记录、1 年前的地区明细
+    if (Math.random() < 0.02) { // 顺手清理：2 天前的去重记录、180 天前的下载明细
       await env.DB.prepare("DELETE FROM dedupe WHERE ts < ?").bind(now - 2 * 86400).run();
       try { await env.DB.prepare("DELETE FROM download_geo WHERE ts < ?").bind(now - GEO_KEEP_SECONDS).run(); } catch (e) { /* 忽略 */ }
     }

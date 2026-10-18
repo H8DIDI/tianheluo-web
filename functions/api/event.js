@@ -1,8 +1,9 @@
-// POST /api/event  —— 匿名使用统计：只接收白名单里的事件，写入 D1 表 events。
+// POST /api/event  —— 使用统计：只接收白名单里的事件，写入 D1 表 events。
 // 设计原则（与 privacy.html 的承诺一致）：
-//   - 不设 Cookie，不存 IP，不记录用户标识；只记录事件名、页面路径、数值、一小段文字。
+//   - 不设 Cookie。记录事件名、页面路径、数值、一小段文字，以及访问者 IP 与 Cloudflare 按 IP 估算的国家/省/城市/大致经纬度，
+//     仅供站长分析和优化网站，不出售、不分享给第三方（见 privacy.html）。
 //   - 文字里的疑似电话号码、邮箱会先被遮盖再写入。
-//   - 记录只保留约 180 天。统计失败不影响页面，接口对前端一律返回 204。
+//   - 记录保留 180 天，到期整行（含 IP）删除。统计失败不影响页面，接口对前端一律返回 204。
 
 const EVENTS = new Set([
   "hud_open", "hud_query", "hud_pick",
@@ -34,9 +35,12 @@ export async function onRequestPost({ request, env }) {
     const prop = e.x == null || e.x === "" ? null : scrub(e.x);
     const now = Math.floor(Date.now() / 1000);
     const day = new Date().toISOString().slice(0, 10);
+    const cf = request.cf || {};
+    const ip = (request.headers.get("CF-Connecting-IP") || "").slice(0, 45) || null;
+    const coord = (v) => { const n = parseFloat(v); return Number.isFinite(n) ? Math.round(n * 100) / 100 : null; };
     await env.DB.prepare(
-      "INSERT INTO events (ts, day, name, path, value, prop) VALUES (?, ?, ?, ?, ?, ?)"
-    ).bind(now, day, name, path, value, prop).run();
+      "INSERT INTO events (ts, day, name, path, value, prop, ip, country, region, city, lat, lon) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    ).bind(now, day, name, path, value, prop, ip, cf.country || null, cf.region || null, cf.city || null, coord(cf.latitude), coord(cf.longitude)).run();
     if (Math.random() < 0.01) // 顺手清理超过保留期的记录
       await env.DB.prepare("DELETE FROM events WHERE ts < ?").bind(now - KEEP_SECONDS).run();
   } catch (err) { /* 统计失败不影响页面 */ }
