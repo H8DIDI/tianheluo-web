@@ -3,6 +3,8 @@ const STATUS = { stable: "稳定版", beta: "测试版", planned: "计划中" };
 const CAT_COLOR = { "市政管线": "#3FA9FF", "出图打印": "#818CF8", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#38BDF8", "视图管理": "#06B6D4" };
 // 全站插件累计下载低于这个数时，热榜还没有参考价值：标题改为“精选上架”，不再展示“还没有数据”的提示语
 const COLD_THRESHOLD = 50;
+// 插件详情页网址。用函数拼接，避免搜索引擎把 JS 里的字面量当成真实链接去抓取（会得到一个 404）
+const pageUrl = (id) => "/plugins/".concat(encodeURIComponent(id));
 
 // 导航栏/页脚由 tools/build_seo.py 直接写进每个页面的 HTML（爬虫不执行 JS，所以不能靠这里注入）。
 
@@ -38,7 +40,7 @@ function badge(p, size) {
 function card(p, st) {
   const n = total(st, p.id);
   return `
-  <a class="pc" href="/plugins/${encodeURIComponent(p.id)}">
+  <a class="pc" href="${pageUrl(p.id)}">
     <div class="top">${badge(p, 44)}
       <h3>${esc(p.name)}<small>${esc(p.en)}</small></h3></div>
     <p>${esc(p.summary)}</p>
@@ -89,7 +91,7 @@ async function renderPopular() {
 
 function rankRow(r, i) {
   return `
-      <a class="rk" href="/plugins/${encodeURIComponent(r.p.id)}">
+      <a class="rk" href="${pageUrl(r.p.id)}">
         <span class="no ${i < 3 && r.n ? "top" : ""}">${i + 1}</span>
         ${badge(r.p, 40)}
         <span class="nm"><b>${esc(r.p.name)}</b><small>${esc(r.p.category)}${r.p.tier === "community" ? " · 社区" : ""}</small></span>

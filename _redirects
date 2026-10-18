@@ -9,6 +9,10 @@
 /plugins /store 301
 /plugins/ /store 301
 /plugin.html /plugin 301
+/download.html /install 301
+/faq.html /install 301
+/pricing.html /store 301
+/index.html / 301
 
 # 百度站点验证文件：让 .html 原地址直接返回 200（否则 Pages 会 308 去掉后缀）
 /baidu_verify_codeva-znfHCxn0Ur.html /baidu_verify_codeva-znfHCxn0Ur 200
