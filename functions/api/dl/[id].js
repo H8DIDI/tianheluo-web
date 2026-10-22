@@ -4,7 +4,7 @@
 //   - 同一个访问者（按 IP 网段）对同一个 id，1 小时内只算 1 次（用加盐哈希做去重键，哈希约 2 天后清理）。
 //   - 每次计数同时写一条明细 download_geo（访问者 IP + Cloudflare 按 IP 估算的国家/省/城市/大致经纬度）。
 //     仅供站长分析，不对外展示、不出售、不分享；保留 180 天。见 migrations/download_geo.sql、ip_columns.sql。
-//   - 只统计 GET；HEAD/探测不计数。
+//   - 只统计 GET；HEAD/探测不计数；脚本、爬虫、监控（按 User-Agent 判断，见 shouldCount）也不计数。
 
 const DEDUPE_SECONDS = 3600;
 const GEO_KEEP_SECONDS = 180 * 86400;
@@ -27,6 +27,17 @@ function ipPrefix(ip) {
   if (ip.includes(":")) return ip.split(":").slice(0, 3).join(":");
   const parts = ip.split(".");
   return parts.length === 4 ? parts.slice(0, 3).join(".") : ip;
+}
+
+/** 只给真人/宿主的下载计数：浏览器（Mozilla/…，且不带 bot/crawl/headless 等字样）或宿主（THL-Host/…）。
+ *  命令行工具、脚本、爬虫、监控（curl、python、HealthCheck…）照常能下载，但不计数、不写地区明细；
+ *  自己的检查脚本也可以加请求头 X-THL-Check: 1 明确跳过。 */
+function shouldCount(request) {
+  if (request.headers.get("X-THL-Check")) return false;
+  const ua = request.headers.get("User-Agent") || "";
+  if (/^THL-Host\//.test(ua)) return true;
+  if (!/^Mozilla\//.test(ua)) return false;
+  return !/bot|crawl|spider|slurp|headless|monitor|health|check|scan|preview|fetch|python|curl|wget|httpx|java|go-http|node/i.test(ua);
 }
 
 async function loadJson(env, request, path) {
@@ -88,7 +99,7 @@ export async function onRequest({ request, env, params, waitUntil }) {
   const file = await env.ASSETS.fetch(new URL(hit.file, request.url));
   if (!file.ok) return new Response(JSON.stringify({ error: "file missing" }), { status: 404, headers: { "Content-Type": "application/json" } });
 
-  if (request.method === "GET") waitUntil(count(env, request, hit.countId));
+  if (request.method === "GET" && shouldCount(request)) waitUntil(count(env, request, hit.countId));
 
   const name = hit.file.split("/").pop();
   const headers = new Headers(file.headers);
