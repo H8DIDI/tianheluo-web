@@ -14,6 +14,31 @@
 /pricing.html /store 301
 /index.html / 301
 
+# 更早的旧站（烟花特效站、Raycast 模板站、房产工具）遗留网址：搜索引擎（含 Bing）仍在抓，统一永久跳到现在的页面
+/effects / 301
+/effects/* / 301
+/demo / 301
+/demo/* / 301
+/daily/* / 301
+/decision-checklists / 301
+/decision-checklists/* / 301
+/open-permit-closing-cost-calculator / 301
+/core-features / 301
+/core-features/* / 301
+/blog / 301
+/blog/* / 301
+/changelog / 301
+/docs / 301
+/news / 301
+/press / 301
+/pro /store 301
+/community /contact 301
+/aup /privacy 301
+/dpa /privacy 301
+/ambassadors / 301
+/raycast-vs-alfred / 301
+/browser-extension / 301
+
 # 百度站点验证文件：让 .html 原地址直接返回 200（否则 Pages 会 308 去掉后缀）
 /baidu_verify_codeva-znfHCxn0Ur.html /baidu_verify_codeva-znfHCxn0Ur 200
 /baidu_verify_codeva-XHnY27K0V2.html /baidu_verify_codeva-XHnY27K0V2 200
