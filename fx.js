@@ -116,8 +116,8 @@
   const ph = document.getElementById("ph");
   const script = [
     { q: "井深", pick: "well-depth", msg: "已校正 12 口井 · Ctrl+Z 可整体撤销" },
-    { q: "统计", pick: "count-elements", msg: "当前视图共 1,284 个构件" },
-    { q: "备注", pick: "set-comments", msg: "已写入 36 个构件的注释" },
+    { q: "标注", pick: "well-annotate", msg: "5 个视图已加尺寸 · 只加不改" },
+    { q: "提量", pick: "quantity-export", msg: "混凝土 18.6 m³ · 钢筋 2.41 t" },
   ];
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const show = (q, pick) => {

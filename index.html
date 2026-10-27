@@ -60,10 +60,10 @@
     <div class="list">
       <div class="grp">插件</div>
       <div class="it sel" data-id="well-depth" data-k="井深调整"><span class="ic">⌖</span>井深调整<small>市政管线</small></div>
-      <div class="it" data-id="count-elements" data-k="构件统计"><span class="ic">▤</span>构件统计<small>数据处理</small></div>
-      <div class="it" data-id="set-comments" data-k="批量备注"><span class="ic">≡</span>批量备注<small>数据处理</small></div>
-      <div class="it" data-id="auto-grid" data-k="一键轴网"><span class="ic">▦</span>一键轴网<small>建模辅助</small></div>
-      <div class="it" data-id="clean-view" data-k="视图清理"><span class="ic">⧈</span>视图清理<small>视图管理</small></div>
+      <div class="it" data-id="well-annotate" data-k="一键井大样标注"><span class="ic">⧈</span>一键井大样标注<small>出图打印</small></div>
+      <div class="it" data-id="quantity-export" data-k="框选提量导出Excel"><span class="ic">▤</span>框选提量导出Excel<small>数据处理</small></div>
+      <div class="it" data-id="well-sheets" data-k="一键井展开图"><span class="ic">▦</span>一键井展开图<small>出图打印</small></div>
+      <div class="it" data-id="duct-snap" data-k="排管贴井内壁"><span class="ic">≡</span>排管贴井内壁<small>市政管线</small></div>
     </div>
     <div class="toast" id="toast">✓ <span id="toastTxt"></span></div>
     <div class="foot"><span>天河落</span><span class="sp"></span>运行 <kbd>↵</kbd> &nbsp; 操作 <kbd>Ctrl</kbd><kbd>K</kbd></div>
@@ -71,8 +71,8 @@
 </div></div>
 
 <div class="marq" aria-hidden="true"><div class="tr">
-  <span><b>⌖</b>井深调整</span><span><b>▤</b>构件统计</span><span><b>≡</b>批量备注</span><span><b>▦</b>一键轴网</span><span><b>⧈</b>视图清理</span><span><b>◇</b>更多插件陆续上架</span>
-  <span><b>⌖</b>井深调整</span><span><b>▤</b>构件统计</span><span><b>≡</b>批量备注</span><span><b>▦</b>一键轴网</span><span><b>⧈</b>视图清理</span><span><b>◇</b>更多插件陆续上架</span>
+  <span><b>⌖</b>井深调整</span><span><b>⧈</b>一键井大样标注</span><span><b>▦</b>一键井展开图</span><span><b>▤</b>框选提量</span><span><b>≡</b>排管贴井内壁</span><span><b>◇</b>更多插件陆续上架</span>
+  <span><b>⌖</b>井深调整</span><span><b>⧈</b>一键井大样标注</span><span><b>▦</b>一键井展开图</span><span><b>▤</b>框选提量</span><span><b>≡</b>排管贴井内壁</span><span><b>◇</b>更多插件陆续上架</span>
 </div></div>
 
 <section id="how"><div class="wrap">
@@ -80,10 +80,10 @@
   <h2 class="reveal">小而专注，<br>像搭积木一样扩展 Revit</h2>
   <div class="bento">
     <div class="bn a reveal"><h3>先预览，再写入</h3><p>会改模型的插件先给出修改前后对照表，确认后才真正执行。</p>
-      <div class="viz twin" aria-hidden="true"><div class="cab before"><small>BEFORE · 原井底标高</small><b>-2400</b><span>井 J-01 · 深 1850</span></div><div class="mid"><kbd>Ctrl</kbd><kbd>Z</kbd><span>整体回退</span></div><div class="cab after"><small>AFTER · 校正后</small><b>-2650</b><span>井 J-01 · 深 1850</span></div></div></div>
+      <div class="viz twin" aria-hidden="true"><div class="cab before"><small>BEFORE · 原井底标高</small><b>-2400</b><span>井 J-01 · 深 1850</span></div><div class="mid"><kbd>Ctrl</kbd><kbd>Z</kbd><span>整体回退</span></div><div class="cab after"><small>AFTER · 校正后</small><b>-2650</b><span>井 J-01 · 深 2100</span></div></div></div>
     <div class="bn b reveal"><h3>一步撤销</h3><p>所有改动在同一个事务里，Ctrl+Z 整体回退。</p>
       <div class="viz undo"><kbd>Ctrl</kbd><kbd>Z</kbd><div class="bar"><i></i></div></div></div>
-    <div class="bn c reveal"><h3>插件即装即用</h3><p>下载文件放进 Plugins，重启 Revit 就出现。</p>
+    <div class="bn c reveal"><h3>插件即装即用</h3><p>在 Revit 里一键下载、更新插件，不用重启。</p>
       <div class="viz orbit"><span>⌖</span><span>▤</span><span>≡</span><span>▦</span></div></div>
     <div class="bn d reveal"><h3>持续更新的商店</h3><p>每个插件都有版本、适配信息和更新记录，只下载你需要的部分。</p>
       <div class="viz" style="display:flex;gap:10px;flex-wrap:wrap"><span class="tag beta">测试版</span><span class="tag">Revit 2026</span><span class="tag">市政管线</span><span class="tag">数据处理</span><span class="tag">建模辅助</span><span class="tag">视图管理</span></div>
@@ -311,6 +311,6 @@
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
 <script src="/app.js?v=7b182a70"></script>
-<script src="/fx.js?v=5fe8195f"></script>
+<script src="/fx.js?v=e9df73f3"></script>
 </body>
 </html>
