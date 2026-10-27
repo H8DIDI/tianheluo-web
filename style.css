@@ -1238,3 +1238,116 @@ footer a:hover {
 .twin .mid kbd {
   font-size: 11px;
 }
+
+.tag.m-proven {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.tag.m-tested {
+  color: #7cc4ff;
+  background: rgba(63, 169, 255, 0.08);
+  border-color: rgba(63, 169, 255, 0.25);
+}
+
+.tag.m-beta {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.22);
+}
+
+/* 快速上手页：路线、分组列表、成熟度说明 */
+.route {
+  list-style: none;
+  counter-reset: rt;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.route li {
+  counter-increment: rt;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 16px 12px 52px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.route li::before {
+  content: counter(rt);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(63, 169, 255, 0.16);
+  color: #9FD4FF;
+  font-weight: 700;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+
+.route li > span:last-child,
+.gl li > span:last-child {
+  color: var(--mute);
+  flex: 1 1 260px;
+}
+
+.route a.rn b,
+.gl a b {
+  color: var(--text, #f2f4f7);
+}
+
+.gh {
+  margin: 34px 0 0;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gdot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.gd {
+  margin: 4px 0 0;
+  color: var(--mute);
+}
+
+.gl {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.gl li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}

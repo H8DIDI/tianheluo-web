@@ -17,15 +17,16 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=7710723b">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键钢筋三维实体显示", "alternateName": "rebar-3d-view", "description": "在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/rebar-3d-view", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-15", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/rebar-3d-view"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键钢筋三维实体显示", "item": "https://tianheluo.com/plugins/rebar-3d-view"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键钢筋三维实体显示", "alternateName": "rebar-3d-view", "description": "在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/rebar-3d-view", "applicationCategory": "DesignApplication", "applicationSubCategory": "结构与算量", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/rebar-3d-view"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键钢筋三维实体显示", "item": "https://tianheluo.com/plugins/rebar-3d-view"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
 <div class="wrap">
   <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
+    <a href="/start" class="">快速上手</a>
     <a href="/store" class="on">插件商店</a>
     <a href="/install" class="">安装指南</a>
     <a href="/developers" class="">开发者</a>
@@ -41,24 +42,25 @@
   <div class="crumb"><a href="/store">插件商店</a> / 一键钢筋三维实体显示</div>
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">筋</span>
     <div><h1>一键钢筋三维实体显示</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
+      <span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">结构与算量</span></div></div></div>
   <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">在三维视图里检查钢筋，要逐个设钢筋「作为实体查看」、把视图调成精细、再把混凝土调透明，步骤多，查完还要一个个改回去。</p><p style="color:var(--mute);margin:0 0 10px">钢筋三维实体显示把这些一步做完，并记住改过哪些构件，恢复时只恢复本插件改过的。</p></div>
-      <div class="panel"><h4>怎么用</h4><ol><li>打开一个三维视图。框选要看的构件；不框选则处理当前视图里全部混凝土构件。</li><li>点「一键钢筋三维实体显示」：钢筋按真实粗细显示为实体，混凝土设为半透明。</li><li>查完再点一次选择恢复：混凝土恢复为不透明（只恢复本插件改过的构件）。</li></ol></div>
-      <div class="panel"><h4>注意事项</h4><ul><li>只改视图显示设置，不改构件几何。</li><li>处理状态记录在 Documents\KaifaTools\钢筋三维显示状态.json，用于准确恢复。</li></ul></div>
-      <div class="panel"><h4>功能</h4><ul><li>框选构件则只处理选中的；没有框选则处理当前视图里的全部混凝土构件。</li><li>可以一键恢复：混凝土恢复为不透明（只恢复本插件改过的构件）。</li></ul></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">在三维视图里检查钢筋，要把视图调成精细、让钢筋不被混凝土遮挡、再把混凝土调透明，步骤多，查完还要一个个改回去；手动改透明度时还容易把构件原来设好的颜色、线型覆盖掉。</p><p style="color:var(--mute);margin:0 0 10px">钢筋三维实体显示把这些一步做完：视图设为精细（Revit 2024 起钢筋在精细的三维视图里按真实粗细的实体显示）、钢筋设为不被遮挡、混凝土半透明。只改透明度这一项，构件原有的颜色、线型等显示替换保留；改之前的值都记下来，恢复时一一还原。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>打开一个三维视图。框选要看的构件；不框选则处理当前视图里全部混凝土构件。</li><li>点「一键钢筋三维实体显示」选「显示」：视图精细、钢筋不被遮挡、混凝土半透明。</li><li>查完再点一次选「恢复」：混凝土透明度、钢筋显示和视图详细程度都回到运行前。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只改视图显示设置，不改构件几何。</li><li>视图样板如果锁定了可见性或详细程度，对应的一项会改不了，完成提示里会写明。</li><li>处理状态记录在 Documents\KaifaTools\钢筋三维显示状态.json，用于准确恢复。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>框选构件则只处理选中的；没有框选则处理当前视图里的全部混凝土构件。</li><li>可以一键恢复：透明度、钢筋显示、视图详细程度都回到运行前（只动本插件改过的，构件原有的其它显示替换保留）。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量…</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li><li><a href="/plugins/schedule-excel" style="color:var(--blue)">明细表Excel互导</a><span style="color:var(--dim)"> — 把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量…</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点…</span></li><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来…</span></li><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>3 KB</dd><dt>更新</dt><dd>2026-10-15</dd>
+      <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
+      <dt>版本</dt><dd>0.2.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>4 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
       <dt>下载</dt><dd><span data-dl="rebar-3d-view">暂无</span></dd>
       
       </dl>
@@ -76,7 +78,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=7b182a70"></script>
-<script src="/fx.js?v=e9df73f3"></script>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
 </body>
 </html>

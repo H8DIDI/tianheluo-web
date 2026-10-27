@@ -1,6 +1,12 @@
 // 插件数据渲染 + 下载数 / 热门榜（页面主体已有静态版；这里用实时数据替换）
-const STATUS = { stable: "稳定版", beta: "测试版", planned: "计划中" };
-const CAT_COLOR = { "市政管线": "#3FA9FF", "出图打印": "#818CF8", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#38BDF8", "视图管理": "#06B6D4" };
+const MATURITY = { proven: "项目实战", tested: "已实测", beta: "试用" };
+const MATURITY_NOTE = {
+  proven: "已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。",
+  tested: "在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。",
+  beta: "做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。",
+};
+const matTag = (p) => { const m = MATURITY[p.maturity] ? p.maturity : "beta"; return `<span class="tag m-${m}" title="${esc(MATURITY_NOTE[m])}">${MATURITY[m]}</span>`; };
+const CAT_COLOR = { "井大样出图": "#818CF8", "井与管线": "#3FA9FF", "结构与算量": "#10B981", "图纸视图": "#06B6D4", "导出": "#F59E0B" };
 // 全站插件累计下载低于这个数时，热榜还没有参考价值：标题改为“精选上架”，不再展示“还没有数据”的提示语
 const COLD_THRESHOLD = 50;
 // 插件详情页网址。用函数拼接，避免搜索引擎把 JS 里的字面量当成真实链接去抓取（会得到一个 404）
@@ -45,7 +51,7 @@ function card(p, st) {
     <div class="top">${badge(p, 44)}
       <h3>${esc(p.name)}<small>${esc(p.en)}</small></h3></div>
     <p>${esc(p.summary)}</p>
-    <div class="meta"><span class="tag ${p.status}">${STATUS[p.status]}</span>
+    <div class="meta">${matTag(p)}
       <span class="tag">${esc(p.category)}</span>${p.tier === "community" ? '<span class="tag community">社区</span>' : ""}${n > 0 ? `<span class="tag dl">⬇ ${fmt(n)}</span>` : ""}</div>
   </a>`;
 }
@@ -112,8 +118,9 @@ async function renderFeatured() {
 async function renderStore() {
   const box = document.getElementById("plist");
   if (!box) return;
-  const [{ plugins }, st] = await Promise.all([loadData(), loadStats()]);
-  const cats = ["全部", ...new Set(plugins.map((p) => p.category))];
+  const [{ plugins, groups }, st] = await Promise.all([loadData(), loadStats()]);
+  const present = new Set(plugins.map((p) => p.category));
+  const cats = ["全部", ...(groups || []).map((g) => g.name).filter((n) => present.has(n)), ...[...present].filter((n) => !(groups || []).some((g) => g.name === n))];
   const qInput = document.getElementById("q");
   const params = new URLSearchParams(location.search);
   const defaultSort = Object.keys(st.plugins || {}).length ? "hot" : "new";

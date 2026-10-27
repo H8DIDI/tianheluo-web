@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=7710723b">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://tianheluo.com/#org", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/", "logo": "https://tianheluo.com/icon-192.png", "sameAs": ["https://github.com/H8DIDI/tianheluo-core", "https://github.com/H8DIDI/tianheluo-web"]}, {"@type": "WebSite", "@id": "https://tianheluo.com/#website", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/", "inLanguage": "zh-CN", "publisher": {"@id": "https://tianheluo.com/#org"}}, {"@type": "SoftwareApplication", "name": "天河落 Tianheluo (THL)", "alternateName": ["THL", "Tianheluo"], "applicationCategory": "DesignApplication", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026", "softwareVersion": "0.2.4", "dateModified": "2026-10-15", "inLanguage": "zh-CN", "description": "Revit 2026 开源插件宿主 + 共享插件商店：一次安装，在 Revit 里一键下载、热加载、更新各种插件，无需重启。支持 pyRevit 脚本（IronPython），可让 AI（含 Revit MCP 工作流）按公开规范生成插件并上架。免费、公开、非商业。", "url": "https://tianheluo.com/", "image": "https://tianheluo.com/og-image.png", "downloadUrl": "https://tianheluo.com/install", "license": "https://opensource.org/license/mit", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core", "publisher": {"@id": "https://tianheluo.com/#org"}}]}</script>
 </head>
@@ -31,6 +31,7 @@
 <div class="wrap">
   <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
+    <a href="/start" class="">快速上手</a>
     <a href="/store" class="">插件商店</a>
     <a href="/install" class="">安装指南</a>
     <a href="/developers" class="">开发者</a>
@@ -105,193 +106,193 @@
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">点</span>
       <h3>控制点坐标表<small>control-points</small></h3></div>
     <p>导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/duct-snap">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#0EA5E9,#0EA5E999);border-color:#0EA5E988;color:#fff;font-weight:800">贴</span>
       <h3>排管贴井内壁<small>duct-snap</small></h3></div>
     <p>一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/elv-merge">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">并</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">并</span>
       <h3>族类型清洗合并<small>elv-merge</small></h3></div>
     <p>把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型，让类型列表保持清爽。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/export-dwg">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:13px;background:linear-gradient(135deg,#F59E0B,#F59E0B99);border-color:#F59E0B88;color:#fff;font-weight:800">DWG</span>
       <h3>一键导出图纸DWG/PDF<small>export-dwg</small></h3></div>
     <p>按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">导出</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">导出</span></div>
   </a>
   <a class="pc" href="/plugins/export-nwc">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:13px;background:linear-gradient(135deg,#F59E0B,#F59E0B99);border-color:#F59E0B88;color:#fff;font-weight:800">NWC</span>
       <h3>一键导出NWC<small>export-nwc</small></h3></div>
-    <p>一键把当前视图导出成 Navisworks 的 .nwc 文件，自动跳过 CAD 链接防止卡死，文件直接放到桌面。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">导出</span></div>
+    <p>一个窗口选好导出范围、坐标、是否带属性和保存位置，一键导出 Navisworks 的 .nwc；有进度条，默认不转换链接的 CAD 防卡死。</p>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">导出</span></div>
   </a>
   <a class="pc" href="/plugins/family-param-dim">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">尺</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">尺</span>
       <h3>族尺寸参数化<small>family-param-dim</small></h3></div>
     <p>在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效，避免载入项目后绑定错乱。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/issue-manager">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">发</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">发</span>
       <h3>图纸签发管理<small>issue-manager</small></h3></div>
     <p>把签发的图纸导出到带日期的文件夹，维护签发记录，并在 Revit 里生成签发记录明细表。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/pile-cleanup">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">清</span>
       <h3>清理重复松木桩垫层<small>pile-cleanup</small></h3></div>
     <p>扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套，其余一键删除。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/pile-cushion">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">桩</span>
       <h3>一键布置松木桩垫层<small>pile-cushion</small></h3></div>
     <p>框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/plan-batch">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#8B5CF6,#8B5CF699);border-color:#8B5CF688;color:#fff;font-weight:800">平</span>
       <h3>批量生成平面图<small>plan-batch</small></h3></div>
     <p>选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/quantity-export">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">量</span>
       <h3>一键框选提量导出Excel<small>quantity-export</small></h3></div>
     <p>框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">结构与算量</span></div>
   </a>
   <a class="pc" href="/plugins/rebar-3d-view">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">筋</span>
       <h3>一键钢筋三维实体显示<small>rebar-3d-view</small></h3></div>
     <p>在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">结构与算量</span></div>
   </a>
   <a class="pc" href="/plugins/rebar-cage">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">配</span>
       <h3>一键单构件快速配筋<small>rebar-cage</small></h3></div>
     <p>框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览，确认后生成整套钢筋笼。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">结构与算量</span></div>
   </a>
   <a class="pc" href="/plugins/schedule-excel">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">表</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">表</span>
       <h3>明细表Excel互导<small>schedule-excel</small></h3></div>
     <p>把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动，确认后才写入。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-manager">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">图</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">图</span>
       <h3>图纸管理<small>sheet-manager</small></h3></div>
     <p>可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-organize">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">归</span>
       <h3>一键图纸归类与图框编号<small>sheet-organize</small></h3></div>
     <p>把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号，并可统一替换图框。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-preview">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">览</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">览</span>
       <h3>图纸快速预览<small>sheet-preview</small></h3></div>
     <p>把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注，并一键回到 Revit 修改。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/tag-check">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">检</span>
       <h3>标注检查<small>tag-check</small></h3></div>
     <p>检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/view-manager">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">视</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">视</span>
       <h3>视图管理<small>view-manager</small></h3></div>
     <p>批量管理视图：筛选、重命名、套用视图样板、批量设比例与详细程度、找出没上图纸的视图。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
   <a class="pc" href="/plugins/well-annotate">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">标</span>
       <h3>一键井大样标注<small>well-annotate</small></h3></div>
     <p>给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-clear-marks">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">除</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">除</span>
       <h3>一键清除井标记<small>well-clear-marks</small></h3></div>
     <p>框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-config">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">项</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">项</span>
       <h3>井大样项目配置<small>well-config</small></h3></div>
     <p>井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-depth-report">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">深</span>
       <h3>井深统计报表<small>well-depth-report</small></h3></div>
     <p>统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-depth">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">井</span>
       <h3>井深调整<small>well-depth</small></h3></div>
     <p>按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-family-guard">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">族</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">族</span>
       <h3>井族体检<small>well-family-guard</small></h3></div>
     <p>手动改井族时的护栏：体检井族参数，改族前拍快照，改族后对比哪些参数和井的值变了。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-number">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">号</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">号</span>
       <h3>一键编号<small>well-number</small></h3></div>
     <p>按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-param-sync">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">同</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">同</span>
       <h3>井参数同步<small>well-param-sync</small></h3></div>
     <p>让所有井的「井盖面标高」等于「相对标高的偏移」，只写记录用的参数，不挪井、不改样子。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheet-fit">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">比</span>
       <h3>井图比例排版<small>well-sheet-fit</small></h3></div>
     <p>给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheet-no">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">号</span>
       <h3>井图号重编<small>well-sheet-no</small></h3></div>
     <p>按系统号段给井大样图纸重新编连续的图号，先预览旧号到新号，自动导出对照表。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheets">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">展</span>
       <h3>一键井展开图<small>well-sheets</small></h3></div>
     <p>选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-spec-table">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">规</span>
       <h3>井规格表<small>well-spec-table</small></h3></div>
     <p>给每张井大样图纸放一张只列这口井数据的明细表，改了井的参数表格跟着变。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-zone">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">区</span>
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">区</span>
       <h3>井分区标记<small>well-zone</small></h3></div>
     <p>框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。</p>
-    <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
   </a><!--/seo:featured--></div>
   <div class="cta" style="justify-content:flex-start"><a class="btn" href="/store">查看全部插件 →</a></div>
 </div></section>
@@ -310,7 +311,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=7b182a70"></script>
-<script src="/fx.js?v=e9df73f3"></script>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
 </body>
 </html>

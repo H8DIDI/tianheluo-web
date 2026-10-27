@@ -150,6 +150,7 @@
   const hud = (() => {
     const STATIC = [
       { name: "插件商店", sub: "浏览全部插件", href: "/store", key: "插件商店 store 插件 下载" },
+      { name: "快速上手", sub: "井大样出图路线与插件成熟度", href: "/start", key: "快速上手 上手 路线 教程 入门 start" },
       { name: "安装指南", sub: "安装天河落宿主", href: "/install", key: "安装指南 install 宿主 下载" },
       { name: "开发者平台", sub: "用 AI 写插件并投稿", href: "/developers", key: "开发者 developers 投稿 AI" },
       { name: "AI 开发规范", sub: "给 Claude / ChatGPT 读的说明书", href: "/ai", key: "ai 规范 说明书 spec" },

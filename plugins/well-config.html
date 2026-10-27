@@ -17,15 +17,16 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=7710723b">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样项目配置", "alternateName": "well-config", "description": "井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-config", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-config"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样项目配置", "item": "https://tianheluo.com/plugins/well-config"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样项目配置", "alternateName": "well-config", "description": "井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-config", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.1", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-config"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样项目配置", "item": "https://tianheluo.com/plugins/well-config"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
 <div class="wrap">
   <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
+    <a href="/start" class="">快速上手</a>
     <a href="/store" class="on">插件商店</a>
     <a href="/install" class="">安装指南</a>
     <a href="/developers" class="">开发者</a>
@@ -39,9 +40,9 @@
 </div></header>
 <main class="wrap" id="detail" style="padding-bottom:40px">
   <div class="crumb"><a href="/store">插件商店</a> / 井大样项目配置</div>
-  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">项</span>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">项</span>
     <div><h1>井大样项目配置</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
+      <span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div></div></div>
   <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。</p>
   <div class="dcols">
     <div class="stack">
@@ -52,12 +53,13 @@
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量…</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/well-annotate" style="color:var(--blue)">一键井大样标注</a><span style="color:var(--dim)"> — 给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁…</span></li><li><a href="/plugins/well-clear-marks" style="color:var(--blue)">一键清除井标记</a><span style="color:var(--dim)"> — 框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动…</span></li><li><a href="/plugins/well-sheet-fit" style="color:var(--blue)">井图比例排版</a><span style="color:var(--dim)"> — 给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</span></li><li><a href="/plugins/well-sheet-no" style="color:var(--blue)">井图号重编</a><span style="color:var(--dim)"> — 按系统号段给井大样图纸重新编连续的图号，先预览旧号到新号，自动导出对照表。</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>9 KB</dd><dt>更新</dt><dd>2026-10-27</dd>
+      <dt>成熟度</dt><dd title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</dd>
+      <dt>版本</dt><dd>0.1.1</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>13 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
       <dt>下载</dt><dd><span data-dl="well-config">暂无</span></dd>
       
       </dl>
@@ -75,7 +77,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=7b182a70"></script>
-<script src="/fx.js?v=e9df73f3"></script>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
 </body>
 </html>

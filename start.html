@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>快速上手：Revit 井大样出图插件使用路线 — 天河落 THL</title>
+<meta name="description" content="天河落快速上手：从装好宿主到出一张井大样报审图，按 10 个步骤依次用哪个 Revit 插件；每个插件是否在真实项目里用过都标明。Revit 2026，免费开源。">
+<meta name="keywords" content="Revit井大样,Revit出图插件,市政小管线BIM,井大样标注,Revit 2026插件,天河落">
+<link rel="canonical" href="https://tianheluo.com/start">
+<meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
+<meta property="og:title" content="快速上手：Revit 井大样出图插件使用路线 — 天河落 THL">
+<meta property="og:description" content="从装好宿主到出一张井大样报审图，按 10 个步骤依次用哪个 Revit 插件；每个插件是否在真实项目里用过都标明。">
+<meta property="og:url" content="https://tianheluo.com/start"><meta property="og:image" content="https://tianheluo.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080E">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
+<link rel="stylesheet" href="/fx.css?v=cbd273a6">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "快速上手", "item": "https://tianheluo.com/start"}]}]}</script>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="wrap">
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
+  <nav>
+    <a href="/start" class="on">快速上手</a>
+    <a href="/store" class="">插件商店</a>
+    <a href="/install" class="">安装指南</a>
+    <a href="/developers" class="">开发者</a>
+    <a href="/contact" class="">交流群</a>
+    <a href="/#how" class="">工作方式</a>
+    <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </nav>
+  <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
+  <a class="btn sm pri" href="/install">下载宿主</a>
+</div></header>
+<main class="wrap" style="padding-top:56px;padding-bottom:40px">
+  <div class="eyebrow">快速上手</div>
+  <h1 class="pt">从零到出一张井大样图</h1>
+  <p class="sub">适合做市政小管线（电力、通信、弱电井）BIM 出图的人。装好宿主之后，照下面的顺序一步一步用，每一步只做一件事。Windows + Revit 2026。</p>
+
+  <h3 style="margin:44px 0 0;font-size:22px">先做两件事</h3>
+  <div class="steps">
+    <div class="step"><div><h3>装好宿主（只装一次）</h3><p>5 分钟，见 <a href="/install" style="color:var(--blue)">安装指南</a>。装好后 Revit 顶部多一个「天河落」选项卡。</p></div></div>
+    <div class="step"><div><h3>在 Revit 里安装插件</h3><p>点「天河落 → 插件中心 → 商店」，按下面路线里的名字找到插件，点「安装」。装完立刻能用，不用重启。</p></div></div>
+  </div>
+
+  <h3 style="margin:48px 0 0;font-size:22px">井大样出图路线</h3>
+  <p class="sub" style="margin-top:6px">每个插件名字后面的标签是它的成熟度，意思见本页最下面。点名字看详细说明。</p>
+  <!--seo:route--><ol class="route">
+<li><a class="rn" href="/plugins/well-config"><b>井大样项目配置</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>第一次用：设好图纸名前缀、井号系列、图框 logo（换项目时再改）</span></li>
+<li><a class="rn" href="/plugins/well-number"><b>一键编号</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>按位置给井编号（已有编号可跳过）</span></li>
+<li><a class="rn" href="/plugins/well-depth"><b>井深调整</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按最低接入排管底 − 300 校正井底标高和井深</span></li>
+<li><a class="rn" href="/plugins/duct-snap"><b>排管贴井内壁</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>排管端点贴到井内壁（延伸/修剪）</span></li>
+<li><a class="rn" href="/plugins/well-sheets"><b>一键井展开图</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>选井，自动生成平面 + 四面剖面并排进图框</span></li>
+<li><a class="rn" href="/plugins/well-annotate"><b>一键井大样标注</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>平面和立面自动标尺寸（只加不改）</span></li>
+<li><a class="rn" href="/plugins/well-sheet-fit"><b>井图比例排版</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按放得下的最大比例重排五个视图</span></li>
+<li><a class="rn" href="/plugins/well-spec-table"><b>井规格表</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>每张图放这口井的规格表</span></li>
+<li><a class="rn" href="/plugins/well-sheet-no"><b>井图号重编</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按系统号段重编连续图号（或用「一键图纸归类与图框编号」）</span></li>
+<li><a class="rn" href="/plugins/export-dwg"><b>一键导出图纸DWG/PDF</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>批量导出 DWG / PDF（可另导带坐标的平面）</span></li>
+</ol><!--/seo:route-->
+
+  <div class="note" style="margin-top:22px">
+    <b>用之前先知道：</b>① 会改模型的插件都先给预览，你确认才写入，整次操作按一次 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 就能全部撤销；
+    ② 跑得久的有进度条，点「取消」会整体回滚，不会改一半；
+    ③ 窗口都能拖大小，参数在窗口里改，也存在「文档\KaifaTools」文件夹里；
+    ④ 协同模型里被别人占用的图元会自动跳过并告诉你是谁占着；
+    ⑤ <b>第一次用建议先在模型副本上跑一遍</b>。
+  </div>
+
+  <h3 style="margin:48px 0 0;font-size:22px">每一步的小提示</h3>
+  <div class="steps" style="counter-reset:none">
+    <div class="card"><h3>先配置，再出图</h3><p>「井大样项目配置」里设好图纸名前缀、井号系列（比如 A、B、AA、T、E、L 各对应哪个系统）和图框 logo。换项目只改这里，其他插件都读它，不用改代码。</p></div>
+    <div class="card"><h3>选中再点</h3><p>「一键井展开图」「一键编号」「井分区标记」这类要选井的插件，先在 Revit 里选好井（或运行后按提示框选），再点插件。</p></div>
+    <div class="card"><h3>标注只加不改</h3><p>「一键井大样标注」只新增尺寸，你已经手动标好的尺寸不会被动；已经有尺寸的视图默认跳过，需要重标时在确认窗口里选「全部都标」。</p></div>
+    <div class="card"><h3>导出 DWG 要不要坐标</h3><p>Revit 导出「图纸」时 DWG 按图纸尺寸摆放，没有测量坐标，这是 Revit 本身的行为。需要和总图对坐标，在「一键导出图纸」里勾选「另导一份带坐标的 DWG」。</p></div>
+  </div>
+
+  <h3 style="margin:56px 0 0;font-size:22px">其他场景</h3>
+  <p class="sub" style="margin-top:6px">不做井大样、只想要某一个功能？按场景找。</p>
+  <!--seo:groups--><h3 class="gh"><span class="gdot" style="background:#818CF8"></span>井大样出图</h3><p class="gd">从一口井到一张报审图：配置、展开图、标注、排版、规格表、图号。</p><ul class="gl">
+<li><a href="/plugins/sheet-organize"><b>一键图纸归类与图框编号</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号，并可统一替换图框。</span></li>
+<li><a href="/plugins/well-annotate"><b>一键井大样标注</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</span></li>
+<li><a href="/plugins/well-clear-marks"><b>一键清除井标记</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动，Ctrl+Z 可撤销。</span></li>
+<li><a href="/plugins/well-config"><b>井大样项目配置</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。</span></li>
+<li><a href="/plugins/well-sheet-fit"><b>井图比例排版</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</span></li>
+<li><a href="/plugins/well-sheet-no"><b>井图号重编</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按系统号段给井大样图纸重新编连续的图号，先预览旧号到新号，自动导出对照表。</span></li>
+<li><a href="/plugins/well-sheets"><b>一键井展开图</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。</span></li>
+<li><a href="/plugins/well-spec-table"><b>井规格表</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>给每张井大样图纸放一张只列这口井数据的明细表，改了井的参数表格跟着变。</span></li>
+</ul>
+<h3 class="gh"><span class="gdot" style="background:#3FA9FF"></span>井与管线</h3><p class="gd">井和排管的建模整理：编号、井深、排管贴井、分区、参数、族、垫层、控制点。</p><ul class="gl">
+<li><a href="/plugins/control-points"><b>控制点坐标表</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。</span></li>
+<li><a href="/plugins/duct-snap"><b>排管贴井内壁</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。</span></li>
+<li><a href="/plugins/elv-merge"><b>族类型清洗合并</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型，让类型列表保持清爽。</span></li>
+<li><a href="/plugins/family-param-dim"><b>族尺寸参数化</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效，避免载入项目后绑定错乱。</span></li>
+<li><a href="/plugins/pile-cleanup"><b>清理重复松木桩垫层</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套，其余一键删除。</span></li>
+<li><a href="/plugins/pile-cushion"><b>一键布置松木桩垫层</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。</span></li>
+<li><a href="/plugins/well-depth-report"><b>井深统计报表</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。</span></li>
+<li><a href="/plugins/well-depth"><b>井深调整</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。</span></li>
+<li><a href="/plugins/well-family-guard"><b>井族体检</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>手动改井族时的护栏：体检井族参数，改族前拍快照，改族后对比哪些参数和井的值变了。</span></li>
+<li><a href="/plugins/well-number"><b>一键编号</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。</span></li>
+<li><a href="/plugins/well-param-sync"><b>井参数同步</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>让所有井的「井盖面标高」等于「相对标高的偏移」，只写记录用的参数，不挪井、不改样子。</span></li>
+<li><a href="/plugins/well-zone"><b>井分区标记</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。</span></li>
+</ul>
+<h3 class="gh"><span class="gdot" style="background:#10B981"></span>结构与算量</h3><p class="gd">柱和基础配筋、钢筋三维查看、框选提量。</p><ul class="gl">
+<li><a href="/plugins/quantity-export"><b>一键框选提量导出Excel</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。</span></li>
+<li><a href="/plugins/rebar-3d-view"><b>一键钢筋三维实体显示</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li>
+<li><a href="/plugins/rebar-cage"><b>一键单构件快速配筋</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览，确认后生成整套钢筋笼。</span></li>
+</ul>
+<h3 class="gh"><span class="gdot" style="background:#06B6D4"></span>图纸视图</h3><p class="gd">任何项目通用的图纸、视图、明细表和标注管理。</p><ul class="gl">
+<li><a href="/plugins/issue-manager"><b>图纸签发管理</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>把签发的图纸导出到带日期的文件夹，维护签发记录，并在 Revit 里生成签发记录明细表。</span></li>
+<li><a href="/plugins/plan-batch"><b>批量生成平面图</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义，同名的自动跳过。</span></li>
+<li><a href="/plugins/schedule-excel"><b>明细表Excel互导</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动，确认后才写入。</span></li>
+<li><a href="/plugins/sheet-manager"><b>图纸管理</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。</span></li>
+<li><a href="/plugins/sheet-preview"><b>图纸快速预览</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注，并一键回到 Revit 修改。</span></li>
+<li><a href="/plugins/tag-check"><b>标注检查</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</span></li>
+<li><a href="/plugins/view-manager"><b>视图管理</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>批量管理视图：筛选、重命名、套用视图样板、批量设比例与详细程度、找出没上图纸的视图。</span></li>
+</ul>
+<h3 class="gh"><span class="gdot" style="background:#F59E0B"></span>导出</h3><p class="gd">批量导出 DWG / PDF / NWC。</p><ul class="gl">
+<li><a href="/plugins/export-dwg"><b>一键导出图纸DWG/PDF</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。</span></li>
+<li><a href="/plugins/export-nwc"><b>一键导出NWC</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>一个窗口选好导出范围、坐标、是否带属性和保存位置，一键导出 Navisworks 的 .nwc；有进度条，默认不转换链接的 CAD 防卡死。</span></li>
+</ul><!--/seo:groups-->
+
+  <h3 style="margin:56px 0 0;font-size:22px">「成熟度」是什么意思</h3>
+  <p class="sub" style="margin-top:6px">插件是一个人在做自己项目的同时写的，有的天天在用，有的做好了还没碰过真项目。我们直接标出来，让你心里有数。</p>
+  <!--seo:maturity--><div class="mats">
+<div class="card"><h3><span class="tag m-proven">项目实战</span> 16 个</h3><p>已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。</p></div>
+<div class="card"><h3><span class="tag m-tested">已实测</span> 7 个</h3><p>在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。</p></div>
+<div class="card"><h3><span class="tag m-beta">试用</span> 9 个</h3><p>做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。</p></div>
+</div><!--/seo:maturity-->
+
+  <div class="note" style="margin-top:28px">
+    用起来有问题、想要新功能：<a href="/contact" style="color:var(--blue)">加微信进交流群</a>，或到 <a href="https://github.com/H8DIDI/tianheluo-core/issues" target="_blank" rel="noopener" style="color:var(--blue)">GitHub 提 issue</a>。
+  </div>
+</main>
+<footer id="foot">
+<div class="wrap">
+  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
+  <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
+</div></footer>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
+</body>
+</html>

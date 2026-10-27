@@ -22,19 +22,30 @@ CONTENT_DIR = SITE / "content" / "plugins"
 CONTENT = {}
 
 STATUS = {"stable": "稳定版", "beta": "测试版", "planned": "计划中"}
-CAT_COLOR = {"市政管线": "#3FA9FF", "出图打印": "#818CF8", "数据处理": "#10B981", "导出": "#F59E0B", "建模辅助": "#38BDF8", "视图管理": "#06B6D4"}
+CAT_COLOR = {"井大样出图": "#818CF8", "井与管线": "#3FA9FF", "结构与算量": "#10B981", "图纸视图": "#06B6D4", "导出": "#F59E0B"}
 GH = ('<svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>')
 
 # 页面文件名 → 导航里高亮哪一项
-ACTIVE = {"index": "", "store": "store", "install": "install", "developers": "developers", "ai": "developers", "contact": "contact", "privacy": "", "404": ""}
+ACTIVE = {"index": "", "start": "start", "store": "store", "install": "install", "developers": "developers", "ai": "developers", "contact": "contact", "privacy": "", "404": ""}
 # 页面文件名 → 面包屑里显示的名字（首页和 404 不需要）
-CRUMB = {"store": "插件商店", "install": "安装指南", "developers": "开发者", "contact": "交流群与联系", "privacy": "隐私说明"}
+CRUMB = {"start": "快速上手", "store": "插件商店", "install": "安装指南", "developers": "开发者", "contact": "交流群与联系", "privacy": "隐私说明"}
 ASSETS = ("style.css", "fx.css", "app.js", "fx.js")   # 带版本号引用，配合 _headers 里的长缓存
 LASTMOD_FILE = SITE / "tools" / "lastmod.json"        # 记录每个页面内容的哈希和最后修改日期，保证构建结果可重复
 
 
 def esc(s):
     return html.escape(str(s), quote=True)
+
+
+MATURITY = {"proven": "项目实战", "tested": "已实测", "beta": "试用"}
+MATURITY_NOTE = {"proven": "已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。",
+                 "tested": "在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。",
+                 "beta": "做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。"}
+
+
+def mat_tag(p):
+    m = p.get("maturity") or "beta"
+    return f'<span class="tag m-{m}" title="{esc(MATURITY_NOTE[m])}">{MATURITY[m]}</span>'
 
 
 def ld(obj):
@@ -87,6 +98,7 @@ def nav_html(active):
 <div class="wrap">
   <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
+    {item("/start", "快速上手", "start")}
     {item("/store", "插件商店", "store")}
     {item("/install", "安装指南", "install")}
     {item("/developers", "开发者", "developers")}
@@ -149,7 +161,7 @@ def badge(p, size):
 
 
 def card(p):
-    tags = f'<span class="tag {p["status"]}">{STATUS[p["status"]]}</span><span class="tag">{esc(p["category"])}</span>'
+    tags = f'{mat_tag(p)}<span class="tag">{esc(p["category"])}</span>'
     if p.get("tier") == "community":
         tags += '<span class="tag community">社区</span>'
     return f"""
@@ -161,9 +173,49 @@ def card(p):
   </a>"""
 
 
-def inject_lists(text, plugins):
+def route_html(catalog):
+    """「井大样出图」上手路线：第几步用哪个插件、做什么。"""
+    by = {p["id"]: p for p in catalog["plugins"]}
+    out = ['<ol class="route">']
+    for r in catalog.get("route", []):
+        p = by.get(r["id"])
+        if p is None:
+            continue
+        out.append(f'<li><a class="rn" href="/plugins/{p["id"]}"><b>{esc(p["name"])}</b></a>{mat_tag(p)}<span>{esc(r["do"])}</span></li>')
+    out.append("</ol>")
+    return "\n".join(out)
+
+
+def groups_html(catalog):
+    """按分组列出全部插件，每个一行：名称 + 成熟度 + 一句话。"""
+    out = []
+    for g in catalog.get("groups", []):
+        rows = [p for p in catalog["plugins"] if p["category"] == g["name"]]
+        if not rows:
+            continue
+        out.append(f'<h3 class="gh"><span class="gdot" style="background:{g["color"]}"></span>{esc(g["name"])}</h3><p class="gd">{esc(g["desc"])}</p><ul class="gl">')
+        for p in rows:
+            out.append(f'<li><a href="/plugins/{p["id"]}"><b>{esc(p["name"])}</b></a>{mat_tag(p)}<span>{esc(p["summary"])}</span></li>')
+        out.append("</ul>")
+    return "\n".join(out)
+
+
+def maturity_html(catalog):
+    out = ['<div class="mats">']
+    for k in ("proven", "tested", "beta"):
+        n = len([p for p in catalog["plugins"] if (p.get("maturity") or "beta") == k])
+        out.append(f'<div class="card"><h3><span class="tag m-{k}">{MATURITY[k]}</span> {n} 个</h3><p>{esc(MATURITY_NOTE[k])}</p></div>')
+    out.append("</div>")
+    return "\n".join(out)
+
+
+def inject_lists(text, plugins, catalog=None):
     live = [p for p in plugins if p["status"] != "planned"]
     lists = {"featured": live, "plist": sorted(plugins, key=lambda p: p.get("date") or "", reverse=True)}
+    blocks = {"route": route_html, "groups": groups_html, "maturity": maturity_html} if catalog else {}
+    text = re.sub(r"<!--seo:(route|groups|maturity)-->.*?<!--/seo:\1-->",
+                  lambda m: f"<!--seo:{m.group(1)}-->" + (blocks[m.group(1)](catalog) if m.group(1) in blocks else "") + f"<!--/seo:{m.group(1)}-->",
+                  text, flags=re.S)
 
     def sub(m):
         key = m.group(1)
@@ -263,7 +315,7 @@ def plugin_page(p, plugins):
   <div class="crumb"><a href="/store">插件商店</a> / {esc(p["name"])}</div>
   <div class="dh">{badge(p, 72)}
     <div><h1>{esc(p["name"])}</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag {p["status"]}">{STATUS[p["status"]]}</span><span class="tag">{esc(p["category"])}</span>{community}</div></div></div>
+      {mat_tag(p)}<span class="tag">{esc(p["category"])}</span>{community}</div></div></div>
   <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">{esc(lead)}</p>
   <div class="dcols">
     <div class="stack">
@@ -275,6 +327,7 @@ def plugin_page(p, plugins):
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
+      <dt>成熟度</dt><dd title="{esc(MATURITY_NOTE[p.get("maturity") or "beta"])}">{MATURITY[p.get("maturity") or "beta"]}</dd>
       <dt>版本</dt><dd>{esc(p["version"])}</dd><dt>适配</dt><dd>Revit {esc(p["revit"])}</dd>
       <dt>大小</dt><dd>{esc(p["size"])}</dd><dt>更新</dt><dd>{esc(p.get("date") or "")}</dd>
       <dt>下载</dt><dd><span data-dl="{pid}">暂无</span></dd>
@@ -417,7 +470,7 @@ def main():
         if stem not in ACTIVE:
             continue
         pages.append(f)
-        new = inject_lists(fill_chrome(f.read_text(encoding="utf-8"), ACTIVE[stem]), plugins)
+        new = inject_lists(fill_chrome(f.read_text(encoding="utf-8"), ACTIVE[stem]), plugins, catalog)
         graph = page_graph(stem, new, plugins, host)
         if graph:
             new = set_jsonld(new, graph)

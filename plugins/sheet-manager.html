@@ -17,15 +17,16 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=7710723b">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "图纸管理", "alternateName": "sheet-manager", "description": "可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/sheet-manager", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/sheet-manager", "author": {"@type": "Person", "name": "lewismconte (Sendit)"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "图纸管理", "item": "https://tianheluo.com/plugins/sheet-manager"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "图纸管理", "alternateName": "sheet-manager", "description": "可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/sheet-manager", "applicationCategory": "DesignApplication", "applicationSubCategory": "图纸视图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.1", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/sheet-manager", "author": {"@type": "Person", "name": "lewismconte (Sendit)"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "图纸管理", "item": "https://tianheluo.com/plugins/sheet-manager"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
 <div class="wrap">
   <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
   <nav>
+    <a href="/start" class="">快速上手</a>
     <a href="/store" class="on">插件商店</a>
     <a href="/install" class="">安装指南</a>
     <a href="/developers" class="">开发者</a>
@@ -39,9 +40,9 @@
 </div></header>
 <main class="wrap" id="detail" style="padding-bottom:40px">
   <div class="crumb"><a href="/store">插件商店</a> / 图纸管理</div>
-  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">图</span>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#06B6D4,#06B6D499);border-color:#06B6D488;color:#fff;font-weight:800">图</span>
     <div><h1>图纸管理</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag beta">测试版</span><span class="tag">出图打印</span></div></div></div>
+      <span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div></div></div>
   <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。</p>
   <div class="dcols">
     <div class="stack">
@@ -52,12 +53,13 @@
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 把签发的图纸导出到带日期的文件夹，维护签发记录…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注…</span></li><li><a href="/plugins/tag-check" style="color:var(--blue)">标注检查</a><span style="color:var(--dim)"> — 检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 把签发的图纸导出到带日期的文件夹，维护签发记录…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/schedule-excel" style="color:var(--blue)">明细表Excel互导</a><span style="color:var(--dim)"> — 把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动…</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注…</span></li><li><a href="/plugins/tag-check" style="color:var(--blue)">标注检查</a><span style="color:var(--dim)"> — 检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>版本</dt><dd>0.2.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>29 KB</dd><dt>更新</dt><dd>2026-10-13</dd>
+      <dt>成熟度</dt><dd title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</dd>
+      <dt>版本</dt><dd>0.2.1</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>29 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
       <dt>下载</dt><dd><span data-dl="sheet-manager">暂无</span></dd>
       <dt>原作者</dt><dd>lewismconte (Sendit)</dd>
       <dt>开源许可</dt><dd>MIT</dd></dl>
@@ -75,7 +77,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=7b182a70"></script>
-<script src="/fx.js?v=e9df73f3"></script>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
 </body>
 </html>
