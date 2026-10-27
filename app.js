@@ -8,9 +8,10 @@ const pageUrl = (id) => "/plugins/".concat(encodeURIComponent(id));
 
 // 导航栏/页脚由 tools/build_seo.py 直接写进每个页面的 HTML（爬虫不执行 JS，所以不能靠这里注入）。
 
+// plugins.json 全站只拉一次：fx.js（命令舱搜索）与这里共用同一个请求
 async function loadData() {
-  const r = await fetch("/plugins.json", { cache: "no-cache" });
-  return r.json();
+  window.__thlPlugins = window.__thlPlugins || fetch("/plugins.json", { cache: "no-cache" }).then((r) => r.json());
+  return window.__thlPlugins;
 }
 
 // 下载统计（/api/stats）：失败时返回空，页面照常显示，只是不显示数字

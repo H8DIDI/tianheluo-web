@@ -1,6 +1,17 @@
 // GET /api/stats  —— 各插件的下载数：{ updated, plugins: { <id>: { total, week } }, host: { total, week } }
 // week = 最近 7 天（含今天，UTC）。结果缓存 60 秒。
-export async function onRequestGet({ env }) {
+// 边缘缓存：D1 查询要 1~2 秒，热门榜在首页首屏就要用。同一个数据中心 60 秒内直接返回缓存。
+export async function onRequestGet(ctx) {
+  const cache = caches.default;
+  const key = new Request(new URL("/api/stats", ctx.request.url).toString(), { method: "GET" });
+  const hit = await cache.match(key);
+  if (hit) return hit;
+  const res = await build(ctx);
+  if (res.status === 200 && !res.headers.get("X-Stats-Error")) ctx.waitUntil(cache.put(key, res.clone()));  // 出错的结果不缓存
+  return res;
+}
+
+async function build({ env }) {
   const headers = {
     "Content-Type": "application/json; charset=utf-8",
     "Cache-Control": "public, max-age=60",
@@ -18,7 +29,7 @@ export async function onRequestGet({ env }) {
     delete plugins.host;
     return new Response(JSON.stringify({ updated: new Date().toISOString(), plugins, host }), { headers });
   } catch (e) {
-    return new Response(JSON.stringify({ updated: new Date().toISOString(), plugins: {}, host: { total: 0, week: 0 }, error: "stats unavailable" }), { headers });
+    return new Response(JSON.stringify({ updated: new Date().toISOString(), plugins: {}, host: { total: 0, week: 0 }, error: "stats unavailable" }), { headers: { ...headers, "Cache-Control": "no-store", "X-Stats-Error": "1" } });
   }
 }
 

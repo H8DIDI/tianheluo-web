@@ -188,8 +188,8 @@
     const loadPlugins = async () => {
       if (plugins) return plugins;
       try {
-        const r = await fetch("/plugins.json", { cache: "no-cache" });
-        const j = await r.json();
+        window.__thlPlugins = window.__thlPlugins || fetch("/plugins.json", { cache: "no-cache" }).then((r) => r.json());
+        const j = await window.__thlPlugins;
         plugins = (j.plugins || []).filter((p) => p.status !== "planned").map((p) => ({
           name: p.name, sub: `${p.en} · ${p.category}`, href: `/plugins/${p.id}`,
           key: `${p.name} ${p.en} ${p.id} ${p.category} ${p.summary || ""}`.toLowerCase(),
