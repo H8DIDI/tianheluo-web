@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>控制点坐标表 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="测量放样用的控制点坐标表，两个方向都能做：。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 控制点坐标表插件（导出测量坐标 / 导入放样点）| 天河落 THL</title>
+<meta name="description" content="导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/control-points">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="控制点坐标表 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="测量放样用的控制点坐标表，两个方向都能做：。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 控制点坐标表插件（导出测量坐标 / 导入放样点）| 天河落 THL"><meta property="og:description" content="导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/control-points"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "控制点坐标表", "alternateName": "control-points", "description": "测量放样用的控制点坐标表，两个方向都能做：。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/control-points", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-19", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/control-points"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "控制点坐标表", "item": "https://tianheluo.com/plugins/control-points"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "控制点坐标表", "alternateName": "control-points", "description": "导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/control-points", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-19", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/control-points"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "控制点坐标表", "item": "https://tianheluo.com/plugins/control-points"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,20 +42,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">点</span>
     <div><h1>控制点坐标表</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">市政管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">测量放样用的控制点坐标表，两个方向都能做：</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">测量放样用的控制点坐标表，两个方向都能做：
-① 导出：选中构件、在模型上逐个点取，或按族名找全部控制点族，导出 Excel 坐标表
-   （测量坐标 E/N/RL 米、Revit 共享坐标与内部坐标毫米，附给测量员的校正步骤）；
-② 导入：读测量员给的 CSV/TXT（编号、E、N、高程），按共享坐标在模型里放出控制点标记，
-   并导出核对表。任何项目通用，只要项目的共享坐标已经设好。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">施工放样要在模型和测量员之间来回传坐标：模型里的控制点要换成测量坐标（E/N/高程）交给测量，测量员实测的点又要放回模型核对。手工换算共享坐标容易抄错、单位也容易弄混。</p><p style="color:var(--mute);margin:0 0 10px">控制点坐标表两个方向都能做：导出时按项目的共享坐标算出测量坐标，同时列出 Revit 内部坐标方便核对；导入时读测量员的 CSV/TXT，在模型里放出控制点标记并导出核对表。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>先确认项目的共享坐标已经设好（测量点、项目基点、正北）。</li><li>导出：选中构件、在模型上逐个点取，或按族名找出全部控制点族，导出 Excel 坐标表。表里有测量坐标 E/N/RL（米）、Revit 共享坐标与内部坐标（毫米），附给测量员的校正说明。</li><li>导入：选测量员给的 CSV/TXT（编号、E、N、高程），插件按共享坐标在模型里放出控制点标记，并导出一份核对表。</li><li>导出前可以在设置里选取点的方式和编号规则。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>坐标完全依赖项目的共享坐标；共享坐标没设或设错，导出的测量坐标也会错，先核对测量点和正北。</li><li>导出只读模型；导入会新建控制点标记，可 Ctrl+Z 撤销。</li><li>任何项目都能用，不依赖井大样的项目配置。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>① 导出：选中构件、在模型上逐个点取，或按族名找全部控制点族，导出 Excel 坐标表</li><li>（测量坐标 E/N/RL 米、Revit 共享坐标与内部坐标毫米，附给测量员的校正步骤）；</li><li>② 导入：读测量员给的 CSV/TXT（编号、E、N、高程），按共享坐标在模型里放出控制点标记，</li><li>并导出核对表。任何项目通用，只要项目的共享坐标已经设好。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去…</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth-report" style="color:var(--blue)">井深统计报表</a><span style="color:var(--dim)"> — 统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来…</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth-report" style="color:var(--blue)">井深统计报表</a><span style="color:var(--dim)"> — 统计全部或选中井的井深，导出中英双语 Excel，附深井清单…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

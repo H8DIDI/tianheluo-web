@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>排管贴井内壁 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 排管端点贴井内壁插件（自动延伸/修剪到井壁）| 天河落 THL</title>
+<meta name="description" content="一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/duct-snap">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="排管贴井内壁 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 排管端点贴井内壁插件（自动延伸/修剪到井壁）| 天河落 THL"><meta property="og:description" content="一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/duct-snap"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管贴井内壁", "alternateName": "duct-snap", "description": "一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-snap", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.8", "dateModified": "2026-10-14", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-snap", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管贴井内壁", "item": "https://tianheluo.com/plugins/duct-snap"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管贴井内壁", "alternateName": "duct-snap", "description": "一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-snap", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.8", "dateModified": "2026-10-14", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-snap", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管贴井内壁", "item": "https://tianheluo.com/plugins/duct-snap"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,15 +42,17 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#0EA5E9,#0EA5E999);border-color:#0EA5E988;color:#fff;font-weight:800">贴</span>
     <div><h1>排管贴井内壁</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">市政管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。井内腔识别不了、穿过井的、整根在井内的、修剪或延伸量太大的，列为需人工，不自动改。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。井内腔识别不了、穿过井的、整根在井内的、修剪或延伸量太大的，列为需人工，不自动改。窗口无模态，可锁定在最前、双击定位，一次操作可 Ctrl+Z 撤销。规则在 Documents\KaifaTools\排管贴井规则.json。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">排管（用结构框架建的）和井连接处常常对不齐：有的没延伸到井内壁，有的伸进井里一截。几百个接口逐个拖端点，既慢又容易把标高带歪。</p><p style="color:var(--mute);margin:0 0 10px">排管贴井内壁会识别每口井的内腔，把接入的排管端点在平面上延伸或修剪到井内壁，端点标高保持不变；拿不准的情况列为需人工处理，不自动改。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在「天河落」选项卡里点「排管贴井内壁」，插件分析模型里的井和排管。</li><li>在窗口里查看每根排管的处理结果：延伸、修剪、需人工。双击一行可以在 Revit 里定位到这根排管。</li><li>确认后执行。一次操作在同一个事务里，Ctrl+Z 一步撤销。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只改端点的平面位置，标高不变。</li><li>井内腔识别不了的、穿过井的、整根在井内的、延伸或修剪量太大的，都列为需人工，不会自动改。</li><li>规则保存在 Documents\KaifaTools\排管贴井规则.json。</li><li>窗口是无模态的，可以一边看表一边在 Revit 里操作，也可以锁定在最前。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 测量放样用的控制点坐标表，两个方向都能做：</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth-report" style="color:var(--blue)">井深统计报表</a><span style="color:var(--dim)"> — 统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点…</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth-report" style="color:var(--blue)">井深统计报表</a><span style="color:var(--dim)"> — 统计全部或选中井的井深，导出中英双语 Excel，附深井清单…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

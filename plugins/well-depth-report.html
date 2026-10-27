@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>井深统计报表 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 井深统计报表插件（按系列/族/类型统计井深，导出 Excel）| 天河落 THL</title>
+<meta name="description" content="统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-depth-report">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="井深统计报表 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 井深统计报表插件（按系列/族/类型统计井深，导出 Excel）| 天河落 THL"><meta property="og:description" content="统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-depth-report"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井深统计报表", "alternateName": "well-depth-report", "description": "统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-depth-report", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.5", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-depth-report"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井深统计报表", "item": "https://tianheluo.com/plugins/well-depth-report"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井深统计报表", "alternateName": "well-depth-report", "description": "统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-depth-report", "applicationCategory": "DesignApplication", "applicationSubCategory": "市政管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.5", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-depth-report"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井深统计报表", "item": "https://tianheluo.com/plugins/well-depth-report"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,18 +42,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">深</span>
     <div><h1>井深统计报表</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">市政管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、
-不同取值数、缺值数），另附超过设定深度（默认 4 m）的深井清单，可顺手在模型里选中这些深井（做埋深范围图用）。
-井深参数名按优先顺序依次找（实例参数优先，其次类型参数），参数名和深井阈值都能改。只读，不改模型。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">汇报或做埋深范围图时，要统计每类井的深度范围、平均值，还要找出超过一定深度的深井，手工从明细表里整理很慢。</p><p style="color:var(--mute);margin:0 0 10px">井深统计报表按系列、族、类型分别统计井深，并列出超过阈值的深井，一份 Excel 交付。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>选中要统计的井（不选则统计整个项目的常规模型），点「井深统计报表」→「生成井深统计报表」。</li><li>导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、不同取值数、缺值数）。</li><li>另附超过设定深度（默认 4 m）的深井清单，可以顺手在模型里选中这些深井。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只读，不改模型。</li><li>井深参数名按顺序找第一个有值的（实例参数优先）；参数名、深井阈值、不统计的族都在「⚙ 设置」里改（Documents\KaifaTools\井深统计设置.json）。</li><li>井号系列按 <a href="/plugins/well-config" style="color:var(--blue)">井大样项目配置</a> 识别。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>不同取值数、缺值数），另附超过设定深度（默认 4 m）的深井清单，可顺手在模型里选中这些深井（做埋深范围图用）。</li><li>井深参数名按优先顺序依次找（实例参数优先，其次类型参数），参数名和深井阈值都能改。只读，不改模型。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 测量放样用的控制点坐标表，两个方向都能做：</span></li><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去…</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点…</span></li><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来…</span></li><li><a href="/plugins/pile-cleanup" style="color:var(--blue)">清理重复松木桩垫层</a><span style="color:var(--dim)"> — 扫描全项目里位置完全重叠的松木桩和垫层，先给出数量，确认后每处只保留一套…</span></li><li><a href="/plugins/pile-cushion" style="color:var(--blue)">一键布置松木桩垫层</a><span style="color:var(--dim)"> — 框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500…</span></li><li><a href="/plugins/well-depth" style="color:var(--blue)">井深调整</a><span style="color:var(--dim)"> — 按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

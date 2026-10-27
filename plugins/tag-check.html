@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>标注检查 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 标注检查插件（找出漏标、标记族用错的构件）| 天河落 THL</title>
+<meta name="description" content="检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/tag-check">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="标注检查 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 标注检查插件（找出漏标、标记族用错的构件）| 天河落 THL"><meta property="og:description" content="检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/tag-check"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "标注检查", "alternateName": "tag-check", "description": "检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/tag-check", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/tag-check", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "标注检查", "item": "https://tianheluo.com/plugins/tag-check"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "标注检查", "alternateName": "tag-check", "description": "检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/tag-check", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-13", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/tag-check", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "标注检查", "item": "https://tianheluo.com/plugins/tag-check"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,15 +42,17 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">检</span>
     <div><h1>标注检查</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">出图打印</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。标记标准可以在窗口里打开标准文件自己改（Documents\KaifaTools\标注标准.json）；没有配置标准时…</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。标记标准可以在窗口里打开标准文件自己改（Documents\KaifaTools\标注标准.json）；没有配置标准时，按模型里该类构件用得最多的标记族来对比。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">出图前最怕漏标：一个视图里构件多，哪个没标、哪个用错了标记族，靠肉眼很难查全。</p><p style="color:var(--mute);margin:0 0 10px">标注检查对照标记标准，列出当前视图里漏标、用错标记族的构件，双击即可定位。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>打开要检查的视图，点「标注检查」。</li><li>在列表里查看漏标和用错标记族的构件，双击定位到构件。</li><li>需要时在窗口里打开标准文件，按项目要求修改标记标准。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只读，不修改模型。</li><li>标记标准保存在 Documents\KaifaTools\标注标准.json；没有配置标准时，按模型里该类构件用得最多的标记族来对比。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 图纸签发与归档：把签发的图纸导出成 PDF 放进带日期的文件夹…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/sheet-manager" style="color:var(--blue)">图纸管理</a><span style="color:var(--dim)"> — 可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制、删除…</span></li><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井展开图生成的图纸按系统归类（强电、弱电、通信、低压、预制、室内各组），</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 【实验功能，仍在优化】把选中的图纸批量渲染成图片…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 把签发的图纸导出到带日期的文件夹，维护签发记录…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/sheet-manager" style="color:var(--blue)">图纸管理</a><span style="color:var(--dim)"> — 可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除…</span></li><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

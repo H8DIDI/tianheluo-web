@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>一键框选提量导出Excel — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 框选提量导出 Excel 插件（混凝土方量、钢材、钢筋重量）| 天河落 THL</title>
+<meta name="description" content="框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/quantity-export">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="一键框选提量导出Excel — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 框选提量导出 Excel 插件（混凝土方量、钢材、钢筋重量）| 天河落 THL"><meta property="og:description" content="框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/quantity-export"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键框选提量导出Excel", "alternateName": "quantity-export", "description": "框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/quantity-export", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.2", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/quantity-export"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键框选提量导出Excel", "item": "https://tianheluo.com/plugins/quantity-export"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键框选提量导出Excel", "alternateName": "quantity-export", "description": "框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/quantity-export", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.2", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/quantity-export"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键框选提量导出Excel", "item": "https://tianheluo.com/plugins/quantity-export"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,18 +42,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">量</span>
     <div><h1>一键框选提量导出Excel</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：
-混凝土体积（m³）、钢材重量（t，按材料密度算）、钢筋按直径汇总（根数、总长、重量）。
-看完可以导出 Excel；也可以在 Revit 里生成明细表（之后模型改了，明细表自动更新）。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">算一片区域的工程量，往往要分别建混凝土、钢材、钢筋的明细表，再导出去汇总，临时核个量也要折腾半天。</p><p style="color:var(--mute);margin:0 0 10px">框选提量直接统计框选范围（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里给出表格，看完再决定是否导出。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在视图里框选构件（不选则可选整个项目或当前视图），点「一键框选提量导出Excel」。</li><li>窗口里看三张表：混凝土体积（m³）、钢材重量（t，按材料密度算）、钢筋按直径汇总（根数、总长、重量）。</li><li>需要留档时导出 Excel；需要随模型更新时，在 Revit 里生成明细表。</li><li>构件很多时有进度条，可以随时取消。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只读统计，不改模型（生成明细表除外）。</li><li>钢材按材料密度判断（密度 ≥ 6000 kg/m³ 或材料名含「钢」）；钢筋统一按 7850 kg/m³ 计重。</li><li>读不出体积的构件会跳过，并在结果里提示数量。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>混凝土体积（m³）、钢材重量（t，按材料密度算）、钢筋按直径汇总（根数、总长、重量）。</li><li>看完可以导出 Excel；也可以在 Revit 里生成明细表（之后模型改了，明细表自动更新）。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里用：把「写死」的尺寸（比如井盖离内壁 178 mm）一次变成带参数的…</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键显示钢筋的三维实体（精细显示、带真实粗细）…</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根结构柱或一个混凝土基础，在图形窗口里选布置方式（按面布置或按周长均分），</span></li><li><a href="/plugins/schedule-excel" style="color:var(--blue)">明细表Excel互导</a><span style="color:var(--dim)"> — 把明细表导出成 Excel，在 Excel 里批量修改，再导回 Revit。</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li><li><a href="/plugins/schedule-excel" style="color:var(--blue)">明细表Excel互导</a><span style="color:var(--dim)"> — 把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

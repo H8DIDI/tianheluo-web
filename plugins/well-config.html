@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>井大样项目配置 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀…Revit 2026 免费开源插件，天河落一键安装。">
+<title>井大样项目配置（Revit 井大样系列插件的共用规则）| 天河落 THL</title>
+<meta name="description" content="井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-config">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="井大样项目配置 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀…Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="井大样项目配置（Revit 井大样系列插件的共用规则）| 天河落 THL"><meta property="og:description" content="井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-config"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样项目配置", "alternateName": "well-config", "description": "井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-config", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-config"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样项目配置", "item": "https://tianheluo.com/plugins/well-config"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样项目配置", "alternateName": "well-config", "description": "井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-config", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-config"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样项目配置", "item": "https://tianheluo.com/plugins/well-config"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,15 +42,17 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">项</span>
     <div><h1>井大样项目配置</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀、井号系列（前缀 → 系统名 → 系统代码）、按井号前缀的图名模板与图纸集合…</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀、井号系列（前缀 → 系统名 → 系统代码）、按井号前缀的图名模板与图纸集合、DWG 导出设置名与图框 logo 位置。换项目时先在这里改好，再用其他井大样插件。配置保存在 文档\KaifaTools\井大样配置.json，可随时恢复默认。不改模型。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">井大样系列插件（井展开图、井大样标注、图纸归类、井图号、导出 DWG）都要知道你的项目怎么命名：图纸名前缀是什么、井号有哪些系列（如 A-、AA-、T-）、各系列叫什么系统、新图纸叫什么名字。这些规则每个项目都不一样。</p><p style="color:var(--mute);margin:0 0 10px">井大样项目配置把这些规则集中到一个窗口里，换项目时先在这里改好，其他井大样插件就按新规则运行。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>点「井大样项目配置」打开窗口。</li><li>填写图纸名前缀、图号前缀、室内井前缀、图纸系统参数名。</li><li>在「井号系列」里每行写一个系列：前缀 | 系统名 | 系统代码 | 菜单名，例如「T | 通信井 | TX | T- 通信井」。</li><li>按需填写图名模板（前缀 = 模板，{井号} 会换成井号）和图纸集合（前缀 = 集合名）。</li><li>导出 DWG 用的导出设置名和图框 logo 位置也在这里。保存后下次点插件生效；随时可以恢复默认。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>配置保存在 Documents\KaifaTools\井大样配置.json，换电脑时复制这个文件即可。</li><li>在一台新电脑上第一次用井展开图、井大样标注或图纸归类时，会自动弹出这个窗口请你确认。</li><li>不改模型。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里用：把「写死」的尺寸（比如井盖离内壁 178 mm）一次变成带参数的…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键显示钢筋的三维实体（精细显示、带真实粗细）…</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根结构柱或一个混凝土基础，在图形窗口里选布置方式（按面布置或按周长均分），</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量…</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

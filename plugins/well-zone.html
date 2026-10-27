@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>井分区标记 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 井分区标记插件（批量写分区、按分区显隐与配色）| 天河落 THL</title>
+<meta name="description" content="框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-zone">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="井分区标记 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 井分区标记插件（批量写分区、按分区显隐与配色）| 天河落 THL"><meta property="og:description" content="框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-zone"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井分区标记", "alternateName": "well-zone", "description": "给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-zone", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.4", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-zone"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井分区标记", "item": "https://tianheluo.com/plugins/well-zone"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井分区标记", "alternateName": "well-zone", "description": "框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-zone", "applicationCategory": "DesignApplication", "applicationSubCategory": "数据处理", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.4", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-zone"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井分区标记", "item": "https://tianheluo.com/plugins/well-zone"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,19 +42,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">区</span>
     <div><h1>井分区标记</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">数据处理</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。
-窗口里列出所有已写入的分区和井数，每个分区一个勾：去掉勾，这个分区的井在当前视图里就不显示；每个分区有自己的颜色，点「当前视图配色」就在当前视图里按分区着色（用视图过滤器，只作用当前视图，不改井本身，删掉过滤器即可还原）。
-写入前先预览（共几口井、其中几口已有分区会被覆盖）。「生成明细表」按分区分组排序，每个分区带井数小计。
-井按「常规模型 + 有标记」识别。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">施工分批、分区出图时，要给井标上分区，还要在视图里按分区区分颜色、单独看某个分区，用 Revit 自带功能要建参数、建过滤器、逐个设颜色。</p><p style="color:var(--mute);margin:0 0 10px">井分区标记把写分区、按分区显隐、按分区配色、生成明细表放在一个窗口里。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在视图里框选一批井，在窗口里选或新建分区参数（如 分区、施工批次），填分区名写入。写入前预览共几口井、其中几口会被覆盖。</li><li>窗口里每个分区一个勾：去掉勾，这个分区的井在当前视图里就不显示。</li><li>点「当前视图配色」按分区着色；「生成明细表」按分区分组排序，每个分区带井数小计。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>显隐和配色用视图过滤器，只作用于当前视图，不改井本身，删掉过滤器即可还原。</li><li>井按「常规模型 + 有标记」识别。</li><li>写入可 Ctrl+Z 撤销。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>窗口里列出所有已写入的分区和井数，每个分区一个勾：去掉勾，这个分区的井在当前视图里就不显示；每个分区有自己的颜色，点「当前视图配色」就在当前视图里按分区着色（用视图过滤器，只作用当前视图，不改井本身，删掉过滤器即可还原）。</li><li>写入前先预览（共几口井、其中几口已有分区会被覆盖）。「生成明细表」按分区分组排序，每个分区带井数小计。</li><li>井按「常规模型 + 有标记」识别。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里用：把「写死」的尺寸（比如井盖离内壁 178 mm）一次变成带参数的…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键显示钢筋的三维实体（精细显示、带真实粗细）…</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根结构柱或一个混凝土基础，在图形窗口里选布置方式（按面布置或按周长均分），</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li><li><a href="/plugins/quantity-export" style="color:var(--blue)">一键框选提量导出Excel</a><span style="color:var(--dim)"> — 框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量…</span></li><li><a href="/plugins/rebar-3d-view" style="color:var(--blue)">一键钢筋三维实体显示</a><span style="color:var(--dim)"> — 在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li><li><a href="/plugins/rebar-cage" style="color:var(--blue)">一键单构件快速配筋</a><span style="color:var(--dim)"> — 框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">

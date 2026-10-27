@@ -104,13 +104,13 @@
   <a class="pc" href="/plugins/control-points">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">点</span>
       <h3>控制点坐标表<small>control-points</small></h3></div>
-    <p>测量放样用的控制点坐标表，两个方向都能做：</p>
+    <p>导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
   </a>
   <a class="pc" href="/plugins/duct-snap">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#0EA5E9,#0EA5E999);border-color:#0EA5E988;color:#fff;font-weight:800">贴</span>
       <h3>排管贴井内壁<small>duct-snap</small></h3></div>
-    <p>一键把排管（结构框架）的端点贴到井内壁：没延伸到井内壁的延伸过去，伸进井里多出来的修剪回来。只改平面位置，端点标高保持不变。</p>
+    <p>一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来，只改平面位置不动标高。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
   </a>
   <a class="pc" href="/plugins/elv-merge">
@@ -134,13 +134,13 @@
   <a class="pc" href="/plugins/family-param-dim">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">尺</span>
       <h3>族尺寸参数化<small>family-param-dim</small></h3></div>
-    <p>在族编辑器里用：把「写死」的尺寸（比如井盖离内壁 178 mm）一次变成带参数的尺寸，并保证每个族类型都生效。</p>
+    <p>在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效，避免载入项目后绑定错乱。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/issue-manager">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">发</span>
       <h3>图纸签发管理<small>issue-manager</small></h3></div>
-    <p>图纸签发与归档：把签发的图纸导出成 PDF 放进带日期的文件夹，可同时导出 DWG，维护签发记录 CSV，显示图纸与签发的对照矩阵…</p>
+    <p>把签发的图纸导出到带日期的文件夹，维护签发记录，并在 Revit 里生成签发记录明细表。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/pile-cleanup">
@@ -164,61 +164,61 @@
   <a class="pc" href="/plugins/quantity-export">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">量</span>
       <h3>一键框选提量导出Excel<small>quantity-export</small></h3></div>
-    <p>框选（或整个项目、当前视图）里的梁柱墙基础楼板和钢筋，先在窗口里显示表格：</p>
+    <p>框选构件即得混凝土方量、钢材重量和按直径汇总的钢筋量，看完可导出 Excel 或生成明细表。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/rebar-3d-view">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">筋</span>
       <h3>一键钢筋三维实体显示<small>rebar-3d-view</small></h3></div>
-    <p>在三维视图里一键显示钢筋的三维实体（精细显示、带真实粗细），并把混凝土构件设为半透明。</p>
+    <p>在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/rebar-cage">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">配</span>
       <h3>一键单构件快速配筋<small>rebar-cage</small></h3></div>
-    <p>框选一根结构柱或一个混凝土基础，在图形窗口里选布置方式（按面布置或按周长均分），</p>
+    <p>框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览，确认后生成整套钢筋笼。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/schedule-excel">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">表</span>
       <h3>明细表Excel互导<small>schedule-excel</small></h3></div>
-    <p>把明细表导出成 Excel，在 Excel 里批量修改，再导回 Revit。导入前先预览改动，确认后才写入，Ctrl+Z 可整体撤销。</p>
+    <p>把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动，确认后才写入。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-manager">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">图</span>
       <h3>图纸管理<small>sheet-manager</small></h3></div>
-    <p>可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制、删除、修订管理、图纸集，以及按文件名模板导出 PDF/CSV。</p>
+    <p>可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除、修订与导出。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-organize">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">归</span>
       <h3>一键图纸归类与图框编号<small>sheet-organize</small></h3></div>
-    <p>把井展开图生成的图纸按系统归类（强电、弱电、通信、低压、预制、室内各组），</p>
+    <p>把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号，并可统一替换图框。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/sheet-preview">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">览</span>
       <h3>图纸快速预览<small>sheet-preview</small></h3></div>
-    <p>【实验功能，仍在优化】把选中的图纸批量渲染成图片，在一个窗口里用左右键 / 上下键 / 鼠标滚轮快速翻页核查；可给有问题的图纸打标记、写备注、导出问题清单…</p>
+    <p>把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注，并一键回到 Revit 修改。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/tag-check">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">检</span>
       <h3>标注检查<small>tag-check</small></h3></div>
-    <p>检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。</p>
+    <p>检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/view-manager">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">视</span>
       <h3>视图管理<small>view-manager</small></h3></div>
-    <p>批量管理视图：筛选、重命名、套用视图样板、批量设比例/详细程度/专业、查找替换、定位视图、找出没上图纸的视图并清理；视图样板可导出/导入 JSON…</p>
+    <p>批量管理视图：筛选、重命名、套用视图样板、批量设比例与详细程度、找出没上图纸的视图。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-annotate">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">标</span>
       <h3>一键井大样标注<small>well-annotate</small></h3></div>
-    <p>【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：</p>
+    <p>给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-clear-marks">
@@ -230,13 +230,13 @@
   <a class="pc" href="/plugins/well-config">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">项</span>
       <h3>井大样项目配置<small>well-config</small></h3></div>
-    <p>井大样系列插件（一键井展开图、一键井大样标注、图纸归类与图框编号、导出井大样 DWG 等）共用的项目配置窗口：井大样图纸名前缀、图号前缀…</p>
+    <p>井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板、图纸集合与图框 logo。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/well-depth-report">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">深</span>
       <h3>井深统计报表<small>well-depth-report</small></h3></div>
-    <p>统计全部井（或选中的井）的井深，导出中英双语 Excel：明细、按系列、按族、按类型（数量、最小、最大、平均、</p>
+    <p>统计全部或选中井的井深，导出中英双语 Excel，附深井清单，可在模型里选中深井。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">市政管线</span></div>
   </a>
   <a class="pc" href="/plugins/well-depth">
@@ -248,7 +248,7 @@
   <a class="pc" href="/plugins/well-family-guard">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">族</span>
       <h3>井族体检<small>well-family-guard</small></h3></div>
-    <p>你手动改井族（调井盖位置、井脖子高度、增删参数）时的「护栏」：不替你改族，只负责防止参数错乱。</p>
+    <p>手动改井族时的护栏：体检井族参数，改族前拍快照，改族后对比哪些参数和井的值变了。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/well-number">
@@ -260,37 +260,37 @@
   <a class="pc" href="/plugins/well-param-sync">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">同</span>
       <h3>井参数同步<small>well-param-sync</small></h3></div>
-    <p>让所有井的「井盖面标高」等于它的「相对标高的偏移」（井放在哪个标高，井盖面标高就是多少）。</p>
+    <p>让所有井的「井盖面标高」等于「相对标高的偏移」，只写记录用的参数，不挪井、不改样子。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheet-fit">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">比</span>
       <h3>井图比例排版<small>well-sheet-fit</small></h3></div>
-    <p>给已经出好的井大样图纸（平面 + 南北东西四个立面）按「放得下的最大比例」重新定比例并重排视图位置：</p>
+    <p>给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheet-no">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">号</span>
       <h3>井图号重编<small>well-sheet-no</small></h3></div>
-    <p>按系统号段给井大样图纸重新编图号：每个系统占一段（默认 11KV 0001–0699、275KV 0700–0999、ELV 1001–1999…</p>
+    <p>按系统号段给井大样图纸重新编连续的图号，先预览旧号到新号，自动导出对照表。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-sheets">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">展</span>
       <h3>一键井展开图<small>well-sheets</small></h3></div>
-    <p>选中一个井，自动生成平面及四面剖面排版到图纸上。出图前可在「规则与预览」里调整比例、裁剪余量、剖面框、视图间距，并实时看到排版效果（本按钮不再自动标注…</p>
+    <p>选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-spec-table">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">规</span>
       <h3>井规格表<small>well-spec-table</small></h3></div>
-    <p>给井大样图纸放一张「井规格表」：用 Revit 明细表只列这口井自己的数据（井号、分区、偏移、井盖面标高、井底标高、井内深度、井整体高度……），放在图纸左上角。</p>
+    <p>给每张井大样图纸放一张只列这口井数据的明细表，改了井的参数表格跟着变。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">出图打印</span></div>
   </a>
   <a class="pc" href="/plugins/well-zone">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">区</span>
       <h3>井分区标记<small>well-zone</small></h3></div>
-    <p>给井分区：在视图里框选一批井，写入「分区」参数（可新建参数，如 分区、施工批次），整次可 Ctrl+Z 撤销。</p>
+    <p>框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。</p>
     <div class="meta"><span class="tag beta">测试版</span><span class="tag">数据处理</span></div>
   </a><!--/seo:featured--></div>
   <div class="cta" style="justify-content:flex-start"><a class="btn" href="/store">查看全部插件 →</a></div>

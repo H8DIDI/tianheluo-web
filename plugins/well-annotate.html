@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>一键井大样标注 — Revit 2026 插件免费下载 | 天河落 THL</title>
-<meta name="description" content="【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 井大样一键标注插件（井内壁、排管尺寸链、井盖到内壁）| 天河落 THL</title>
+<meta name="description" content="给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-annotate">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="一键井大样标注 — Revit 2026 插件免费下载 | 天河落 THL"><meta property="og:description" content="【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 井大样一键标注插件（井内壁、排管尺寸链、井盖到内壁）| 天河落 THL"><meta property="og:description" content="给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-annotate"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键井大样标注", "alternateName": "well-annotate", "description": "【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-annotate", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.36", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-annotate"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键井大样标注", "item": "https://tianheluo.com/plugins/well-annotate"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键井大样标注", "alternateName": "well-annotate", "description": "给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-annotate", "applicationCategory": "DesignApplication", "applicationSubCategory": "出图打印", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.36", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-annotate"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键井大样标注", "item": "https://tianheluo.com/plugins/well-annotate"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -42,20 +42,18 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">标</span>
     <div><h1>一键井大样标注</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag beta">测试版</span><span class="tag">出图打印</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>介绍</h4><p style="color:var(--mute);white-space:pre-line">【实验功能，仍在优化】选中井/图纸 → 勾选要标注的视图 → 生成两类尺寸：
-① 总尺寸：两侧内壁之间的净尺寸，下方标宽、左侧标高（平面、南标宽和高；北只标宽；东、西不标）；
-② 井内壁至排管尺寸链：识别井内壁，对位于井内的每根排管，下方/上方标水平尺寸链（内壁—排管边—排管宽—排管边—内壁，一条多段尺寸），左侧/右侧标竖向尺寸链（同理，一条多段尺寸）。
-排管尺寸链在平面与剖面/立面视图都生成。
-本工具只新增尺寸，不改视图：不动裁剪框、不隐藏/显示任何构件、不删除视图里已有的尺寸；同位置已有尺寸的不重复标；超出注释裁剪框的尺寸照常标，报告里列出，需要显示时往外拉。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">几百张井大样，每张平面加四个立面都要标内壁净尺寸、每根排管到井壁的定位尺寸、井盖到内壁的距离，手工标一张就要十几分钟，排管斜着进井、井被转过角度时更难标。</p><p style="color:var(--mute);margin:0 0 10px">一键井大样标注识别井内壁和接入的排管，自动生成总尺寸、排管尺寸链和井盖尺寸；只新增尺寸，不改视图、不删已有尺寸，同样的面已经标过的不再重复标。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在项目浏览器里选中井大样图纸（或打开一张），点「一键井大样标注」。</li><li>选择范围：当前图纸、选中的图纸、某个系列、某个图集或全部；已经有尺寸的视图默认跳过，也可以选择补标。</li><li>插件生成：两侧内壁之间的总尺寸；每根接入排管的尺寸链（内壁—排管边—排管宽—排管边—内壁）；平面视图里井盖外沿到井内壁的尺寸。</li><li>看结束报告：标了多少道、哪些排管跳过及原因、哪些尺寸落在注释裁剪框外。整次可 Ctrl+Z 撤销。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>实验功能，仍在优化。斜着进井的排管用引出线定位；旋转过角度的井沿井自己的方向标对齐尺寸。</li><li>不止于本井的排管（从旁边擦过、穿井而过）不标。</li><li>超出注释裁剪框的尺寸照常标，报告里列出，需要显示时把裁剪框往外拉。</li><li>偏移、间距、尺寸类型、各视图标哪条总尺寸、是否标井盖尺寸，都在「⚙ 设置」里改（Documents\KaifaTools\井大样标注设置.json）。</li><li>井号与图纸命名规则来自 <a href="/plugins/well-config" style="color:var(--blue)">井大样项目配置</a>。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>① 总尺寸：两侧内壁之间的净尺寸，下方标宽、左侧标高（平面、南标宽和高；北只标宽；东、西不标）；</li><li>② 井内壁至排管尺寸链：识别井内壁，对位于井内的每根排管，下方/上方标水平尺寸链（内壁—排管边—排管宽—排管边—内壁，一条多段尺寸），左侧/右侧标竖向尺寸链（同理，一条多段尺寸）。</li><li>排管尺寸链在平面与剖面/立面视图都生成。</li><li>本工具只新增尺寸，不改视图：不动裁剪框、不隐藏/显示任何构件、不删除视图里已有的尺寸；同位置已有尺寸的不重复标；超出注释裁剪框的尺寸照常标，报告里列出，需要显示时往外拉。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 图纸签发与归档：把签发的图纸导出成 PDF 放进带日期的文件夹…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/sheet-manager" style="color:var(--blue)">图纸管理</a><span style="color:var(--dim)"> — 可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制、删除…</span></li><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井展开图生成的图纸按系统归类（强电、弱电、通信、低压、预制、室内各组），</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 【实验功能，仍在优化】把选中的图纸批量渲染成图片…</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/issue-manager" style="color:var(--blue)">图纸签发管理</a><span style="color:var(--dim)"> — 把签发的图纸导出到带日期的文件夹，维护签发记录…</span></li><li><a href="/plugins/plan-batch" style="color:var(--blue)">批量生成平面图</a><span style="color:var(--dim)"> — 选几种平面视图类型和几个标高，一次批量生成所有平面视图，视图名可自定义…</span></li><li><a href="/plugins/sheet-manager" style="color:var(--blue)">图纸管理</a><span style="color:var(--dim)"> — 可编辑的图纸表格：批量改图号/图名、查找替换、从 CSV 批量创建、复制删除…</span></li><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/sheet-preview" style="color:var(--blue)">图纸快速预览</a><span style="color:var(--dim)"> — 把图纸批量渲染成图片，在一个窗口里快速翻页核查、打标记写备注…</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
