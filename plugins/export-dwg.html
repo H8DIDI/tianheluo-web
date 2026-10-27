@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=7710723b">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键导出图纸DWG/PDF", "alternateName": "export-dwg", "description": "按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/export-dwg", "applicationCategory": "DesignApplication", "applicationSubCategory": "导出", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.4.6", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/export-dwg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键导出图纸DWG/PDF", "item": "https://tianheluo.com/plugins/export-dwg"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键导出图纸DWG/PDF", "alternateName": "export-dwg", "description": "按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/export-dwg", "applicationCategory": "DesignApplication", "applicationSubCategory": "导出", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.4.7", "dateModified": "2026-10-27", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/export-dwg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键导出图纸DWG/PDF", "item": "https://tianheluo.com/plugins/export-dwg"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -49,8 +49,8 @@
       <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">出图交付时，几百张井大样图纸要逐张导出 DWG：每次都要设置导出选项、选文件夹、等进度，还得小心外部参照没合并、旧文件没覆盖，一不留神就把过期的图纸交了出去。</p><p style="color:var(--mute);margin:0 0 10px">一键导出井大样DWG 先扫描模型里名字以「井大样_」开头的图纸，按类别分好组（室内井、强电特型井 AA-、弱电特型井 BB-、强电井 A-、弱电井 B-、通信井 T-、低压拉线井 L-、预制井 E-）。你选一组或全部，它就批量导出，并且每次都是覆盖式导出，磁盘上的 DWG 就是模型当前的状态。</p></div>
       <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/export-dwg.svg" alt="一键导出井大样DWG 示意图：按类别分组的井大样图纸批量导出为 DWG 文件，保存到桌面文件夹" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">批量导出流程（示意图，文件名为举例）</figcaption></figure>
       <div class="panel"><h4>怎么用</h4><ol><li>确认图纸名称按「井大样_类别-编号」命名，比如「井大样_A-001」。</li><li>在 Revit 的「天河落」选项卡里点击「一键导出井大样DWG」。</li><li>在弹出的列表里选范围：先行测试（前 5 张）、室内井、AA-、BB-、A-、B-、T-、L-、E- 各系列，或全模型全量。每一项后面会实时显示当前有多少张图纸。</li><li>点「开始导出」。进度条会显示（当前/总数），可以随时取消。</li><li>导出完成后弹出汇总：成功张数（其中新增和覆盖各多少）和失败的图纸名，并自动打开桌面上的「所有井大样图纸导出」文件夹。</li></ol></div>
-      <div class="panel"><h4>注意事项</h4><ul><li>只导出名称以「井大样_」开头的图纸；名称不符合的图纸不会出现在列表里。</li><li>第一次用建议先选「先行测试」导出 5 张，确认效果后再全量导出。</li><li>导出位置固定为桌面的「所有井大样图纸导出」文件夹，文件名就是图纸名称加 .dwg。</li><li>导出设置：项目里有名为「机电导图设置」的 DWG 导出设置时，按它导出；没有就用默认设置。无论哪种，都会把外部参照合并进图纸，不会生成独立的 XREF 文件。</li><li>已有同名 DWG 会被覆盖。需要保留旧版的话，导出前先把文件夹改名。</li><li>A- 与 AA-、B- 与 BB- 是分开统计的：选「A-」不会带上「AA-」的图纸。</li><li>这个插件只导出文件，不会修改模型。</li></ul></div>
-      <div class="panel"><h4>功能</h4><ul><li>DWG 每 20 张一批导出（比逐张快），导出前检查没有图框的图纸，文件名按图号去重不再互相覆盖，可只补导缺的；</li><li>可选 AutoCAD 后台补 logo、瘦身（PurgeAll）；PDF 可合并成一个或每张一个。每次在文件夹里留一份导出清单。</li></ul></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>坐标：Revit 导出「图纸」时，DWG 一律按图纸尺寸摆放，没有测量坐标（与导出设置无关）；导出「视图」才带坐标，默认用共享坐标（测量坐标），可在窗口的「坐标」里改。要同时拿到出图文件和带坐标的文件，勾选「图纸里的平面视图另导一份带坐标的 DWG」，会多出文件名带「_坐标」的平面 DWG。</li><li>只导出名称以「井大样_」开头的图纸；名称不符合的图纸不会出现在列表里。</li><li>第一次用建议先选「先行测试」导出 5 张，确认效果后再全量导出。</li><li>导出位置固定为桌面的「所有井大样图纸导出」文件夹，文件名就是图纸名称加 .dwg。</li><li>导出设置：项目里有名为「机电导图设置」的 DWG 导出设置时，按它导出；没有就用默认设置。无论哪种，都会把外部参照合并进图纸，不会生成独立的 XREF 文件。</li><li>已有同名 DWG 会被覆盖。需要保留旧版的话，导出前先把文件夹改名。</li><li>A- 与 AA-、B- 与 BB- 是分开统计的：选「A-」不会带上「AA-」的图纸。</li><li>这个插件只导出文件，不会修改模型。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>DWG 每 20 张一批导出（比逐张快），导出前检查没有图框的图纸，文件名按图号去重不再互相覆盖，可只补导缺的；</li><li>可选 AutoCAD 后台补 logo、瘦身（PurgeAll）；PDF 可合并成一个或每张一个。每次在文件夹里留一份导出清单。</li><li>坐标：导出图纸时 DWG 按图纸尺寸摆放（没有测量坐标，Revit 本身如此）；导出视图按所选坐标（默认共享坐标）。可勾选「图纸里的平面视图另导一份带坐标的 DWG」，同时拿到出图用和对坐标用的两份文件。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -58,8 +58,8 @@
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>版本</dt><dd>0.4.6</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>39 KB</dd><dt>更新</dt><dd>2026-10-27</dd>
+      <dt>版本</dt><dd>0.4.7</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>40 KB</dd><dt>更新</dt><dd>2026-10-27</dd>
       <dt>下载</dt><dd><span data-dl="export-dwg">暂无</span></dd>
       
       </dl>
