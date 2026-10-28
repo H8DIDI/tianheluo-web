@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revit 井大样变动同步插件（井挪了转了，视图和尺寸一键对回去）| 天河落 THL</title>
+<meta name="description" content="井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。Revit 2026 免费开源插件，天河落一键安装。">
+<link rel="canonical" href="https://tianheluo.com/plugins/well-sync">
+<meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
+<meta property="og:title" content="Revit 井大样变动同步插件（井挪了转了，视图和尺寸一键对回去）| 天河落 THL"><meta property="og:description" content="井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:url" content="https://tianheluo.com/plugins/well-sync"><meta property="og:image" content="https://tianheluo.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080E">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
+<link rel="stylesheet" href="/fx.css?v=cbd273a6">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样变动同步", "alternateName": "well-sync", "description": "井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-sync", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sync"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样变动同步", "item": "https://tianheluo.com/plugins/well-sync"}]}]}</script>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="wrap">
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
+  <nav>
+    <a href="/start" class="">快速上手</a>
+    <a href="/store" class="on">插件商店</a>
+    <a href="/install" class="">安装指南</a>
+    <a href="/developers" class="">开发者</a>
+    <a href="/contact" class="">交流群</a>
+    <a href="/#how" class="">工作方式</a>
+    <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </nav>
+  <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
+  <a class="btn sm pri" href="/install">下载宿主</a>
+</div></header>
+<main class="wrap" id="detail" style="padding-bottom:40px">
+  <div class="crumb"><a href="/store">插件商店</a> / 井大样变动同步</div>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">同</span>
+    <div><h1>井大样变动同步</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井大样出图</span></div></div></div>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。</p>
+  <div class="dcols">
+    <div class="stack">
+
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">井大样图纸出完之后，井还会被挪位置、转方向。视图框还在原处、尺寸也错位，几百张图纸一张张去找哪口井变了、再逐个重新对框、重新标注，非常耗时。</p><p style="color:var(--mute);margin:0 0 10px">井大样变动同步逐张比对「平面裁剪框」和「井现在的外轮廓」，只挑出位置或大小变了的井：把平面框、南北西东四个剖面（剖切线和裁剪范围）对回去，删掉这些视图里已经错位的旧尺寸，再按新位置重新标注。没变的井、没变的图纸一概不动。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>点「井大样变动同步」，选范围：选中的图纸、当前图纸、全部井大样图纸，或「只检查不改」。</li><li>先出检查结果：哪些井变了、位置差多少、大小或方向变了多少；确认后才改。</li><li>同步时有进度条，可以取消（已处理的保留）。完成后报告同步了几口井、哪些没成功。</li><li>整次操作可 Ctrl+Z 撤销。井变大或转向后，如果视图在图纸上放不下了，再运行「井图比例排版」。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>判断依据是视图框和井的外轮廓对不对得上，所以不需要事先有位置记录；变动小于 30 mm 的不算。</li><li>会删除变动的井的视图里已有的全部尺寸再重标，确认窗口里会写明要删几道；其他井的视图不受影响。</li><li>剖面的剖切线、裁剪范围按「井展开图规则.json」里的余量和框厚对回去，和一键井展开图生成时一致。</li><li>只处理水平方向的变动；井的标高、井深变了，需要重新生成这口井的图或手动调剖面高度。</li><li>已在测试项目里用平移、旋转 30° 的井核对过；还没在真实项目里用过，第一次请先在模型副本上跑。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>① 平面视图的裁剪框是不是还围着这口井（位置、大小）；② 把变动的井的平面裁剪框、南北西东四个剖面（剖切线和裁剪范围）重新对到井上；③ 删掉这些视图里已经错位的旧尺寸，按新位置重新标注（井盖到内壁、排管尺寸链、总尺寸）。</li><li>先列出哪些井变了、变了多少，你确认才改；也可以「只检查不改」。没变的井、没变的图纸一概不动。整次可 Ctrl+Z 撤销。</li></ul></div>
+      <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
+        也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
+        有新版本时，插件中心会提示「更新」，一键即可。</p></div>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/well-annotate" style="color:var(--blue)">一键井大样标注</a><span style="color:var(--dim)"> — 给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁…</span></li><li><a href="/plugins/well-audit" style="color:var(--blue)">井大样体检</a><span style="color:var(--dim)"> — 出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸…</span></li><li><a href="/plugins/well-clear-marks" style="color:var(--blue)">一键清除井标记</a><span style="color:var(--dim)"> — 框选图元，一键清空选中图元的「标记」字段，其他参数、尺寸和模型图元都不动…</span></li><li><a href="/plugins/well-config" style="color:var(--blue)">井大样项目配置</a><span style="color:var(--dim)"> — 井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板…</span></li></ul>
+        <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
+    </div>
+    <div class="panel"><dl class="kv">
+      <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
+      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>50 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
+      <dt>下载</dt><dd><span data-dl="well-sync">暂无</span></dd>
+      
+      </dl>
+      
+      <a class="btn pri" href="/api/dl/well-sync" download>下载插件</a>
+      <a class="btn" style="margin-top:10px" href="https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sync" target="_blank" rel="noopener"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> 查看源码</a><p style="font-size:12.5px;color:var(--dim);margin:8px 0 0">源码公开（GitHub），可阅读、学习、改进。</p>
+    </div>
+  </div>
+</main>
+<footer id="foot">
+<div class="wrap">
+  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
+  <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
+</div></footer>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
+</body>
+</html>
