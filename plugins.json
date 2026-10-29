@@ -178,6 +178,36 @@
       "homepage": ""
     },
     {
+      "id": "duct-elev",
+      "name": "排管标高批量调整",
+      "en": "duct-elev",
+      "category": "井与管线",
+      "summary": "框选排管，自动按系统（TELCO、ELV、LV、ELE-11KV…）分类，批量设管底标高、管顶标高或整体升降，有坡度的也能调。",
+      "description": "框选一批排管（结构框架），按系统（TELCO、ELV、LV、ELE-11KV…）批量改标高：\n① 设底标高：这批排管的管底统一到某个标高；② 设顶标高：管顶统一到某个标高（断面高度不同的排管顶对齐）；③ 整体升降：整体抬高/降低一个量。\n为什么「顶部高程」「底部高程」是灰的：这两个是 Revit 算出来的只读值（有坡度的排管干脆是空的），不能直接输入。本插件改的是真正能改的「起点/终点标高偏移」，按排管自己的断面高度和 Z 轴对正换算，所以不论族怎么做的都能调。\n有坡度的排管默认保持坡度整体平移，也可以勾选拉平成水平。整次一个事务，Ctrl+Z 可撤销；只改框里选中的系统。",
+      "features": [
+        "① 设底标高：这批排管的管底统一到某个标高；② 设顶标高：管顶统一到某个标高（断面高度不同的排管顶对齐）；③ 整体升降：整体抬高/降低一个量。",
+        "为什么「顶部高程」「底部高程」是灰的：这两个是 Revit 算出来的只读值（有坡度的排管干脆是空的），不能直接输入。本插件改的是真正能改的「起点/终点标高偏移」，按排管自己的断面高度和 Z 轴对正换算，所以不论族怎么做的都能调。",
+        "有坡度的排管默认保持坡度整体平移，也可以勾选拉平成水平。整次一个事务，Ctrl+Z 可撤销；只改框里选中的系统。"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "12 KB",
+      "status": "beta",
+      "download": "/api/dl/duct-elev",
+      "file": "/dl/duct-elev_0.1.0.thlp",
+      "sha256": "0c66c41492dc31f9ec210d7afc24ff7d134fb5176b748362a1abe87afd5576ad",
+      "hostApi": 1,
+      "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/duct-elev",
+      "date": "2026-10-29",
+      "maturity": "tested",
+      "glyph": "标",
+      "color": "",
+      "tier": "official",
+      "author": "",
+      "license": "",
+      "homepage": ""
+    },
+    {
       "id": "duct-snap",
       "name": "排管贴井内壁",
       "en": "duct-snap",
