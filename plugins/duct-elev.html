@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Revit 排管标高批量调整插件（框选按系统统一管底、管顶标高）| 天河落 THL</title>
-<meta name="description" content="框选排管，自动按系统（TELCO、ELV、LV、ELE-11KV…）分类，批量设管底标高、管顶标高或整体升降，有坡度的也能调。Revit 2026 免费开源插件，天河落一键安装。">
+<meta name="description" content="设置一次，反复框选排管写入标高：按系统（TELCO、ELV、LV、ELE-11KV…）勾选，设底/设顶/整体升降；斜度排管可起点…Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/duct-elev">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="Revit 排管标高批量调整插件（框选按系统统一管底、管顶标高）| 天河落 THL"><meta property="og:description" content="框选排管，自动按系统（TELCO、ELV、LV、ELE-11KV…）分类，批量设管底标高、管顶标高或整体升降，有坡度的也能调。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 排管标高批量调整插件（框选按系统统一管底、管顶标高）| 天河落 THL"><meta property="og:description" content="设置一次，反复框选排管写入标高：按系统（TELCO、ELV、LV、ELE-11KV…）勾选，设底/设顶/整体升降；斜度排管可起点…Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/duct-elev"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管标高批量调整", "alternateName": "duct-elev", "description": "框选排管，自动按系统（TELCO、ELV、LV、ELE-11KV…）分类，批量设管底标高、管顶标高或整体升降，有坡度的也能调。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-elev", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-29", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/duct-elev"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管标高批量调整", "item": "https://tianheluo.com/plugins/duct-elev"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管标高批量调整", "alternateName": "duct-elev", "description": "设置一次，反复框选排管写入标高：按系统（TELCO、ELV、LV、ELE-11KV…）勾选，设底/设顶/整体升降；斜度排管可起点…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-elev", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-10-29", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/duct-elev"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管标高批量调整", "item": "https://tianheluo.com/plugins/duct-elev"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -43,14 +43,14 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">标</span>
     <div><h1>排管标高批量调整</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井与管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选排管，自动按系统（TELCO、ELV、LV、ELE-11KV…）分类，批量设管底标高、管顶标高或整体升降，有坡度的也能调。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">设置一次，反复框选排管写入标高：按系统（TELCO、ELV、LV、ELE-11KV…）勾选，设底/设顶/整体升降；斜度排管可起点、终点分别设置。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">排管是结构框架，Revit 属性里的「顶部高程」「底部高程」是算出来的只读值，有坡度的排管干脆是空白，想统一调标高只能一根根改「起点/终点标高偏移」，还要自己换算断面高度。</p><p style="color:var(--mute);margin:0 0 10px">排管标高批量调整框选一批排管，先按族名前缀认出系统（注释里写了线路名的分开算），勾选要调的系统；再选「设底标高」「设顶标高」或「整体升降」，输入数值（米）即可。内部改的是真正可写的起点/终点标高偏移，按每根排管自己的断面高度和 Z 轴对正换算，所以断面高度不同的排管也能把管顶对齐。</p></div>
-      <div class="panel"><h4>怎么用</h4><ol><li>框选排管（也可以先选好再点插件）。</li><li>点「排管标高批量调整」，在窗口里勾要调的系统，选设底 / 设顶 / 整体升降，输入米数。</li><li>看预览确认，执行；改完的排管保持选中，Ctrl+Z 可整次撤销。</li></ol></div>
-      <div class="panel"><h4>注意事项</h4><ul><li>有坡度的排管默认保持坡度整体平移（设底时较低的管底落在目标上，设顶时较高的管顶落在目标上），也可以勾选拉平成水平。</li><li>断面高度固定，所以顶、底只能二选一：管底 + 断面高 = 管顶。框选时把整段连着的排管都选上，接头处才不会错位。</li><li>协同模型里被别人占用的排管会跳过并说明是谁占着，其余照常修改。</li><li>已在测试项目里用真实排管（TELCO、ELV、LV、ELE-11KV、雨水沟，水平和坡度各一根）核对过，换算结果与 Revit 自己的顶部高程一致；还没在真实项目里批量用过，先拿 TELCO 小范围试。</li></ul></div>
-      <div class="panel"><h4>功能</h4><ul><li>① 设底标高：这批排管的管底统一到某个标高；② 设顶标高：管顶统一到某个标高（断面高度不同的排管顶对齐）；③ 整体升降：整体抬高/降低一个量。</li><li>为什么「顶部高程」「底部高程」是灰的：这两个是 Revit 算出来的只读值（有坡度的排管干脆是空的），不能直接输入。本插件改的是真正能改的「起点/终点标高偏移」，按排管自己的断面高度和 Z 轴对正换算，所以不论族怎么做的都能调。</li><li>有坡度的排管默认保持坡度整体平移，也可以勾选拉平成水平。整次一个事务，Ctrl+Z 可撤销；只改框里选中的系统。</li></ul></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">排管是结构框架，Revit 属性里的「顶部高程」「底部高程」是算出来的只读值，有坡度的排管干脆是空白，想统一调标高只能一根根改「起点/终点标高偏移」，还要自己换算断面高度。</p><p style="color:var(--mute);margin:0 0 10px">排管标高批量调整的窗口保持在最前面：先勾选要调的系统，选设底标高、设顶标高或整体升降，再点「框选排管并写入」，框完立刻写入，窗口自动回来，设置保留；勾上「连续模式」可以框完一批马上框下一批（Esc 回窗口）。内部改的是真正可写的起点/终点标高偏移，按每根排管自己的断面高度和 Z 轴对正换算，所以断面高度不同的排管也能把管顶对齐。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>点「排管标高批量调整」，在窗口里勾要调的系统。</li><li>选设底 / 设顶 / 整体升降；一个值（两端同值或整体平移），斜度排管选「起点、终点分别设置」，只填一端则另一端不动。</li><li>点「框选排管并写入」（或先选好再点「写入当前选中的」）。写完结果显示在窗口顶部，改完的排管保持选中，Ctrl+Z 可撤销。</li><li>需要连续调多处：勾「连续模式」；想看清楚每次的改动：勾「写入前确认」。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>斜度排管：起点、终点按每根排管自己的绘制方向，多根一起写时只框方向一致的一段。一个值时默认保持坡度整体平移（设底时较低的管底、设顶时较高的管顶落在目标上），也可以勾选拉平成水平。</li><li>断面高度固定，所以管底 + 断面高 = 管顶；框选时把整段连着的排管都选上，接头处才不会错位。</li><li>协同模型里被别人占用的排管会跳过并说明数量，其余照常修改。</li><li>已在测试项目里用真实排管（TELCO、ELV、LV、ELE-11KV、雨水沟，水平和斜度各一根）核对过：设底、设顶、整体升降、起点终点分别设置，结果与 Revit 自己的顶部高程一致；还没在真实项目里批量用过，先拿 TELCO 小范围试。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>① 设底标高：管底到某个标高；② 设顶标高：管顶到某个标高（断面高度不同的排管顶对齐）；③ 整体升降：整体抬高/降低一个量。</li><li>有斜度的排管可以「起点、终点分别设置」：两端各写一个标高；只写一端，另一端不动。也可以只写一个值：保持坡度整体平移，或拉平成水平。</li><li>窗口保持在最前面，设置一次可以反复「框选 → 写入」，勾上「连续模式」框完一批马上框下一批，按 Esc 回窗口。</li><li>为什么「顶部高程」「底部高程」是灰的：这两个是 Revit 算出来的只读值（有坡度的排管干脆是空的），不能直接输入。本插件改的是真正能改的「起点/终点标高偏移」，按排管自己的断面高度和 Z 轴对正换算，所以不论族怎么做的都能调。</li><li>整次一个事务，Ctrl+Z 可撤销；只改窗口里勾选的系统。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -59,8 +59,8 @@
     </div>
     <div class="panel"><dl class="kv">
       <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>12 KB</dd><dt>更新</dt><dd>2026-10-29</dd>
+      <dt>版本</dt><dd>0.2.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>13 KB</dd><dt>更新</dt><dd>2026-10-29</dd>
       <dt>下载</dt><dd><span data-dl="duct-elev">暂无</span></dd>
       
       </dl>
