@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Revit 框选提量导出 Excel 插件（混凝土、钢材、钢筋，井、排管、桩垫层）| 天河落 THL</title>
-<meta name="description" content="框选构件即得混凝土方量、钢材、钢筋，以及小市政的井（按系列、深度档）、排管导管（根数、长度、孔·米）、松木桩和垫层，一个窗口看完…Revit 2026 免费开源插件，天河落一键安装。">
+<meta name="description" content="框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段…Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/quantity-export">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="Revit 框选提量导出 Excel 插件（混凝土、钢材、钢筋，井、排管、桩垫层）| 天河落 THL"><meta property="og:description" content="框选构件即得混凝土方量、钢材、钢筋，以及小市政的井（按系列、深度档）、排管导管（根数、长度、孔·米）、松木桩和垫层，一个窗口看完…Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 框选提量导出 Excel 插件（混凝土、钢材、钢筋，井、排管、桩垫层）| 天河落 THL"><meta property="og:description" content="框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段…Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/quantity-export"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "框选提量导出Excel（结构 + 井排管）", "alternateName": "quantity-export", "description": "框选构件即得混凝土方量、钢材、钢筋，以及小市政的井（按系列、深度档）、排管导管（根数、长度、孔·米）、松木桩和垫层，一个窗口看完…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/quantity-export", "applicationCategory": "DesignApplication", "applicationSubCategory": "结构与算量", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.0", "dateModified": "2026-10-29", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/quantity-export"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "框选提量导出Excel（结构 + 井排管）", "item": "https://tianheluo.com/plugins/quantity-export"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "框选提量导出Excel（结构 + 井排管）", "alternateName": "quantity-export", "description": "框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/quantity-export", "applicationCategory": "DesignApplication", "applicationSubCategory": "结构与算量", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.1", "dateModified": "2026-10-29", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/quantity-export"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "框选提量导出Excel（结构 + 井排管）", "item": "https://tianheluo.com/plugins/quantity-export"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -43,13 +43,13 @@
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#10B981,#10B98199);border-color:#10B98188;color:#fff;font-weight:800">量</span>
     <div><h1>框选提量导出Excel（结构 + 井排管）</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
       <span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">结构与算量</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选构件即得混凝土方量、钢材、钢筋，以及小市政的井（按系列、深度档）、排管导管（根数、长度、孔·米）、松木桩和垫层，一个窗口看完，导出一个 Excel。</p>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段；场地道路绿化开挖这类楼板自动排除并列出，导出一个 Excel。</p>
   <div class="dcols">
     <div class="stack">
 
       <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">算一片区域的工程量，往往要分别建混凝土、钢材、钢筋的明细表，小市政项目还要另外统计井、排管、桩和垫层，临时核个量也要折腾半天。</p><p style="color:var(--mute);margin:0 0 10px">框选提量直接统计框选范围（或整个项目、当前视图）里的构件，按标签页给出表格：结构的混凝土体积、钢材重量、钢筋按直径汇总；小市政的井汇总与逐口明细、排管导管、桩与垫层。看完再决定是否导出。排管、松木桩、垫层各自单算，不会混进混凝土表。</p></div>
-      <div class="panel"><h4>怎么用</h4><ol><li>先选好构件，或直接点「框选提量导出Excel」后选「现在框选」，在视图里框出范围（也可以选整个项目、当前视图）。</li><li>窗口里按标签页看：混凝土、钢材、钢筋、井汇总、井明细、排管导管、桩与垫层（没有的不出现）。</li><li>需要留档时导出 Excel（xlsx，每个标签页一个工作表）；需要随模型更新时，在 Revit 里生成明细表。</li><li>构件很多时有进度条，可以随时取消。</li></ol></div>
-      <div class="panel"><h4>注意事项</h4><ul><li>只读统计，不改模型（生成明细表除外）。</li><li>排管按族名认：以 TELCO、ELV、LV-、ELE-、雨水沟 开头，或名字里有「排管」「N孔」的结构框架；其余结构框架仍按梁算混凝土。孔·米 = 孔数 × 长度，孔数取自族名或类型名里的「N孔」。</li><li>井按井号系列（项目配置里的井编号规则）、族类型、500 mm 深度档汇总；井深优先取「井内深度」，没有时用偏移减井底标高。</li><li>钢材按材料密度判断（密度 ≥ 6000 kg/m³ 或材料名含「钢」）；钢筋统一按 7850 kg/m³ 计重。读不出体积的构件会跳过，并在结果里提示数量。</li><li>本插件已合并原「排管井工程量表」，原插件不再单独提供。</li></ul></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>先选好构件，或直接点「框选提量导出Excel」后选「现在框选」，在视图里框出范围（也可以选整个项目、当前视图）。</li><li>窗口里按标签页看：混凝土、钢材、钢筋、井汇总、井明细、排管导管、桩与垫层、已排除（没有的不出现）。</li><li>需要留档时导出 Excel（xlsx，每个标签页一个工作表）；需要随模型更新时，在 Revit 里生成明细表。</li><li>构件很多时有进度条，可以随时取消。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>只读统计，不改模型（生成明细表除外）。</li><li>场地里的道路、绿化、开挖范围、遮罩、临时道路这类楼板不算结构混凝土：类型名含这些字，或楼板「结构」没勾选的，一律排除，并在「已排除」页列出类型、数量、体积、面积和原因，不会悄悄消失。规则在 文档\KaifaTools\提量排除规则.json（第一次运行自动生成，可改关键字，也可以关掉「非结构楼板」这条）。</li><li>混凝土、钢材页：楼层、类别、类型、材质、数量、体积、表面积（模板面积参考）、长度或高度、最低和最高标高。</li><li>排管页：根数、总长、平均单根长、孔数、孔·米、混凝土体积（包封量）、最低底标高、最高顶标高；井页：长宽、深度档、最小最大井深、井底标高、井盖面标高；桩与垫层页：体积、面积（体积÷厚度）、桩总长、标高范围。</li><li>排管按族名认：以 TELCO、ELV、LV-、ELE-、雨水沟 开头，或名字里有「排管」「N孔」的结构框架；其余结构框架仍按梁算混凝土。孔·米 = 孔数 × 长度。</li><li>钢材按材料密度判断（密度 ≥ 6000 kg/m³ 或材料名含「钢」）；钢筋统一按 7850 kg/m³ 计重。读不出体积的构件会跳过，并在结果里提示数量。</li><li>本插件已合并原「排管井工程量表」，原插件不再单独提供。</li></ul></div>
       <div class="panel"><h4>功能</h4><ul><li>结构：混凝土体积（m³）、钢材重量（t，按材料密度算）、钢筋按直径汇总（根数、总长、重量）；</li><li>小市政：井按系列、族类型、深度档汇总并附逐口明细，排管和导管按族类型汇总根数、长度、孔数、孔·米，松木桩根数和垫层块数、体积。</li><li>排管、松木桩、垫层各自单算，不会混进混凝土表。也可以在 Revit 里生成明细表（之后模型改了自动更新）。只读，不改模型（生成明细表除外）。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
@@ -59,8 +59,8 @@
     </div>
     <div class="panel"><dl class="kv">
       <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
-      <dt>版本</dt><dd>0.3.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>18 KB</dd><dt>更新</dt><dd>2026-10-29</dd>
+      <dt>版本</dt><dd>0.3.1</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>20 KB</dd><dt>更新</dt><dd>2026-10-29</dd>
       <dt>下载</dt><dd><span data-dl="quantity-export">暂无</span></dd>
       
       </dl>
