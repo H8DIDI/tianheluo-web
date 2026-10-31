@@ -115,6 +115,17 @@
 <li><a href="/plugins/well-param-sync"><b>井参数同步</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>让所有井的「井盖面标高」等于「相对标高的偏移」，只写记录用的参数，不挪井、不改样子。</span></li>
 <li><a href="/plugins/well-zone"><b>井分区标记</b></a><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span>框选一批井写入分区参数，按分区在当前视图里显隐和配色，并能生成按分区汇总的明细表。</span></li>
 </ul>
+<h3 class="gh"><span class="gdot" style="background:#14B8A6"></span>管线调整</h3><p class="gd">水管、风管、桥架、线管的小工具：翻弯、绕行、并线、打断、还原、碰撞和连续性检查。每个工具只做一件事，各自独立。</p><ul class="gl">
+<li><a href="/plugins/mep-break"><b>管线打断</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>在一根水管、风管、桥架或线管上点一个位置把它断开，两段之间自动接上接头件（桥架和线管没有接头件时直接对接），系统和保温保持。</span></li>
+<li><a href="/plugins/mep-bundle"><b>管线并线绕行</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选一束互相平行的管线，保持间距一起平移绕开障碍，一次完成，不会各绕各的互相打架。</span></li>
+<li><a href="/plugins/mep-clash"><b>管线碰撞检查</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>只读：选水管、风管、桥架、线管或排管，用 Revit 自带的实体相交检查它们碰到了什么，导出清单，并把有碰撞的选中。</span></li>
+<li><a href="/plugins/mep-continuity"><b>管线连续性检查</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>只读：选管线，查有没有开口、接口没对上、邻接构件属于别的系统，导出清单，并把有问题的选中。</span></li>
+<li><a href="/plugins/mep-corridor"><b>管线多根协调绕行</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>一次选很多根、互相交叉也行：自动选上/下/左/右，保证改完之后互相不冲突，再统一执行。</span></li>
+<li><a href="/plugins/mep-detour"><b>管线平面绕行</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选管线，从障碍左边或右边绕过去；平行的管线自动并成一束一起平移，接头自动生成 45° 弯头。</span></li>
+<li><a href="/plugins/mep-hop"><b>管线过障翻弯</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选水管、风管、桥架或线管，从碰到的障碍上面或下面翻过去，不改平面位置，接头自动生成 45° 弯头，系统和保温跟着走。</span></li>
+<li><a href="/plugins/mep-outline"><b>管线沿障碍外沿绕行</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>障碍是什么形状就沿什么形状绕（L 形楼板、斜管线也行），走最短路，每个转折点自动生成弯头，会改平面位置。</span></li>
+<li><a href="/plugins/mep-restore"><b>管线还原</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>把最近一次绕行或打断接回原样：删掉新生成的管线和接头，原管线恢复原长度并接回原来的邻居。</span></li>
+</ul>
 <h3 class="gh"><span class="gdot" style="background:#10B981"></span>结构与算量</h3><p class="gd">柱和基础配筋、钢筋三维查看、框选提量。</p><ul class="gl">
 <li><a href="/plugins/quantity-export"><b>框选提量导出Excel（结构 + 井排管）</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段；场地道路绿化开挖这类楼板自动排除并列出，导出一个 Excel。</span></li>
 <li><a href="/plugins/rebar-3d-view"><b>一键钢筋三维实体显示</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。</span></li>
@@ -139,7 +150,7 @@
   <!--seo:maturity--><div class="mats">
 <div class="card"><h3><span class="tag m-proven">项目实战</span> 15 个</h3><p>已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。</p></div>
 <div class="card"><h3><span class="tag m-tested">已实测</span> 13 个</h3><p>在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。</p></div>
-<div class="card"><h3><span class="tag m-beta">试用</span> 10 个</h3><p>做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。</p></div>
+<div class="card"><h3><span class="tag m-beta">试用</span> 19 个</h3><p>做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。</p></div>
 </div><!--/seo:maturity-->
 
   <div class="note" style="margin-top:28px">
