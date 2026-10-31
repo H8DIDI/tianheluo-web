@@ -178,6 +178,34 @@
       "homepage": ""
     },
     {
+      "id": "duct-route",
+      "name": "排管竖向避让优化",
+      "en": "duct-route",
+      "category": "井与管线",
+      "summary": "选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。先看结果再写入，一步撤销，可还原。",
+      "description": "框选排管或选一个范围框，一键算出每根排管两端的标高（不动平面）：避开井、雨水沟和别的排管，路面下顶标高距路面不小于 1.2 m（可改），首尾相连的排管接头对齐，能平就平、坡放长。先在窗口里看结果，再一次写入，可 Ctrl+Z 撤销，也可按备份一键还原。规则在 Documents\\KaifaTools\\管综排管路由规则.json。",
+      "features": [
+        "详见使用指南"
+      ],
+      "version": "0.1.0",
+      "revit": "2026",
+      "size": "21324 KB",
+      "status": "beta",
+      "download": "/api/dl/duct-route",
+      "file": "/dl/duct-route_0.1.0.thlp",
+      "sha256": "28156b9e156109698170fdd461a7185fe338fb03a01566a9f534893ccd8cf39d",
+      "hostApi": 1,
+      "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route",
+      "date": "2026-10-31",
+      "maturity": "beta",
+      "glyph": "避",
+      "color": "#F97316",
+      "tier": "official",
+      "author": "didi",
+      "license": "MIT",
+      "homepage": ""
+    },
+    {
       "id": "duct-snap",
       "name": "排管贴井内壁",
       "en": "duct-snap",

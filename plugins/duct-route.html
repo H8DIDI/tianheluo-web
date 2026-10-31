@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revit 排管、管线竖向避让优化插件（自动算标高、井处断开、管线绕行）| 天河落 THL</title>
+<meta name="description" content="选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。Revit 2026 免费开源插件，天河落一键安装。">
+<link rel="canonical" href="https://tianheluo.com/plugins/duct-route">
+<meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
+<meta property="og:title" content="Revit 排管、管线竖向避让优化插件（自动算标高、井处断开、管线绕行）| 天河落 THL"><meta property="og:description" content="选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:url" content="https://tianheluo.com/plugins/duct-route"><meta property="og:image" content="https://tianheluo.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080E">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
+<link rel="stylesheet" href="/fx.css?v=cbd273a6">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管竖向避让优化", "alternateName": "duct-route", "description": "选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-route", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-31", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管竖向避让优化", "item": "https://tianheluo.com/plugins/duct-route"}]}]}</script>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="wrap">
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
+  <nav>
+    <a href="/start" class="">快速上手</a>
+    <a href="/store" class="on">插件商店</a>
+    <a href="/install" class="">安装指南</a>
+    <a href="/developers" class="">开发者</a>
+    <a href="/contact" class="">交流群</a>
+    <a href="/#how" class="">工作方式</a>
+    <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </nav>
+  <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
+  <a class="btn sm pri" href="/install">下载宿主</a>
+</div></header>
+<main class="wrap" id="detail" style="padding-bottom:40px">
+  <div class="crumb"><a href="/store">插件商店</a> / 排管竖向避让优化</div>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#F97316,#F9731699);border-color:#F9731688;color:#fff;font-weight:800">避</span>
+    <div><h1>排管竖向避让优化</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div></div></div>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。先看结果再写入，一步撤销，可还原。</p>
+  <div class="dcols">
+    <div class="stack">
+
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">排管、水管、风管、桥架、线管在地下和管综里互相碰撞，靠人工一根根拖端点标高，几百根要花几天，改完还容易接头对不齐、埋得过深。</p><p style="color:var(--mute);margin:0 0 10px">这个插件把规则（路面下覆土、交叉净距、最大坡度、最深埋深、标高取整）放在窗口里，让你自己选参数，求解器一次算出全部排管的两端标高，接头保持对齐，穿过 TELCO 井的可以在井处断开，断开处两头标高一致。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在「天河落」选项卡里点「排管竖向避让优化」。选范围：选中的排管、范围框或整个模型，调好覆土、净距、坡度、最深埋深、标高取整档。</li><li>点「计算」。求解在独立进程里跑，Revit 不卡。结果表里能看到每根排管的原标高、新标高、变化量和状态，悬停可看碰撞对象，双击可在 Revit 里定位。</li><li>确认后点「写入 Revit」。写入前自动备份，Ctrl+Z 一步撤销，也可以点「还原上一次」。</li><li>其他工具：井处断开 / 还原断开、标高取整、接头对齐、碰撞检查、点选一根避让；对水管、风管、桥架、线管有「点选管线绕行」（竖向或平面，4 个弯头自动生成）、「选中一束一起平面绕行」、「自动规划多根绕行」和只读的碰撞检查。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>排管只改两端标高，不动平面、不动井；范围框外的排管只当障碍。</li><li>管线绕行会把一段切成 5 段，中间一段绕过去，两头 45° 斜段，4 个接头自动加弯头，水管风管的保温层和系统会跟着走，绕行后自动复检。抬高或平移小于 0.6 m 时 Revit 不接受弯头，会取 0.6 m。</li><li>被尺寸标注引用、Revit 拒绝修改的排管会列出来，可以选择「删标注并重写」，删之前先备份标注信息。</li><li>规则保存在 Documents\KaifaTools\管综排管路由规则.json，每一项都有默认值。</li><li>安装包约 21 MB，里面带求解组件（OR-Tools）；求解在独立进程里运行，不会影响 Revit 的稳定。</li><li>处于试用阶段：已在测试项目里跑通，还没有在大量真实项目里使用过，写入前请先看结果表，欢迎反馈。</li></ul></div>
+      <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
+        也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
+        有新版本时，插件中心会提示「更新」，一键即可。</p></div>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点…</span></li><li><a href="/plugins/duct-elev" style="color:var(--blue)">排管标高批量调整</a><span style="color:var(--dim)"> — 选中排管点一下，直接看到当前起点/终点的管底、管顶标高，填要改的标高就应用…</span></li><li><a href="/plugins/duct-snap" style="color:var(--blue)">排管贴井内壁</a><span style="color:var(--dim)"> — 一键把排管端点贴到井内壁：没到墙的延伸过去，伸进井里的修剪回来…</span></li><li><a href="/plugins/elv-merge" style="color:var(--blue)">族类型清洗合并</a><span style="color:var(--dim)"> — 把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型…</span></li><li><a href="/plugins/family-param-dim" style="color:var(--blue)">族尺寸参数化</a><span style="color:var(--dim)"> — 在族编辑器里把写死的尺寸一次变成带参数的尺寸，逐个类型核对生效…</span></li></ul>
+        <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
+    </div>
+    <div class="panel"><dl class="kv">
+      <dt>成熟度</dt><dd title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</dd>
+      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>21324 KB</dd><dt>更新</dt><dd>2026-10-31</dd>
+      <dt>下载</dt><dd><span data-dl="duct-route">暂无</span></dd>
+      <dt>原作者</dt><dd>didi</dd>
+      <dt>开源许可</dt><dd>MIT</dd></dl>
+      
+      <a class="btn pri" href="/api/dl/duct-route" download>下载插件</a>
+      <a class="btn" style="margin-top:10px" href="https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route" target="_blank" rel="noopener"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> 查看源码</a><p style="font-size:12.5px;color:var(--dim);margin:8px 0 0">源码公开（GitHub），可阅读、学习、改进。</p>
+    </div>
+  </div>
+</main>
+<footer id="foot">
+<div class="wrap">
+  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
+  <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
+</div></footer>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
+</body>
+</html>
