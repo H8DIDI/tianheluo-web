@@ -98,6 +98,11 @@
 <li><a href="/plugins/well-sync"><b>井大样变动同步</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。</span></li>
 </ul>
 <h3 class="gh"><span class="gdot" style="background:#3FA9FF"></span>井与管线</h3><p class="gd">井和排管的建模整理：编号、井深、排管贴井、分区、参数、族、垫层、控制点，以及井表核对、工程量、RFI 取证。</p><ul class="gl">
+<li><a href="/plugins/bank-break"><b>排管打断</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>在一根结构框架排管上点一个位置把它断成两段，两段标高连续、接头对齐。</span></li>
+<li><a href="/plugins/bank-clash"><b>排管碰撞检查</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>只读：选结构框架排管，用 Revit 自带的实体相交检查它们碰到了什么，导出清单，并把有碰撞的选中。</span></li>
+<li><a href="/plugins/bank-detour"><b>排管平面绕行</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选结构框架做的排管，从障碍左边或右边绕过去，用斜线接回；两端仍接原来的井。一束平行的排管用同一个平移量一起绕，保持互相平行。</span></li>
+<li><a href="/plugins/bank-hop"><b>排管过障翻弯</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选结构框架做的排管，碰到障碍时从上面或下面翻过去：先坡下去或坡上来，中间一段平着过，再坡回来。两端仍接原来的井，不改平面，标高取 0.1 m 一档。</span></li>
+<li><a href="/plugins/bank-restore"><b>排管还原</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。</span></li>
 <li><a href="/plugins/control-points"><b>控制点坐标表</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点，按项目共享坐标计算。</span></li>
 <li><a href="/plugins/duct-elev"><b>排管标高批量调整</b></a><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span>选中排管点一下，直接看到当前起点/终点的管底、管顶标高，填要改的标高就应用；斜度排管两端各填各的，改完窗口不关可接着改。</span></li>
 <li><a href="/plugins/duct-route"><b>排管竖向避让优化</b></a><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span>选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。先看结果再写入，一步撤销，可还原。</span></li>
@@ -150,7 +155,7 @@
   <!--seo:maturity--><div class="mats">
 <div class="card"><h3><span class="tag m-proven">项目实战</span> 15 个</h3><p>已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。</p></div>
 <div class="card"><h3><span class="tag m-tested">已实测</span> 13 个</h3><p>在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。</p></div>
-<div class="card"><h3><span class="tag m-beta">试用</span> 19 个</h3><p>做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。</p></div>
+<div class="card"><h3><span class="tag m-beta">试用</span> 24 个</h3><p>做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。</p></div>
 </div><!--/seo:maturity-->
 
   <div class="note" style="margin-top:28px">

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revit 排管还原 插件 | 天河落 THL</title>
+<meta name="description" content="把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。Revit 2026 免费开源插件，天河落一键安装。">
+<link rel="canonical" href="https://tianheluo.com/plugins/bank-restore">
+<meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
+<meta property="og:title" content="Revit 排管还原 插件 | 天河落 THL"><meta property="og:description" content="把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:url" content="https://tianheluo.com/plugins/bank-restore"><meta property="og:image" content="https://tianheluo.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#06080E">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css?v=6a65f38f">
+<link rel="stylesheet" href="/fx.css?v=cbd273a6">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管还原", "alternateName": "bank-restore", "description": "把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/bank-restore", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-31", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/bank-restore", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管还原", "item": "https://tianheluo.com/plugins/bank-restore"}]}]}</script>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="wrap">
+  <a class="brand" href="/"><img class="logo" src="/img/logo-nav.svg" width="28" height="28" alt="">天河落</a>
+  <nav>
+    <a href="/start" class="">快速上手</a>
+    <a href="/store" class="on">插件商店</a>
+    <a href="/install" class="">安装指南</a>
+    <a href="/developers" class="">开发者</a>
+    <a href="/contact" class="">交流群</a>
+    <a href="/#how" class="">工作方式</a>
+    <a class="ghlink" href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener" title="宿主与插件源码（GitHub）"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </nav>
+  <span class="sp"></span>
+  <button class="hud-open" type="button" data-hud aria-label="搜索插件与页面（Ctrl+K）" title="搜索插件与页面（Ctrl K）"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M7 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM11.2 11.2 14.5 14.5"/></svg><span>搜索</span><kbd>Ctrl K</kbd></button>
+  <a class="btn sm pri" href="/install">下载宿主</a>
+</div></header>
+<main class="wrap" id="detail" style="padding-bottom:40px">
+  <div class="crumb"><a href="/store">插件商店</a> / 排管还原</div>
+  <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#94A3B8,#94A3B899);border-color:#94A3B888;color:#fff;font-weight:800">还</span>
+    <div><h1>排管还原</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div></div></div>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。</p>
+  <div class="dcols">
+    <div class="stack">
+
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">把最近一次排管绕行或打断接回原样：删掉多出来的段，原排管恢复原长度和两端标高。</p></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>点「排管还原」。</li><li>确认后一次还原最近一次操作。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>试用阶段：已在测试项目里跑通，建议先在模型副本上用，写入前看清单。</li><li>所有改动可 Ctrl+Z 撤销；绕行和打断可用「管线还原」一次接回。</li></ul></div>
+      <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
+        也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
+        有新版本时，插件中心会提示「更新」，一键即可。</p></div>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/bank-break" style="color:var(--blue)">排管打断</a><span style="color:var(--dim)"> — 在一根结构框架排管上点一个位置把它断成两段，两段标高连续、接头对齐。</span></li><li><a href="/plugins/bank-clash" style="color:var(--blue)">排管碰撞检查</a><span style="color:var(--dim)"> — 只读：选结构框架排管，用 Revit 自带的实体相交检查它们碰到了什么…</span></li><li><a href="/plugins/bank-detour" style="color:var(--blue)">排管平面绕行</a><span style="color:var(--dim)"> — 选结构框架做的排管，从障碍左边或右边绕过去，用斜线接回；两端仍接原来的井。</span></li><li><a href="/plugins/bank-hop" style="color:var(--blue)">排管过障翻弯</a><span style="color:var(--dim)"> — 选结构框架做的排管，碰到障碍时从上面或下面翻过去：先坡下去或坡上来…</span></li><li><a href="/plugins/control-points" style="color:var(--blue)">控制点坐标表</a><span style="color:var(--dim)"> — 导出控制点的测量坐标表给测量员，或把测量员的坐标导入模型放出控制点…</span></li></ul>
+        <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
+    </div>
+    <div class="panel"><dl class="kv">
+      <dt>成熟度</dt><dd title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</dd>
+      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>88 KB</dd><dt>更新</dt><dd>2026-10-31</dd>
+      <dt>下载</dt><dd><span data-dl="bank-restore">暂无</span></dd>
+      <dt>原作者</dt><dd>didi</dd>
+      <dt>开源许可</dt><dd>MIT</dd></dl>
+      
+      <a class="btn pri" href="/api/dl/bank-restore" download>下载插件</a>
+      <a class="btn" style="margin-top:10px" href="https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/bank-restore" target="_blank" rel="noopener"><svg class="ghi" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> 查看源码</a><p style="font-size:12.5px;color:var(--dim);margin:8px 0 0">源码公开（GitHub），可阅读、学习、改进。</p>
+    </div>
+  </div>
+</main>
+<footer id="foot">
+<div class="wrap">
+  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
+  <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
+  <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
+  <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
+  <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
+</div></footer>
+<script src="/app.js?v=577ce409"></script>
+<script src="/fx.js?v=62235e15"></script>
+</body>
+</html>
