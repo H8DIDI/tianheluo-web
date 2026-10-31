@@ -187,13 +187,13 @@
       "features": [
         "详见使用指南"
       ],
-      "version": "0.1.1",
+      "version": "0.1.2",
       "revit": "2026",
-      "size": "21330 KB",
+      "size": "21336 KB",
       "status": "beta",
       "download": "/api/dl/duct-route",
-      "file": "/dl/duct-route_0.1.1.thlp",
-      "sha256": "ba0933ed1c44d34e64e82da4eda27e225e0de1ffc64c00159c551a3dbcb8795e",
+      "file": "/dl/duct-route_0.1.2.thlp",
+      "sha256": "7aa9e3c37a84287f14b1e8a6739adbafd8e565bcb473f29e552fa385ae273931",
       "hostApi": 1,
       "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route",
       "date": "2026-10-31",
