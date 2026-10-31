@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管竖向避让优化", "alternateName": "duct-route", "description": "选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-route", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-31", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管竖向避让优化", "item": "https://tianheluo.com/plugins/duct-route"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "排管竖向避让优化", "alternateName": "duct-route", "description": "选范围、调参数，一键算出每根排管两端的标高来避开井、雨水沟和别的排管；还能在井处断开、给水管风管桥架线管做竖向或平面绕行。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/duct-route", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.1", "dateModified": "2026-10-31", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "license": "https://opensource.org/license/mit", "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugins/duct-route", "author": {"@type": "Person", "name": "didi"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "排管竖向避让优化", "item": "https://tianheluo.com/plugins/duct-route"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -48,7 +48,7 @@
     <div class="stack">
 
       <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">排管、水管、风管、桥架、线管在地下和管综里互相碰撞，靠人工一根根拖端点标高，几百根要花几天，改完还容易接头对不齐、埋得过深。</p><p style="color:var(--mute);margin:0 0 10px">这个插件把规则（路面下覆土、交叉净距、最大坡度、最深埋深、标高取整）放在窗口里，让你自己选参数，求解器一次算出全部排管的两端标高，接头保持对齐，穿过 TELCO 井的可以在井处断开，断开处两头标高一致。</p></div>
-      <div class="panel"><h4>怎么用</h4><ol><li>在「天河落」选项卡里点「排管竖向避让优化」。选范围：选中的排管、范围框或整个模型，调好覆土、净距、坡度、最深埋深、标高取整档。</li><li>点「计算」。求解在独立进程里跑，Revit 不卡。结果表里能看到每根排管的原标高、新标高、变化量和状态，悬停可看碰撞对象，双击可在 Revit 里定位。</li><li>确认后点「写入 Revit」。写入前自动备份，Ctrl+Z 一步撤销，也可以点「还原上一次」。</li><li>其他工具：井处断开 / 还原断开、标高取整、接头对齐、碰撞检查、点选一根避让；对水管、风管、桥架、线管有「点选管线绕行」（竖向或平面，4 个弯头自动生成）、「选中一束一起平面绕行」、「自动规划多根绕行」和只读的碰撞检查。</li></ol></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>在「天河落」选项卡里点「排管竖向避让优化」。选范围：选中的排管、范围框或整个模型，调好覆土、净距、坡度、最深埋深、标高取整档。</li><li>点「计算」。求解在独立进程里跑，Revit 不卡。结果表里能看到每根排管的原标高、新标高、变化量和状态，悬停可看碰撞对象，双击可在 Revit 里定位。</li><li>确认后点「写入 Revit」。写入前自动备份，Ctrl+Z 一步撤销，也可以点「还原上一次」。</li><li>其他工具：井处断开 / 还原断开、标高取整、接头对齐、碰撞检查、点选一根避让；对水管、风管、桥架、线管有「点选管线绕行」（竖向或平面，4 个弯头自动生成）、「选中一束一起平面绕行」、「自动规划多根绕行」、「走廊协调绕行」（选很多根、互相交叉也行，自动选上/下/左/右，保证互不冲突）和只读的碰撞检查。</li></ol></div>
       <div class="panel"><h4>注意事项</h4><ul><li>排管只改两端标高，不动平面、不动井；范围框外的排管只当障碍。</li><li>管线绕行会把一段切成 5 段，中间一段绕过去，两头 45° 斜段，4 个接头自动加弯头，水管风管的保温层和系统会跟着走，绕行后自动复检。抬高或平移小于 0.6 m 时 Revit 不接受弯头，会取 0.6 m。</li><li>被尺寸标注引用、Revit 拒绝修改的排管会列出来，可以选择「删标注并重写」，删之前先备份标注信息。</li><li>规则保存在 Documents\KaifaTools\管综排管路由规则.json，每一项都有默认值。</li><li>安装包约 21 MB，里面带求解组件（OR-Tools）；求解在独立进程里运行，不会影响 Revit 的稳定。</li><li>处于试用阶段：已在测试项目里跑通，还没有在大量真实项目里使用过，写入前请先看结果表，欢迎反馈。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
@@ -58,8 +58,8 @@
     </div>
     <div class="panel"><dl class="kv">
       <dt>成熟度</dt><dd title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</dd>
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>21324 KB</dd><dt>更新</dt><dd>2026-10-31</dd>
+      <dt>版本</dt><dd>0.1.1</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>21330 KB</dd><dt>更新</dt><dd>2026-10-31</dd>
       <dt>下载</dt><dd><span data-dl="duct-route">暂无</span></dd>
       <dt>原作者</dt><dd>didi</dd>
       <dt>开源许可</dt><dd>MIT</dd></dl>
