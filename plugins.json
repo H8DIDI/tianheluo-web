@@ -379,36 +379,6 @@
       "homepage": ""
     },
     {
-      "id": "elv-merge",
-      "name": "族类型清洗合并",
-      "en": "elv-merge",
-      "category": "井与管线",
-      "summary": "把强电预制井里长宽相同、仅深度不同的冗余族类型合并成一个，并删除多余类型，让类型列表保持清爽。",
-      "description": "把同一个族里「名字只差一点」的重复类型合并成一个（原「强电井清洗合并」，现在任何族都能用）：\n按规则文件改类型名（例如去掉名字末尾的深度 x3500(D)、把 EM1- 前缀纠正成族对应的 EM2-），\n改完重名的类型合并：构件换到保留的类型上，多余类型删除。先列出要改什么再确认，整次可 Ctrl+Z 撤销。\n规则在 文档\\KaifaTools\\族类型清洗规则.json（第一次运行自动生成，默认就是原来强电井的规则）。",
-      "features": [
-        "按规则文件改类型名（例如去掉名字末尾的深度 x3500(D)、把 EM1- 前缀纠正成族对应的 EM2-），",
-        "改完重名的类型合并：构件换到保留的类型上，多余类型删除。先列出要改什么再确认，整次可 Ctrl+Z 撤销。",
-        "规则在 文档\\KaifaTools\\族类型清洗规则.json（第一次运行自动生成，默认就是原来强电井的规则）。"
-      ],
-      "version": "0.2.2",
-      "revit": "2026",
-      "size": "12 KB",
-      "status": "beta",
-      "download": "/api/dl/elv-merge",
-      "file": "/dl/elv-merge_0.2.2.thlp",
-      "sha256": "69d7afc7690a4d59b653f230ae764229d27fcfab7179e9c468831502f71fb102",
-      "hostApi": 1,
-      "source": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/elv-merge",
-      "date": "2026-10-28",
-      "maturity": "beta",
-      "glyph": "并",
-      "color": "",
-      "tier": "official",
-      "author": "",
-      "license": "",
-      "homepage": ""
-    },
-    {
       "id": "export-dwg",
       "name": "一键导出图纸DWG/PDF",
       "en": "export-dwg",

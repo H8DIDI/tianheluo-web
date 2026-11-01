@@ -50,3 +50,4 @@
 /plugins/duct-boq /plugins/quantity-export 301
 /plugins/well-depth-report /plugins/quantity-export 301
 /plugins/well-clear-marks /plugins/well-number 301
+/plugins/elv-merge /store 301
