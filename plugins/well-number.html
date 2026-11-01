@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Revit 按坐标批量编号插件（井编号、标记自动排号）| 天河落 THL</title>
-<meta name="description" content="按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。Revit 2026 免费开源插件，天河落一键安装。">
+<title>Revit 批量编号与清除标记插件（按位置/沿线/就近连串自动排号）| 天河落 THL</title>
+<meta name="description" content="给选中的井、桩、设备等任何有「标记」的构件按位置自动编号：X/Y 方向、沿一条线、就近连串三种排法，前缀、起始号、位数、步长都能改…Revit 2026 免费开源插件，天河落一键安装。">
 <link rel="canonical" href="https://tianheluo.com/plugins/well-number">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="Revit 按坐标批量编号插件（井编号、标记自动排号）| 天河落 THL"><meta property="og:description" content="按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。Revit 2026 免费开源插件，天河落一键安装。">
+<meta property="og:title" content="Revit 批量编号与清除标记插件（按位置/沿线/就近连串自动排号）| 天河落 THL"><meta property="og:description" content="给选中的井、桩、设备等任何有「标记」的构件按位置自动编号：X/Y 方向、沿一条线、就近连串三种排法，前缀、起始号、位数、步长都能改…Revit 2026 免费开源插件，天河落一键安装。">
 <meta property="og:url" content="https://tianheluo.com/plugins/well-number"><meta property="og:image" content="https://tianheluo.com/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键编号", "alternateName": "well-number", "description": "按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-number", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.1", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-number"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键编号", "item": "https://tianheluo.com/plugins/well-number"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键编号 / 清除标记", "alternateName": "well-number", "description": "给选中的井、桩、设备等任何有「标记」的构件按位置自动编号：X/Y 方向、沿一条线、就近连串三种排法，前缀、起始号、位数、步长都能改…Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-number", "applicationCategory": "DesignApplication", "applicationSubCategory": "井与管线", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.3.0", "dateModified": "2026-11-01", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-number"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键编号 / 清除标记", "item": "https://tianheluo.com/plugins/well-number"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -39,19 +39,19 @@
   <a class="btn sm pri" href="/install">下载宿主</a>
 </div></header>
 <main class="wrap" id="detail" style="padding-bottom:40px">
-  <div class="crumb"><a href="/store">插件商店</a> / 一键编号</div>
+  <div class="crumb"><a href="/store">插件商店</a> / 一键编号 / 清除标记</div>
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">号</span>
-    <div><h1>一键编号</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">井与管线</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">按空间位置给选中的常规模型井自动排号，写入「标记」，可设前缀、起始数字、注释过滤和排序方向。</p>
+    <div><h1>一键编号 / 清除标记</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井与管线</span></div></div></div>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">给选中的井、桩、设备等任何有「标记」的构件按位置自动编号：X/Y 方向、沿一条线、就近连串三种排法，前缀、起始号、位数、步长都能改；先预览再写入，提醒重号；还能一键清除选中井的标记。</p>
   <div class="dcols">
     <div class="stack">
 
-      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">市政管线项目里，一张图上有几十上百口井，每口都要编号（如 11KV-01、11KV-02……）。手动一个个改「标记」又慢又容易漏号、重号，Revit 自带的方式也不能按位置顺序来排。</p><p style="color:var(--mute);margin:0 0 10px">一键编号让你设好前缀和起始数字，再选一个排序方向（从左到右、从右到左、从下到上、从上到下），它就按每口井的位置从头排到尾，一次把全部「标记」写好。</p></div>
+      <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">一张图上有几十上百口井，每口都要编号。手动改「标记」又慢又容易漏号、重号。</p><p style="color:var(--mute);margin:0 0 10px">一键编号先让你设好前缀、起始号、位数、步长和排法，预览「旧编号 → 新编号」，确认后一次写好；和模型里其它构件重号会提醒。室内井等不需要标记的，用「清除选中井的标记」一键清掉。</p></div>
       <figure class="panel" style="margin:0;padding:12px"><img src="/img/plugins/well-number.svg" alt="一键编号示意图：平面上的井按从左到右的顺序依次编号 11KV-01 到 11KV-05" width="960" height="420" loading="lazy" style="width:100%;height:auto;border-radius:10px;display:block"><figcaption style="color:var(--dim);font-size:13px;margin-top:8px">按“从左到右”排序编号（示意图）</figcaption></figure>
-      <div class="panel"><h4>怎么用</h4><ol><li>（可选）先在视图里选中要编号的井，再运行；没提前选的话，运行后再框选，框选完要点屏幕左上角的「完成」。</li><li>在 Revit 的「天河落」选项卡里点击「一键编号」，依次输入：编号前缀（默认 11KV-）、起始数字（默认 1）、注释过滤（默认 11kv，留空表示不过滤）。</li><li>选择排序方向：从左到右（X 递增）、从右到左（X 递减）、从下到上（Y 递增）、从上到下（Y 递减）。</li><li>完成后弹窗显示成功编号的数量，以及因为不符合注释条件被跳过的数量。编号写在每个图元的「标记」参数里，序号至少两位（01、02……）。</li></ol></div>
-      <div class="panel"><h4>注意事项</h4><ul><li>只处理「常规模型」类别的图元，其他类别会被忽略。</li><li>设了注释过滤时，只有「注释」参数里包含这段文字的图元才会编号（不区分大小写），其余会被跳过并计数。</li><li>会直接覆盖这些图元原来的「标记」，不检查重号；已有编号的井，请先确认再运行。「标记」参数是只读的图元会被跳过。</li><li>排序只看一个方向的坐标（取图元外包框的中心点）。沿斜线或折线布置的井，排出来的顺序可能和你期望的前进方向不同，这时可以分段选择，分几次运行并设置不同的起始数字。</li><li>整个编号在同一个事务里，不满意可以按 Ctrl+Z 一步撤销。</li></ul></div>
-      <div class="panel"><h4>功能</h4><ul><li>可以按 X/Y 方向排，也可以沿一条模型线/详图线（道路中心线、管线走向）排，或从起点开始就近连成一串。</li><li>前缀、起始号、位数、写入哪个参数都能改，先预览再写入，会提醒和模型里其它构件重号。整次可 Ctrl+Z 撤销。</li></ul></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>先在视图里选中要编号的构件（没提前选，运行后框选）。</li><li>点「一键编号 / 清除标记」，选「按位置编号」或「清除选中井的标记」。</li><li>编号：设前缀、起始号、位数、步长、写入哪个参数（默认「标记」）和排法（从左到右、从右到左、从下到上、从上到下、沿一条线、就近连串）；「注释」可过滤，「只给空着的编号」会跳过模型里已用掉的号。</li><li>预览「旧 → 新」确认后写入；不满意 Ctrl+Z 一步撤销。</li></ol></div>
+      <div class="panel"><h4>注意事项</h4><ul><li>任何有「标记」（或你指定的文字参数）的构件都能编，不限于井。</li><li>沿线编号要点选一条模型线/详图线，按投影到线上的位置排；就近连串要点选起点构件。</li><li>协同模型里被别人占用的构件会先排除并在确认框里说明，其余照常写入。</li><li>清除标记只清井（常规模型）的【标记】，框选时顺带选到的排管、管线等默认不动；清之前列出井号确认，已出图（图名里有这个井号）的井会提醒，因为井大样图纸靠井号找井。</li><li>设置保存在 文档\KaifaTools\一键编号设置.json。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>可以按 X/Y 方向排，也可以沿一条模型线/详图线（道路中心线、管线走向）排，或从起点开始就近连成一串。</li><li>前缀、起始号、位数、写入哪个参数都能改，先预览再写入，会提醒和模型里其它构件重号。整次可 Ctrl+Z 撤销。</li><li>另有「清除选中井的标记」（原「一键清除井标记」已并入）：只清井的【标记】，列出井号确认，已出图的井会提醒。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -59,9 +59,9 @@
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
-      <dt>成熟度</dt><dd title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</dd>
-      <dt>版本</dt><dd>0.2.1</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>10 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
+      <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
+      <dt>版本</dt><dd>0.3.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>12 KB</dd><dt>更新</dt><dd>2026-11-01</dd>
       <dt>下载</dt><dd><span data-dl="well-number">暂无</span></dd>
       
       </dl>

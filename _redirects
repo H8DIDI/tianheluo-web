@@ -48,3 +48,5 @@
 
 # 合并进「框选提量导出Excel」的旧插件页
 /plugins/duct-boq /plugins/quantity-export 301
+/plugins/well-depth-report /plugins/quantity-export 301
+/plugins/well-clear-marks /plugins/well-number 301
