@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css?v=6a65f38f">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样体检", "alternateName": "well-audit", "description": "出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸、井盖距内壁没有 300、井深对不上，列清单。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-audit", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.1.0", "dateModified": "2026-10-28", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-audit"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样体检", "item": "https://tianheluo.com/plugins/well-audit"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井大样体检", "alternateName": "well-audit", "description": "出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸、井盖距内壁没有 300、井深对不上，列清单。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-audit", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.2.0", "dateModified": "2026-11-01", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-audit"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井大样体检", "item": "https://tianheluo.com/plugins/well-audit"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -48,9 +48,9 @@
     <div class="stack">
 
       <div class="panel"><h4>解决什么问题</h4><p style="color:var(--mute);margin:0 0 10px">几百口井、几百张图，出图前靠人眼检查很容易漏：有的井没出图，有的图纸对应的井已经被删，井挪了视图没跟着动，尺寸没标全，井盖离内壁没有留出爬梯位。</p><p style="color:var(--mute);margin:0 0 10px">井大样体检把这些检查合成一次：逐口井、逐张图纸核对，按「错误 / 提醒」分类列出，可导出 Excel，也可以在模型里直接选中有问题的井。只读，不改模型。</p></div>
-      <div class="panel"><h4>怎么用</h4><ol><li>点「井大样体检」，选「快速体检」或「完整体检」（完整体检多查井盖距内壁，几百口井要几分钟）。</li><li>查完看汇总：每类问题几个、前几条是什么。</li><li>需要的话导出完整清单到 Excel（含井号、图纸号、问题、建议、构件 ID）。</li><li>再选择是否在模型里选中这些有问题的井，方便框选后隔离查看。</li></ol></div>
+      <div class="panel"><h4>怎么用</h4><ol><li>点「井大样体检」，选「快速体检」或「完整体检」（完整体检多查井盖距内壁，几百口井要几分钟）。</li><li>查完看汇总：每类问题几个、前几条是什么。</li><li>需要的话导出完整清单到 Excel（含井号、图纸号、问题、建议、构件 ID）。</li><li>再选择是否在模型里选中这些有问题的井，方便框选后隔离查看。</li><li>对照设计方/厂家的井清单时，运行后选「井表核对」，选 Excel 清单（每行一口井，有井号和「1770(L)x1120(W)x3500(D)」这样的规格；多个工作表都会读），列出清单有模型没有、模型有清单没有（只看清单涉及的系列）、长宽对不上、深度差得多（A-005 与 A-5 视为同一口井），可导出 Excel、在模型里选中有出入的井（原「井表核对」已并入）。</li></ol></div>
       <div class="panel"><h4>注意事项</h4><ul><li>只检查井号属于「井大样项目配置」里井号系列的井（雨水井等不算）。</li><li>「井盖距内壁」按你的规则：平面里每个方向两侧至少有一侧是 300 mm（放爬梯）。</li><li>东、西立面本来只标排管尺寸链，所以「没有尺寸」只查平面和南立面。</li><li>井深检查看「井底标高」「井内深度」和偏移是否一致、井深是否在 500~6000 mm（可在井深规则.json 里改）；排管和井底的 300 规则请用「井深调整」。</li><li>已在测试项目里核对过检测逻辑；还没在真实项目里用过。</li></ul></div>
-      <div class="panel"><h4>功能</h4><ul><li>井没有图纸、图纸找不到井、井号重复、一口井多张图纸；平面/南北西东视图不全、视图框没围着井（井挪了/转了）、视图里没有尺寸；井盖外沿到井内壁一个方向上没有一侧是 300 mm（放爬梯留的）；井底标高、井内深度和偏移对不上、井深超出范围。</li><li>只读，不改模型。</li></ul></div>
+      <div class="panel"><h4>功能</h4><ul><li>井没有图纸、图纸找不到井、井号重复、一口井多张图纸；平面/南北西东视图不全、视图框没围着井（井挪了/转了）、视图里没有尺寸；井盖外沿到井内壁一个方向上没有一侧是 300 mm（放爬梯留的）；井底标高、井内深度和偏移对不上、井深超出范围。</li><li>只读，不改模型。</li><li>另有「井表核对」（原插件已并入）：读设计方/厂家的井清单 Excel，和模型逐口核对缺井、多井、长宽、深度。</li></ul></div>
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
@@ -59,8 +59,8 @@
     </div>
     <div class="panel"><dl class="kv">
       <dt>成熟度</dt><dd title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</dd>
-      <dt>版本</dt><dd>0.1.0</dd><dt>适配</dt><dd>Revit 2026</dd>
-      <dt>大小</dt><dd>52 KB</dd><dt>更新</dt><dd>2026-10-28</dd>
+      <dt>版本</dt><dd>0.2.0</dd><dt>适配</dt><dd>Revit 2026</dd>
+      <dt>大小</dt><dd>55 KB</dd><dt>更新</dt><dd>2026-11-01</dd>
       <dt>下载</dt><dd><span data-dl="well-audit">暂无</span></dd>
       
       </dl>

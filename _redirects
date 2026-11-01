@@ -51,3 +51,5 @@
 /plugins/well-depth-report /plugins/quantity-export 301
 /plugins/well-clear-marks /plugins/well-number 301
 /plugins/elv-merge /store 301
+/plugins/pile-cleanup /plugins/pile-cushion 301
+/plugins/well-list-check /plugins/well-audit 301
