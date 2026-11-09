@@ -46,11 +46,29 @@
   <div class="tools"><div id="chips" style="display:flex;gap:10px;flex-wrap:wrap"></div>
     <input id="q" class="search" type="search" placeholder="搜索插件..." aria-label="搜索插件"></div>
   <div class="plist" id="plist"><!--seo:plist-->
+  <a class="pc" href="/plugins/well-annotate">
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">标</span>
+      <h3>一键井大样标注<small>well-annotate</small></h3></div>
+    <p>给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</p>
+    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
+  </a>
+  <a class="pc" href="/plugins/well-audit">
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">检</span>
+      <h3>井大样体检<small>well-audit</small></h3></div>
+    <p>出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸、井盖距内壁没有 300、井深对不上，列清单。</p>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井大样出图</span></div>
+  </a>
   <a class="pc" href="/plugins/well-sheets">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">展</span>
       <h3>一键井展开图<small>well-sheets</small></h3></div>
     <p>选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。</p>
     <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
+  </a>
+  <a class="pc" href="/plugins/well-sync">
+    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">同</span>
+      <h3>井大样变动同步<small>well-sync</small></h3></div>
+    <p>井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。</p>
+    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/pipe-support">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">墩</span>
@@ -93,12 +111,6 @@
       <h3>一键布置松木桩垫层<small>pile-cushion</small></h3></div>
     <p>框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。</p>
     <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井与管线</span></div>
-  </a>
-  <a class="pc" href="/plugins/well-audit">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">检</span>
-      <h3>井大样体检<small>well-audit</small></h3></div>
-    <p>出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸、井盖距内壁没有 300、井深对不上，列清单。</p>
-    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井大样出图</span></div>
   </a>
   <a class="pc" href="/plugins/well-number">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#3FA9FF,#3FA9FF99);border-color:#3FA9FF88;color:#fff;font-weight:800">号</span>
@@ -292,12 +304,6 @@
     <p>批量管理视图：筛选、重命名、套用视图样板、批量设比例与详细程度、找出没上图纸的视图。</p>
     <div class="meta"><span class="tag m-beta" title="做好了、通过基本检查，还没在实际项目里用过；建议先在模型副本上试，有问题请反馈。">试用</span><span class="tag">图纸视图</span></div>
   </a>
-  <a class="pc" href="/plugins/well-annotate">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">标</span>
-      <h3>一键井大样标注<small>well-annotate</small></h3></div>
-    <p>给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。</p>
-    <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
-  </a>
   <a class="pc" href="/plugins/well-config">
     <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">项</span>
       <h3>井大样项目配置<small>well-config</small></h3></div>
@@ -339,12 +345,6 @@
       <h3>井规格表<small>well-spec-table</small></h3></div>
     <p>给每张井大样图纸放一张只列这口井数据的明细表，改了井的参数表格跟着变。</p>
     <div class="meta"><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div>
-  </a>
-  <a class="pc" href="/plugins/well-sync">
-    <div class="top"><span class="pic" style="width:44px;height:44px;font-size:22px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">同</span>
-      <h3>井大样变动同步<small>well-sync</small></h3></div>
-    <p>井挪了位置、转了方向后，一键把变动的井的平面裁剪框、四个剖面和尺寸对回井上，没变的不动。</p>
-    <div class="meta"><span class="tag m-tested" title="在测试项目里自动跑通并核对了结果，还没在真实项目里用过，欢迎反馈。">已实测</span><span class="tag">井大样出图</span></div>
   </a><!--/seo:plist--></div>
 </main>
 <footer id="foot">
