@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>安装指南 — 天河落 THL Revit 插件宿主</title>
-<meta name="description" content="三步安装天河落宿主（支持 Revit 2020 和 Revit 2026（2026.0 以上自动适配 .NET 8 / .NET 10），装了哪个就装哪个），之后在 Revit 内的插件中心一键安装和更新插件。">
+<meta name="description" content="一键安装天河落宿主（支持 Revit 2020 和 Revit 2026（2026.0 以上自动适配 .NET 8 / .NET 10），装了哪个就装哪个），之后在 Revit 内的插件中心一键安装和更新插件。">
 <meta name="keywords" content="Revit插件安装,Revit 2026,Revit 2020,addin安装,天河落">
 <link rel="canonical" href="https://tianheluo.com/install">
 <meta property="og:type" content="website"><meta property="og:site_name" content="天河落 Tianheluo">
-<meta property="og:title" content="安装指南 — 天河落 THL Revit 插件宿主"><meta property="og:description" content="三步安装天河落宿主（支持 Revit 2020 和 Revit 2026（2026.0 以上自动适配 .NET 8 / .NET 10），装了哪个就装哪个），之后在 Revit 内的插件中心一键安装和更新插件。">
+<meta property="og:title" content="安装指南 — 天河落 THL Revit 插件宿主"><meta property="og:description" content="一键安装天河落宿主（支持 Revit 2020 和 Revit 2026（2026.0 以上自动适配 .NET 8 / .NET 10），装了哪个就装哪个），之后在 Revit 内的插件中心一键安装和更新插件。">
 <meta property="og:url" content="https://tianheluo.com/install"><meta property="og:image" content="https://tianheluo.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#06080E">
@@ -46,9 +46,8 @@
   <h3 style="margin:44px 0 0;font-size:22px">第一步　安装「宿主」（只装一次）</h3>
   <p class="sub" style="margin-top:6px">宿主就像一个“手机”，后面所有插件都是装在上面的“App”。</p>
   <div class="steps">
-    <div class="step"><div><h3>下载安装包</h3><p><a class="btn pri sm" href="/api/dl/host-installer" download>下载宿主安装包（约 14 MB）</a></p></div></div>
-    <div class="step"><div><h3>解压</h3><p>在下载的文件上点右键，选「全部解压缩」。<b>不要直接在压缩包里双击运行</b>，否则会失败。</p></div></div>
-    <div class="step"><div><h3>先关闭 Revit，再双击 <b>install.bat</b></h3><p>看到「安装完成」就好了。如果提示 Revit 正在运行，关掉 Revit 再试一次。</p></div></div>
+    <div class="step"><div><h3>下载安装程序</h3><p><a class="btn pri sm" href="/api/dl/host-setup" download>下载 THL-Setup.exe（约 11 MB）</a><br><small>一个 exe，内含 Revit 2020 和 Revit 2026 两种版本。备用：<a href="/api/dl/host-installer" style="color:var(--blue)">压缩包版（约 21 MB，解压后双击 install.bat）</a></small></p></div></div>
+    <div class="step"><div><h3>先关闭 Revit，再双击 <b>THL-Setup.exe</b></h3><p>它会自动检测你装了 Revit 2020 还是 2026（都装了就都勾上），点<b>「安装」</b>，看到「安装完成」就好了。不需要管理员权限。Windows 如果提示「已保护你的电脑」，点<b>「更多信息 → 仍要运行」</b>（安装程序还没做数字签名）。</p></div></div>
     <div class="step"><div><h3>打开 Revit</h3><p>顶部会多出一个<b>「天河落」</b>选项卡。第一次打开时 Revit 会弹出安全提示，选<b>「始终加载」</b>。</p></div></div>
   </div>
 

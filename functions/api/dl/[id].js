@@ -64,6 +64,7 @@ async function resolve(env, request, id) {
     if (!host) return null;
     const key = id.slice(5);
     if (key === "installer") return host.installer ? { file: host.installer.file, countId: "host" } : null;
+    if (key === "setup") return { file: "/dl/THL-Setup.exe", countId: "host" };   // exe 安装程序（2020 + 2026）
     const a = host.assets && host.assets[key];
     return a ? { file: a.file, countId: "host" } : null;
   }
