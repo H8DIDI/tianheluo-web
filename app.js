@@ -20,6 +20,12 @@ async function loadData() {
   return window.__thlPlugins;
 }
 
+// Revit 2020 的商店清单（宿主 2020 版读的同一份）；只在需要时拉一次
+async function loadData2020() {
+  window.__thlPlugins2020 = window.__thlPlugins2020 || fetch("/plugins2020.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : { plugins: [] })).catch(() => ({ plugins: [] }));
+  return window.__thlPlugins2020;
+}
+
 // 下载统计（/api/stats）：失败时返回空，页面照常显示，只是不显示数字
 let _stats;
 async function loadStats() {
@@ -44,15 +50,19 @@ function badge(p, size) {
   return `<span class="pic" style="width:${size}px;height:${size}px;font-size:${Math.round(size * fs)}px;background:linear-gradient(135deg,${base},${base}99);border-color:${base}88;color:#fff;font-weight:800">${esc(g)}</span>`;
 }
 
-function card(p, st) {
+// opts.r2020：这是 2020 清单里的条目；opts.has2026 / opts.has2020：对应版本里有没有同一个插件
+function card(p, st, opts = {}) {
   const n = total(st, p.id);
+  // 2020 条目：2026 也有同一插件就进详情页（介绍一样）；2020 独有的直接下载插件包
+  const href = opts.r2020 && !(opts.has2026 && opts.has2026.has(p.id)) ? `/api/dl/r2020-${encodeURIComponent(p.id)}` : pageUrl(p.id);
+  const ver = opts.r2020 ? '<span class="tag">Revit 2020</span>' : (opts.has2020 && opts.has2020.has(p.id) ? '<span class="tag" title="Revit 2020 宿主的商店里也有">也支持 2020</span>' : "");
   return `
-  <a class="pc" href="${pageUrl(p.id)}">
+  <a class="pc" href="${href}"${href.startsWith("/api/") ? ' title="下载插件包（也可以在 Revit 2020 的「天河落 → 插件中心」里一键安装）"' : ""}>
     <div class="top">${badge(p, 44)}
       <h3>${esc(p.name)}<small>${esc(p.en)}</small></h3></div>
     <p>${esc(p.summary)}</p>
     <div class="meta">${matTag(p)}
-      <span class="tag">${esc(p.category)}</span>${p.tier === "community" ? '<span class="tag community">社区</span>' : ""}${n > 0 ? `<span class="tag dl">⬇ ${fmt(n)}</span>` : ""}</div>
+      <span class="tag">${esc(p.category)}</span>${ver}${p.tier === "community" ? '<span class="tag community">社区</span>' : ""}${n > 0 ? `<span class="tag dl">⬇ ${fmt(n)}</span>` : ""}</div>
   </a>`;
 }
 
@@ -118,8 +128,13 @@ async function renderFeatured() {
 async function renderStore() {
   const box = document.getElementById("plist");
   if (!box) return;
-  const [{ plugins, groups }, st] = await Promise.all([loadData(), loadStats()]);
-  const present = new Set(plugins.map((p) => p.category));
+  const [data26, data20, st] = await Promise.all([loadData(), loadData2020(), loadStats()]);
+  const groups = data26.groups;
+  const ids26 = new Set(data26.plugins.map((p) => p.id)), ids20 = new Set(data20.plugins.map((p) => p.id));
+  const params0 = new URLSearchParams(location.search);
+  let revit = params0.get("revit") === "2020" ? "2020" : "2026";
+  let plugins = revit === "2020" ? data20.plugins : data26.plugins;
+  const present = new Set([...data26.plugins, ...data20.plugins].map((p) => p.category));
   const cats = ["全部", ...(groups || []).map((g) => g.name).filter((n) => present.has(n)), ...[...present].filter((n) => !(groups || []).some((g) => g.name === n))];
   const qInput = document.getElementById("q");
   const params = new URLSearchParams(location.search);
@@ -131,6 +146,7 @@ async function renderStore() {
   const chips = document.getElementById("chips");
   const syncUrl = () => {
     const u = new URLSearchParams();
+    if (revit === "2020") u.set("revit", "2020");
     if (cat !== "全部") u.set("cat", cat);
     if (qRaw.trim()) u.set("q", qRaw.trim());
     if (sort !== defaultSort) u.set("sort", sort);
@@ -139,7 +155,14 @@ async function renderStore() {
   };
   let lastCount = 0, searchTimer = 0;   // 当前结果数（埋点用）
   const draw = () => {
-    chips.innerHTML = cats.map((c) => `<button class="chip ${c === cat ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("") +
+    plugins = revit === "2020" ? data20.plugins : data26.plugins;
+    const tEl = document.querySelector("[data-store-title]"), sEl = document.querySelector("[data-store-sub]");
+    if (tEl) tEl.textContent = `适配 Revit ${revit} 的插件`;
+    if (sEl) sEl.textContent = revit === "2020"
+      ? "Revit 2020 宿主的商店：只列能在 Revit 2020 里运行的插件（.NET Framework 版，大多标「试用」）。装好宿主后在「天河落 → 插件中心」里一键安装。"
+      : "所有插件都在 Revit 2026 上开发和测试。下面可以切换到 Revit 2020。";
+    chips.innerHTML = [["2026", "Revit 2026"], ["2020", "Revit 2020"]].map(([k, t]) => `<button class="chip ${k === revit ? "on" : ""}" data-r="${k}">${t}</button>`).join("") +
+      `<span class="chip-sep"></span>` + cats.map((c) => `<button class="chip ${c === cat ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("") +
       `<span class="chip-sep"></span>` +
       [["hot", "最热"], ["new", "最新"], ["name", "名称"]].map(([k, t]) => `<button class="chip ${k === sort ? "on" : ""}" data-s="${k}">${t}</button>`).join("");
     const q = qRaw.trim().toLowerCase();
@@ -149,14 +172,15 @@ async function renderStore() {
     list.sort((a, b) => sort === "hot" ? total(st, b.id) - total(st, a.id) || a.name.localeCompare(b.name)
       : sort === "new" ? (b.date || "").localeCompare(a.date || "") || a.name.localeCompare(b.name)
       : a.name.localeCompare(b.name));
-    box.innerHTML = list.length ? list.map((p) => card(p, st)).join("") : `<div class="empty">没有匹配的插件</div>`;
+    const opts = revit === "2020" ? { r2020: true, has2026: ids26 } : { has2020: ids20 };
+    box.innerHTML = list.length ? list.map((p) => card(p, st, opts)).join("") : `<div class="empty">没有匹配的插件</div>`;
     lastCount = list.length;
     syncUrl();
   };
   chips.addEventListener("click", (e) => {
-    const c = e.target.dataset.c, s = e.target.dataset.s;
-    if (c) cat = c; if (s) sort = s;
-    if (c || s) { draw(); if (window.thlTrack) window.thlTrack("store_filter", lastCount, c || s); }
+    const c = e.target.dataset.c, s = e.target.dataset.s, rv = e.target.dataset.r;
+    if (c) cat = c; if (s) sort = s; if (rv) revit = rv;
+    if (c || s || rv) { draw(); if (window.thlTrack) window.thlTrack("store_filter", lastCount, c || s); }
   });
   qInput.addEventListener("input", (e) => {
     qRaw = e.target.value; draw();

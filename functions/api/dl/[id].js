@@ -48,6 +48,17 @@ async function loadJson(env, request, path) {
 
 /** 把 id 解析成 { file, countId }。plugin id → /plugins.json；host-net8 / host-net10 / host-installer → /host.json */
 async function resolve(env, request, id) {
+  // Revit 2020：宿主更新包 host2020-net472 → /host2020.json；插件 r2020-<id> → /plugins2020.json（计数并入同一个插件 id）
+  if (id.startsWith("host2020-")) {
+    const host = await loadJson(env, request, "/host2020.json");
+    const a = host && host.assets && host.assets[id.slice(9)];
+    return a ? { file: a.file, countId: "host" } : null;
+  }
+  if (id.startsWith("r2020-")) {
+    const cat = await loadJson(env, request, "/plugins2020.json");
+    const p = cat && (cat.plugins || []).find((x) => x.id === id.slice(6));
+    return p && p.file ? { file: p.file, countId: p.id } : null;
+  }
   if (id.startsWith("host-")) {
     const host = await loadJson(env, request, "/host.json");
     if (!host) return null;

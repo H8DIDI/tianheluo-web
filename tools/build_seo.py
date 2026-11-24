@@ -114,7 +114,7 @@ def nav_html(active):
 
 FOOT_HTML = f"""
 <div class="wrap">
-  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>先从 Revit 2026 开始。</div>
+  <div><b>天河落 Tianheluo</b>面向 Revit 的插件宿主与应用商店。<br>支持 Revit 2020 / 2026。</div>
   <div><b>产品</b><a href="/store">插件商店</a><a href="/install">安装指南</a><a href="https://github.com/H8DIDI/tianheluo-core" target="_blank" rel="noopener">GitHub · 宿主源码</a><a href="https://github.com/H8DIDI/tianheluo-web" target="_blank" rel="noopener">GitHub · 网站源码</a></div>
   <div><b>联系与投稿</b><a href="mailto:jiajiabimer@gmail.com">jiajiabimer@gmail.com</a><a href="/contact">加微信 · 交流群</a><a href="/developers">开发者 · 提交插件</a><a href="/ai">AI 开发规范</a><a href="/privacy">隐私说明</a></div>
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
@@ -374,7 +374,7 @@ def page_graph(stem, text, plugins, host):
         desc = re.search(r'<meta name="description" content="([^"]*)"', text)
         app = {"@type": "SoftwareApplication", "name": "天河落 Tianheluo (THL)", "alternateName": ["THL", "Tianheluo"],
                "applicationCategory": "DesignApplication", "operatingSystem": "Windows",
-               "softwareRequirements": "Autodesk Revit 2026", "softwareVersion": host.get("version", ""),
+               "softwareRequirements": "Autodesk Revit 2020 / 2026", "softwareVersion": host.get("version", ""),
                "dateModified": host.get("released", ""), "inLanguage": "zh-CN",
                "description": html.unescape(desc.group(1)) if desc else "", "url": BASE + "/", "image": BASE + "/og-image.png",
                "downloadUrl": BASE + "/install", "license": "https://opensource.org/license/mit", "isAccessibleForFree": True,
