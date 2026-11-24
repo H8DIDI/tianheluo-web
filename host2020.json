@@ -1,13 +1,13 @@
 {
-  "version": "0.2.5",
+  "version": "0.2.6",
   "released": "2026-11-24",
-  "notes": "Revit 2020 版宿主：只显示支持 Revit 2020 的插件，独立的 2020 商店；与 2026 版共用同一套功能。",
+  "notes": "插件中心和功能区按钮显示「一句话看懂」：【动作】对象 → 结果，并标出怎么用（一键/框选…）和会不会改模型（只读/可撤销…）；插件名字跟商店统一，搜旧名也能找到。",
   "assets": {
     "net472": {
       "url": "/api/dl/host2020-net472",
-      "file": "/dl/host2020/THL-Host-net472_0.2.5.zip",
-      "sha256": "3e23c27c6cc44d423b33a744c5cb15a71ef191d7187fd5eedaa2a1e65e371a8f",
-      "size": 7448026
+      "file": "/dl/host2020/THL-Host-net472_0.2.6.zip",
+      "sha256": "176d28487a8ddb0cb2a2a174c403fecf1a2769501abc718016161b32065565c0",
+      "size": 7449869
     }
   },
   "installer": {
