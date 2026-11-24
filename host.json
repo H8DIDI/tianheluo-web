@@ -1,19 +1,19 @@
 {
-  "version": "0.2.6",
+  "version": "0.2.7",
   "released": "2026-11-24",
-  "notes": "插件中心和功能区按钮显示「一句话看懂」：【动作】对象 → 结果，并标出怎么用（一键/框选…）和会不会改模型（只读/可撤销…）；插件名字跟商店统一，搜旧名也能找到。",
+  "notes": "国内网络下载加速：商店清单被网站按地区分流到国内加速节点（cn.tianheluo.com）时，插件包下载自动跟着走国内节点；海外用户不受影响。",
   "assets": {
     "net8": {
       "url": "/api/dl/host-net8",
-      "file": "/dl/host/THL-Host-net8_0.2.6.zip",
-      "sha256": "c46062820f2f484df299c1250bfa89328ea7ab113213f15ef8ea91198e619668",
-      "size": 7106387
+      "file": "/dl/host/THL-Host-net8_0.2.7.zip",
+      "sha256": "2cb6bb2eee42f12561fc54a6ac1e18aad19a2ac5423098b0cde139869fbedbed",
+      "size": 7107185
     },
     "net10": {
       "url": "/api/dl/host-net10",
-      "file": "/dl/host/THL-Host-net10_0.2.6.zip",
-      "sha256": "9ac683ed0210d97bef974f9b1df4aa4ec400b8d072975784e94eb8a1d24d7589",
-      "size": 7106381
+      "file": "/dl/host/THL-Host-net10_0.2.7.zip",
+      "sha256": "70b395bde679f0562cf00faf5e1a7b15c614a394f9090644f34e2e730a744478",
+      "size": 7107179
     }
   },
   "installer": {
