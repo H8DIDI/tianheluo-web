@@ -193,7 +193,7 @@
         const j = await window.__thlPlugins;
         plugins = (j.plugins || []).filter((p) => p.status !== "planned").map((p) => ({
           name: p.name, sub: `${p.en} · ${p.category}`, href: `/plugins/${p.id}`,
-          key: `${p.name} ${p.en} ${p.id} ${p.category} ${p.summary || ""}`.toLowerCase(),
+          key: `${p.name} ${p.en} ${p.id} ${p.category} ${p.summary || ""} ${(p.aliases || []).join(" ")} ${p.pitch ? p.pitch.verb + " " + p.pitch.obj + " " + p.pitch.result : ""}`.toLowerCase(),
         }));
       } catch { plugins = []; }
       return plugins;

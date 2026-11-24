@@ -17,9 +17,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/style.css?v=6a65f38f">
+<link rel="stylesheet" href="/style.css?v=4b431c3a">
 <link rel="stylesheet" href="/fx.css?v=cbd273a6">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "一键井展开图", "alternateName": "well-sheets", "description": "选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-sheets", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.5.15", "dateModified": "2026-11-08", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sheets"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "一键井展开图", "item": "https://tianheluo.com/plugins/well-sheets"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "井展开图生成", "alternateName": "well-sheets", "description": "选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。Revit 2026 免费开源插件，天河落一键安装。", "url": "https://tianheluo.com/plugins/well-sheets", "applicationCategory": "DesignApplication", "applicationSubCategory": "井大样出图", "operatingSystem": "Windows", "softwareRequirements": "Autodesk Revit 2026；天河落宿主", "softwareVersion": "0.5.15", "dateModified": "2026-11-08", "inLanguage": "zh-CN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "publisher": {"@type": "Organization", "name": "天河落 Tianheluo", "url": "https://tianheluo.com/"}, "codeRepository": "https://github.com/H8DIDI/tianheluo-core/tree/main/plugin-sources/well-sheets"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "天河落", "item": "https://tianheluo.com/"}, {"@type": "ListItem", "position": 2, "name": "插件商店", "item": "https://tianheluo.com/store"}, {"@type": "ListItem", "position": 3, "name": "井展开图生成", "item": "https://tianheluo.com/plugins/well-sheets"}]}]}</script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -39,11 +39,12 @@
   <a class="btn sm pri" href="/install">下载宿主</a>
 </div></header>
 <main class="wrap" id="detail" style="padding-bottom:40px">
-  <div class="crumb"><a href="/store">插件商店</a> / 一键井展开图</div>
+  <div class="crumb"><a href="/store">插件商店</a> / 井展开图生成</div>
   <div class="dh"><span class="pic" style="width:72px;height:72px;font-size:36px;background:linear-gradient(135deg,#818CF8,#818CF899);border-color:#818CF888;color:#fff;font-weight:800">展</span>
-    <div><h1>一键井展开图</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      <span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。</p>
+    <div><h1>井展开图生成</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="tag how" title="先选中构件，再点按钮">先选中</span><span class="tag safe s-pv" title="先预览：看过结果再决定写不写入">先预览</span><span class="tag m-proven" title="已在 DAYONE 小市政项目的实际出图中使用（2026 年 10 月）。">项目实战</span><span class="tag">井大样出图</span></div></div></div>
+  <div class="pitch big"><b class="pv">生成</b><span class="po">井大样图纸</span><i aria-hidden="true">→</i><span class="pr">平面 + 四面剖面自动排版</span></div>
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">选中一个井，自动<em class="hv">生成</em>平面和四面剖面视图并<em class="hv">排版</em>到图纸上，出图前可调比例和间距并实时<em class="hv">预览</em>。</p>
   <div class="dcols">
     <div class="stack">
 
@@ -53,7 +54,7 @@
       <div class="panel"><h4>怎么安装</h4><p style="color:var(--mute)"><b>推荐：</b>在 Revit 里打开「天河落 → 插件中心 → 商店」，找到它点「安装」，立刻能用，不用重启。<br>
         也可以先点右边「下载插件」得到 <code>.thlp</code> 文件，再在插件中心点「安装插件包…」选择它。还没装宿主？先看 <a href="/install" style="color:var(--blue)">安装指南</a>。<br>
         有新版本时，插件中心会提示「更新」，一键即可。</p></div>
-      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/sheet-organize" style="color:var(--blue)">一键图纸归类与图框编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/well-annotate" style="color:var(--blue)">一键井大样标注</a><span style="color:var(--dim)"> — 给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁…</span></li><li><a href="/plugins/well-audit" style="color:var(--blue)">井大样体检</a><span style="color:var(--dim)"> — 出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸…</span></li><li><a href="/plugins/well-config" style="color:var(--blue)">井大样项目配置</a><span style="color:var(--dim)"> — 井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板…</span></li><li><a href="/plugins/well-sheet-fit" style="color:var(--blue)">井图比例排版</a><span style="color:var(--dim)"> — 给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</span></li></ul>
+      <div class="panel"><h4>同类插件</h4><ul><li><a href="/plugins/sheet-organize" style="color:var(--blue)">图纸归类编号</a><span style="color:var(--dim)"> — 把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号…</span></li><li><a href="/plugins/well-annotate" style="color:var(--blue)">井大样标注</a><span style="color:var(--dim)"> — 给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁…</span></li><li><a href="/plugins/well-audit" style="color:var(--blue)">井大样体检</a><span style="color:var(--dim)"> — 出图前一键检查井和井大样图纸：井没图、图没井、视图没对着井、缺尺寸…</span></li><li><a href="/plugins/well-config" style="color:var(--blue)">井大样项目配置</a><span style="color:var(--dim)"> — 井大样系列插件共用的项目配置窗口：图纸名前缀、井号系列、图名模板…</span></li><li><a href="/plugins/well-sheet-fit" style="color:var(--blue)">井图比例排版</a><span style="color:var(--dim)"> — 给已出好的井大样按放得下的最大比例重新定比例，并把五个视图居中排进图框可用区域。</span></li></ul>
         <p style="margin-top:12px"><a href="/store" style="color:var(--blue)">查看全部 Revit 插件 →</a></p></div>
     </div>
     <div class="panel"><dl class="kv">
@@ -77,7 +78,7 @@
   <div class="wx"><b>Revit 插件交流群</b><a href="/contact"><img src="/wechat-didi-sm.png" alt="微信二维码 didi" width="104" height="104" loading="lazy"></a><span>加微信 didi，拉你进群：提建议、反馈体验、投稿插件</span></div>
   <div class="copy">© 2026 天河落 · Revit 是 Autodesk, Inc. 的商标，本站与 Autodesk 无关联。为改进网站，会记录访问 IP 与大致城市（保留 180 天，不出售、不分享），详见<a href="/privacy">隐私说明</a>。</div>
 </div></footer>
-<script src="/app.js?v=577ce409"></script>
-<script src="/fx.js?v=62235e15"></script>
+<script src="/app.js?v=ce2e9472"></script>
+<script src="/fx.js?v=98d17c07"></script>
 </body>
 </html>

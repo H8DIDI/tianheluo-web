@@ -1,4 +1,12 @@
 {
+  "name": "模型导出 NWC",
+  "pitch": {
+    "verb": "导出",
+    "obj": "三维视图",
+    "result": "Navisworks .nwc，有进度条不卡死",
+    "how": "对话框",
+    "safe": "只读"
+  },
   "seoTitle": "Revit 一键导出 NWC 插件（Navisworks 文件）免费下载 | 天河落 THL",
   "summary": "一个窗口选好导出范围、坐标、是否带属性和保存位置，一键导出 Navisworks 的 .nwc；有进度条，默认不转换链接的 CAD 防卡死。",
   "problem": [

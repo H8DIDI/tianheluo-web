@@ -1,4 +1,11 @@
 {
+  "pitch": {
+    "verb": "互导",
+    "obj": "明细表/Excel",
+    "result": "在 Excel 里批量改完再导回",
+    "how": "对话框",
+    "safe": "先预览"
+  },
   "seoTitle": "Revit 明细表 Excel 互导插件（导出修改后导回）| 天河落 THL",
   "summary": "把明细表导出成 Excel 批量修改，再导回 Revit；导入前先预览改动，确认后才写入。",
   "problem": [

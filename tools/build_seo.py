@@ -68,6 +68,90 @@ def rich(s):
     return re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
 
 
+LEXICON = {}
+SAFE_CLS = {"只读": "ro", "先预览": "pv", "可撤销": "ud", "可还原": "rs", "可恢复": "rs"}
+
+
+def load_lexicon():
+    f = SITE / "content" / "lexicon.json"
+    LEXICON.clear()
+    if f.exists():
+        LEXICON.update({k: v for k, v in json.loads(f.read_text(encoding="utf-8")).items() if not k.startswith("_")})
+
+
+def hl_terms(p):
+    """要高亮的词：插件自己的动作(v)/对象(o) + 词表里的通用动作(v) 和安全承诺(s)。长词优先。"""
+    pt = p.get("pitch") or {}
+    terms = {}
+    for t in (LEXICON.get("safe") or []):
+        terms[t] = "s"
+    for t in (LEXICON.get("verb") or []):
+        terms[t] = "v"
+    for t in re.split(r"[/、]", pt.get("obj", "")):
+        if len(t.strip()) >= 1:
+            terms[t.strip()] = "o"
+    for t in re.split(r"[/、]", pt.get("verb", "")):
+        if t.strip():
+            terms[t.strip()] = "v"
+    return sorted(terms.items(), key=lambda kv: -len(kv[0]))
+
+
+def hl(text, p):
+    """把说明里的动作词、对象词、安全承诺包成 <em class="hv|ho|hs">。同一个词只高亮第一次，避免满屏花。"""
+    terms = hl_terms(p)
+    if not terms:
+        return esc(text)
+    kind = dict(terms)
+    rx = re.compile("|".join(re.escape(t) for t, _ in terms))
+    out, last, seen = [], 0, set()
+    for m in rx.finditer(text):
+        t = m.group(0)
+        out.append(esc(text[last:m.start()]))
+        out.append(esc(t) if t in seen else f'<em class="h{kind[t]}">{esc(t)}</em>')
+        seen.add(t)
+        last = m.end()
+    out.append(esc(text[last:]))
+    return "".join(out)
+
+
+def pitch_html(p):
+    """一句话看懂：【动作】对象 → 结果。"""
+    pt = p.get("pitch")
+    if not pt:
+        return ""
+    return (f'<div class="pitch"><b class="pv">{esc(pt["verb"])}</b><span class="po">{esc(pt["obj"])}</span>'
+            f'<i aria-hidden="true">→</i><span class="pr">{esc(pt["result"])}</span></div>')
+
+
+def use_tags(p):
+    """怎么用（一键/框选/点选/先选中/对话框）+ 安全承诺（只读/先预览/可撤销/可还原）。"""
+    pt = p.get("pitch")
+    if not pt:
+        return ""
+    how = (LEXICON.get("how") or {}).get(pt.get("how"), "")
+    safe = (LEXICON.get("safeNote") or {}).get(pt.get("safe"), "")
+    return (f'<span class="tag how" title="{esc(how)}">{esc(pt["how"])}</span>'
+            f'<span class="tag safe s-{SAFE_CLS.get(pt.get("safe"), "ud")}" title="{esc(safe)}">{esc(pt["safe"])}</span>')
+
+
+def apply_content(catalog, with_summary):
+    """把 content/ 里手写的名字、一句话、摘要、词表写回商店清单（插件包不动，不用升版本）。
+    改了名字的，旧名字留在 aliases 里，搜旧名也能搜到。返回是否有改动。"""
+    before = json.dumps(catalog, ensure_ascii=False, sort_keys=True)
+    for p in catalog.get("plugins", []):
+        c = CONTENT.get(p["id"], {})
+        if c.get("name") and c["name"] != p["name"]:
+            p["aliases"] = sorted(set((p.get("aliases") or []) + [p["name"]]))
+            p["name"] = c["name"]
+        if c.get("pitch"):
+            p["pitch"] = c["pitch"]
+        if with_summary and c.get("summary"):
+            p["summary"] = c["summary"]
+    if LEXICON:
+        catalog["lexicon"] = LEXICON
+    return json.dumps(catalog, ensure_ascii=False, sort_keys=True) != before
+
+
 def brief(s, n):
     """截成不超过 n 字的一句话：优先在句号处断，其次逗号，实在不行加省略号。"""
     s = " ".join(s.split())
@@ -161,14 +245,15 @@ def badge(p, size):
 
 
 def card(p):
-    tags = f'{mat_tag(p)}<span class="tag">{esc(p["category"])}</span>'
+    tags = f'{use_tags(p)}{mat_tag(p)}<span class="tag">{esc(p["category"])}</span>'
     if p.get("tier") == "community":
         tags += '<span class="tag community">社区</span>'
     return f"""
   <a class="pc" href="/plugins/{p["id"]}">
     <div class="top">{badge(p, 44)}
       <h3>{esc(p["name"])}<small>{esc(p["en"])}</small></h3></div>
-    <p>{esc(p["summary"])}</p>
+    {pitch_html(p)}
+    <p>{hl(p["summary"], p)}</p>
     <div class="meta">{tags}</div>
   </a>"""
 
@@ -195,7 +280,7 @@ def groups_html(catalog):
             continue
         out.append(f'<h3 class="gh"><span class="gdot" style="background:{g["color"]}"></span>{esc(g["name"])}</h3><p class="gd">{esc(g["desc"])}</p><ul class="gl">')
         for p in rows:
-            out.append(f'<li><a href="/plugins/{p["id"]}"><b>{esc(p["name"])}</b></a>{mat_tag(p)}<span>{esc(p["summary"])}</span></li>')
+            out.append(f'<li><a href="/plugins/{p["id"]}"><b>{esc(p["name"])}</b></a>{mat_tag(p)}{pitch_html(p)}<span>{hl(p["summary"], p)}</span></li>')
         out.append("</ul>")
     return "\n".join(out)
 
@@ -315,8 +400,9 @@ def plugin_page(p, plugins):
   <div class="crumb"><a href="/store">插件商店</a> / {esc(p["name"])}</div>
   <div class="dh">{badge(p, 72)}
     <div><h1>{esc(p["name"])}</h1><div class="meta" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-      {mat_tag(p)}<span class="tag">{esc(p["category"])}</span>{community}</div></div></div>
-  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">{esc(lead)}</p>
+      {use_tags(p)}{mat_tag(p)}<span class="tag">{esc(p["category"])}</span>{community}</div></div></div>
+  {pitch_html(p).replace('class="pitch"', 'class="pitch big"', 1)}
+  <p class="lead" style="margin:10px 0 0;text-align:left;max-width:680px">{hl(lead, p)}</p>
   <div class="dcols">
     <div class="stack">
 {intro}{rich_panels}{features}
@@ -428,25 +514,30 @@ def main():
     plugins = catalog["plugins"]
     host = json.loads((SITE / "host.json").read_text(encoding="utf-8"))
     load_content()
+    load_lexicon()
     asset_versions()
     state = json.loads(LASTMOD_FILE.read_text(encoding="utf-8")) if LASTMOD_FILE.exists() else {}
     for p in plugins:
         assert re.fullmatch(r"[a-z0-9-]+", p["id"]), f'插件 id 只能是小写字母、数字、连字符：{p["id"]}'
     changed = []
 
-    # 0) 手写摘要写回 plugins.json（商店卡片、热门榜、宿主里的商店都会用上；不影响插件包与哈希）
-    dirty = False
-    for p in plugins:
-        s = CONTENT.get(p["id"], {}).get("summary")
-        if s and p.get("summary") != s:
-            p["summary"] = s
-            dirty = True
-    if dirty:
-        out = json.dumps(catalog, ensure_ascii=False, indent=2)
-        if "\r\n" in raw:
-            out = out.replace("\n", "\r\n")
-        (SITE / "plugins.json").write_bytes(out.encode("utf-8"))
-        changed.append("plugins.json（摘要）")
+    # 0) 手写的名字/一句话/摘要/词表写回商店清单（商店卡片、热门榜、宿主里的商店都会用上；不影响插件包与哈希）
+    #    2020 清单的摘要按 2020 版自己的说明（功能可能少一些），只套名字和一句话
+    for fname, cat, with_summary in (("plugins.json", catalog, True), ("plugins2020.json", None, False)):
+        path = SITE / fname
+        if cat is None:
+            if not path.exists():
+                continue
+            raw2 = path.read_bytes().decode("utf-8")
+            cat = json.loads(raw2)
+        else:
+            raw2 = raw
+        if apply_content(cat, with_summary):
+            out = json.dumps(cat, ensure_ascii=False, indent=2)
+            if "\r\n" in raw2:
+                out = out.replace("\n", "\r\n")
+            path.write_bytes(out.encode("utf-8"))
+            changed.append(f"{fname}（名字/一句话/摘要）")
 
     # 1) 插件详情页（并清掉已下架插件遗留的页面）
     pdir = SITE / "plugins"

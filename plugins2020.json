@@ -68,7 +68,14 @@
       "glyph": "断",
       "color": "#FB7185",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "打断",
+        "obj": "排管",
+        "result": "两段标高连续、接头对齐",
+        "how": "点选",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "bank-clash",
@@ -91,7 +98,14 @@
       "glyph": "撞",
       "color": "#F97316",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "查碰撞",
+        "obj": "排管",
+        "result": "碰撞清单，有碰撞的自动选中",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "bank-detour",
@@ -114,7 +128,14 @@
       "glyph": "绕",
       "color": "#34D399",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "平面绕行",
+        "obj": "排管",
+        "result": "从左/右绕开障碍，两端仍接原井",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "bank-hop",
@@ -137,7 +158,14 @@
       "glyph": "翻",
       "color": "#38BDF8",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "翻弯",
+        "obj": "排管",
+        "result": "从障碍上/下翻过，平面不动",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "bank-restore",
@@ -160,7 +188,14 @@
       "glyph": "还",
       "color": "#94A3B8",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "还原",
+        "obj": "排管",
+        "result": "撤回最近一次绕行或打断",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "cad-align",
@@ -185,7 +220,14 @@
       "glyph": "位",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "对位",
+        "obj": "CAD 链接",
+        "result": "按轴网自动算旋转和平移",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "cad-to-mep",
@@ -213,7 +255,14 @@
       "glyph": "线",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "生成",
+        "obj": "管线",
+        "result": "CAD 图层直线变成水管/风管/桥架",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "control-points",
@@ -241,7 +290,14 @@
       "glyph": "点",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "导出/导入",
+        "obj": "控制点坐标",
+        "result": "给测量员的坐标表，或按坐标放点",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "duct-route",
@@ -264,7 +320,14 @@
       "glyph": "避",
       "color": "#F97316",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "竖向避让",
+        "obj": "排管",
+        "result": "自动算两端标高，避开井、沟和别的排管",
+        "how": "框选",
+        "safe": "先预览"
+      }
     },
     {
       "id": "duct-snap",
@@ -287,11 +350,18 @@
       "glyph": "贴",
       "color": "#0EA5E9",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "贴齐",
+        "obj": "排管端点",
+        "result": "延伸或修剪到井内壁，标高不动",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "export-dwg",
-      "name": "一键导出图纸DWG",
+      "name": "图纸批量导出",
       "en": "export-dwg",
       "category": "导出",
       "summary": "批量导出图纸为 DWG / PDF：井大样按系列一键选，也能按范围框分区选（如「A栋北侧」），或导项目浏览器里选中的图纸、全部图纸、手动勾选；还可以直接粘贴一批…",
@@ -314,11 +384,21 @@
       "glyph": "DWG",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "一键导出图纸DWG"
+      ],
+      "pitch": {
+        "verb": "批量导出",
+        "obj": "图纸",
+        "result": "DWG/PDF，合并外部参照，存到桌面",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "export-nwc",
-      "name": "一键导出NWC",
+      "name": "模型导出 NWC",
       "en": "export-nwc",
       "category": "导出",
       "summary": "把当前三维视图，或一次勾选多个三维视图，导出成 Navisworks 的 NWC（每个视图一个文件）。",
@@ -341,11 +421,21 @@
       "glyph": "NWC",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "一键导出NWC"
+      ],
+      "pitch": {
+        "verb": "导出",
+        "obj": "三维视图",
+        "result": "Navisworks .nwc，有进度条不卡死",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "hanger-auto",
-      "name": "支吊架一键布置",
+      "name": "支吊架布置",
       "en": "hanger-auto",
       "category": "管线调整",
       "summary": "框选水管、风管、桥架，一键按规范间距布置支吊架。",
@@ -368,7 +458,17 @@
       "glyph": "架",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "支吊架一键布置"
+      ],
+      "pitch": {
+        "verb": "布置",
+        "obj": "支吊架",
+        "result": "按荷载选型号，按土建定类型",
+        "how": "框选",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "mep-audit",
@@ -391,7 +491,14 @@
       "glyph": "检",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "体检",
+        "obj": "机电模型",
+        "result": "警告、无系统、未连接、重叠清单",
+        "how": "一键",
+        "safe": "只读"
+      }
     },
     {
       "id": "mep-break",
@@ -414,7 +521,14 @@
       "glyph": "断",
       "color": "#FB7185",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "打断",
+        "obj": "管线",
+        "result": "两段自动接上接头件",
+        "how": "点选",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-bundle",
@@ -437,7 +551,14 @@
       "glyph": "并",
       "color": "#A78BFA",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "并线绕行",
+        "obj": "平行管线",
+        "result": "保持间距一起绕开障碍",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-clash",
@@ -460,11 +581,18 @@
       "glyph": "撞",
       "color": "#F97316",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "查碰撞",
+        "obj": "管线",
+        "result": "碰撞清单，有碰撞的自动选中",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "mep-clean",
-      "name": "管线清理（去重叠/悬空管件）",
+      "name": "管线清理",
       "en": "mep-clean",
       "category": "管线调整",
       "summary": "清理自动建模或乱连留下的垃圾：① 重叠的同线管线（水管、风管、桥架、线管：走向平行、高差和横向偏差在 20 mm 内、重叠超过较短一根的一半，删较短的那根）；②…",
@@ -485,7 +613,17 @@
       "glyph": "清",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "管线清理（去重叠/悬空管件）"
+      ],
+      "pitch": {
+        "verb": "清理",
+        "obj": "重叠管线/悬空管件",
+        "result": "删重叠、删孤儿管件",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "mep-continuity",
@@ -508,7 +646,14 @@
       "glyph": "连",
       "color": "#22D3EE",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "查断口",
+        "obj": "管线",
+        "result": "开口、错接、串系统清单",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "mep-corridor",
@@ -531,7 +676,14 @@
       "glyph": "协",
       "color": "#F472B6",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "协调绕行",
+        "obj": "多根管线",
+        "result": "自动选上下左右，改完互不冲突",
+        "how": "框选",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-detour",
@@ -554,7 +706,14 @@
       "glyph": "绕",
       "color": "#34D399",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "平面绕行",
+        "obj": "管线",
+        "result": "从左/右绕开障碍，45° 弯头",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-hop",
@@ -577,7 +736,14 @@
       "glyph": "翻",
       "color": "#38BDF8",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "翻弯",
+        "obj": "管线",
+        "result": "从障碍上/下翻过，45° 弯头",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-outline",
@@ -600,7 +766,14 @@
       "glyph": "沿",
       "color": "#FBBF24",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "贴边绕行",
+        "obj": "管线",
+        "result": "沿障碍外轮廓走最短路",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-restore",
@@ -623,7 +796,14 @@
       "glyph": "还",
       "color": "#94A3B8",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "还原",
+        "obj": "管线",
+        "result": "撤回最近一次绕行或打断",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "mep-vt-kit",
@@ -651,7 +831,14 @@
       "glyph": "板",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "建好",
+        "obj": "机电过滤器/视图样板",
+        "result": "按配置表建过滤器、样板、系统类型",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "plan-batch",
@@ -674,11 +861,18 @@
       "glyph": "平",
       "color": "#8B5CF6",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "批量生成",
+        "obj": "平面视图",
+        "result": "视图类型 × 标高一次全生成",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "quantity-export",
-      "name": "框选提量导出Excel",
+      "name": "框选提量",
       "en": "quantity-export",
       "category": "结构与算量",
       "summary": "框选（或整个项目、当前视图）里的构件，先在窗口里按标签页给出表格，看完可导出 Excel（xlsx）：",
@@ -701,11 +895,21 @@
       "glyph": "量",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "框选提量导出Excel"
+      ],
+      "pitch": {
+        "verb": "提量",
+        "obj": "构件",
+        "result": "混凝土/钢筋/井/排管表格，导出 Excel",
+        "how": "框选",
+        "safe": "只读"
+      }
     },
     {
       "id": "rebar-cage",
-      "name": "一键单构件快速配筋",
+      "name": "柱基础快速配筋",
       "en": "rebar-cage",
       "category": "结构与算量",
       "summary": "框选一根结构柱或一个混凝土基础，在图形窗口里选布置方式（按面布置或按周长均分），",
@@ -727,7 +931,17 @@
       "glyph": "配",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "一键单构件快速配筋"
+      ],
+      "pitch": {
+        "verb": "配筋",
+        "obj": "柱/基础",
+        "result": "实时预览后生成整套钢筋笼",
+        "how": "框选",
+        "safe": "先预览"
+      }
     },
     {
       "id": "rfi-pack",
@@ -753,7 +967,14 @@
       "glyph": "证",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "打包",
+        "obj": "RFI 附件",
+        "result": "构件清单 + 截图 + 位置说明",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "schedule-excel",
@@ -776,11 +997,18 @@
       "glyph": "表",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "互导",
+        "obj": "明细表/Excel",
+        "result": "在 Excel 里批量改完再导回",
+        "how": "对话框",
+        "safe": "先预览"
+      }
     },
     {
       "id": "sheet-organize",
-      "name": "图纸归类与图框编号",
+      "name": "图纸归类编号",
       "en": "sheet-organize",
       "category": "图纸视图",
       "summary": "把井展开图生成的图纸按系统归类（强电、弱电、通信、低压、预制、室内各组），",
@@ -803,7 +1031,17 @@
       "glyph": "归",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "图纸归类与图框编号"
+      ],
+      "pitch": {
+        "verb": "归类编号",
+        "obj": "井大样图纸",
+        "result": "前缀+系统代码+序号，统一图框",
+        "how": "对话框",
+        "safe": "先预览"
+      }
     },
     {
       "id": "sheet-preview",
@@ -826,11 +1064,18 @@
       "glyph": "览",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "pitch": {
+        "verb": "快速预览",
+        "obj": "图纸",
+        "result": "渲染成图片翻页核查，出问题清单",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "tag-check",
-      "name": "标注检查",
+      "name": "漏标检查",
       "en": "tag-check",
       "category": "图纸视图",
       "summary": "检查当前视图里的构件有没有标注：列出漏标、用错了标记族的构件。只读，不修改模型。",
@@ -849,11 +1094,21 @@
       "glyph": "检",
       "color": "#10B981",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "标注检查"
+      ],
+      "pitch": {
+        "verb": "查漏标",
+        "obj": "构件",
+        "result": "漏标、错用标记族清单",
+        "how": "一键",
+        "safe": "只读"
+      }
     },
     {
       "id": "tag-tidy",
-      "name": "构件标记一键整理",
+      "name": "标记整理",
       "en": "tag-tidy",
       "category": "图纸视图",
       "summary": "一键整理当前平面视图里的构件标记（出图用）：",
@@ -879,11 +1134,21 @@
       "glyph": "整",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "构件标记一键整理"
+      ],
+      "pitch": {
+        "verb": "整理",
+        "obj": "构件标记",
+        "result": "补标、去重、成行成列、引线不穿线",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-depth",
-      "name": "井深调整",
+      "name": "井深校正",
       "en": "well-depth",
       "category": "井与管线",
       "summary": "一键校正电力/通信/弱电井的井底标高与井深。井底 = 最低接入排管底 − 300，井深 = 偏移 − 井底。",
@@ -902,7 +1167,81 @@
       "glyph": "",
       "color": "",
       "tier": "official",
-      "author": "didi"
+      "author": "didi",
+      "aliases": [
+        "井深调整"
+      ],
+      "pitch": {
+        "verb": "校正",
+        "obj": "井底/井深",
+        "result": "按最低排管底 − 300 自动算",
+        "how": "一键",
+        "safe": "先预览"
+      }
     }
-  ]
+  ],
+  "lexicon": {
+    "verb": [
+      "打断",
+      "断开",
+      "绕行",
+      "绕过去",
+      "翻过去",
+      "还原",
+      "导出",
+      "导入",
+      "检查",
+      "标注",
+      "编号",
+      "布置",
+      "生成",
+      "同步",
+      "校正",
+      "整理",
+      "预览",
+      "配筋",
+      "清理",
+      "对位",
+      "提量",
+      "排版",
+      "归类",
+      "签发",
+      "体检",
+      "批量",
+      "贴到",
+      "延伸",
+      "修剪",
+      "替换",
+      "重编"
+    ],
+    "safe": [
+      "只读",
+      "不改模型",
+      "只读不改模型",
+      "先预览",
+      "先给新旧对照清单",
+      "确认后才写入",
+      "Ctrl+Z",
+      "一步撤销",
+      "可还原",
+      "只加不改",
+      "不挪井",
+      "不动标高",
+      "不改平面"
+    ],
+    "how": {
+      "一键": "点一下按钮就执行，不用先选",
+      "框选": "在视图里框一片构件",
+      "点选": "在构件上点要处理的位置",
+      "先选中": "先选中构件，再点按钮",
+      "对话框": "打开一个窗口设置后执行"
+    },
+    "safeNote": {
+      "只读": "只读：不改模型，放心用",
+      "先预览": "先预览：看过结果再决定写不写入",
+      "可撤销": "可撤销：改了模型，Ctrl+Z 能撤回",
+      "可还原": "可还原：配套的「还原」插件能接回原样",
+      "可恢复": "可恢复：一键恢复原来的显示"
+    }
+  }
 }

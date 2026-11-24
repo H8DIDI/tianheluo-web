@@ -56,16 +56,27 @@ def main():
         load(f)
     catalog = load(SITE / "plugins.json") or {"plugins": []}
     ids = {p["id"] for p in catalog["plugins"]}
+    cat20 = load(SITE / "plugins2020.json") if (SITE / "plugins2020.json").exists() else None
+    ids20 = {p["id"] for p in (cat20 or {"plugins": []})["plugins"]}
+    lex = load(SITE / "content" / "lexicon.json") or {}
     for f in sorted((SITE / "content" / "plugins").glob("*.json")):
         c = load(f) or {}
-        if f.stem not in ids:
+        if f.stem not in ids and f.stem not in ids20:
             err(f"content/plugins/{f.name}：商店里没有 id 为 {f.stem} 的插件")
         img = c.get("image")
         if img and not (SITE / img["src"].lstrip("/")).is_file():
             err(f"content/plugins/{f.name}：图片 {img['src']} 不存在")
-        for k in ("summary", "problem", "steps", "notes"):
+        # 2026 商店里的插件有详情页，长文案要齐；只在 2020 商店里的只要一句话
+        for k in ("summary", "problem", "steps", "notes") if f.stem in ids else ():
             if not c.get(k):
                 err(f"content/plugins/{f.name}：缺少 {k}")
+        pt = c.get("pitch")
+        if not pt or not all(pt.get(k) for k in ("verb", "obj", "result", "how", "safe")):
+            err(f"content/plugins/{f.name}：pitch（一句话看懂）不完整，要有 verb/obj/result/how/safe")
+        elif pt["how"] not in (lex.get("how") or {}) or pt["safe"] not in (lex.get("safeNote") or {}):
+            err(f"content/plugins/{f.name}：pitch.how / pitch.safe 只能用 content/lexicon.json 里列出的词")
+    for pid in sorted((ids | ids20) - {f.stem for f in (SITE / "content" / "plugins").glob("*.json")}):
+        err(f"插件 {pid} 没有 content/plugins/{pid}.json（至少要写 pitch 一句话看懂）")
 
     redirects = redirect_sources()
     pages = [f for f in sorted(SITE.glob("*.html")) if not f.name.startswith("baidu_verify_")] + sorted((SITE / "plugins").glob("*.html"))  # 百度验证文件不是网页

@@ -147,7 +147,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "打断",
+        "obj": "排管",
+        "result": "两段标高连续、接头对齐",
+        "how": "点选",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "bank-clash",
@@ -175,7 +182,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "查碰撞",
+        "obj": "排管",
+        "result": "碰撞清单，有碰撞的自动选中",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "bank-detour",
@@ -203,7 +217,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "平面绕行",
+        "obj": "排管",
+        "result": "从左/右绕开障碍，两端仍接原井",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "bank-hop",
@@ -231,7 +252,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "翻弯",
+        "obj": "排管",
+        "result": "从障碍上/下翻过，平面不动",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "bank-restore",
@@ -259,7 +287,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "还原",
+        "obj": "排管",
+        "result": "撤回最近一次绕行或打断",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "control-points",
@@ -290,7 +325,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "导出/导入",
+        "obj": "控制点坐标",
+        "result": "给测量员的坐标表，或按坐标放点",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "duct-elev",
@@ -320,7 +362,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "改标高",
+        "obj": "排管",
+        "result": "起终点管底/管顶直接填数",
+        "how": "先选中",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "duct-route",
@@ -348,7 +397,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "竖向避让",
+        "obj": "排管",
+        "result": "自动算两端标高，避开井、沟和别的排管",
+        "how": "框选",
+        "safe": "先预览"
+      }
     },
     {
       "id": "duct-snap",
@@ -376,11 +432,18 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "贴齐",
+        "obj": "排管端点",
+        "result": "延伸或修剪到井内壁，标高不动",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "export-dwg",
-      "name": "一键导出图纸DWG/PDF",
+      "name": "图纸批量导出",
       "en": "export-dwg",
       "category": "导出",
       "summary": "按类别一键批量导出「井大样_」开头的图纸为 DWG，自动合并外部参照，统一保存到桌面文件夹并打开。",
@@ -406,11 +469,21 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键导出图纸DWG/PDF"
+      ],
+      "pitch": {
+        "verb": "批量导出",
+        "obj": "图纸",
+        "result": "DWG/PDF，合并外部参照，存到桌面",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "export-nwc",
-      "name": "一键导出NWC",
+      "name": "模型导出 NWC",
       "en": "export-nwc",
       "category": "导出",
       "summary": "一个窗口选好导出范围、坐标、是否带属性和保存位置，一键导出 Navisworks 的 .nwc；有进度条，默认不转换链接的 CAD 防卡死。",
@@ -436,7 +509,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键导出NWC"
+      ],
+      "pitch": {
+        "verb": "导出",
+        "obj": "三维视图",
+        "result": "Navisworks .nwc，有进度条不卡死",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "family-param-dim",
@@ -466,7 +549,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "参数化",
+        "obj": "族尺寸",
+        "result": "写死的尺寸一次变成参数尺寸",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "issue-manager",
@@ -494,7 +584,14 @@
       "tier": "official",
       "author": "lewismconte (Sendit)",
       "license": "MIT",
-      "homepage": "https://github.com/lewismconte/sendit"
+      "homepage": "https://github.com/lewismconte/sendit",
+      "pitch": {
+        "verb": "签发",
+        "obj": "图纸",
+        "result": "按日期归档 + 签发记录明细表",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "mep-break",
@@ -522,7 +619,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "打断",
+        "obj": "管线",
+        "result": "两段自动接上接头件",
+        "how": "点选",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-bundle",
@@ -550,7 +654,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "并线绕行",
+        "obj": "平行管线",
+        "result": "保持间距一起绕开障碍",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-clash",
@@ -578,7 +689,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "查碰撞",
+        "obj": "管线",
+        "result": "碰撞清单，有碰撞的自动选中",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "mep-continuity",
@@ -606,7 +724,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "查断口",
+        "obj": "管线",
+        "result": "开口、错接、串系统清单",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "mep-corridor",
@@ -634,7 +759,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "协调绕行",
+        "obj": "多根管线",
+        "result": "自动选上下左右，改完互不冲突",
+        "how": "框选",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-detour",
@@ -662,7 +794,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "平面绕行",
+        "obj": "管线",
+        "result": "从左/右绕开障碍，45° 弯头",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-hop",
@@ -690,7 +829,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "翻弯",
+        "obj": "管线",
+        "result": "从障碍上/下翻过，45° 弯头",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-outline",
@@ -718,7 +864,14 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "贴边绕行",
+        "obj": "管线",
+        "result": "沿障碍外轮廓走最短路",
+        "how": "先选中",
+        "safe": "可还原"
+      }
     },
     {
       "id": "mep-restore",
@@ -746,11 +899,18 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "还原",
+        "obj": "管线",
+        "result": "撤回最近一次绕行或打断",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "pile-cushion",
-      "name": "一键布置松木桩垫层",
+      "name": "松木桩垫层布置",
       "en": "pile-cushion",
       "category": "井与管线",
       "summary": "框选排管或井，自动在构件下方按真实轮廓布置 100mm 厚垫层和 Φ75@500 L=6m 松木桩，重复运行自动覆盖旧的。",
@@ -777,11 +937,21 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键布置松木桩垫层"
+      ],
+      "pitch": {
+        "verb": "布置",
+        "obj": "松木桩/垫层",
+        "result": "按构件真实轮廓自动生成",
+        "how": "框选",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "pipe-support",
-      "name": "一键布置管道支墩",
+      "name": "管道支墩布置",
       "en": "pipe-support",
       "category": "井与管线",
       "summary": "框选明装 HDPE / MSCL 管道，按间距表自动布混凝土支墩和垫层；并排同走向的管自动共用一个统一墩，管座按外径挖弧槽。",
@@ -808,7 +978,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键布置管道支墩"
+      ],
+      "pitch": {
+        "verb": "布置",
+        "obj": "管道支墩",
+        "result": "按间距表生成，并排管共用一个墩",
+        "how": "框选",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "plan-batch",
@@ -836,11 +1016,18 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "批量生成",
+        "obj": "平面视图",
+        "result": "视图类型 × 标高一次全生成",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "quantity-export",
-      "name": "框选提量导出Excel",
+      "name": "框选提量",
       "en": "quantity-export",
       "category": "结构与算量",
       "summary": "框选构件即得混凝土、钢材、钢筋，以及小市政的井、排管导管、桩和垫层，带体积、表面积、长度、标高等施工用字段；场地道路绿化开挖这类楼板自动排除并列出，导出一个 Excel。",
@@ -866,11 +1053,21 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "框选提量导出Excel"
+      ],
+      "pitch": {
+        "verb": "提量",
+        "obj": "构件",
+        "result": "混凝土/钢筋/井/排管表格，导出 Excel",
+        "how": "框选",
+        "safe": "只读"
+      }
     },
     {
       "id": "rebar-3d-view",
-      "name": "一键钢筋三维实体显示",
+      "name": "钢筋实体显示",
       "en": "rebar-3d-view",
       "category": "结构与算量",
       "summary": "在三维视图里一键把钢筋显示成真实粗细的实体，混凝土设为半透明，可一键恢复。",
@@ -895,11 +1092,21 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键钢筋三维实体显示"
+      ],
+      "pitch": {
+        "verb": "实体显示",
+        "obj": "钢筋",
+        "result": "三维里真实粗细，混凝土半透明",
+        "how": "一键",
+        "safe": "可恢复"
+      }
     },
     {
       "id": "rebar-cage",
-      "name": "一键单构件快速配筋",
+      "name": "柱基础快速配筋",
       "en": "rebar-cage",
       "category": "结构与算量",
       "summary": "框选一根柱或一个混凝土基础，在窗口里调主筋和箍筋并实时预览，确认后生成整套钢筋笼。",
@@ -924,7 +1131,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键单构件快速配筋"
+      ],
+      "pitch": {
+        "verb": "配筋",
+        "obj": "柱/基础",
+        "result": "实时预览后生成整套钢筋笼",
+        "how": "框选",
+        "safe": "先预览"
+      }
     },
     {
       "id": "rfi-pack",
@@ -953,7 +1170,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "打包",
+        "obj": "RFI 附件",
+        "result": "构件清单 + 截图 + 位置说明",
+        "how": "先选中",
+        "safe": "只读"
+      }
     },
     {
       "id": "schedule-excel",
@@ -981,7 +1205,14 @@
       "tier": "official",
       "author": "didi",
       "license": "原创",
-      "homepage": "https://tianheluo.com"
+      "homepage": "https://tianheluo.com",
+      "pitch": {
+        "verb": "互导",
+        "obj": "明细表/Excel",
+        "result": "在 Excel 里批量改完再导回",
+        "how": "对话框",
+        "safe": "先预览"
+      }
     },
     {
       "id": "sheet-manager",
@@ -1009,11 +1240,18 @@
       "tier": "official",
       "author": "lewismconte (Sendit)",
       "license": "MIT",
-      "homepage": "https://github.com/lewismconte/sendit"
+      "homepage": "https://github.com/lewismconte/sendit",
+      "pitch": {
+        "verb": "批量管理",
+        "obj": "图纸",
+        "result": "表格里改图号、图名、修订",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "sheet-organize",
-      "name": "一键图纸归类与图框编号",
+      "name": "图纸归类编号",
       "en": "sheet-organize",
       "category": "井大样出图",
       "summary": "把井大样图纸按系统归类，统一成「前缀 + 系统代码 + 序号」的图号，并可统一替换图框。",
@@ -1039,7 +1277,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键图纸归类与图框编号"
+      ],
+      "pitch": {
+        "verb": "归类编号",
+        "obj": "井大样图纸",
+        "result": "前缀+系统代码+序号，统一图框",
+        "how": "对话框",
+        "safe": "先预览"
+      }
     },
     {
       "id": "sheet-preview",
@@ -1067,11 +1315,18 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "快速预览",
+        "obj": "图纸",
+        "result": "渲染成图片翻页核查，出问题清单",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "tag-check",
-      "name": "标注检查",
+      "name": "漏标检查",
       "en": "tag-check",
       "category": "图纸视图",
       "summary": "检查当前视图里的构件有没有标注，列出漏标和用错标记族的构件，只读不改模型。",
@@ -1095,11 +1350,21 @@
       "tier": "official",
       "author": "didi",
       "license": "MIT",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "标注检查"
+      ],
+      "pitch": {
+        "verb": "查漏标",
+        "obj": "构件",
+        "result": "漏标、错用标记族清单",
+        "how": "一键",
+        "safe": "只读"
+      }
     },
     {
       "id": "tag-tidy",
-      "name": "构件标记一键整理",
+      "name": "标记整理",
       "en": "tag-tidy",
       "category": "图纸视图",
       "summary": "一键整理当前平面视图的构件标记：补标缺标构件，一根构件只留一个标记，引线指向构件中心，标记跟管道平行，并行路由左标左右标右，按坐标严格平齐成行成列，引线不穿别的标记、不互相交叉。",
@@ -1128,7 +1393,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "构件标记一键整理"
+      ],
+      "pitch": {
+        "verb": "整理",
+        "obj": "构件标记",
+        "result": "补标、去重、成行成列、引线不穿线",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "view-manager",
@@ -1156,11 +1431,18 @@
       "tier": "official",
       "author": "lewismconte (Sendit)",
       "license": "MIT",
-      "homepage": "https://github.com/lewismconte/sendit"
+      "homepage": "https://github.com/lewismconte/sendit",
+      "pitch": {
+        "verb": "批量管理",
+        "obj": "视图",
+        "result": "改名、套样板、找没上图纸的视图",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-annotate",
-      "name": "一键井大样标注",
+      "name": "井大样标注",
       "en": "well-annotate",
       "category": "井大样出图",
       "summary": "给井大样的平面和四面立面自动标尺寸：内壁净尺寸、内壁到排管的尺寸链、井盖到内壁，只加不改。",
@@ -1187,7 +1469,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键井大样标注"
+      ],
+      "pitch": {
+        "verb": "标尺寸",
+        "obj": "井大样",
+        "result": "平面 + 四面立面尺寸链，只加不改",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-audit",
@@ -1217,7 +1509,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "体检",
+        "obj": "井大样图纸",
+        "result": "井没图、缺尺寸、井深不对的清单",
+        "how": "一键",
+        "safe": "只读"
+      }
     },
     {
       "id": "well-config",
@@ -1245,11 +1544,18 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "配置",
+        "obj": "井大样规则",
+        "result": "图名前缀、井号系列、图框 logo",
+        "how": "对话框",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-depth",
-      "name": "井深调整",
+      "name": "井深校正",
       "en": "well-depth",
       "category": "井与管线",
       "summary": "按“最低接入排管底 − 300”自动校正电力、通信、弱电井的井底标高和井深，先给新旧对照清单，确认后才写入。",
@@ -1273,7 +1579,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "井深调整"
+      ],
+      "pitch": {
+        "verb": "校正",
+        "obj": "井底/井深",
+        "result": "按最低排管底 − 300 自动算",
+        "how": "一键",
+        "safe": "先预览"
+      }
     },
     {
       "id": "well-family-guard",
@@ -1304,7 +1620,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "体检/快照",
+        "obj": "井族",
+        "result": "改族前后参数逐项对比",
+        "how": "对话框",
+        "safe": "只读"
+      }
     },
     {
       "id": "well-gap-dim",
@@ -1334,11 +1657,18 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "标间距",
+        "obj": "相邻井",
+        "result": "中心距连续标注，清掉标错的",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-number",
-      "name": "一键编号 / 清除标记",
+      "name": "构件编号",
       "en": "well-number",
       "category": "井与管线",
       "summary": "给选中的井、桩、设备等任何有「标记」的构件按位置自动编号：X/Y 方向、沿一条线、就近连串三种排法，前缀、起始号、位数、步长都能改；先预览再写入，提醒重号；还能一键清除选中井的标记。",
@@ -1364,7 +1694,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键编号 / 清除标记"
+      ],
+      "pitch": {
+        "verb": "编号",
+        "obj": "井/桩/设备",
+        "result": "按位置自动连号，提醒重号",
+        "how": "框选",
+        "safe": "先预览"
+      }
     },
     {
       "id": "well-param-sync",
@@ -1394,7 +1734,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "同步",
+        "obj": "井盖面标高",
+        "result": "等于相对标高偏移，不挪井",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-sheet-fit",
@@ -1424,7 +1771,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "定比例排版",
+        "obj": "井大样图纸",
+        "result": "放得下的最大比例，五视图居中",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-sheet-no",
@@ -1453,11 +1807,18 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "重编图号",
+        "obj": "井大样图纸",
+        "result": "按号段连续编号，导出对照表",
+        "how": "对话框",
+        "safe": "先预览"
+      }
     },
     {
       "id": "well-sheets",
-      "name": "一键井展开图",
+      "name": "井展开图生成",
       "en": "well-sheets",
       "category": "井大样出图",
       "summary": "选中一个井，自动生成平面和四面剖面视图并排版到图纸上，出图前可调比例和间距并实时预览。",
@@ -1481,7 +1842,17 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "aliases": [
+        "一键井展开图"
+      ],
+      "pitch": {
+        "verb": "生成",
+        "obj": "井大样图纸",
+        "result": "平面 + 四面剖面自动排版",
+        "how": "先选中",
+        "safe": "先预览"
+      }
     },
     {
       "id": "well-spec-table",
@@ -1510,7 +1881,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "生成",
+        "obj": "井规格表",
+        "result": "每张井图一张联动明细表",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-sync",
@@ -1539,7 +1917,14 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "同步",
+        "obj": "井大样视图",
+        "result": "井挪动/旋转后裁剪框和尺寸跟着对",
+        "how": "一键",
+        "safe": "可撤销"
+      }
     },
     {
       "id": "well-zone",
@@ -1569,7 +1954,78 @@
       "tier": "official",
       "author": "",
       "license": "",
-      "homepage": ""
+      "homepage": "",
+      "pitch": {
+        "verb": "分区",
+        "obj": "井",
+        "result": "按分区显隐配色，生成汇总表",
+        "how": "框选",
+        "safe": "可撤销"
+      }
     }
-  ]
+  ],
+  "lexicon": {
+    "verb": [
+      "打断",
+      "断开",
+      "绕行",
+      "绕过去",
+      "翻过去",
+      "还原",
+      "导出",
+      "导入",
+      "检查",
+      "标注",
+      "编号",
+      "布置",
+      "生成",
+      "同步",
+      "校正",
+      "整理",
+      "预览",
+      "配筋",
+      "清理",
+      "对位",
+      "提量",
+      "排版",
+      "归类",
+      "签发",
+      "体检",
+      "批量",
+      "贴到",
+      "延伸",
+      "修剪",
+      "替换",
+      "重编"
+    ],
+    "safe": [
+      "只读",
+      "不改模型",
+      "只读不改模型",
+      "先预览",
+      "先给新旧对照清单",
+      "确认后才写入",
+      "Ctrl+Z",
+      "一步撤销",
+      "可还原",
+      "只加不改",
+      "不挪井",
+      "不动标高",
+      "不改平面"
+    ],
+    "how": {
+      "一键": "点一下按钮就执行，不用先选",
+      "框选": "在视图里框一片构件",
+      "点选": "在构件上点要处理的位置",
+      "先选中": "先选中构件，再点按钮",
+      "对话框": "打开一个窗口设置后执行"
+    },
+    "safeNote": {
+      "只读": "只读：不改模型，放心用",
+      "先预览": "先预览：看过结果再决定写不写入",
+      "可撤销": "可撤销：改了模型，Ctrl+Z 能撤回",
+      "可还原": "可还原：配套的「还原」插件能接回原样",
+      "可恢复": "可恢复：一键恢复原来的显示"
+    }
+  }
 }
